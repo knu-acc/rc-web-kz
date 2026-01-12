@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Global Styles - RC-WEB.KZ
+   ========================================================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Base Layer - Foundation styles
+   ========================================================================== */
+@layer base {
+  * {
+    @apply border-secondary-200;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-white text-secondary-800 font-sans;
+  }
+
+  ::selection {
+    @apply bg-primary-100 text-primary-900;
+  }
+}
+
+/* ==========================================================================
+   Components Layer - Reusable UI components
+   ========================================================================== */
+@layer components {
+  /* Button base */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm 
+           transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply btn bg-primary-600 text-white
+           hover:bg-primary-700
+           focus:ring-primary-500
+           active:bg-primary-800;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply btn bg-secondary-800 text-white
+           hover:bg-secondary-900
+           focus:ring-secondary-500;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply btn bg-transparent border border-secondary-300 text-secondary-700
+           hover:bg-secondary-50 hover:border-secondary-400
+           focus:ring-secondary-500;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply btn bg-transparent text-secondary-600
+           hover:bg-secondary-100 hover:text-secondary-900
+           focus:ring-secondary-500;
+  }
+
+  /* WhatsApp button */
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] text-white
+           hover:bg-[#22c55e]
+           focus:ring-[#25D366];
+  }
+
+  /* Telegram button */
+  .btn-telegram {
+    @apply btn bg-[#0088cc] text-white
+           hover:bg-[#0077b5]
+           focus:ring-[#0088cc];
+  }
+
+  /* Glass effect card */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-secondary-100 shadow-md;
+  }
+
+  /* Standard card */
+  .card {
+    @apply bg-white rounded-xl border border-secondary-100
+           transition-all duration-200
+           hover:shadow-md hover:border-secondary-200;
+  }
+
+  /* Dark card variant */
+  .card-dark {
+    @apply bg-secondary-800 text-white rounded-xl border border-secondary-700
+           transition-all duration-200
+           hover:shadow-lg hover:border-secondary-600;
+  }
+
+  /* Gradient text - for key headings only */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-500;
+  }
+
+  /* Section padding */
+  .section {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Headings */
+  .heading-xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-secondary-900;
+  }
+
+  .heading-lg {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-secondary-900;
+  }
+
+  .heading-md {
+    @apply text-xl sm:text-2xl font-bold tracking-tight text-secondary-900;
+  }
+
+  /* Entry animation */
+  .animate-in {
+    @apply opacity-0 translate-y-4;
+    animation: animate-in 0.5s ease-out forwards;
+  }
+
+  @keyframes animate-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+/* ==========================================================================
+   Utilities Layer
+   ========================================================================== */
+@layer utilities {
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .rounded-inherit {
+    border-radius: inherit;
+  }
+}
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+.header-scrolled {
+  @apply bg-white/90 backdrop-blur-md shadow-sm border-b border-secondary-100;
+}
+
+/* Burger menu animation */
+.burger-active .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-active .burger-line:nth-child(2) {
+  @apply opacity-0 scale-0;
+}
+
+.burger-active .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ==========================================================================
+   Back to Top Button
+   ========================================================================== */
+#back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background-color: #6366f1;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  transition: all 0.2s ease-out;
+}
+
+#back-to-top:hover {
+  background-color: #4f46e5;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary-400;
+}
+
+/* ==========================================================================
+   Focus Styles for Accessibility
+   ========================================================================== */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
