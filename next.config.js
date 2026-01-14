@@ -13,8 +13,6 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Оптимизация минификации
-  swcMinify: true,
   // Оптимизация модулей
   modularizeImports: {
     '@/components/sections': {
