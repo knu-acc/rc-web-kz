@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Курсы программирования в Алматы | Обучение созданию сайтов',
@@ -132,7 +134,7 @@ export default function ProgrammingCoursesPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Записаться на курс
                 </a>
                 <Link href="/contact" className="btn-secondary">
@@ -231,7 +233,7 @@ export default function ProgrammingCoursesPage() {
             {advantages.map((advantage, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5`}>
                   {advantage.icon}
@@ -305,6 +307,13 @@ export default function ProgrammingCoursesPage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших учеников"
+        subtitle="Реальные отзывы от учеников, которые прошли наши курсы."
+      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">

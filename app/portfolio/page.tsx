@@ -67,7 +67,7 @@ export default function PortfolioPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6">
               {/* Badge */}
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium">
                 Портфолио
               </span>
               
@@ -139,7 +139,7 @@ export default function PortfolioPage() {
                 
                 {/* Content - flex-grow to push button down */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <span className="text-primary-600 text-sm font-medium mb-2">{item.category}</span>
+                  <span className="text-secondary-800 text-sm font-medium mb-2">{item.category}</span>
                   <h3 className="text-xl font-bold text-secondary-900 mb-2">{item.title}</h3>
                   <p className="text-secondary-600 mb-6 flex-grow">{item.description}</p>
                   
@@ -148,7 +148,7 @@ export default function PortfolioPage() {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary w-full justify-center mt-auto"
+                    className="btn-dark w-full justify-center mt-auto"
                   >
                     Открыть сайт
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

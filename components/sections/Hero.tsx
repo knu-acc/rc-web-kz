@@ -20,7 +20,7 @@ export function Hero() {
           {/* Left: Content */}
           <div className="space-y-8 animate-in">
             {/* Status badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 text-primary-700 text-sm font-medium stagger-1 animate-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium stagger-1 animate-in">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -44,7 +44,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-4 stagger-4 animate-in">
               <a 
                 href={SOCIAL_LINKS.whatsapp} 
-                className="btn-primary group"
+                className="btn-dark group"
                 aria-label="Заказать сайт"
               >
                 Заказать сайт
@@ -61,11 +61,11 @@ export function Hero() {
             {/* Social proof */}
             <div className="grid grid-cols-2 gap-6 pt-4 stagger-5 animate-in">
               <div className="bg-white/80 backdrop-blur rounded-xl p-4 border border-secondary-200">
-                <div className="text-3xl font-bold text-primary-600 mb-1">120+</div>
+                <div className="text-3xl font-bold text-secondary-800 mb-1">120+</div>
                 <p className="text-sm text-secondary-600">Проектов выполнено с 2020 года</p>
               </div>
               <div className="bg-white/80 backdrop-blur rounded-xl p-4 border border-secondary-200">
-                <div className="text-3xl font-bold text-primary-600 mb-1">5 лет</div>
+                <div className="text-3xl font-bold text-secondary-800 mb-1">5 лет</div>
                 <p className="text-sm text-secondary-600">Создаём сайты для клиентов по Казахстану</p>
               </div>
             </div>

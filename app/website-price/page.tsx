@@ -3,10 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Цены на создание сайта в Алматы | Стоимость разработки сайтов',
-  description: 'Актуальные цены на создание сайтов в Алматы. Landing Page от 70 000 ₸, корпоративный сайт от 173 000 ₸, интернет-магазин от 109 000 ₸. Прозрачное ценообразование, без скрытых платежей.',
+  description: 'Актуальные цены на создание сайтов в Алматы. Landing Page 85-95 тыс ₸, корпоративный сайт 125-330 тыс ₸, интернет-магазин от 220 тыс ₸. Прозрачное ценообразование, без скрытых платежей.',
   keywords: ['цена сайта Алматы', 'стоимость создания сайта', 'сколько стоит сайт', 'цены на сайты Алматы'],
   openGraph: {
     title: 'Цены на создание сайта в Алматы',
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
 const prices = [
   { 
     name: 'Landing Page', 
-    price: 'от 70 000 ₸', 
+    price: '85-95 тыс ₸', 
     description: 'Одностраничный сайт для рекламы', 
     link: '/landing-page',
     features: ['Уникальный дизайн', 'Адаптивная вёрстка', 'Формы обратной связи', 'SEO-оптимизация'],
@@ -27,7 +29,7 @@ const prices = [
   },
   { 
     name: 'Корпоративный сайт', 
-    price: 'от 173 000 ₸', 
+    price: '125-330 тыс ₸', 
     description: 'Многостраничный сайт для бизнеса', 
     link: '/corporate-site',
     features: ['3-10+ страниц', 'Админ-панель', 'SEO-оптимизация', 'Техподдержка'],
@@ -35,7 +37,7 @@ const prices = [
   },
   { 
     name: 'Интернет-магазин', 
-    price: 'от 109 000 ₸', 
+    price: 'от 220 тыс ₸', 
     description: 'E-commerce с оплатой онлайн', 
     link: '/online-store',
     features: ['Каталог товаров', 'Корзина и оплата', 'Админ-панель', 'Интеграция платежей'],
@@ -43,7 +45,7 @@ const prices = [
   },
   { 
     name: 'Сайт на Tilda', 
-    price: 'от 58 000 ₸', 
+    price: 'от 160 тыс ₸', 
     description: 'Быстрое решение на конструкторе', 
     link: '/tilda-site',
     features: ['Готовые блоки', 'Простое управление', 'SEO-оптимизация', 'Быстрая разработка'],
@@ -132,11 +134,11 @@ export default function WebsitePricePage() {
 
               <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
                 Актуальные цены на разработку сайтов в Алматы. Прозрачное ценообразование без скрытых платежей. 
-                Каждый проект включает дизайн, разработку, <Link href="/seo-optimization" className="text-primary-300 hover:underline font-semibold">SEO-оптимизацию</Link> и техническую поддержку.
+                Каждый проект включает дизайн, разработку, <Link href="/seo-optimization" className="text-secondary-300 hover:underline font-semibold">СЕО-оптимизацию</Link> и техническую поддержку.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Узнать точную стоимость
                 </a>
                 <Link href="/contact" className="btn-secondary">
@@ -168,7 +170,7 @@ export default function WebsitePricePage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
               Цены
             </span>
             <h2 className="heading-lg mb-6">
@@ -184,25 +186,25 @@ export default function WebsitePricePage() {
               <Link 
                 key={index} 
                 href={item.link} 
-                className="group relative rounded-3xl p-6 bg-white border border-secondary-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-white border border-secondary-100 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-4`}>
                   <span className="text-2xl font-bold">{item.price.split(' ')[1]}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-primary-600 mb-2">{item.price}</h3>
+                <h3 className="text-2xl font-bold text-secondary-800 mb-2">{item.price}</h3>
                 <h4 className="text-xl font-bold text-secondary-900 mb-2">{item.name}</h4>
                 <p className="text-secondary-600 mb-4">{item.description}</p>
                 <ul className="space-y-2 mb-4">
                   {item.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-secondary-600">
-                      <svg className="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-secondary-800 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="text-primary-600 font-semibold group-hover:gap-3 transition-all inline-flex items-center gap-2">
+                <div className="text-secondary-800 font-semibold group-hover:gap-3 transition-all inline-flex items-center gap-2">
                   Подробнее
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -218,7 +220,7 @@ export default function WebsitePricePage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Факторы
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -233,7 +235,7 @@ export default function WebsitePricePage() {
             {priceFactors.map((factor, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${factor.gradient} text-white flex items-center justify-center mb-5`}>
                   {factor.icon}
@@ -299,6 +301,13 @@ export default function WebsitePricePage() {
         </div>
       </section>
 
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Реальные отзывы от клиентов, которые заказали разработку сайтов."
+      />
+
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
@@ -319,20 +328,20 @@ export default function WebsitePricePage() {
           <h2 className="heading-md text-center mb-8">Услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>
-              <p className="text-secondary-600">от 70 000 ₸</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Landing Page</h3>
+              <p className="text-secondary-600">85-95 тыс ₸</p>
             </Link>
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">от 173 000 ₸</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>
+              <p className="text-secondary-600">125-330 тыс ₸</p>
             </Link>
             <Link href="/online-store" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Интернет-магазин</h3>
-              <p className="text-secondary-600">от 109 000 ₸</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Интернет-магазин</h3>
+              <p className="text-secondary-600">от 220 тыс ₸</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Сайт на Tilda</h3>
-              <p className="text-secondary-600">от 58 000 ₸</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Сайт на Tilda</h3>
+              <p className="text-secondary-600">от 160 тыс ₸</p>
             </Link>
           </div>
         </div>

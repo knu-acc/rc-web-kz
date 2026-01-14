@@ -3,10 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Корпоративный сайт в Алматы | Многостраничный сайт от 173 000 ₸',
-  description: 'Профессиональная разработка корпоративных и многостраничных сайтов в Алматы. Идеально для SEO-продвижения и рекламы компании. Современный дизайн, полная функциональность. Цена от 173 000 тенге.',
+  description: 'Профессиональная разработка корпоративных и многостраничных сайтов в Алматы. Идеально для SEO-продвижения и рекламы компании. Современный дизайн, полная функциональность. Цена 125-330 тыс тенге.',
   keywords: [
     'корпоративный сайт Алматы',
     'многостраничный сайт Алматы',
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
     'разработка многостраничного сайта',
   ],
   openGraph: {
-    title: 'Корпоративный сайт в Алматы | Многостраничный сайт от 173 000 ₸',
+    title: 'Корпоративный сайт в Алматы | Многостраничный сайт 125-330 тыс ₸',
     description: 'Профессиональная разработка корпоративных сайтов в Алматы для серьёзного бизнеса',
     url: `${SITE_CONFIG.url}/corporate-site`,
   },
@@ -135,38 +137,47 @@ export default function CorporateSitePage() {
       />
       
       {/* Hero Section with stats */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-32">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900" />
+          {/* Modern gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-white" />
+          
+          {/* Soft colored blur elements */}
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-100/20 to-indigo-100/20 rounded-full blur-3xl" />
+          
+          {/* Subtle grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
         </div>
 
-        <div className="container-custom py-20 lg:py-32">
+        <div className="container-custom py-12 lg:py-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Content */}
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
                 </span>
                 Корпоративный сайт в Алматы
               </div>
 
-              <h1 className="heading-xl text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-900">
                 <span className="block">Многостраничные</span>
-                <span className="gradient-text">корпоративные сайты</span>
-                <span className="block text-white/80 text-3xl sm:text-4xl lg:text-5xl font-semibold mt-2">
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">корпоративные сайты</span>
+                <span className="block text-secondary-700 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
                   для серьёзного бизнеса
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-                Создаём профессиональные корпоративные сайты для вашего бизнеса. Идеальное решение для <Link href="/seo-optimization" className="text-primary-300 hover:underline font-semibold">SEO-продвижения</Link>, 
+              <p className="text-lg sm:text-xl text-secondary-600 max-w-xl leading-relaxed">
+                Создаём профессиональные корпоративные сайты для вашего бизнеса. Идеальное решение для <Link href="/seo-optimization" className="text-blue-600 hover:underline font-semibold">SEO-продвижения</Link>, 
                 представления компании и привлечения клиентов. Полный функционал, современный дизайн, техническая поддержка.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать сайт
                 </a>
                 <Link href="/portfolio" className="btn-secondary">
@@ -175,18 +186,18 @@ export default function CorporateSitePage() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-4">
-                <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">120+</div>
-                  <p className="text-sm text-white/70">Проектов</p>
+              <div className="grid grid-cols-3 gap-5 pt-8">
+                <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent mb-2">120+</div>
+                  <p className="text-sm font-semibold text-blue-700">Проектов выполнено</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">5-10</div>
-                  <p className="text-sm text-white/70">Страниц</p>
+                <div className="group relative bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-2xl p-6 border border-indigo-200 hover:border-indigo-400 transition-all duration-300 hover:shadow-lg">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent mb-2">5-10</div>
+                  <p className="text-sm font-semibold text-indigo-700">Страниц сайта</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">6-10</div>
-                  <p className="text-sm text-white/70">Дней</p>
+                <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent mb-2">6-10</div>
+                  <p className="text-sm font-semibold text-blue-700">Дней разработки</p>
                 </div>
               </div>
             </div>
@@ -215,7 +226,7 @@ export default function CorporateSitePage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
               Типы сайтов
             </span>
             <h2 className="heading-lg mb-6">
@@ -228,7 +239,7 @@ export default function CorporateSitePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {siteTypes.map((type, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl bg-white border border-secondary-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="group relative overflow-hidden rounded-2xl bg-white border border-secondary-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={type.image}
@@ -243,7 +254,7 @@ export default function CorporateSitePage() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-secondary-900 mb-2">{type.title}</h3>
                   <p className="text-secondary-600 mb-3">{type.description}</p>
-                  <div className="flex items-center gap-2 text-primary-600 font-semibold">
+                  <div className="flex items-center gap-2 text-secondary-800 font-semibold">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -263,10 +274,10 @@ export default function CorporateSitePage() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
-            <h2 className="heading-lg mb-6 text-white">
-              Почему выбирают <span className="gradient-text">корпоративный сайт</span>
+            <h2 className="heading-lg mb-6 !text-white">
+              Почему выбирают <span className="text-white">корпоративный сайт</span>
             </h2>
-            <p className="text-lg text-white/80">
+            <p className="text-lg text-white">
               Многостраничные сайты идеально подходят для серьёзного бизнеса и долгосрочного развития
             </p>
           </div>
@@ -275,7 +286,7 @@ export default function CorporateSitePage() {
             {advantages.map((advantage, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5`}>
                   {advantage.icon}
@@ -375,9 +386,9 @@ export default function CorporateSitePage() {
             <h2 className="heading-lg mb-4">Цены на корпоративный сайт</h2>
             <p className="text-lg text-secondary-600">Стоимость зависит от количества страниц и функционала</p>
           </div>
-          <div className="max-w-4xl mx-auto bg-secondary-50 rounded-2xl shadow-lg p-8">
+          <div className="max-w-4xl mx-auto bg-secondary-50 rounded-2xl shadow-lg border border-secondary-300 p-8">
             <div className="text-center mb-8">
-              <div className="text-5xl font-bold text-primary-600 mb-2">от 173 000 ₸</div>
+              <div className="text-5xl font-bold text-primary-600 mb-2">125-330 тыс ₸</div>
               <p className="text-secondary-600">Базовая стоимость корпоративного сайта</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -434,7 +445,7 @@ export default function CorporateSitePage() {
               </div>
             </div>
             <div className="text-center">
-              <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">Заказать корпоративный сайт</a>
+              <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">Заказать корпоративный сайт</a>
             </div>
           </div>
         </div>
@@ -443,8 +454,8 @@ export default function CorporateSitePage() {
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="heading-lg mb-4">Готовы создать корпоративный сайт?</h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          <h2 className="heading-lg mb-4 !text-white">Готовы создать корпоративный сайт?</h2>
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для бесплатной консультации и расчёта стоимости
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -459,19 +470,19 @@ export default function CorporateSitePage() {
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
-            <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
+            <Link href="/landing-page" className="card p-6 rounded-xl shadow-soft border border-secondary-300 hover:shadow-lg hover:border-primary-500 transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>
               <p className="text-secondary-600">Одностраничные сайты для рекламы</p>
             </Link>
-            <Link href="/online-store" className="card p-6 hover:shadow-lg transition-all group">
+            <Link href="/online-store" className="card p-6 rounded-xl shadow-soft border border-secondary-300 hover:shadow-lg hover:border-primary-500 transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Интернет-магазин</h3>
               <p className="text-secondary-600">E-commerce с оплатой онлайн</p>
             </Link>
-            <Link href="/seo-optimization" className="card p-6 hover:shadow-lg transition-all group">
+            <Link href="/seo-optimization" className="card p-6 rounded-xl shadow-soft border border-secondary-300 hover:shadow-lg hover:border-primary-500 transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">SEO оптимизация</h3>
               <p className="text-secondary-600">Продвижение в поисковиках</p>
             </Link>
-            <Link href="/web-design" className="card p-6 hover:shadow-lg transition-all group">
+            <Link href="/web-design" className="card p-6 rounded-xl shadow-soft border border-secondary-300 hover:shadow-lg hover:border-primary-500 transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Веб-дизайн</h3>
               <p className="text-secondary-600">Современный дизайн сайтов</p>
             </Link>

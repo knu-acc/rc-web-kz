@@ -1,13 +1,21 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/Hero'
 import { Services } from '@/components/sections/Services'
-import { Benefits } from '@/components/sections/Benefits'
-import { Portfolio } from '@/components/sections/Portfolio'
-import { FAQ } from '@/components/sections/FAQ'
-import { StructuredData } from '@/components/sections/StructuredData'
 import { SITE_CONFIG } from '@/lib/constants'
 import { generateFAQPageSchema, generateLocalBusinessSchema, generateWebSiteSchema } from '@/lib/schema'
 import { faqItems } from '@/data/faq'
+
+// Lazy load компонентов ниже fold для улучшения First Contentful Paint
+const Benefits = dynamic(() => import('@/components/sections/Benefits').then(mod => ({ default: mod.Benefits })), {
+  loading: () => null,
+})
+const Portfolio = dynamic(() => import('@/components/sections/Portfolio').then(mod => ({ default: mod.Portfolio })), {
+  loading: () => null,
+})
+const FAQ = dynamic(() => import('@/components/sections/FAQ').then(mod => ({ default: mod.FAQ })), {
+  loading: () => null,
+})
 
 export const metadata: Metadata = {
   title: 'Создание сайтов в Алматы | Веб-разработка под ключ',
@@ -48,7 +56,9 @@ export default function HomePage() {
 
   return (
     <>
-      <StructuredData data={[faqSchema, localBusinessSchema, webSiteSchema]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }} />
       <Hero />
       <Services />
       <Benefits />

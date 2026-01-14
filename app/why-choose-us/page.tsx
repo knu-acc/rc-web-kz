@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Почему выбрать нас | Преимущества RC-WEB создание сайтов Алматы',
@@ -24,7 +26,7 @@ const benefits = [
       </svg>
     ),
     title: 'Качество разработки',
-    description: 'За всё время работы было выполнено более 120 проектов, и каждый отзыв — положительный. Все отзывы вы можете посмотреть на странице <Link href="/reviews" className="text-primary-300 hover:underline font-semibold">отзывов</Link>.',
+    description: 'За всё время работы было выполнено более 120 проектов, и каждый отзыв — положительный. Все отзывы вы можете посмотреть на странице <Link href="/reviews" className="text-secondary-300 hover:underline font-semibold">отзывов</Link>.',
     gradient: 'from-emerald-500 to-teal-600',
     linkText: 'отзывов',
     linkHref: '/reviews',
@@ -56,7 +58,7 @@ const benefits = [
       </svg>
     ),
     title: 'Доступные цены',
-    description: 'Цены по созданию сайтов подходят для большинства клиентов. Прозрачное ценообразование без скрытых платежей. Посмотрите <Link href="/website-price" className="text-primary-300 hover:underline font-semibold">цены на сайты</Link>.',
+    description: 'Цены по созданию сайтов подходят для большинства клиентов. Прозрачное ценообразование без скрытых платежей. Посмотрите <Link href="/website-price" className="text-secondary-300 hover:underline font-semibold">цены на сайты</Link>.',
     gradient: 'from-amber-500 to-orange-600',
     linkText: 'цены на сайты',
     linkHref: '/website-price',
@@ -78,7 +80,7 @@ const benefits = [
       </svg>
     ),
     title: 'SEO-оптимизация',
-    description: 'Все сайты включают базовую SEO-оптимизацию для продвижения в поисковых системах. Дополнительно можно заказать <Link href="/seo-optimization" className="text-primary-300 hover:underline font-semibold">полную SEO-оптимизацию</Link>.',
+    description: 'Все сайты включают базовую SEO-оптимизацию для продвижения в поисковых системах. Дополнительно можно заказать <Link href="/seo-optimization" className="text-secondary-300 hover:underline font-semibold">полную SEO-оптимизацию</Link>.',
     gradient: 'from-indigo-500 to-blue-600',
     linkText: 'полную SEO-оптимизацию',
     linkHref: '/seo-optimization',
@@ -152,11 +154,11 @@ export default function WhyChooseUsPage() {
 
               <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
                 Преимуществ и плюсов заказать сайт у нас достаточно много. Мы выделили основные причины, 
-                почему клиенты выбирают нас для создания сайтов в Алматы. Посмотрите наши работы в <Link href="/portfolio" className="text-primary-300 hover:underline font-semibold">портфолио</Link>.
+                почему клиенты выбирают нас для создания сайтов в Алматы. Посмотрите наши работы в <Link href="/portfolio" className="text-secondary-300 hover:underline font-semibold">портфолио</Link>.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать сайт
                 </a>
                 <Link href="/reviews" className="btn-secondary">
@@ -182,7 +184,7 @@ export default function WhyChooseUsPage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -197,7 +199,7 @@ export default function WhyChooseUsPage() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5`}>
                   {benefit.icon}
@@ -207,7 +209,7 @@ export default function WhyChooseUsPage() {
                   {benefit.linkText && benefit.linkHref ? (
                     <>
                       {benefit.description.split(benefit.linkText)[0]}
-                      <Link href={benefit.linkHref} className="text-primary-300 hover:underline font-semibold">{benefit.linkText}</Link>
+                      <Link href={benefit.linkHref} className="text-secondary-300 hover:underline font-semibold">{benefit.linkText}</Link>
                       {benefit.description.split(benefit.linkText)[1] || ''}
                     </>
                   ) : (
@@ -238,7 +240,7 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-primary-600 mb-3">{stat.value}</div>
+                <div className="text-5xl font-bold text-secondary-800 mb-3">{stat.value}</div>
                 <p className="text-lg text-secondary-600">{stat.label}</p>
               </div>
             ))}
@@ -256,8 +258,8 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-primary-600">{step.step}</span>
+                <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-secondary-800">{step.step}</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                 <p className="text-secondary-600 text-sm">{step.description}</p>
@@ -313,6 +315,13 @@ export default function WhyChooseUsPage() {
         </div>
       </section>
 
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Более 120 положительных отзывов от наших довольных клиентов."
+      />
+
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
@@ -333,19 +342,19 @@ export default function WhyChooseUsPage() {
           <h2 className="heading-md text-center mb-8">Связанные страницы</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/reviews" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Отзывы</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Отзывы</h3>
               <p className="text-secondary-600">Отзывы наших клиентов</p>
             </Link>
             <Link href="/portfolio" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Портфолио</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Портфолио</h3>
               <p className="text-secondary-600">Примеры наших работ</p>
             </Link>
             <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Контакты</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Контакты</h3>
               <p className="text-secondary-600">Свяжитесь с нами</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены</h3>
               <p className="text-secondary-600">Стоимость разработки</p>
             </Link>
           </div>

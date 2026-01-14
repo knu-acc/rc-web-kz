@@ -62,7 +62,7 @@ export function Benefits() {
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
             Преимущества
           </span>
           <h2 className="heading-lg mb-6">
@@ -83,7 +83,7 @@ export function Benefits() {
                          transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-xl bg-secondary-100 text-secondary-800 flex items-center justify-center mb-5">
                 {benefit.icon}
               </div>
 

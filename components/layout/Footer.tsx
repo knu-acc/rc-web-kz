@@ -9,10 +9,12 @@ const footerLinks = {
     { label: 'Скачать бриф', href: '/brif.doc' },
   ],
   services: [
-    { label: 'Landing Page', href: '/#services' },
-    { label: 'Корпоративный сайт', href: '/#services' },
-    { label: 'Интернет-магазин', href: '/#services' },
-    { label: 'Сайт на Tilda', href: '/#services' },
+    { label: 'Landing Page', href: '/landing-page' },
+    { label: 'Корпоративный сайт', href: '/corporate-site' },
+    { label: 'Интернет-магазин', href: '/online-store' },
+    { label: 'Сайт на Tilda', href: '/tilda-site' },
+    { label: 'SEO-оптимизация', href: '/seo-optimization' },
+    { label: 'Веб-дизайн', href: '/web-design' },
   ],
 }
 

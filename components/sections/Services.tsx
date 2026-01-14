@@ -14,7 +14,7 @@ const services = [
     id: 1,
     title: 'Landing Page',
     description: 'Продающие одностраничники с высокой конверсией',
-    price: 'от 70 000 ₸',
+    price: '85-95 тыс ₸',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
@@ -27,7 +27,7 @@ const services = [
     id: 2,
     title: 'Корпоративный сайт',
     description: 'Многостраничные сайты для серьёзного бизнеса',
-    price: 'от 173 000 ₸',
+    price: '125-330 тыс ₸',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -40,7 +40,7 @@ const services = [
     id: 3,
     title: 'Интернет-магазин',
     description: 'E-commerce решения с удобной админкой',
-    price: 'от 109 000 ₸',
+    price: 'от 220 тыс ₸',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -53,7 +53,7 @@ const services = [
     id: 4,
     title: 'Tilda / Конструктор',
     description: 'Быстрые решения на популярных платформах',
-    price: 'от 58 000 ₸',
+    price: 'от 160 тыс ₸',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
@@ -70,7 +70,7 @@ export function Services() {
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
             Услуги
           </span>
           <h2 className="heading-lg mb-6 text-white">
@@ -136,7 +136,7 @@ export function Services() {
                   className={`inline-flex items-center gap-2 font-semibold transition-all ${
                     service.featured 
                       ? 'px-6 py-3 bg-white text-blue-600 rounded-xl hover:bg-white/90 hover:shadow-lg' 
-                      : 'text-white hover:gap-4 hover:text-primary-300'
+                      : 'text-white hover:gap-4 hover:text-secondary-300'
                   }`}
                 >
                   Заказать

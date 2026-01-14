@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Analytics } from '@/lib/analytics'
 import { SITE_CONFIG } from '@/lib/constants'
+import { BackToTop } from '@/components/ui/BackToTop'
 
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -63,45 +64,15 @@ export default function RootLayout({
         <meta name="theme-color" content="#6366f1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
       </head>
       <body className="font-sans antialiased">
         <Header />
         <main>{children}</main>
         <Footer />
         
-        {/* Back to top button */}
-        <button
-          id="back-to-top"
-          aria-label="Наверх"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </button>
-
-        {/* Back to top script */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var btn = document.getElementById('back-to-top');
-                if (!btn) return;
-                
-                window.addEventListener('scroll', function() {
-                  if (window.scrollY > 300) {
-                    btn.classList.add('visible');
-                  } else {
-                    btn.classList.remove('visible');
-                  }
-                }, { passive: true });
-                
-                btn.addEventListener('click', function() {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-              })();
-            `,
-          }}
-        />
+        <BackToTop />
         
         <Analytics />
       </body>

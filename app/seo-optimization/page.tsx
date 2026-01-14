@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'SEO оптимизация сайта в Алматы | Продвижение в Google и Яндекс',
@@ -110,7 +112,7 @@ export default function SEOOptimizationPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать SEO
                 </a>
                 <Link href="/publish-website" className="btn-secondary">
@@ -173,7 +175,7 @@ export default function SEOOptimizationPage() {
             {seoItems.map((item, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-5`}>
                   {item.icon}
@@ -296,6 +298,13 @@ export default function SEOOptimizationPage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Реальные отзывы от клиентов, которые заказали SEO-оптимизацию сайтов."
+      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">

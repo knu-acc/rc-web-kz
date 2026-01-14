@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Веб-дизайн сайта в Алматы | Современный дизайн сайтов',
@@ -112,7 +114,7 @@ export default function WebDesignPage() {
         <div className="container-custom py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -134,7 +136,7 @@ export default function WebDesignPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать дизайн
                 </a>
                 <Link href="/portfolio" className="btn-secondary">
@@ -253,7 +255,7 @@ export default function WebDesignPage() {
             {designFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5`}>
                   {feature.icon}
@@ -305,6 +307,13 @@ export default function WebDesignPage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Реальные отзывы от клиентов, которые заказали веб-дизайн."
+      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">

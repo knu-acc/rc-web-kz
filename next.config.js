@@ -4,6 +4,7 @@ const nextConfig = {
   trailingSlash: false,
   images: {
     unoptimized: true,
+    formats: ['image/webp'],
   },
   compress: true,
   poweredByHeader: false,
@@ -11,6 +12,14 @@ const nextConfig = {
   generateEtags: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Оптимизация минификации
+  swcMinify: true,
+  // Оптимизация модулей
+  modularizeImports: {
+    '@/components/sections': {
+      transform: '@/components/sections/{{member}}',
+    },
   },
 }
 

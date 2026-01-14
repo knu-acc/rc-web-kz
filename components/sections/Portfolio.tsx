@@ -11,7 +11,7 @@ export function Portfolio() {
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
               Портфолио
             </span>
             <h2 className="heading-lg">
@@ -71,7 +71,7 @@ export function Portfolio() {
 
               {/* Info below image (mobile) */}
               <div className="mt-4 md:hidden">
-                <span className="text-primary-600 text-sm font-medium">{item.category}</span>
+                <span className="text-secondary-800 text-sm font-medium">{item.category}</span>
                 <h3 className="text-secondary-900 font-bold mt-1">{item.title}</h3>
               </div>
             </article>
@@ -83,7 +83,7 @@ export function Portfolio() {
           <p className="text-secondary-600 mb-6">
             Хотите такой же? Свяжитесь с нами для обсуждения вашего проекта
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="btn-dark">
             Обсудить проект
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

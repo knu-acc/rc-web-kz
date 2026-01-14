@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Как создать сайт | Пошаговая инструкция создания сайта',
@@ -117,7 +119,7 @@ export default function HowToCreateWebsitePage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Помощь с созданием
                 </a>
                 <Link href="/free-website" className="btn-secondary">
@@ -301,6 +303,13 @@ export default function HowToCreateWebsitePage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Реальные отзывы от клиентов, которые создали сайт вместе с нами."
+      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">

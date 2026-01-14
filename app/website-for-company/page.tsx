@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Сайт для компании в Алматы | Бизнес-сайт под ключ',
@@ -104,7 +106,7 @@ export default function WebsiteForCompanyPage() {
         <div className="container-custom py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -122,11 +124,11 @@ export default function WebsiteForCompanyPage() {
 
               <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
                 Создаём профессиональные сайты для вашей компании. Корпоративные сайты, сайты-визитки, бизнес-сайты — 
-                всё для эффективного представления вашего бизнеса в интернете. Посмотрите примеры в нашем <Link href="/portfolio" className="text-primary-300 hover:underline font-semibold">портфолио</Link>.
+                всё для эффективного представления вашего бизнеса в интернете. Посмотрите примеры в нашем <Link href="/portfolio" className="text-secondary-300 hover:underline font-semibold">портфолио</Link>.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать сайт
                 </a>
                 <Link href="/corporate-site" className="btn-secondary">
@@ -174,7 +176,7 @@ export default function WebsiteForCompanyPage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
               Типы сайтов
             </span>
             <h2 className="heading-lg mb-6">
@@ -202,7 +204,7 @@ export default function WebsiteForCompanyPage() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-secondary-900 mb-2">{type.title}</h3>
                   <p className="text-secondary-600 mb-3">{type.description}</p>
-                  <div className="flex items-center gap-2 text-primary-600 font-semibold">
+                  <div className="flex items-center gap-2 text-secondary-800 font-semibold">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -219,7 +221,7 @@ export default function WebsiteForCompanyPage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -234,7 +236,7 @@ export default function WebsiteForCompanyPage() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5`}>
                   {benefit.icon}
@@ -256,29 +258,29 @@ export default function WebsiteForCompanyPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">1</span>
+              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Консультация</h3>
               <p className="text-secondary-600 text-sm">Обсуждаем цели и требования к сайту</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">2</span>
+              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Дизайн</h3>
               <p className="text-secondary-600 text-sm">Создаём уникальный дизайн под ваш бренд</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">3</span>
+              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Разработка</h3>
               <p className="text-secondary-600 text-sm">Разрабатываем и программируем сайт</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">4</span>
+              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Запуск</h3>
               <p className="text-secondary-600 text-sm">Публикуем сайт и обучаем работе</p>
@@ -286,6 +288,13 @@ export default function WebsiteForCompanyPage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Реальные отзывы от компаний, которые заказали разработку сайтов."
+      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
@@ -307,15 +316,15 @@ export default function WebsiteForCompanyPage() {
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>
               <p className="text-secondary-600">Многостраничные решения</p>
             </Link>
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Landing Page</h3>
               <p className="text-secondary-600">Одностраничные сайты</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены</h3>
               <p className="text-secondary-600">Стоимость разработки</p>
             </Link>
             <Link href="/web-design" className="card p-6 hover:shadow-lg transition-all group">

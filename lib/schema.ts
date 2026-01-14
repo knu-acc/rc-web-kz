@@ -2,6 +2,61 @@ import { SITE_CONFIG } from './constants'
 import { FAQItem } from '@/types'
 import { portfolioItems } from '@/data/portfolio'
 
+export interface ReviewData {
+  author: string
+  reviewBody: string
+  rating: number
+  datePublished?: string
+}
+
+export function generateReviewSchema(reviews: ReviewData[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_CONFIG.url}#reviews`,
+    name: SITE_CONFIG.name,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      bestRating: '5',
+      worstRating: '1',
+      ratingCount: reviews.length.toString(),
+      reviewCount: reviews.length.toString(),
+    },
+    review: reviews.map((review) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: review.author,
+      },
+      reviewBody: review.reviewBody,
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating.toString(),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      datePublished: review.datePublished || new Date().toISOString().split('T')[0],
+    })),
+  }
+}
+
+export function generateAggregateRatingSchema(ratingValue: string, reviewCount: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue,
+      bestRating: '5',
+      worstRating: '1',
+      reviewCount,
+    },
+  }
+}
+
 export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',

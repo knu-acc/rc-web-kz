@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Создать сайт бесплатно | Бесплатные способы создания сайта',
@@ -150,11 +152,11 @@ export default function FreeWebsitePage() {
 
               <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
                 Обзор бесплатных способов создания сайта: конструкторы, хостинги, инструменты. Узнайте о плюсах и минусах 
-                бесплатных решений и когда стоит <Link href="/website-price" className="text-primary-300 hover:underline font-semibold">заказать профессиональный сайт</Link>.
+                бесплатных решений и когда стоит <Link href="/website-price" className="text-secondary-300 hover:underline font-semibold">заказать профессиональный сайт</Link>.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать сайт
                 </a>
                 <Link href="/why-choose-us" className="btn-secondary">
@@ -170,7 +172,7 @@ export default function FreeWebsitePage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
               Конструкторы
             </span>
             <h2 className="heading-lg mb-6">
@@ -272,7 +274,7 @@ export default function FreeWebsitePage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -287,7 +289,7 @@ export default function FreeWebsitePage() {
             {whyOrder.map((item, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-5`}>
                   {item.icon}
@@ -316,7 +318,7 @@ export default function FreeWebsitePage() {
               <div className="bg-secondary-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-2">Плохая SEO-оптимизация</h3>
                 <p className="text-secondary-600">
-                  Бесплатные платформы ограничивают возможности для <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-оптимизации</Link>, 
+                  Бесплатные платформы ограничивают возможности для <Link href="/seo-optimization" className="text-secondary-800 hover:underline font-semibold">SEO-оптимизации</Link>, 
                   что мешает продвижению в поисковых системах.
                 </p>
               </div>
@@ -336,6 +338,13 @@ export default function FreeWebsitePage() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel
+        reviews={placeholderReviewImages.slice(0, 6)}
+        title="Отзывы наших клиентов"
+        subtitle="Реальные отзывы от клиентов, которые выбрали профессиональную разработку."
+      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
@@ -357,19 +366,19 @@ export default function FreeWebsitePage() {
           <h2 className="heading-md text-center mb-8">Полезные статьи</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/how-to-create-website" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Как создать сайт</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Как создать сайт</h3>
               <p className="text-secondary-600">Пошаговая инструкция</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены на сайты</h3>
               <p className="text-secondary-600">Стоимость разработки</p>
             </Link>
             <Link href="/why-choose-us" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Почему выбрать нас</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Почему выбрать нас</h3>
               <p className="text-secondary-600">Наши преимущества</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Сайт на Tilda</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Сайт на Tilda</h3>
               <p className="text-secondary-600">Быстрое решение</p>
             </Link>
           </div>

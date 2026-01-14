@@ -3,13 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
   title: 'Интернет-магазин в Алматы | E-commerce сайт от 109 000 ₸',
-  description: 'Создание интернет-магазинов в Алматы с безопасной оплатой. E-commerce решения с удобной админкой, интеграцией платежных систем. Цена от 109 000 тенге.',
+  description: 'Создание интернет-магазинов в Алматы с безопасной оплатой. E-commerce решения с удобной админкой, интеграцией платежных систем. Цена от 220 тыс тенге.',
   keywords: ['интернет-магазин Алматы', 'e-commerce сайт', 'создание интернет-магазина', 'онлайн магазин Алматы'],
   openGraph: {
-    title: 'Интернет-магазин в Алматы | E-commerce сайт от 109 000 ₸',
+    title: 'Интернет-магазин в Алматы | E-commerce сайт от 220 тыс ₸',
     description: 'Профессиональная разработка интернет-магазинов в Алматы',
     url: `${SITE_CONFIG.url}/online-store`,
   },
@@ -100,7 +102,7 @@ export default function OnlineStorePage() {
         <div className="container-custom py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -118,11 +120,11 @@ export default function OnlineStorePage() {
 
               <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
                 Создаём полнофункциональные интернет-магазины с безопасной оплатой. E-commerce решения с удобной админкой, 
-                интеграцией платежных систем и простым управлением товарами. Идеально для <Link href="/corporate-site" className="text-primary-300 hover:underline font-semibold">бизнеса</Link> любого масштаба.
+                интеграцией платежных систем и простым управлением товарами. Идеально для <Link href="/corporate-site" className="text-secondary-300 hover:underline font-semibold">бизнеса</Link> любого масштаба.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                   Заказать магазин
                 </a>
                 <Link href="/website-price" className="btn-secondary">
@@ -154,14 +156,14 @@ export default function OnlineStorePage() {
       <section className="section bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
               Примеры работ
             </span>
             <h2 className="heading-lg mb-6">
               Примеры наших <span className="gradient-text">интернет-магазинов</span>
             </h2>
             <p className="text-lg text-secondary-600">
-              Посмотрите примеры успешных e-commerce проектов. Больше работ в нашем <Link href="/portfolio" className="text-primary-600 hover:underline font-semibold">портфолио</Link>.
+              Посмотрите примеры успешных e-commerce проектов. Больше работ в нашем <Link href="/portfolio" className="text-secondary-800 hover:underline font-semibold">портфолио</Link>.
             </p>
           </div>
 
@@ -202,7 +204,7 @@ export default function OnlineStorePage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5`}>
                   {feature.icon}
@@ -250,20 +252,20 @@ export default function OnlineStorePage() {
           </div>
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
-              <div className="text-5xl font-bold text-primary-600 mb-2">от 109 000 ₸</div>
+              <div className="text-5xl font-bold text-secondary-800 mb-2">от 220 тыс ₸</div>
               <p className="text-secondary-600">Базовая стоимость интернет-магазина</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div>
                 <h3 className="text-xl font-bold mb-4">Входит в стоимость:</h3>
                 <ul className="space-y-2 text-secondary-700">
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span>Дизайн и вёрстка</span></li>
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span>Каталог товаров</span></li>
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span>Корзина и оформление заказа</span></li>
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span>Интеграция платёжных систем</span></li>
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span>Админ-панель управления</span></li>
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span><Link href="/seo-optimization" className="text-primary-600 hover:underline">SEO-оптимизация</Link></span></li>
-                  <li className="flex items-start gap-2"><span className="text-primary-600">✓</span><span>Бесплатная поддержка</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Дизайн и вёрстка</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Каталог товаров</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Корзина и оформление заказа</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Интеграция платёжных систем</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Админ-панель управления</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span><Link href="/seo-optimization" className="text-secondary-800 hover:underline">SEO-оптимизация</Link></span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Бесплатная поддержка</span></li>
                 </ul>
               </div>
               <div>
@@ -275,7 +277,7 @@ export default function OnlineStorePage() {
               </div>
             </div>
             <div className="text-center">
-              <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">Заказать интернет-магазин</a>
+              <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">Заказать интернет-магазин</a>
             </div>
           </div>
         </div>
@@ -301,19 +303,19 @@ export default function OnlineStorePage() {
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>
               <p className="text-secondary-600">Многостраничные решения</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Сайт на Tilda</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Сайт на Tilda</h3>
               <p className="text-secondary-600">Быстрые решения</p>
             </Link>
             <Link href="/website-advertising" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Реклама сайта</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Реклама сайта</h3>
               <p className="text-secondary-600">Настройка рекламы</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены на сайты</h3>
               <p className="text-secondary-600">Стоимость разработки</p>
             </Link>
           </div>

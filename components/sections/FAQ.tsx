@@ -16,7 +16,7 @@ export function FAQ() {
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
             FAQ
           </span>
           <h2 id="faq-heading" className="heading-lg mb-6">
@@ -30,7 +30,7 @@ export function FAQ() {
             return (
               <article 
                 key={item.id} 
-                className="bg-white rounded-2xl border border-secondary-100 overflow-hidden transition-all duration-300 hover:border-primary-200 hover:shadow-lg"
+                className="bg-white rounded-2xl border border-secondary-100 overflow-hidden transition-all duration-300 hover:border-secondary-300 hover:shadow-lg"
               >
                 <button
                   className="w-full flex items-center justify-between p-6 text-left"
@@ -41,11 +41,11 @@ export function FAQ() {
                     {item.question}
                   </h3>
                   <span
-                    className={`flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center transition-transform duration-300 ${
+                    className={`flex-shrink-0 w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   >
-                    <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-secondary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
@@ -63,35 +63,35 @@ export function FAQ() {
                     {/* Buttons with proper spacing */}
                     {item.id === '1' && (
                       <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                           Купить сайт в Алматы
                         </a>
                       </div>
                     )}
                     {item.id === '2' && (
                       <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                           Напишите мне
                         </a>
                       </div>
                     )}
                     {item.id === '3' && (
                       <div className="mt-6">
-                        <a href={`tel:${SITE_CONFIG.phone}`} className="btn-primary">
+                        <a href={`tel:${SITE_CONFIG.phone}`} className="btn-dark">
                           Позвонить
                         </a>
                       </div>
                     )}
                     {item.id === '4' && (
                       <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-primary">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                           Написать в WhatsApp
                         </a>
                       </div>
                     )}
                     {item.id === '5' && (
                       <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark\">
                           Связаться по WhatsApp
                         </a>
                       </div>
