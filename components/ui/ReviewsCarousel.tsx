@@ -5,7 +5,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, A11y, Lazy } from 'swiper/modules'
+import { Navigation, Pagination, A11y } from 'swiper/modules'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,7 +13,6 @@ import Link from 'next/link'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'swiper/css/lazy'
 
 export interface ReviewImage {
   id: string
@@ -55,17 +54,12 @@ export function ReviewsCarousel({
         {/* Swiper Carousel */}
         <div className="reviews-carousel-wrapper">
           <Swiper
-            modules={[Navigation, Pagination, A11y, Lazy]}
+            modules={[Navigation, Pagination, A11y]}
             spaceBetween={24}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
             loop={reviews.length > 3}
-            // @ts-ignore - Lazy module prop not fully typed in swiper v11
-            lazy={{
-              loadPrevNext: true,
-              loadPrevNextAmount: 2,
-            }}
             breakpoints={{
               640: {
                 slidesPerView: 2,
