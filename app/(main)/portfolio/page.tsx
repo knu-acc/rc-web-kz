@@ -119,7 +119,7 @@ export default function PortfolioPage() {
                 href={`tel:${SITE_CONFIG.phone}`}
                 className="inline-flex min-h-[56px] items-center justify-center rounded-xl border-2 border-white/60 px-8 py-4 font-semibold hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-secondary-800"
               >
-                {SITE_CONFIG.phoneFormatted ?? SITE_CONFIG.phone}
+                {SITE_CONFIG.phone}
               </a>
             </div>
             <div className="mt-16" />
