@@ -16,7 +16,7 @@ export function Analytics() {
       {/* Google Tag Manager */}
       {GTM_ID && (
         <>
-          <Script id="google-tag-manager" strategy="afterInteractive">
+          <Script id="google-tag-manager" strategy="lazyOnload">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -43,7 +43,7 @@ export function Analytics() {
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
             strategy="lazyOnload"
           />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script id="google-analytics" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -59,7 +59,7 @@ export function Analytics() {
       {/* Yandex Metrica */}
       {YANDEX_METRICA_ID && (
         <>
-          <Script id="yandex-metrica" strategy="afterInteractive">
+          <Script id="yandex-metrica" strategy="lazyOnload">
             {`
               (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
               m[i].l=1*new Date();

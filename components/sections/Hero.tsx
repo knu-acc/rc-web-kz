@@ -89,6 +89,7 @@ export function Hero() {
                   alt="Веб-разработка сайтов в Алматы"
                   width={600}
                   height={450}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 600px"
                   className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                   priority
                 />

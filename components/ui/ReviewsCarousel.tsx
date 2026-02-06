@@ -13,6 +13,7 @@ import Link from 'next/link'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import styles from './ReviewsCarousel.module.css'
 
 export interface ReviewImage {
   id: string
@@ -52,7 +53,7 @@ export function ReviewsCarousel({
         </div>
 
         {/* Swiper Carousel */}
-        <div className="reviews-carousel-wrapper">
+        <div className={`reviews-carousel-wrapper ${styles.wrapper}`}>
           <Swiper
             modules={[Navigation, Pagination, A11y]}
             spaceBetween={24}

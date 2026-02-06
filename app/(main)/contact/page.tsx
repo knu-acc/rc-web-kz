@@ -161,6 +161,7 @@ export default function ContactPage() {
                 alt="Контакты для заказа создания сайта в Алматы"
                 width={600}
                 height={450}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 600px"
                 className="w-full h-auto rounded-2xl shadow-2xl"
                 priority
               />

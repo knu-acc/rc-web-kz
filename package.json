@@ -9,6 +9,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "not dead"
+  ],
   "dependencies": {
     "lucide-react": "^0.563.0",
     "next": "^16.1.1",

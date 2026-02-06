@@ -5,6 +5,11 @@ import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
+interface HeaderProps {
+  /** Server-rendered logo slot for LCP (avoids waiting for client hydration) */
+  logoSlot?: React.ReactNode
+}
+
 const navLinks = [
   { href: '/', label: 'Главная' },
   {
@@ -26,7 +31,7 @@ const navLinks = [
   { href: '/contact', label: 'Контакты' },
 ]
 
-export function Header() {
+export function Header({ logoSlot }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -65,16 +70,18 @@ export function Header() {
     >
       <nav className="container-custom">
         <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="relative group"
-            aria-label="Главная страница"
-          >
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent">
-              {SITE_CONFIG.name}
-            </span>
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-violet-500 transition-all duration-300 group-hover:w-full" />
-          </Link>
+          {logoSlot ?? (
+            <Link
+              href="/"
+              className="relative group"
+              aria-label="Главная страница"
+            >
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent">
+                {SITE_CONFIG.name}
+              </span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-violet-500 transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link, idx) => {

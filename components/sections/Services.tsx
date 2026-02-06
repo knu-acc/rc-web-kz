@@ -68,7 +68,7 @@ export function Services() {
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-200 text-sm font-medium mb-4">
             Услуги
           </span>
           <h2 className="heading-lg mb-6 text-white">

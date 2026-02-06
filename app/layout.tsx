@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
+import { HeaderLogo } from '@/components/layout/HeaderLogo'
 import { Footer } from '@/components/layout/Footer'
 import { Analytics } from '@/lib/analytics'
 import { SITE_CONFIG } from '@/lib/constants'
@@ -107,7 +108,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider>
-          <Header />
+          <Header logoSlot={<HeaderLogo />} />
           <main>{children}</main>
           <Footer />
 

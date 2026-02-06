@@ -32,7 +32,7 @@ export function Footer() {
                 {SITE_CONFIG.name}
               </span>
             </Link>
-            <p className="text-secondary-400 mb-6 leading-relaxed">
+            <p className="text-secondary-300 mb-6 leading-relaxed">
               Создаём современные веб-сайты для бизнеса в Алматы.
               Уникальный дизайн, быстрая загрузка, SEO-оптимизация.
             </p>
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-white transition-colors"
+                    className="text-secondary-300 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-white transition-colors"
+                    className="text-secondary-300 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -99,7 +99,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${SITE_CONFIG.phone}`}
-                  className="flex items-center gap-3 text-secondary-400 hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-secondary-300 hover:text-white transition-colors"
                   itemProp="telephone"
                 >
                   <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
@@ -113,7 +113,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-3 text-secondary-400 hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-secondary-300 hover:text-white transition-colors"
                   itemProp="email"
                 >
                   <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
@@ -124,7 +124,7 @@ export function Footer() {
                   {SITE_CONFIG.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-secondary-400" itemScope itemType="https://schema.org/PostalAddress">
+              <li className="flex items-start gap-3 text-secondary-300" itemScope itemType="https://schema.org/PostalAddress">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -133,7 +133,7 @@ export function Footer() {
                 </div>
                 <span itemProp="addressLocality">{SITE_CONFIG.address.addressLocality}</span>, <span itemProp="addressCountry">{SITE_CONFIG.address.addressCountry}</span>
               </li>
-              <li className="flex items-center gap-3 text-secondary-400">
+              <li className="flex items-center gap-3 text-secondary-300">
                 <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -147,10 +147,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-secondary-500 text-sm">
+          <p className="text-secondary-400 text-sm">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. Все права защищены.
           </p>
-          <p className="text-secondary-500 text-sm">
+          <p className="text-secondary-400 text-sm">
             Разработка сайтов в Алматы
           </p>
         </div>
