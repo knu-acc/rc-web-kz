@@ -37,18 +37,18 @@ export function ReviewsCarousel({
   className = '',
 }: ReviewsCarouselProps) {
   return (
-    <section className={`section bg-secondary-50 ${className}`}>
+    <section className={`section bg-secondary-50 dark:bg-secondary-900 ${className}`}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Отзывы
           </span>
           <h2 className="heading-lg mb-6">
             {title.split(' ').slice(0, -1).join(' ')}{' '}
             <span className="gradient-text">{title.split(' ').slice(-1)}</span>
           </h2>
-          <p className="text-lg text-secondary-600">{subtitle}</p>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300">{subtitle}</p>
         </div>
 
         {/* Swiper Carousel */}
@@ -83,7 +83,7 @@ export function ReviewsCarousel({
           >
             {reviews.map((review) => (
               <SwiperSlide key={review.id}>
-                <article className="group relative bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
+                <article className="group relative bg-white dark:bg-secondary-950 rounded-2xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <Image
                       src={review.image}
@@ -92,7 +92,6 @@ export function ReviewsCarousel({
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       loading="lazy"
-                      unoptimized
                     />
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -135,62 +134,6 @@ export function ReviewsCarousel({
           </div>
         )}
       </div>
-
-      {/* Custom Swiper Styles */}
-      <style jsx global>{`
-        .reviews-carousel-wrapper .swiper-button-prev,
-        .reviews-carousel-wrapper .swiper-button-next {
-          width: 48px;
-          height: 48px;
-          background: white;
-          border-radius: 50%;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          transition: all 0.2s ease;
-        }
-
-        .reviews-carousel-wrapper .swiper-button-prev:hover,
-        .reviews-carousel-wrapper .swiper-button-next:hover {
-          background: #6366f1;
-          transform: scale(1.1);
-        }
-
-        .reviews-carousel-wrapper .swiper-button-prev::after,
-        .reviews-carousel-wrapper .swiper-button-next::after {
-          font-size: 18px;
-          font-weight: bold;
-          color: #1e293b;
-          transition: color 0.2s ease;
-        }
-
-        .reviews-carousel-wrapper .swiper-button-prev:hover::after,
-        .reviews-carousel-wrapper .swiper-button-next:hover::after {
-          color: white;
-        }
-
-        .reviews-carousel-wrapper .swiper-button-disabled {
-          opacity: 0.35;
-        }
-
-        .reviews-carousel-wrapper .swiper-pagination-bullet {
-          width: 10px;
-          height: 10px;
-          background: #cbd5e1;
-          opacity: 1;
-          transition: all 0.2s ease;
-        }
-
-        .reviews-carousel-wrapper .swiper-pagination-bullet-active {
-          background: #6366f1;
-          transform: scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-          .reviews-carousel-wrapper .swiper-button-prev,
-          .reviews-carousel-wrapper .swiper-button-next {
-            display: none;
-          }
-        }
-      `}</style>
     </section>
   )
 }

@@ -3,8 +3,6 @@
  * Displays available services in a Bento Grid layout
  * Featured service gets larger card with background image
  */
-'use client'
-
 import Image from 'next/image'
 import { SOCIAL_LINKS } from '@/lib/constants'
 
@@ -33,7 +31,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
-    gradient: 'from-cyan-500 to-blue-600',
+    gradient: 'from-cyan-500 to-teal-600',
     featured: true,
   },
   {
@@ -53,7 +51,7 @@ const services = [
     id: 4,
     title: 'Tilda / Конструктор',
     description: 'Быстрые решения на популярных платформах',
-    price: 'от 160 тыс ₸ и выше',
+    price: 'от 120 тыс ₸ и выше',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
@@ -66,7 +64,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="section bg-secondary-900 text-white relative">
+    <section id="services" className="section bg-secondary-900 dark:bg-black text-white relative">
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -77,7 +75,7 @@ export function Services() {
             Создание сайтов <span className="gradient-text">любой сложности</span>
           </h2>
           <p className="text-lg text-white/80">
-            Выберите подходящий тип сайта для вашего бизнеса. 
+            Выберите подходящий тип сайта для вашего бизнеса.
             Каждый проект включает адаптивный дизайн, SEO-оптимизацию и техподдержку.
           </p>
         </div>
@@ -87,11 +85,10 @@ export function Services() {
           {services.map((service) => (
             <div
               key={service.id}
-              className={`group relative rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 ${
-                service.featured 
+              className={`group relative rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 ${service.featured
                   ? 'md:col-span-2 lg:row-span-2 overflow-hidden'
-                  : 'bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg text-white'
-              }`}
+                  : 'bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 hover:shadow-2xl text-white'
+                }`}
             >
               {/* Featured card background */}
               {service.featured && (
@@ -103,16 +100,15 @@ export function Services() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/95 via-blue-600/90 to-blue-700/95" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/95 via-teal-600/90 to-teal-700/95" />
                 </div>
               )}
 
               {/* Service icon */}
-              <div className={`mb-6 ${
-                service.featured 
-                  ? 'w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-white' 
+              <div className={`mb-6 transition-transform duration-300 group-hover:scale-110 ${service.featured
+                  ? 'w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-white'
                   : 'w-14 h-14 rounded-2xl bg-gradient-to-br ' + service.gradient + ' text-white flex items-center justify-center'
-              }`}>
+                }`}>
                 {service.icon}
               </div>
 
@@ -133,11 +129,10 @@ export function Services() {
               <div className={`mt-6 ${service.featured ? 'relative z-10' : ''}`}>
                 <a
                   href={SOCIAL_LINKS.whatsapp}
-                  className={`inline-flex items-center gap-2 font-semibold transition-all ${
-                    service.featured 
-                      ? 'px-6 py-3 bg-white text-blue-600 rounded-xl hover:bg-white/90 hover:shadow-lg' 
+                  className={`inline-flex items-center gap-2 font-semibold transition-all ${service.featured
+                      ? 'px-6 py-3 bg-white text-primary-600 rounded-xl hover:bg-white/90 hover:shadow-lg'
                       : 'text-white hover:gap-4 hover:text-secondary-300'
-                  }`}
+                    }`}
                 >
                   Заказать
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,10 +150,14 @@ export function Services() {
 
               {/* Hover glow for non-featured cards */}
               {!service.featured && (
-                <div 
-                  className={`absolute inset-0 rounded-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-10 -z-10 blur-xl bg-gradient-to-br ${service.gradient}`} 
-                  style={{ transform: 'scale(0.95)' }} 
-                />
+                <>
+                  <div
+                    className={`absolute inset-0 rounded-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-15 -z-10 blur-xl bg-gradient-to-br ${service.gradient}`}
+                    style={{ transform: 'scale(0.95)' }}
+                  />
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 -z-10`} />
+                </>
               )}
             </div>
           ))}

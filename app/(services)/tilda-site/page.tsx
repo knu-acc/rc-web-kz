@@ -1,13 +1,15 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQPageSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
 
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
+
 export const metadata: Metadata = {
-  title: 'Сайт на Tilda в Алматы | Создание сайта на Тильде от 160 тыс ₸ и выше | RC-WEB',
+  title: 'Сайт на Tilda в Алматы | Создание сайта на Тильде от 120 тыс ₸ и выше | RC-WEB',
   description: 'Профессиональное создание сайтов на конструкторе Tilda в Алматы. Быстро, красиво, с возможностью самостоятельного редактирования. Landing page, интернет-магазины, портфолио на Tilda. Срок 2-5 дней.',
   keywords: [
     'сайт на tilda Алматы',
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     'landing page tilda',
   ],
   openGraph: {
-    title: 'Сайт на Tilda в Алматы | Создание сайта на Тильде от 160 тыс ₸ и выше',
+    title: 'Сайт на Tilda в Алматы | Создание сайта на Тильде от 120 тыс ₸ и выше',
     description: 'Профессиональное создание сайтов на конструкторе Tilda в Алматы. Быстро и красиво.',
     url: `${SITE_CONFIG.url}/tilda-site`,
     images: [{ url: `${SITE_CONFIG.url}/img/slider.png`, width: 1200, height: 630, alt: 'Сайт на Tilda разработка в Алматы' }],
@@ -39,7 +41,7 @@ const faqItems = [
   {
     id: '2',
     question: 'Сколько стоит сайт на Tilda?',
-    answer: 'Стоимость разработки сайта на Tilda начинается от 160 тыс тенге и выше. Цена зависит от количества страниц, сложности дизайна и дополнительного функционала. В стоимость входит настройка всех блоков, адаптация под мобильные и базовая SEO-оптимизация.',
+    answer: 'Стоимость разработки сайта на Tilda начинается от 120 тыс тенге и выше. Цена зависит от количества страниц, сложности дизайна и дополнительного функционала. В стоимость входит настройка всех блоков, адаптация под мобильные и базовая SEO-оптимизация.',
   },
   {
     id: '3',
@@ -107,7 +109,7 @@ const advantages = [
     ),
     title: 'Адаптивность',
     description: 'Автоматическая адаптация под мобильные устройства. Сайт отлично выглядит на любом экране.',
-    gradient: 'from-blue-500 to-cyan-600',
+    gradient: 'from-orange-500 to-amber-600',
   },
   {
     icon: (
@@ -135,14 +137,14 @@ const siteTypes = [
   {
     title: 'Landing Page',
     description: 'Одностраничный сайт для рекламы и привлечения клиентов',
-    price: 'от 160 тыс ₸ и выше',
+    price: 'от 120 тыс ₸ и выше',
     duration: '2-3 дня',
     features: ['1 страница', 'До 15 блоков', 'Форма заявки', 'Мобильная версия'],
   },
   {
     title: 'Сайт-визитка',
     description: 'Небольшой сайт с основной информацией о компании',
-    price: 'от 160 тыс ₸ и выше',
+    price: 'от 120 тыс ₸ и выше',
     duration: '3-4 дня',
     features: ['3-5 страниц', 'О компании', 'Услуги', 'Контакты'],
     popular: true,
@@ -150,7 +152,7 @@ const siteTypes = [
   {
     title: 'Интернет-магазин',
     description: 'Магазин с каталогом товаров и корзиной',
-    price: 'от 160 тыс ₸ и выше',
+    price: 'от 120 тыс ₸ и выше',
     duration: '5-7 дней',
     features: ['Каталог товаров', 'Корзина', 'Оплата онлайн', 'До 100 товаров'],
   },
@@ -212,7 +214,10 @@ export default function TildaSitePage() {
       <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
+          {/* Animated gradient orbs */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -227,15 +232,15 @@ export default function TildaSitePage() {
                 Сайт на Tilda в Алматы
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-900">
+              <h1 className="heading-xl text-secondary-900 dark:text-white">
                 <span className="block">Красивые сайты</span>
-                <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">на конструкторе Tilda</span>
-                <span className="block text-secondary-700 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
+                <span className="gradient-text">на конструкторе Tilda</span>
+                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
                   быстро и выгодно
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Создаём профессиональные сайты на Tilda с возможностью самостоятельного редактирования. 
                 Быстрая разработка, современный дизайн, удобная админка. Идеально для малого бизнеса и стартапов.
               </p>
@@ -251,17 +256,17 @@ export default function TildaSitePage() {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 pt-4">
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-xl p-4 border border-orange-200 hover:border-orange-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent mb-1">2-5</div>
-                  <p className="text-sm font-semibold text-orange-700">Дней</p>
+                <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-1">2-5</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Дней</p>
                 </div>
-                <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-xl p-4 border border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-amber-700 bg-clip-text text-transparent mb-1">450+</div>
+                <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-1">450+</div>
                   <p className="text-sm font-semibold text-amber-700">Блоков</p>
                 </div>
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-xl p-4 border border-orange-200 hover:border-orange-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent mb-1">Сами</div>
-                  <p className="text-sm font-semibold text-orange-700">Редактируете</p>
+                <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-1">Сами</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Редактируете</p>
                 </div>
               </div>
             </div>
@@ -269,17 +274,18 @@ export default function TildaSitePage() {
             {/* Right: Featured image */}
             <div className="relative lg:h-[600px] animate-in">
               <div className="relative z-10">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-amber-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800"
                     alt="Сайт на Tilda разработка в Алматы - пример работы"
                     width={600}
                     height={450}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
 
                 {/* Floating card: Tilda */}
@@ -289,7 +295,7 @@ export default function TildaSitePage() {
                       <span className="text-white font-bold text-lg">T</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-secondary-900">Tilda Publishing</p>
+                      <p className="font-semibold text-secondary-900 dark:text-white">Tilda Publishing</p>
                       <p className="text-sm text-secondary-500">Конструктор сайтов</p>
                     </div>
                   </div>
@@ -304,7 +310,7 @@ export default function TildaSitePage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-semibold text-secondary-900">Редактирование</p>
+                      <p className="font-semibold text-secondary-900 dark:text-white">Редактирование</p>
                       <p className="text-sm text-secondary-500">Без программиста</p>
                     </div>
                   </div>
@@ -316,24 +322,24 @@ export default function TildaSitePage() {
       </section>
 
       {/* Tilda Blocks Gallery */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Возможности Tilda
             </span>
             <h2 className="heading-lg mb-6">
               450+ готовых <span className="gradient-text">блоков</span> для вашего сайта
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Tilda предлагает сотни готовых блоков с красивым дизайном. Мы собираем из них уникальный сайт 
-              специально для вашего бизнеса.
+              специально для вашего бизнеса. Узнайте больше о <Link href="/blog/kak-vybrat-cms" className="text-primary-600 hover:underline font-semibold">выборе CMS</Link> и сравнении Tilda с другими платформами в нашем блоге.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {tildaBlocks.map((block, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100">
+              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <Image
                   src={block.image}
                   alt={block.alt}
@@ -343,8 +349,8 @@ export default function TildaSitePage() {
                   loading="lazy"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/20 to-transparent" />
-                <div className="absolute bottom-4 left-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/90 via-secondary-900/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <span className="text-white font-semibold text-lg">{block.name}</span>
                 </div>
               </div>
@@ -357,7 +363,7 @@ export default function TildaSitePage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -373,13 +379,15 @@ export default function TildaSitePage() {
             {advantages.map((advantage, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5`}>
+                {/* Gradient glow on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
                   {advantage.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{advantage.title}</h3>
-                <p className="text-white/70 leading-relaxed">{advantage.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{advantage.title}</h3>
+                <p className="text-white/70 leading-relaxed relative z-10">{advantage.description}</p>
               </div>
             ))}
           </div>
@@ -387,21 +395,21 @@ export default function TildaSitePage() {
       </section>
 
       {/* What is Tilda */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
                 О платформе
               </span>
               <h2 className="heading-lg mb-6">Что такое Tilda?</h2>
-              <p className="text-lg text-secondary-600 mb-4 leading-relaxed">
+              <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-4 leading-relaxed">
                 <strong>Tilda Publishing</strong> — это визуальный конструктор сайтов, который позволяет создавать 
                 красивые современные сайты из готовых блоков. В отличие от{' '}
                 <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">обычной разработки</Link>, 
                 Tilda не требует программирования и позволяет самостоятельно редактировать контент.
               </p>
-              <p className="text-lg text-secondary-600 mb-6 leading-relaxed">
+              <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-6 leading-relaxed">
                 Мы профессионально настраиваем Tilda-сайты: подбираем блоки, адаптируем дизайн под ваш бренд, 
                 настраиваем формы и интеграции. После создания вы сможете самостоятельно вносить изменения.
               </p>
@@ -410,25 +418,25 @@ export default function TildaSitePage() {
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">450+ готовых блоков с современным дизайном</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">450+ готовых блоков с современным дизайном</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">Простое редактирование без программиста</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">Простое редактирование без программиста</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">Автоматическая адаптация под мобильные</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">Автоматическая адаптация под мобильные</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">Встроенные формы, CRM, e-commerce функционал</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">Встроенные формы, CRM, e-commerce функционал</p>
                 </div>
               </div>
             </div>
@@ -443,7 +451,7 @@ export default function TildaSitePage() {
                 unoptimized
               />
               <div className="absolute -bottom-4 -right-4 bg-primary-600 text-white rounded-2xl p-4 shadow-lg">
-                <div className="text-2xl font-bold">от 160 тыс ₸</div>
+                <div className="text-2xl font-bold">от 120 тыс ₸</div>
                 <p className="text-sm text-white/80">от стоимости</p>
               </div>
             </div>
@@ -452,16 +460,16 @@ export default function TildaSitePage() {
       </section>
 
       {/* Process Section */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Процесс работы
             </span>
             <h2 className="heading-lg mb-6">
               Как мы создаём <span className="gradient-text">сайты на Tilda</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Прозрачный процесс разработки с чёткими этапами и сроками. Вы всегда в курсе, на каком этапе находится ваш проект.
             </p>
           </div>
@@ -470,8 +478,8 @@ export default function TildaSitePage() {
             {processSteps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-6xl font-bold text-primary-100 mb-4">{step.step}</div>
-                <h3 className="text-xl font-bold text-secondary-900 mb-3">{step.title}</h3>
-                <p className="text-secondary-600 leading-relaxed">{step.description}</p>
+                <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-3">{step.title}</h3>
+                <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{step.description}</p>
                 {index < processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary-200 to-transparent" />
                 )}
@@ -482,16 +490,16 @@ export default function TildaSitePage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Тарифы
             </span>
             <h2 className="heading-lg mb-6">
               Цены на <span className="gradient-text">сайты на Tilda</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Выберите подходящий тип сайта. Все варианты включают адаптивный дизайн и обучение по работе с Tilda.
             </p>
           </div>
@@ -500,10 +508,10 @@ export default function TildaSitePage() {
             {siteTypes.map((type, index) => (
               <div
                 key={index}
-                className={`relative rounded-3xl bg-white p-8 transition-all duration-300 hover:-translate-y-1 ${
+                className={`relative rounded-3xl bg-white dark:bg-secondary-900 p-8 transition-all duration-300 hover:-translate-y-1 ${
                   type.popular
                     ? 'border-2 border-primary-500 shadow-xl'
-                    : 'border border-secondary-200 hover:border-primary-300 hover:shadow-lg'
+                    : 'border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-lg'
                 }`}
               >
                 {type.popular && (
@@ -511,13 +519,13 @@ export default function TildaSitePage() {
                     Популярный
                   </div>
                 )}
-                <h3 className="text-2xl font-bold text-secondary-900 mb-2">{type.title}</h3>
-                <p className="text-secondary-600 mb-4">{type.description}</p>
+                <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-2">{type.title}</h3>
+                <p className="text-secondary-600 dark:text-secondary-300 mb-4">{type.description}</p>
                 <div className="text-3xl font-bold text-primary-600 mb-2">{type.price}</div>
                 <p className="text-sm text-secondary-500 mb-6">Срок: {type.duration}</p>
                 <ul className="space-y-3 mb-8">
                   {type.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-secondary-600">
+                    <li key={idx} className="flex items-start gap-2 text-secondary-600 dark:text-secondary-300">
                       <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
@@ -541,7 +549,7 @@ export default function TildaSitePage() {
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Сравнение
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -569,7 +577,7 @@ export default function TildaSitePage() {
                   <svg className="w-6 h-6 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-white/80">Стоимость от 160 тыс ₸ и выше</span>
+                  <span className="text-white/80">Стоимость от 120 тыс ₸ и выше</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -661,20 +669,20 @@ export default function TildaSitePage() {
       />
 
       {/* FAQ Section */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
                 FAQ
               </span>
               <h2 className="heading-lg">Часто задаваемые вопросы</h2>
             </div>
             <div className="space-y-4">
               {faqItems.map((item) => (
-                <article key={item.id} className="bg-secondary-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-semibold text-secondary-900 mb-3">{item.question}</h3>
-                  <p className="text-secondary-600 leading-relaxed">{item.answer}</p>
+                <article key={item.id} className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-3">{item.question}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{item.answer}</p>
                 </article>
               ))}
             </div>
@@ -704,25 +712,25 @@ export default function TildaSitePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>
-              <p className="text-secondary-600">Одностраничные сайты</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Одностраничные сайты</p>
             </Link>
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">Разработка с нуля</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Разработка с нуля</p>
             </Link>
             <Link href="/online-store" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Интернет-магазин</h3>
-              <p className="text-secondary-600">E-commerce решения</p>
+              <p className="text-secondary-600 dark:text-secondary-300">E-commerce решения</p>
             </Link>
             <Link href="/web-design" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Веб-дизайн</h3>
-              <p className="text-secondary-600">Дизайн сайтов</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Дизайн сайтов</p>
             </Link>
           </div>
         </div>

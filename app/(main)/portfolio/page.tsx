@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { portfolioItems } from '@/data/portfolio'
@@ -6,8 +6,8 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateCollectionPageSchema, generateItemListSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Портфолио работ',
-  description: 'Портфолио выполненных работ по созданию сайтов в Алматы. Примеры корпоративных сайтов, интернет-магазинов, лендингов и сайтов на Tilda.',
+  title: 'Портфолио RC-WEB | 120+ примеров сайтов в Алматы | Наши работы',
+  description: 'Портфолио выполненных работ RC-WEB: 120+ примеров сайтов в Алматы. Корпоративные сайты, интернет-магазины, лендинги, сайты на Tilda. Посмотреть наши работы.',
   keywords: [
     'портфолио сайтов Алматы',
     'примеры сайтов Алматы',
@@ -56,7 +56,7 @@ export default function PortfolioPage() {
       />
       
       {/* Hero Section with proper top padding */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 via-white to-violet-50 relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 via-white to-violet-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200/30 rounded-full blur-3xl" />
@@ -67,16 +67,16 @@ export default function PortfolioPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6">
               {/* Badge */}
-              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 Портфолио
               </span>
               
               {/* Title - smaller size */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white leading-tight">
                 Примеры <span className="gradient-text">выполненных работ</span>
               </h1>
               
-              <p className="text-lg text-secondary-600 leading-relaxed max-w-lg">
+              <p className="text-lg text-secondary-600 dark:text-secondary-300 leading-relaxed max-w-lg">
                 Создание сайтов в Алматы - полное портфолио проектов. Каждый сайт уникален и создан под задачи клиента.
               </p>
               
@@ -123,7 +123,7 @@ export default function PortfolioPage() {
             {portfolioItems.map((item) => (
               <article 
                 key={item.id} 
-                className="group bg-white rounded-2xl border border-secondary-100 overflow-hidden hover:shadow-xl hover:border-primary-200 transition-all duration-300 flex flex-col h-full"
+                className="group bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-100 dark:border-secondary-800 overflow-hidden hover:shadow-xl hover:border-primary-200 transition-all duration-300 flex flex-col h-full"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -139,9 +139,9 @@ export default function PortfolioPage() {
                 
                 {/* Content - flex-grow to push button down */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <span className="text-secondary-800 text-sm font-medium mb-2">{item.category}</span>
-                  <h3 className="text-xl font-bold text-secondary-900 mb-2">{item.title}</h3>
-                  <p className="text-secondary-600 mb-6 flex-grow">{item.description}</p>
+                  <span className="text-secondary-800 dark:text-secondary-200 text-sm font-medium mb-2">{item.category}</span>
+                  <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{item.title}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-6 flex-grow">{item.description}</p>
                   
                   {/* Button aligned to bottom */}
                   <a

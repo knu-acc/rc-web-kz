@@ -1,10 +1,13 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
+const PriceCalculator = dynamic(() => import('@/components/ui/PriceCalculator').then(mod => ({ default: mod.PriceCalculator })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Цены на создание сайта в Алматы | Стоимость разработки сайтов',
@@ -53,7 +56,7 @@ const prices = [
   },
   { 
     name: 'Сайт на Tilda', 
-    price: 'от 160 тыс ₸ и выше', 
+    price: 'от 120 тыс ₸ и выше', 
     description: 'Быстрое решение на конструкторе', 
     link: '/tilda-site',
     features: ['Готовые блоки', 'Простое управление', 'SEO-оптимизация', 'Быстрая разработка'],
@@ -176,16 +179,16 @@ export default function WebsitePricePage() {
       </section>
 
       {/* Price Cards */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Цены
             </span>
             <h2 className="heading-lg mb-6">
               Цены на <span className="gradient-text">создание сайтов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Выберите подходящий вариант для вашего проекта
             </p>
           </div>
@@ -195,25 +198,25 @@ export default function WebsitePricePage() {
               <Link 
                 key={index} 
                 href={item.link} 
-                className="group relative rounded-3xl p-6 bg-white border border-secondary-100 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-700 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-4`}>
                   <span className="text-2xl font-bold">{item.price.split(' ')[1]}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-800 mb-2">{item.price}</h3>
-                <h4 className="text-xl font-bold text-secondary-900 mb-2">{item.name}</h4>
-                <p className="text-secondary-600 mb-4">{item.description}</p>
+                <h3 className="text-2xl font-bold text-secondary-800 dark:text-secondary-100 mb-2">{item.price}</h3>
+                <h4 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{item.name}</h4>
+                <p className="text-secondary-600 dark:text-secondary-300 mb-4">{item.description}</p>
                 <ul className="space-y-2 mb-4">
                   {item.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-secondary-600">
-                      <svg className="w-4 h-4 text-secondary-800 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <li key={idx} className="flex items-start gap-2 text-sm text-secondary-600 dark:text-secondary-300">
+                      <svg className="w-4 h-4 text-secondary-800 dark:text-secondary-100 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="text-secondary-800 font-semibold group-hover:gap-3 transition-all inline-flex items-center gap-2">
+                <div className="text-secondary-800 dark:text-secondary-100 font-semibold group-hover:gap-3 transition-all inline-flex items-center gap-2">
                   Подробнее
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -257,52 +260,63 @@ export default function WebsitePricePage() {
         </div>
       </section>
 
+      {/* Price Calculator */}
+      <section className="section bg-gradient-to-b from-white via-secondary-50/30 to-white dark:from-secondary-950 dark:via-secondary-900/30 dark:to-secondary-950">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">Рассчитайте стоимость вашего сайта</h2>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Выберите параметры и узнайте примерную стоимость</p>
+          </div>
+          <PriceCalculator />
+        </div>
+      </section>
+
       {/* Comparison Table */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Сравнительная таблица услуг</h2>
-            <p className="text-lg text-secondary-600">Сравните услуги и выберите подходящий вариант</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Сравните услуги и выберите подходящий вариант</p>
           </div>
           <div className="max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-secondary-50">
-                  <th className="border border-secondary-200 p-4 text-left font-bold text-secondary-900">Услуга</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Landing Page</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Корпоративный</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Интернет-магазин</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Tilda</th>
+                <tr className="bg-secondary-50 dark:bg-secondary-800">
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-left font-bold text-secondary-900 dark:text-white">Услуга</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Landing Page</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Корпоративный</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Интернет-магазин</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Tilda</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Количество страниц</td>
-                  <td className="border border-secondary-200 p-4 text-center">1</td>
-                  <td className="border border-secondary-200 p-4 text-center">3-10+</td>
-                  <td className="border border-secondary-200 p-4 text-center">5-20+</td>
-                  <td className="border border-secondary-200 p-4 text-center">1-5</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Количество страниц</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">1</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">3-10+</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">5-20+</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">1-5</td>
                 </tr>
-                <tr className="bg-secondary-50">
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Срок разработки</td>
-                  <td className="border border-secondary-200 p-4 text-center">3-5 дней</td>
-                  <td className="border border-secondary-200 p-4 text-center">6-10 дней</td>
-                  <td className="border border-secondary-200 p-4 text-center">10-15 дней</td>
-                  <td className="border border-secondary-200 p-4 text-center">3-5 дней</td>
+                <tr className="bg-secondary-50 dark:bg-secondary-800">
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Срок разработки</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">3-5 дней</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">6-10 дней</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">10-15 дней</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">3-5 дней</td>
                 </tr>
                 <tr>
-                  <td className="border border-secondary-200 p-4 text-secondary-700">SEO-оптимизация</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">SEO-оптимизация</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
                 </tr>
-                <tr className="bg-secondary-50">
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Админ-панель</td>
-                  <td className="border border-secondary-200 p-4 text-center">—</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
-                  <td className="border border-secondary-200 p-4 text-center">✓</td>
+                <tr className="bg-secondary-50 dark:bg-secondary-800">
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Админ-панель</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">—</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">✓</td>
                 </tr>
               </tbody>
             </table>
@@ -332,25 +346,25 @@ export default function WebsitePricePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Landing Page</h3>
-              <p className="text-secondary-600">85-135 тыс ₸</p>
+              <p className="text-secondary-600 dark:text-secondary-300">85-135 тыс ₸</p>
             </Link>
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">135-195 тыс ₸</p>
+              <p className="text-secondary-600 dark:text-secondary-300">135-195 тыс ₸</p>
             </Link>
             <Link href="/online-store" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Интернет-магазин</h3>
-              <p className="text-secondary-600">175-275 тыс ₸</p>
+              <p className="text-secondary-600 dark:text-secondary-300">175-275 тыс ₸</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Сайт на Tilda</h3>
-              <p className="text-secondary-600">от 160 тыс ₸ и выше</p>
+              <p className="text-secondary-600 dark:text-secondary-300">от 120 тыс ₸ и выше</p>
             </Link>
           </div>
         </div>

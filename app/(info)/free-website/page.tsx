@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Создать сайт бесплатно | Бесплатные способы создания сайта',
@@ -177,23 +179,23 @@ export default function FreeWebsitePage() {
       </section>
 
       {/* Free Constructors */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Конструкторы
             </span>
             <h2 className="heading-lg mb-6">
               Примеры бесплатных <span className="gradient-text">конструкторов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Обзор популярных бесплатных платформ для создания сайтов
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {freeConstructors.map((constructor, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl bg-white border border-secondary-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="group relative overflow-hidden rounded-2xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={constructor.image}
@@ -206,11 +208,11 @@ export default function FreeWebsitePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-secondary-900 mb-2">{constructor.name}</h3>
-                  <p className="text-secondary-600 mb-4">{constructor.description}</p>
+                  <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{constructor.name}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-4">{constructor.description}</p>
                   <div className="space-y-2">
-                    <p className="font-semibold text-secondary-900 text-sm">Ограничения:</p>
-                    <ul className="space-y-1 text-sm text-secondary-700">
+                    <p className="font-semibold text-secondary-900 dark:text-white text-sm">Ограничения:</p>
+                    <ul className="space-y-1 text-sm text-secondary-700 dark:text-secondary-300">
                       {constructor.limitations.map((limitation, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <svg className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,25 +231,25 @@ export default function FreeWebsitePage() {
       </section>
 
       {/* Comparison Table */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Сравнение бесплатных vs платных</h2>
-            <p className="text-lg text-secondary-600">Что вы получаете в каждом случае</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Что вы получаете в каждом случае</p>
           </div>
-          <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 shadow-lg">
+          <div className="max-w-3xl mx-auto bg-white dark:bg-secondary-950 rounded-2xl p-8 shadow-lg">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-secondary-200">
-                  <th className="text-left p-4 font-bold text-secondary-900">Функция</th>
-                  <th className="text-center p-4 font-bold text-secondary-900">Бесплатно</th>
-                  <th className="text-center p-4 font-bold text-secondary-900">Платно</th>
+                <tr className="border-b border-secondary-200 dark:border-secondary-700">
+                  <th className="text-left p-4 font-bold text-secondary-900 dark:text-white">Функция</th>
+                  <th className="text-center p-4 font-bold text-secondary-900 dark:text-white">Бесплатно</th>
+                  <th className="text-center p-4 font-bold text-secondary-900 dark:text-white">Платно</th>
                 </tr>
               </thead>
               <tbody>
                 {comparison.map((item, index) => (
-                  <tr key={index} className="border-b border-secondary-100">
-                    <td className="p-4 text-secondary-700">{item.feature}</td>
+                  <tr key={index} className="border-b border-secondary-100 dark:border-secondary-800">
+                    <td className="p-4 text-secondary-700 dark:text-secondary-300">{item.feature}</td>
                     <td className="p-4 text-center">
                       {item.free ? (
                         <svg className="w-6 h-6 text-emerald-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -311,34 +313,34 @@ export default function FreeWebsitePage() {
       </section>
 
       {/* When Free Doesn't Work */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg text-center mb-8">Когда бесплатный сайт не подходит</h2>
             <div className="space-y-4">
-              <div className="bg-secondary-50 rounded-xl p-6">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-2">Низкое доверие клиентов</h3>
-                <p className="text-secondary-600">
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Субдомен (вашсайт.tilda.ws) и реклама конструктора снижают доверие к вашему бизнесу. 
                   Клиенты предпочитают сайты с собственным доменом.
                 </p>
               </div>
-              <div className="bg-secondary-50 rounded-xl p-6">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-2">Плохая SEO-оптимизация</h3>
-                <p className="text-secondary-600">
-                  Бесплатные платформы ограничивают возможности для <Link href="/seo-optimization" className="text-secondary-800 hover:underline font-semibold">SEO-оптимизации</Link>, 
+                <p className="text-secondary-600 dark:text-secondary-300">
+                  Бесплатные платформы ограничивают возможности для <Link href="/seo-optimization" className="text-secondary-800 dark:text-secondary-100 hover:underline font-semibold">SEO-оптимизации</Link>, 
                   что мешает продвижению в поисковых системах.
                 </p>
               </div>
-              <div className="bg-secondary-50 rounded-xl p-6">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-2">Ограниченная функциональность</h3>
-                <p className="text-secondary-600">
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Многие функции доступны только в платных планах. Для серьёзного бизнеса это критично.
                 </p>
               </div>
-              <div className="bg-secondary-50 rounded-xl p-6">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-2">Нет технической поддержки</h3>
-                <p className="text-secondary-600">
+                <p className="text-secondary-600 dark:text-secondary-300">
                   При проблемах вы остаётесь один на один с конструктором. Профессиональная поддержка решает проблемы быстро.
                 </p>
               </div>
@@ -369,25 +371,25 @@ export default function FreeWebsitePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Полезные статьи</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/how-to-create-website" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Как создать сайт</h3>
-              <p className="text-secondary-600">Пошаговая инструкция</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Пошаговая инструкция</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
             <Link href="/why-choose-us" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Почему выбрать нас</h3>
-              <p className="text-secondary-600">Наши преимущества</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Наши преимущества</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Сайт на Tilda</h3>
-              <p className="text-secondary-600">Быстрое решение</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Быстрое решение</p>
             </Link>
           </div>
         </div>

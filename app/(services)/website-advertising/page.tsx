@@ -1,14 +1,16 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
 
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
+
 export const metadata: Metadata = {
-  title: 'Реклама сайта в Google и Яндекс Алматы | Контекстная реклама',
-  description: 'Настройка и ведение рекламных кампаний в Google и Яндекс для сайтов в Алматы. Контекстная реклама, эффективное привлечение клиентов, оптимизация бюджета. Работаем с любыми типами сайтов.',
+  title: 'Реклама сайта в Алматы | Google Ads и Яндекс Директ - RC-WEB.KZ',
+  description: 'Настройка рекламы сайта в Алматы: Google Ads и Яндекс Директ. Контекстная реклама, привлечение клиентов, оптимизация бюджета. Заказать настройку рекламы.',
   keywords: ['реклама сайта Алматы', 'google реклама', 'яндекс реклама', 'контекстная реклама Алматы'],
   openGraph: {
     title: 'Реклама сайта в Google и Яндекс Алматы',
@@ -35,7 +37,7 @@ const adTypes = [
     ),
     title: 'Google Ads',
     description: 'Настройка поисковой и контекстно-медийной рекламы в Google. Создание объявлений, подбор ключевых слов, настройка таргетинга',
-    gradient: 'from-blue-500 to-cyan-600',
+    gradient: 'from-red-500 to-pink-600',
     logo: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200',
   },
   {
@@ -111,7 +113,10 @@ export default function WebsiteAdvertisingPage() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-red-50 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-red-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
+          {/* Animated gradient orbs */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-200/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -125,15 +130,15 @@ export default function WebsiteAdvertisingPage() {
                 Реклама сайта в Алматы
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-900">
+              <h1 className="heading-xl text-secondary-900 dark:text-white">
                 <span className="block">Контекстная реклама</span>
-                <span className="bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">Google и Яндекс</span>
-                <span className="block text-secondary-700 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
+                <span className="gradient-text">Google и Яндекс</span>
+                <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 text-secondary-700 dark:text-secondary-300">
                   быстрый результат
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Настройка и ведение рекламных кампаний в Google Ads и Яндекс.Директ для вашего сайта. Эффективное 
                 привлечение клиентов, оптимизация бюджета и увеличение продаж. Идеально для <Link href="/landing-page" className="text-red-600 hover:underline font-semibold">лендингов</Link>.
               </p>
@@ -149,17 +154,17 @@ export default function WebsiteAdvertisingPage() {
 
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 pt-4">
-                <div className="bg-gradient-to-br from-red-50 to-red-100/50 rounded-xl p-4 border border-red-200 hover:border-red-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-1">1 день</div>
-                  <p className="text-sm font-semibold text-red-700">До запуска</p>
+                <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-1">1 день</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">До запуска</p>
                 </div>
-                <div className="bg-gradient-to-br from-pink-50 to-pink-100/50 rounded-xl p-4 border border-pink-200 hover:border-pink-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-pink-700 bg-clip-text text-transparent mb-1">+300%</div>
-                  <p className="text-sm font-semibold text-pink-700">Рост трафика</p>
+                <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-1">+300%</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Рост трафика</p>
                 </div>
-                <div className="bg-gradient-to-br from-red-50 to-red-100/50 rounded-xl p-4 border border-red-200 hover:border-red-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-1">ROI 5:1</div>
-                  <p className="text-sm font-semibold text-red-700">Окупаемость</p>
+                <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-1">ROI 5:1</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Окупаемость</p>
                 </div>
               </div>
             </div>
@@ -185,23 +190,23 @@ export default function WebsiteAdvertisingPage() {
       </section>
 
       {/* Ad Types with Logos */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Типы рекламы
             </span>
             <h2 className="heading-lg mb-6">
               Реклама в <span className="gradient-text">Google и Яндекс</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Настраиваем рекламу в обеих платформах для максимального охвата аудитории
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {adTypes.map((ad, index) => (
-              <div key={index} className="group relative rounded-3xl p-8 bg-secondary-50 border border-secondary-100 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div key={index} className="group relative rounded-3xl p-8 bg-secondary-50 dark:bg-secondary-800 border border-secondary-100 dark:border-secondary-700 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-md">
                     <Image
@@ -214,10 +219,10 @@ export default function WebsiteAdvertisingPage() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-secondary-900">{ad.title}</h3>
+                    <h3 className="text-2xl font-bold text-secondary-900 dark:text-white">{ad.title}</h3>
                   </div>
                 </div>
-                <p className="text-secondary-600 leading-relaxed">{ad.description}</p>
+                <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{ad.description}</p>
               </div>
             ))}
           </div>
@@ -228,7 +233,7 @@ export default function WebsiteAdvertisingPage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -243,13 +248,15 @@ export default function WebsiteAdvertisingPage() {
             {advantages.map((advantage, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5`}>
+                {/* Gradient glow on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
                   {advantage.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{advantage.title}</h3>
-                <p className="text-white/70 leading-relaxed">
+                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{advantage.title}</h3>
+                <p className="text-white/70 leading-relaxed relative z-10">
                   {advantage.linkText ? (
                     <>
                       В отличие от <Link href={advantage.linkHref || '#'} className="text-primary-300 hover:underline font-semibold">{advantage.linkText}</Link>, {advantage.description.split(advantage.linkText)[1]}
@@ -265,23 +272,23 @@ export default function WebsiteAdvertisingPage() {
       </section>
 
       {/* Campaign Examples */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Примеры
             </span>
             <h2 className="heading-lg mb-6">
               Примеры рекламных <span className="gradient-text">кампаний</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Скриншоты настроенных рекламных кампаний для наших клиентов
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {campaignExamples.map((example, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100">
+              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100 dark:bg-secondary-800">
                 <Image
                   src={example.src}
                   alt={example.alt}
@@ -298,40 +305,40 @@ export default function WebsiteAdvertisingPage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Процесс настройки рекламы</h2>
-            <p className="text-lg text-secondary-600">Пошаговый подход к запуску рекламных кампаний</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Пошаговый подход к запуску рекламных кампаний</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">1</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Анализ</h3>
-              <p className="text-secondary-600 text-sm">Изучаем ваш бизнес и целевую аудиторию</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Изучаем ваш бизнес и целевую аудиторию</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">2</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Настройка</h3>
-              <p className="text-secondary-600 text-sm">Создаём объявления и настраиваем кампании</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Создаём объявления и настраиваем кампании</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">3</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Запуск</h3>
-              <p className="text-secondary-600 text-sm">Запускаем рекламу и отслеживаем результаты</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Запускаем рекламу и отслеживаем результаты</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">4</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Оптимизация</h3>
-              <p className="text-secondary-600 text-sm">Постоянно улучшаем эффективность кампаний</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Постоянно улучшаем эффективность кампаний</p>
             </div>
           </div>
         </div>
@@ -347,7 +354,7 @@ export default function WebsiteAdvertisingPage() {
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="heading-lg mb-4">Готовы запустить рекламу?</h2>
+          <h2 className="heading-lg mb-4 text-white">Готовы запустить рекламу?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для консультации и настройки рекламных кампаний для вашего сайта
           </p>
@@ -359,25 +366,25 @@ export default function WebsiteAdvertisingPage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>
-              <p className="text-secondary-600">Идеален для рекламы</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Идеален для рекламы</p>
             </Link>
             <Link href="/seo-optimization" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">SEO оптимизация</h3>
-              <p className="text-secondary-600">Органическое продвижение</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Органическое продвижение</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">Многостраничные решения</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Многостраничные решения</p>
             </Link>
           </div>
         </div>

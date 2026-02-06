@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Курсы программирования в Алматы | Обучение созданию сайтов',
@@ -172,7 +174,7 @@ export default function ProgrammingCoursesPage() {
       </section>
 
       {/* Courses Programs */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -181,7 +183,7 @@ export default function ProgrammingCoursesPage() {
             <h2 className="heading-lg mb-6">
               Программы <span className="gradient-text">обучения</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Выберите подходящий курс для вашего уровня
             </p>
           </div>
@@ -199,16 +201,16 @@ export default function ProgrammingCoursesPage() {
                     unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur text-secondary-900 font-semibold text-sm">
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur text-secondary-900 dark:text-white font-semibold text-sm">
                     {course.duration}
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-secondary-900 mb-3">{course.title}</h3>
-                  <p className="text-secondary-600 mb-4">{course.description}</p>
+                  <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-3">{course.title}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-4">{course.description}</p>
                   <ul className="space-y-2">
                     {course.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-secondary-700">
+                      <li key={idx} className="flex items-start gap-2 text-secondary-700 dark:text-secondary-300">
                         <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -256,7 +258,7 @@ export default function ProgrammingCoursesPage() {
       </section>
 
       {/* Student Works Gallery */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -265,7 +267,7 @@ export default function ProgrammingCoursesPage() {
             <h2 className="heading-lg mb-6">
               Примеры работ <span className="gradient-text">студентов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Сайты, созданные нашими студентами во время обучения
             </p>
           </div>
@@ -289,26 +291,26 @@ export default function ProgrammingCoursesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
-              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Нужны ли начальные знания?</h3>
-                <p className="text-secondary-600">
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Нужны ли начальные знания?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Нет, наши курсы рассчитаны на новичков. Мы начинаем с основ и постепенно переходим к более сложным темам.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Сколько длится обучение?</h3>
-                <p className="text-secondary-600">
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько длится обучение?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Продолжительность зависит от выбранного курса: базовый курс — 2 месяца, курс по Tilda — 1 месяц.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Выдаётся ли сертификат?</h3>
-                <p className="text-secondary-600">
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Выдаётся ли сертификат?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Да, после успешного завершения курса вы получаете сертификат о прохождении обучения.
                 </p>
               </div>
@@ -339,25 +341,25 @@ export default function ProgrammingCoursesPage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/how-to-create-website" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Как создать сайт</h3>
-              <p className="text-secondary-600">Пошаговая инструкция</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Пошаговая инструкция</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Сайт на Tilda</h3>
-              <p className="text-secondary-600">Быстрое решение</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Быстрое решение</p>
             </Link>
             <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Контакты</h3>
-              <p className="text-secondary-600">Свяжитесь с нами</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Свяжитесь с нами</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
           </div>
         </div>

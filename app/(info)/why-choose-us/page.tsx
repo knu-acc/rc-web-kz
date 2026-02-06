@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Почему выбрать нас | Преимущества RC-WEB создание сайтов Алматы',
@@ -231,7 +233,7 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -240,7 +242,7 @@ export default function WhyChooseUsPage() {
             <h2 className="heading-lg mb-6">
               Наши <span className="gradient-text">достижения</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Цифры, которые говорят сами за себя
             </p>
           </div>
@@ -248,8 +250,8 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-secondary-800 mb-3">{stat.value}</div>
-                <p className="text-lg text-secondary-600">{stat.label}</p>
+                <div className="text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-3">{stat.value}</div>
+                <p className="text-lg text-secondary-600 dark:text-secondary-300">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -257,20 +259,20 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Процесс работы</h2>
-            <p className="text-lg text-secondary-600">Как мы работаем с клиентами</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Как мы работаем с клиентами</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-secondary-800">{step.step}</span>
+                <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-secondary-600 text-sm">{step.description}</p>
+                <p className="text-secondary-600 dark:text-secondary-300 text-sm">{step.description}</p>
               </div>
             ))}
           </div>
@@ -278,7 +280,7 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Reviews Preview */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -287,7 +289,7 @@ export default function WhyChooseUsPage() {
             <h2 className="heading-lg mb-6">
               Отзывы <span className="gradient-text">клиентов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Что говорят о нас наши клиенты
             </p>
           </div>
@@ -306,8 +308,8 @@ export default function WhyChooseUsPage() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-secondary-700 mb-3">"{review.text}"</p>
-                <p className="font-bold text-secondary-900">{review.name}</p>
+                <p className="text-secondary-700 dark:text-secondary-300 mb-3">"{review.text}"</p>
+                <p className="font-bold text-secondary-900 dark:text-white">{review.name}</p>
               </div>
             ))}
           </div>
@@ -345,25 +347,25 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные страницы</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/reviews" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Отзывы</h3>
-              <p className="text-secondary-600">Отзывы наших клиентов</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Отзывы</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Отзывы наших клиентов</p>
             </Link>
             <Link href="/portfolio" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Портфолио</h3>
-              <p className="text-secondary-600">Примеры наших работ</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Портфолио</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Примеры наших работ</p>
             </Link>
             <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Контакты</h3>
-              <p className="text-secondary-600">Свяжитесь с нами</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Контакты</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Свяжитесь с нами</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Цены</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
           </div>
         </div>

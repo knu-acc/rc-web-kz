@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Как опубликовать сайт в интернете | Добавить сайт в Google и Яндекс',
@@ -141,7 +143,7 @@ export default function PublishWebsitePage() {
       </section>
 
       {/* Visual Steps */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -150,7 +152,7 @@ export default function PublishWebsitePage() {
             <h2 className="heading-lg mb-6">
               Шаги <span className="gradient-text">публикации сайта</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Визуальная инструкция с примерами скриншотов
             </p>
           </div>
@@ -174,8 +176,8 @@ export default function PublishWebsitePage() {
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 font-bold text-xl mb-4">
                     {step.step}
                   </div>
-                  <h3 className="text-2xl font-bold text-secondary-900 mb-3">{step.title}</h3>
-                  <p className="text-secondary-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-3">{step.title}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -184,21 +186,21 @@ export default function PublishWebsitePage() {
       </section>
 
       {/* Checklist */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="heading-lg mb-4">Чеклист публикации</h2>
-              <p className="text-lg text-secondary-600">Убедитесь, что всё готово к публикации</p>
+              <p className="text-lg text-secondary-600 dark:text-secondary-300">Убедитесь, что всё готово к публикации</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-white dark:bg-secondary-950 rounded-2xl p-8 shadow-lg">
               <div className="space-y-4">
                 {checklist.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <p className="text-secondary-700 text-lg">{item}</p>
+                    <p className="text-secondary-700 dark:text-secondary-300 text-lg">{item}</p>
                   </div>
                 ))}
               </div>
@@ -208,26 +210,26 @@ export default function PublishWebsitePage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
-              <div className="bg-secondary-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Сколько времени занимает индексация сайта?</h3>
-                <p className="text-secondary-600">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько времени занимает индексация сайта?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Обычно Google индексирует сайт в течение 1-2 недель, Яндекс — 2-4 недели. После добавления sitemap.xml процесс ускоряется.
                 </p>
               </div>
-              <div className="bg-secondary-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Нужен ли SSL сертификат?</h3>
-                <p className="text-secondary-600">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Нужен ли SSL сертификат?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Да, SSL сертификат обязателен. Он обеспечивает безопасное соединение (HTTPS) и влияет на ранжирование в поисковых системах.
                 </p>
               </div>
-              <div className="bg-secondary-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Что делать, если сайт не индексируется?</h3>
-                <p className="text-secondary-600">
+              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Что делать, если сайт не индексируется?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
                   Проверьте robots.txt, убедитесь что сайт доступен для поисковых роботов, проверьте наличие sitemap.xml и правильность его структуры.
                 </p>
               </div>
@@ -259,25 +261,25 @@ export default function PublishWebsitePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Полезные статьи</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/how-to-create-website" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Как создать сайт</h3>
-              <p className="text-secondary-600">Пошаговая инструкция</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Пошаговая инструкция</p>
             </Link>
             <Link href="/seo-optimization" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">SEO оптимизация</h3>
-              <p className="text-secondary-600">Продвижение в поисковиках</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Продвижение в поисковиках</p>
             </Link>
             <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Контакты</h3>
-              <p className="text-secondary-600">Свяжитесь с нами</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Свяжитесь с нами</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
           </div>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/Hero'
 import { Services } from '@/components/sections/Services'
+import { Stats } from '@/components/sections/Stats'
 import { SITE_CONFIG } from '@/lib/constants'
 import { generateFAQPageSchema } from '@/lib/schema'
 import { faqItems } from '@/data/faq'
@@ -13,28 +14,35 @@ const Benefits = dynamic(() => import('@/components/sections/Benefits').then(mod
 const Portfolio = dynamic(() => import('@/components/sections/Portfolio').then(mod => ({ default: mod.Portfolio })), {
   loading: () => null,
 })
+const BlogPreview = dynamic(() => import('@/components/sections/BlogPreview').then(mod => ({ default: mod.BlogPreview })), {
+  loading: () => null,
+})
 const FAQ = dynamic(() => import('@/components/sections/FAQ').then(mod => ({ default: mod.FAQ })), {
   loading: () => null,
 })
 
 export const metadata: Metadata = {
-  title: 'Создание сайтов в Алматы | Веб-разработка под ключ',
-  description: 'Профессиональная разработка современных веб-сайтов в Алматы. Landing page, корпоративные сайты, интернет-магазины. Уникальный дизайн, SEO-оптимизация, быстрая загрузка.',
+  title: SITE_CONFIG.title,
+  description: SITE_CONFIG.description,
   keywords: [
     'создание сайтов Алматы',
-    'разработка сайтов',
+    'разработка сайтов Алматы',
     'веб-разработка',
     'landing page',
     'корпоративный сайт',
     'интернет-магазин',
+    'заказать сайт Алматы',
+    'сайт под ключ Алматы',
+    'веб-студия Алматы',
   ],
   alternates: {
     canonical: SITE_CONFIG.url,
   },
   openGraph: {
-    title: 'Создание сайтов в Алматы | Веб-разработка под ключ',
-    description: 'Профессиональная разработка современных веб-сайтов в Алматы',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     images: [
       {
         url: `${SITE_CONFIG.url}/img/slider4.png`,
@@ -43,11 +51,13 @@ export const metadata: Metadata = {
         alt: 'Создание сайтов в Алматы',
       },
     ],
+    locale: 'ru_RU',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Создание сайтов в Алматы | Веб-разработка под ключ',
-    description: 'Профессиональная разработка современных веб-сайтов в Алматы',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     images: [`${SITE_CONFIG.url}/img/slider4.png`],
   },
 }
@@ -59,9 +69,11 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Hero />
+      <Stats />
       <Services />
       <Benefits />
       <Portfolio />
+      <BlogPreview />
       <FAQ />
     </>
   )

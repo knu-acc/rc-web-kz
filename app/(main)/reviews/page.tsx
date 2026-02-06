@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
@@ -6,8 +6,8 @@ import { generateBreadcrumbSchema, generateReviewSchema, ReviewData } from '@/li
 import { placeholderReviewImages } from '@/data/reviews'
 
 export const metadata: Metadata = {
-  title: 'Отзывы клиентов | Создание сайтов в Алматы RC-WEB',
-  description: 'Отзывы клиентов о работе RC-WEB по созданию сайтов в Алматы. Реальные кейсы и мнения, более 120 отзывов.',
+  title: 'Отзывы о RC-WEB.KZ | 120+ клиентов о создании сайтов в Алматы',
+  description: 'Отзывы клиентов о RC-WEB.KZ: 120+ реальных отзывов о создании сайтов в Алматы. Реальные кейсы, мнения клиентов, рейтинг 4.9/5. Читать отзывы.',
   keywords: ['отзывы rc-web', 'отзывы создание сайтов Алматы', 'отзывы веб-разработчик'],
   openGraph: {
     title: 'Отзывы клиентов | RC-WEB',
@@ -163,7 +163,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Review Images Gallery */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -172,7 +172,7 @@ export default function ReviewsPage() {
             <h2 className="heading-lg mb-6">
               Реальные <span className="gradient-text">отзывы клиентов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Скриншоты отзывов из мессенджеров и социальных сетей от наших довольных клиентов
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function ReviewsPage() {
             {placeholderReviewImages.map((review, index) => (
               <article 
                 key={review.id} 
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+                className="group relative bg-white dark:bg-secondary-950 rounded-2xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <Image
@@ -198,7 +198,7 @@ export default function ReviewsPage() {
                 </div>
                 {review.service && (
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-700">
+                    <span className="inline-block px-3 py-1 bg-white/90 dark:bg-secondary-800/90 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-700 dark:text-secondary-300">
                       {review.service}
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Text Reviews Cards */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -219,14 +219,14 @@ export default function ReviewsPage() {
             <h2 className="heading-lg mb-6">
               Что говорят <span className="gradient-text">наши клиенты</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Реальные отзывы от довольных клиентов, которые заказали у нас сайты
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {textReviews.map((review, index) => (
-              <div key={index} className="card p-6 hover:shadow-lg transition-all bg-white">
+              <div key={index} className="card p-6 hover:shadow-lg transition-all bg-white dark:bg-secondary-900">
                 <div className="flex items-center gap-2 mb-4">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
@@ -234,8 +234,8 @@ export default function ReviewsPage() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-secondary-700 mb-4 leading-relaxed">"{review.text}"</p>
-                <div className="flex items-center gap-3 border-t border-secondary-200 pt-4">
+                <p className="text-secondary-700 dark:text-secondary-300 mb-4 leading-relaxed">"{review.text}"</p>
+                <div className="flex items-center gap-3 border-t border-secondary-200 dark:border-secondary-700 pt-4">
                   <div className="w-12 h-12 rounded-full overflow-hidden bg-secondary-100">
                     <Image
                       src={review.avatar}
@@ -247,8 +247,8 @@ export default function ReviewsPage() {
                     />
                   </div>
                   <div>
-                    <p className="font-bold text-secondary-900">{review.name}</p>
-                    <p className="text-sm text-secondary-600">{review.company}</p>
+                    <p className="font-bold text-secondary-900 dark:text-white">{review.name}</p>
+                    <p className="text-sm text-secondary-600 dark:text-secondary-300">{review.company}</p>
                   </div>
                 </div>
               </div>
@@ -324,25 +324,25 @@ export default function ReviewsPage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные страницы</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/portfolio" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Портфолио</h3>
-              <p className="text-secondary-600">Примеры наших работ</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Примеры наших работ</p>
             </Link>
             <Link href="/why-choose-us" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Почему мы</h3>
-              <p className="text-secondary-600">Наши преимущества</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Наши преимущества</p>
             </Link>
             <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Контакты</h3>
-              <p className="text-secondary-600">Свяжитесь с нами</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Свяжитесь с нами</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
           </div>
         </div>

@@ -6,20 +6,20 @@ export function Portfolio() {
   const displayedItems = portfolioItems.slice(0, 6)
 
   return (
-    <section className="section relative overflow-hidden">
+    <section className="section relative overflow-hidden bg-white dark:bg-secondary-950">
       <div className="container-custom">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Портфолио
             </span>
             <h2 className="heading-lg">
               Наши <span className="gradient-text">работы</span>
             </h2>
           </div>
-          <Link 
-            href="/portfolio" 
+          <Link
+            href="/portfolio"
             className="btn-outline group self-start md:self-auto"
           >
             Все проекты
@@ -37,7 +37,7 @@ export function Portfolio() {
               className="group relative"
             >
               {/* Image container */}
-              <div className="relative overflow-hidden rounded-2xl bg-secondary-100 aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-2xl bg-secondary-100 dark:bg-secondary-800 aspect-[4/3]">
                 <Image
                   src={item.image}
                   alt={`${item.title} - пример работы`}
@@ -46,10 +46,10 @@ export function Portfolio() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
                 />
-                
+
                 {/* Hover overlay - darkened for text visibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/80 to-secondary-900/60 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                
+
                 {/* Hover content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                   <span className="text-white/70 text-sm font-medium mb-2">{item.category}</span>
@@ -71,8 +71,8 @@ export function Portfolio() {
 
               {/* Info below image (mobile) */}
               <div className="mt-4 md:hidden">
-                <span className="text-secondary-800 text-sm font-medium">{item.category}</span>
-                <h3 className="text-secondary-900 font-bold mt-1">{item.title}</h3>
+                <span className="text-secondary-800 dark:text-secondary-200 text-sm font-medium">{item.category}</span>
+                <h3 className="text-secondary-900 dark:text-white font-bold mt-1">{item.title}</h3>
               </div>
             </article>
           ))}
@@ -80,7 +80,7 @@ export function Portfolio() {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-secondary-600 mb-6">
+          <p className="text-secondary-600 dark:text-secondary-300 mb-6">
             Хотите такой же? Свяжитесь с нами для обсуждения вашего проекта
           </p>
           <Link href="/contact" className="btn-dark">

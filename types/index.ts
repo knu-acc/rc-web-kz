@@ -12,18 +12,3 @@ export interface FAQItem {
   question: string
   answer: string
 }
-
-export interface Service {
-  id: string
-  name: string
-  description: string
-  image: string
-}
-
-export interface MetadataProps {
-  title: string
-  description: string
-  path?: string
-  image?: string
-  type?: 'website' | 'article'
-}

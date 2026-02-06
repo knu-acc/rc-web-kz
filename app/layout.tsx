@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -7,11 +7,21 @@ import { Analytics } from '@/lib/analytics'
 import { SITE_CONFIG } from '@/lib/constants'
 import { BackToTop } from '@/components/ui/BackToTop'
 import { StructuredData } from '@/components/sections/StructuredData'
+import { ServiceWorker } from '@/components/ui/ServiceWorker'
+import { ThemeProvider } from '@/components/providers/ThemeProvider'
 
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
   variable: '--font-inter',
+  preload: true,
+})
+
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+  variable: '--font-montserrat',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -72,7 +82,7 @@ export const metadata: Metadata = {
       { url: '/img/favs/apple-icon-180x180.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-  manifest: '/img/favs/manifest.json',
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({
@@ -81,23 +91,32 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" className={inter.variable}>
+    <html lang="ru" className={`${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#6366f1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#1e1b4b" media="(prefers-color-scheme: dark)" />
+        {/* Prevent FOUC: apply saved theme before React hydration */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()` }} />
+        {/* Google Analytics, Yandex Metrica */}
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        {/* DNS Prefetch для других доменов */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
-      <body className="font-sans antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        
-        <StructuredData />
-        <BackToTop />
-        
-        <Analytics />
+      <body className="font-sans antialiased" suppressHydrationWarning>
+        <ThemeProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+
+          <StructuredData />
+          <BackToTop />
+          <ServiceWorker />
+
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )
