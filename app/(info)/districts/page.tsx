@@ -1,6 +1,5 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import Link from 'next/link'
 
@@ -42,18 +41,12 @@ const districts = [
 ]
 
 export default function DistrictsPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Районы Алматы', url: `${SITE_CONFIG.url}/districts` },
-  ])
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Районы Алматы', url: `${SITE_CONFIG.url}/districts` },
+          { name: 'Главная', href: '/' },
+          { name: 'Районы Алматы', href: '/districts' },
         ]}
       />
 

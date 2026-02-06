@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Пользовательское соглашение | RC-WEB.KZ',
@@ -26,21 +25,12 @@ export const metadata: Metadata = {
 }
 
 export default function TermsPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Условия использования', url: `${SITE_CONFIG.url}/terms` },
-  ])
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Пользовательское соглашение', url: `${SITE_CONFIG.url}/terms` },
+          { name: 'Главная', href: '/' },
+          { name: 'Пользовательское соглашение', href: '/terms' },
         ]}
       />
 

@@ -1,6 +1,5 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import Link from 'next/link'
 
@@ -20,18 +19,12 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'О нас', url: `${SITE_CONFIG.url}/about` },
-  ])
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'О нас', url: `${SITE_CONFIG.url}/about` },
+          { name: 'Главная', href: '/' },
+          { name: 'О нас', href: '/about' },
         ]}
       />
 
@@ -103,15 +96,12 @@ export default function AboutPage() {
           </div>
 
           {/* CTA */}
-          <div className="bg-primary-50 rounded-xl p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Готовы создать сайт вместе с нами?</h2>
+          <div className="bg-primary-50 dark:bg-primary-900/20 rounded-xl p-8 text-center border border-primary-100 dark:border-primary-800/50">
+            <h2 className="text-2xl font-bold mb-4 text-secondary-900 dark:text-white">Готовы создать сайт вместе с нами?</h2>
             <p className="text-lg text-secondary-700 dark:text-secondary-300 mb-6">
               Свяжитесь с нами для бесплатной консультации
             </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold"
-            >
+            <Link href="/contact" className="btn-primary">
               Связаться с нами
             </Link>
           </div>

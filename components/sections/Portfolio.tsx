@@ -15,14 +15,20 @@ export function Portfolio() {
               Портфолио
             </span>
             <h2 className="heading-lg">
-              Наши <span className="gradient-text">работы</span>
+              Примеры <span className="gradient-text">выполненных работ</span>
             </h2>
+            <p className="mt-3 text-secondary-600 dark:text-secondary-300">
+              Создание сайтов в Алматы — полное портфолио проектов. Каждый сайт уникален и создан под задачи клиента.
+            </p>
+            <p className="mt-2 text-sm text-secondary-500 dark:text-secondary-400">
+              Это раздел на главной. Полная страница с фильтром и всеми проектами — по кнопке справа.
+            </p>
           </div>
           <Link
             href="/portfolio"
             className="btn-outline group self-start md:self-auto"
           >
-            Все проекты
+            Все проекты ({portfolioItems.length})
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

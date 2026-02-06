@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata: Metadata = {
@@ -70,18 +69,12 @@ const guarantees = [
 ]
 
 export default function GuaranteesPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Гарантии', url: `${SITE_CONFIG.url}/guarantees` },
-  ])
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Гарантии', url: `${SITE_CONFIG.url}/guarantees` },
+          { name: 'Главная', href: '/' },
+          { name: 'Гарантии', href: '/guarantees' },
         ]}
       />
 

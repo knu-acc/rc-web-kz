@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Глоссарий терминов | Словарь веб-разработки - RC-WEB.KZ',
@@ -57,21 +56,12 @@ const terms = [
 ]
 
 export default function GlossaryPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Глоссарий', url: `${SITE_CONFIG.url}/glossary` },
-  ])
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Глоссарий', url: `${SITE_CONFIG.url}/glossary` },
+          { name: 'Главная', href: '/' },
+          { name: 'Глоссарий', href: '/glossary' },
         ]}
       />
 

@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
-      <div className="container-custom py-20">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 pt-24 pb-12">
+      <div className="container-custom py-12">
         <div className="max-w-2xl mx-auto text-center">
           {/* 404 Number */}
           <div className="mb-8">
@@ -30,11 +30,11 @@ export default function NotFound() {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <Link href="/" className="btn-dark">
+          <div className="flex flex-wrap justify-center gap-5 mb-12">
+            <Link href="/" className="btn-dark min-h-[52px] px-8 py-4">
               На главную
             </Link>
-            <a href={SOCIAL_LINKS.whatsapp} className="btn-secondary">
+            <a href={SOCIAL_LINKS.whatsapp} className="btn-secondary min-h-[52px] px-8 py-4">
               Связаться с нами
             </a>
           </div>

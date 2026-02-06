@@ -1,6 +1,5 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 import dynamic from 'next/dynamic'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
@@ -29,18 +28,12 @@ export const metadata: Metadata = {
 }
 
 export default function KakDobratsyaPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Как добраться', url: `${SITE_CONFIG.url}/kak-dobratsya` },
-  ])
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Как добраться', url: `${SITE_CONFIG.url}/kak-dobratsya` },
+          { name: 'Главная', href: '/' },
+          { name: 'Как добраться', href: '/kak-dobratsya' },
         ]}
       />
 

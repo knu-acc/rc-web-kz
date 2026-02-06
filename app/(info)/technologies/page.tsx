@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Технологии | Стек технологий RC-WEB.KZ',
@@ -49,21 +48,12 @@ const technologies = [
 ]
 
 export default function TechnologiesPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Технологии', url: `${SITE_CONFIG.url}/technologies` },
-  ])
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Технологии', url: `${SITE_CONFIG.url}/technologies` },
+          { name: 'Главная', href: '/' },
+          { name: 'Технологии', href: '/technologies' },
         ]}
       />
 

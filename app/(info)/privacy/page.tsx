@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Политика конфиденциальности | RC-WEB.KZ',
@@ -26,21 +25,12 @@ export const metadata: Metadata = {
 }
 
 export default function PrivacyPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Политика конфиденциальности', url: `${SITE_CONFIG.url}/privacy` },
-  ])
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Политика конфиденциальности', url: `${SITE_CONFIG.url}/privacy` },
+          { name: 'Главная', href: '/' },
+          { name: 'Политика конфиденциальности', href: '/privacy' },
         ]}
       />
 

@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Процесс работы | Как мы создаём сайты - RC-WEB.KZ',
@@ -58,11 +57,6 @@ const steps = [
 ]
 
 export default function ProcessPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Процесс работы', url: `${SITE_CONFIG.url}/process` },
-  ])
-
   const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
@@ -80,16 +74,12 @@ export default function ProcessPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <Breadcrumbs
         items={[
-          { name: 'Главная', url: SITE_CONFIG.url },
-          { name: 'Процесс работы', url: `${SITE_CONFIG.url}/process` },
+          { name: 'Главная', href: '/' },
+          { name: 'Процесс работы', href: '/process' },
         ]}
       />
 
