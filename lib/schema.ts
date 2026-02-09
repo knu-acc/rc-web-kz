@@ -1,6 +1,7 @@
 import { SITE_CONFIG } from './constants'
 import { FAQItem } from '@/types'
 import { portfolioItems } from '@/data/portfolio'
+import { almatyDistricts } from '@/data/districts'
 
 export interface ReviewData {
   author: string
@@ -63,31 +64,71 @@ export function generateLocalBusinessSchema() {
     '@type': 'LocalBusiness',
     '@id': `${SITE_CONFIG.url}#organization`,
     name: SITE_CONFIG.name,
+    legalName: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
+    logo: `${SITE_CONFIG.url}/img/logo.png`,
+    image: `${SITE_CONFIG.url}/img/slider4.png`,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: SITE_CONFIG.address.streetAddress,
       addressLocality: SITE_CONFIG.address.addressLocality,
-      addressRegion: 'Алматинская область',
+      addressRegion: SITE_CONFIG.address.addressRegion || 'Алматинская область',
+      postalCode: SITE_CONFIG.address.postalCode || '050000',
       addressCountry: SITE_CONFIG.address.addressCountry,
-      streetAddress: SITE_CONFIG.region,
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: parseFloat(SITE_CONFIG.geo.latitude),
       longitude: parseFloat(SITE_CONFIG.geo.longitude),
     },
-    areaServed: {
-      '@type': 'City',
-      name: SITE_CONFIG.region,
-    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '10:00',
+        closes: '16:00',
+      },
+    ],
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Алматы',
+      },
+      ...almatyDistricts.map((district) => ({
+        '@type': 'City',
+        name: district.nameFull,
+        containedIn: {
+          '@type': 'City',
+          name: 'Алматы',
+        },
+      })),
+    ],
     priceRange: SITE_CONFIG.priceRange,
-    openingHours: SITE_CONFIG.businessHours,
-    sameAs: [SITE_CONFIG.whatsapp, SITE_CONFIG.telegram],
-    image: `${SITE_CONFIG.url}/images/logo.png`,
-    logo: `${SITE_CONFIG.url}/images/logo.png`,
+    paymentAccepted: ['Cash', 'Bank Transfer', 'Kaspi', 'CloudPayments'],
+    currenciesAccepted: 'KZT',
+    priceCurrency: 'KZT',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: SITE_CONFIG.aggregateRating.ratingValue,
+      reviewCount: SITE_CONFIG.aggregateRating.reviewCount,
+      bestRating: SITE_CONFIG.aggregateRating.bestRating,
+      worstRating: SITE_CONFIG.aggregateRating.worstRating,
+    },
+    sameAs: [
+      SITE_CONFIG.whatsapp,
+      SITE_CONFIG.telegram,
+      'https://www.instagram.com/rc.web.kz/',
+    ],
+    foundingDate: SITE_CONFIG.foundingDate,
   }
 }
 
@@ -217,6 +258,45 @@ export function generateServiceSchema(service: {
     areaServed: {
       '@type': 'City',
       name: SITE_CONFIG.region,
+    },
+  }
+}
+
+export function generateArticleSchema(article: {
+  title: string
+  description: string
+  datePublished: string
+  author: string
+  image?: string
+  url: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: article.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/img/logo.png`,
+      },
+    },
+    ...(article.image && {
+      image: {
+        '@type': 'ImageObject',
+        url: article.image,
+      },
+    }),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': article.url,
     },
   }
 }

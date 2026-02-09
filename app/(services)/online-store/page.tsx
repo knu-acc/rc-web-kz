@@ -3,12 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
-import { placeholderReviewImages } from '@/data/reviews'
+
 
 export const metadata: Metadata = {
-  title: 'Интернет-магазин в Алматы | E-commerce сайт 175-275 тыс ₸',
-  description: 'Создание интернет-магазинов в Алматы с безопасной оплатой. E-commerce решения с удобной админкой и интеграцией платежных систем. Цена 175-275 тыс тенге.',
+  title: 'Создание интернет-магазина в Алматы от 220 000₸ | Разработка - RC-WEB.KZ',
+  description: 'Разработка интернет-магазинов в Алматы от 220 000₸. E-commerce сайты с оплатой, корзиной, админкой. Интеграция с платежными системами, 1С, складом. Заказать интернет-магазин.',
   keywords: ['интернет-магазин Алматы', 'e-commerce сайт', 'создание интернет-магазина', 'онлайн магазин Алматы'],
   openGraph: {
     title: 'Интернет-магазин в Алматы | E-commerce сайт 175-275 тыс ₸',
@@ -34,7 +33,7 @@ const features = [
       </svg>
     ),
     title: 'Безопасные платежи',
-    description: 'Интеграция с Робокассой, Cloudpayments, PayPal и другими платёжными системами',
+    description: 'Интеграция с платёжными системами. Для сайтов на Tilda доступно 40+ платёжных систем для СНГ и всего мира',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
@@ -45,7 +44,7 @@ const features = [
     ),
     title: 'Удобная админка',
     description: 'Простое управление товарами, заказами и контентом без программирования',
-    gradient: 'from-blue-500 to-cyan-600',
+    gradient: 'from-emerald-500 to-green-600',
   },
   {
     icon: (
@@ -77,11 +76,11 @@ const galleryImages = [
   { src: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=800', alt: 'Пример интернет-магазина - книги' },
 ]
 
-const paymentSystems = [
-  { name: 'Робокасса', logo: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200' },
-  { name: 'Cloudpayments', logo: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=200' },
-  { name: 'PayPal', logo: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200' },
-  { name: 'Kaspi.kz', logo: 'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=200' },
+const paymentSystems: { name: string; description: string; logo?: string }[] = [
+  { name: 'Kaspi', description: 'Kaspi QR и Kaspi оплата' },
+  { name: 'PayBox', description: 'Платёжная система PayBox' },
+  { name: 'CloudPayments', description: 'Онлайн-оплата картой' },
+  { name: 'Stripe', description: 'Международные платежи' },
 ]
 
 export default function OnlineStorePage() {
@@ -105,13 +104,13 @@ export default function OnlineStorePage() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
@@ -119,15 +118,15 @@ export default function OnlineStorePage() {
                 Интернет-магазин в Алматы
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-900">
+              <h1 className="heading-xl text-secondary-900 dark:text-white">
                 <span className="block">E-commerce</span>
                 <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">интернет-магазины</span>
-                <span className="block text-secondary-700 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
+                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
                   с безопасной оплатой
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Создаём полнофункциональные интернет-магазины с безопасной оплатой. E-commerce решения с удобной админкой, 
                 интеграцией платежных систем и простым управлением товарами. Идеально для <Link href="/corporate-site" className="text-emerald-600 hover:underline font-semibold">бизнеса</Link> любого масштаба.
               </p>
@@ -144,17 +143,18 @@ export default function OnlineStorePage() {
 
             <div className="relative lg:h-[600px] animate-in">
               <div className="relative z-10">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-green-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800"
                     alt="Интернет-магазин разработка в Алматы"
                     width={600}
                     height={450}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
               </div>
             </div>
@@ -163,23 +163,23 @@ export default function OnlineStorePage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Примеры работ
             </span>
             <h2 className="heading-lg mb-6">
               Примеры наших <span className="gradient-text">интернет-магазинов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
-              Посмотрите примеры успешных e-commerce проектов. Больше работ в нашем <Link href="/portfolio" className="text-secondary-800 hover:underline font-semibold">портфолио</Link>.
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
+              Посмотрите примеры успешных e-commerce проектов. Больше работ в нашем <Link href="/portfolio" className="text-secondary-800 dark:text-secondary-200 hover:underline font-semibold">портфолио</Link>.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {galleryImages.map((img, index) => (
-              <div key={index} className={`group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100 ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
+              <div key={img.alt} className={`group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100 dark:bg-secondary-800 ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -199,7 +199,7 @@ export default function OnlineStorePage() {
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Функционал
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -213,14 +213,16 @@ export default function OnlineStorePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <div
-                key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                key={feature.title}
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5`}>
+                {/* Gradient glow on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-white/70 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{feature.title}</h3>
+                <p className="text-white/70 leading-relaxed relative z-10">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -228,26 +230,30 @@ export default function OnlineStorePage() {
       </section>
 
       {/* Payment Systems */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Интеграция платёжных систем</h2>
-            <p className="text-lg text-secondary-600">Подключаем все популярные способы оплаты</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Подключаем все популярные способы оплаты. Для сайтов на <Link href="/tilda-site" className="text-primary-600 hover:underline font-semibold">Tilda</Link> доступно более 40 платёжных систем для СНГ и всего мира. Подробнее о <Link href="/blog/internet-magazin-kazahstan" className="text-primary-600 hover:underline font-semibold">создании интернет-магазина в Казахстане</Link> читайте в нашем блоге.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {paymentSystems.map((system, index) => (
-              <div key={index} className="flex flex-col items-center justify-center p-6 bg-secondary-50 rounded-2xl hover:shadow-md transition-shadow">
-                <div className="w-24 h-24 rounded-xl bg-white mb-4 flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={system.logo}
-                    alt={system.name}
-                    width={80}
-                    height={80}
-                    className="object-contain"
-                    unoptimized
-                  />
+              <div key={system.name} className="flex flex-col items-center justify-center p-6 bg-secondary-50 dark:bg-secondary-800 rounded-2xl hover:shadow-md transition-shadow">
+                <div className="w-24 h-24 rounded-xl bg-white dark:bg-secondary-700 mb-4 flex items-center justify-center overflow-hidden">
+                  {system.logo ? (
+                    <Image
+                      src={system.logo}
+                      alt={system.name}
+                      width={80}
+                      height={80}
+                      className="object-contain"
+                      unoptimized
+                    />
+                  ) : (
+                    <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">{system.name.charAt(0)}</span>
+                  )}
                 </div>
-                <p className="font-semibold text-secondary-900">{system.name}</p>
+                <p className="font-semibold text-secondary-900 dark:text-white">{system.name}</p>
               </div>
             ))}
           </div>
@@ -255,34 +261,37 @@ export default function OnlineStorePage() {
       </section>
 
       {/* Pricing */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Цены на интернет-магазин</h2>
           </div>
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+          <div className="max-w-4xl mx-auto bg-white dark:bg-secondary-950 rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
-              <div className="text-5xl font-bold text-secondary-800 mb-2">175-275 тыс ₸</div>
-              <p className="text-secondary-600">Базовая стоимость интернет-магазина</p>
+              <div className="text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-2">175-275 тыс ₸</div>
+              <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость интернет-магазина</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div>
                 <h3 className="text-xl font-bold mb-4">Входит в стоимость:</h3>
-                <ul className="space-y-2 text-secondary-700">
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Дизайн и вёрстка</span></li>
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Каталог товаров</span></li>
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Корзина и оформление заказа</span></li>
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Интеграция платёжных систем</span></li>
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Админ-панель управления</span></li>
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span><Link href="/seo-optimization" className="text-secondary-800 hover:underline">SEO-оптимизация</Link></span></li>
-                  <li className="flex items-start gap-2"><span className="text-secondary-800">✓</span><span>Бесплатная поддержка</span></li>
+                <ul className="space-y-2 text-secondary-700 dark:text-secondary-300">
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span>Дизайн и вёрстка</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span>Каталог товаров</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span>Корзина и оформление заказа</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span>Интеграция платёжных систем</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span>Админ-панель управления</span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span><Link href="/seo-optimization" className="text-secondary-800 dark:text-secondary-200 hover:underline">SEO-оптимизация</Link></span></li>
+                  <li className="flex items-start gap-2"><span className="text-secondary-800 dark:text-secondary-200">✓</span><span>Бесплатная поддержка</span></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-4">Сроки:</h3>
                 <p className="text-secondary-700 mb-4">10-15 рабочих дней от начала работы до запуска магазина.</p>
+                <p className="text-sm text-secondary-500 mb-4">
+                  Включает создание дизайна, разработку, настройку платежей и обучение работе с админкой. Подробнее о <Link href="/blog/internet-magazin-kazahstan" className="text-primary-600 hover:underline font-semibold">создании интернет-магазина в Казахстане</Link> читайте в нашем блоге.
+                </p>
                 <p className="text-sm text-secondary-500">
-                  Включает создание дизайна, разработку, настройку платежей и обучение работе с админкой.
+                  После запуска рекомендуем <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-оптимизацию</Link> для привлечения органического трафика и <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">настройку рекламы</Link> для быстрого старта продаж.
                 </p>
               </div>
             </div>
@@ -293,10 +302,45 @@ export default function OnlineStorePage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
+            <div className="space-y-4">
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Сколько стоит создать интернет-магазин в Алматы?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
+                  Стоимость интернет-магазина составляет 175-275 тыс тенге. Финальная цена зависит от количества товаров, сложности дизайна и дополнительного функционала. Подробнее о ценах читайте на странице <Link href="/website-price" className="text-primary-600 hover:underline font-semibold">Цены на сайты</Link> и в статье <Link href="/blog/skolko-stoit-sozdanie-sajta-almaty" className="text-primary-600 hover:underline font-semibold">Сколько стоит создание сайта в Алматы</Link>.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Сколько времени занимает разработка интернет-магазина?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
+                  Разработка интернет-магазина занимает 10-15 рабочих дней. Это включает создание дизайна, разработку каталога товаров, корзины, интеграцию платёжных систем и обучение работе с админ-панелью.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Какие платёжные системы можно подключить?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
+                  Для сайтов на <Link href="/tilda-site" className="text-primary-600 hover:underline font-semibold">Tilda</Link> доступно более 40 платёжных систем для СНГ и всего мира. Это позволяет принимать оплату картами, электронными кошельками и другими способами. Подробнее о <Link href="/blog/internet-magazin-kazahstan" className="text-primary-600 hover:underline font-semibold">создании интернет-магазина в Казахстане</Link> читайте в нашем блоге.
+                </p>
+              </div>
+              <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-semibold text-secondary-900 mb-2">Нужна ли SEO-оптимизация для интернет-магазина?</h3>
+                <p className="text-secondary-600 dark:text-secondary-300">
+                  Да, <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-оптимизация</Link> важна для интернет-магазина. Она помогает привлекать органический трафик из поисковых систем и увеличивать продажи без платной рекламы. Также рекомендуем <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">настройку рекламы</Link> для быстрого старта продаж.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="heading-lg mb-4">Готовы запустить интернет-магазин?</h2>
+          <h2 className="heading-lg mb-4 text-white">Готовы запустить интернет-магазин?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для консультации и расчёта стоимости вашего проекта
           </p>
@@ -308,25 +352,25 @@ export default function OnlineStorePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">Многостраничные решения</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Многостраничные решения</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Сайт на Tilda</h3>
-              <p className="text-secondary-600">Быстрые решения</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Быстрые решения</p>
             </Link>
             <Link href="/website-advertising" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Реклама сайта</h3>
-              <p className="text-secondary-600">Настройка рекламы</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Настройка рекламы</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
           </div>
         </div>

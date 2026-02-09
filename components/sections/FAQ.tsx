@@ -12,11 +12,11 @@ export function FAQ() {
   }
 
   return (
-    <section className="section bg-secondary-50/50" aria-labelledby="faq-heading">
+    <section className="section bg-secondary-50/50 dark:bg-secondary-900" aria-labelledby="faq-heading">
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             FAQ
           </span>
           <h2 id="faq-heading" className="heading-lg mb-6">
@@ -28,38 +28,36 @@ export function FAQ() {
           {faqItems.map((item) => {
             const isOpen = openId === item.id
             return (
-              <article 
-                key={item.id} 
-                className="bg-white rounded-2xl border border-secondary-100 overflow-hidden transition-all duration-300 hover:border-secondary-300 hover:shadow-lg"
+              <article
+                key={item.id}
+                className="bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-100 dark:border-secondary-800 overflow-hidden transition-all duration-300 hover:border-secondary-300 dark:hover:border-secondary-700 hover:shadow-lg"
               >
                 <button
                   className="w-full flex items-center justify-between p-6 text-left"
                   aria-expanded={isOpen}
                   onClick={() => toggleFAQ(item.id)}
                 >
-                  <h3 className="text-lg font-semibold text-secondary-900 pr-8">
+                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white pr-8">
                     {item.question}
                   </h3>
                   <span
-                    className={`flex-shrink-0 w-10 h-10 rounded-full bg-secondary-100 flex items-center justify-center transition-transform duration-300 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`flex-shrink-0 w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
+                      }`}
                   >
-                    <svg className="w-5 h-5 text-secondary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-secondary-800 dark:text-secondary-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </span>
                 </button>
-                
+
                 {/* Animated answer container */}
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
                 >
-                  <div className="px-6 pb-6 text-secondary-600 leading-relaxed">
+                  <div className="px-6 pb-6 text-secondary-600 dark:text-secondary-300 leading-relaxed">
                     <p>{item.answer}</p>
-                    
+
                     {/* Buttons with proper spacing */}
                     {item.id === '1' && (
                       <div className="mt-6">

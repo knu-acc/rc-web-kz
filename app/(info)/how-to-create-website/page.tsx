@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Как создать сайт | Пошаговая инструкция создания сайта',
@@ -157,7 +159,7 @@ export default function HowToCreateWebsitePage() {
       </section>
 
       {/* Comparison Methods */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -166,14 +168,14 @@ export default function HowToCreateWebsitePage() {
             <h2 className="heading-lg mb-6">
               Способы <span className="gradient-text">создания сайта</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Сравните разные подходы и выберите подходящий для вас
             </p>
           </div>
 
           <div className="space-y-8 max-w-5xl mx-auto">
             {methods.map((method, index) => (
-              <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
+              <div key={method.title} className="grid md:grid-cols-2 gap-8 items-center">
                 <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
                   <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100">
                     <Image
@@ -187,14 +189,14 @@ export default function HowToCreateWebsitePage() {
                   </div>
                 </div>
                 <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <h3 className="text-2xl font-bold text-secondary-900 mb-3">{method.title}</h3>
-                  <p className="text-secondary-600 mb-4">{method.description}</p>
+                  <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-3">{method.title}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-4">{method.description}</p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <p className="font-semibold text-emerald-600 mb-2">Плюсы:</p>
-                      <ul className="space-y-1 text-sm text-secondary-700">
+                      <ul className="space-y-1 text-sm text-secondary-700 dark:text-secondary-300">
                         {method.pros.map((pro, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
+                          <li key={`${method.title}-pro-${pro}`} className="flex items-start gap-2">
                             <svg className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                             </svg>
@@ -206,9 +208,9 @@ export default function HowToCreateWebsitePage() {
                     {method.cons.length > 0 && (
                       <div>
                         <p className="font-semibold text-red-600 mb-2">Минусы:</p>
-                        <ul className="space-y-1 text-sm text-secondary-700">
+                        <ul className="space-y-1 text-sm text-secondary-700 dark:text-secondary-300">
                           {method.cons.map((con, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
+                            <li key={`${method.title}-con-${con}`} className="flex items-start gap-2">
                               <svg className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                               </svg>
@@ -227,15 +229,15 @@ export default function HowToCreateWebsitePage() {
       </section>
 
       {/* Visual Steps */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Этапы создания сайта</h2>
-            <p className="text-lg text-secondary-600">Визуальная инструкция с примерами</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Визуальная инструкция с примерами</p>
           </div>
           <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto">
             {steps.map((step, index) => (
-              <div key={index} className="text-center">
+              <div key={`step-${step.step}`} className="text-center">
                 <div className="relative mb-4">
                   <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100 mb-4">
                     <Image
@@ -252,7 +254,7 @@ export default function HowToCreateWebsitePage() {
                   </div>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-sm text-secondary-600">{step.description}</p>
+                <p className="text-sm text-secondary-600 dark:text-secondary-300">{step.description}</p>
               </div>
             ))}
           </div>
@@ -260,52 +262,52 @@ export default function HowToCreateWebsitePage() {
       </section>
 
       {/* Comparison Table */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Сравнение способов</h2>
-            <p className="text-lg text-secondary-600">Сравнительная таблица разных подходов</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Сравнительная таблица разных подходов</p>
           </div>
           <div className="max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-secondary-50">
-                  <th className="border border-secondary-200 p-4 text-left font-bold text-secondary-900">Критерий</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Конструктор</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Программирование</th>
-                  <th className="border border-secondary-200 p-4 text-center font-bold text-secondary-900">Заказать</th>
+                <tr className="bg-secondary-50 dark:bg-secondary-800">
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-left font-bold text-secondary-900 dark:text-white">Критерий</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Конструктор</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Программирование</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-secondary-900 dark:text-white">Заказать</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Скорость</td>
-                  <td className="border border-secondary-200 p-4 text-center">Быстро</td>
-                  <td className="border border-secondary-200 p-4 text-center">Медленно</td>
-                  <td className="border border-secondary-200 p-4 text-center">Быстро</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Скорость</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Быстро</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Медленно</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Быстро</td>
                 </tr>
-                <tr className="bg-secondary-50">
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Стоимость</td>
-                  <td className="border border-secondary-200 p-4 text-center">Низкая</td>
-                  <td className="border border-secondary-200 p-4 text-center">Средняя</td>
-                  <td className="border border-secondary-200 p-4 text-center">Высокая</td>
-                </tr>
-                <tr>
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Гибкость</td>
-                  <td className="border border-secondary-200 p-4 text-center">Ограничена</td>
-                  <td className="border border-secondary-200 p-4 text-center">Полная</td>
-                  <td className="border border-secondary-200 p-4 text-center">Полная</td>
-                </tr>
-                <tr className="bg-secondary-50">
-                  <td className="border border-secondary-200 p-4 text-secondary-700">SEO</td>
-                  <td className="border border-secondary-200 p-4 text-center">Средне</td>
-                  <td className="border border-secondary-200 p-4 text-center">Отлично</td>
-                  <td className="border border-secondary-200 p-4 text-center">Отлично</td>
+                <tr className="bg-secondary-50 dark:bg-secondary-800">
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Стоимость</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Низкая</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Средняя</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Высокая</td>
                 </tr>
                 <tr>
-                  <td className="border border-secondary-200 p-4 text-secondary-700">Поддержка</td>
-                  <td className="border border-secondary-200 p-4 text-center">Базовая</td>
-                  <td className="border border-secondary-200 p-4 text-center">Самостоятельно</td>
-                  <td className="border border-secondary-200 p-4 text-center">Профессиональная</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Гибкость</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Ограничена</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Полная</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Полная</td>
+                </tr>
+                <tr className="bg-secondary-50 dark:bg-secondary-800">
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">SEO</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Средне</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Отлично</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Отлично</td>
+                </tr>
+                <tr>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300">Поддержка</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Базовая</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Самостоятельно</td>
+                  <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center">Профессиональная</td>
                 </tr>
               </tbody>
             </table>
@@ -335,25 +337,25 @@ export default function HowToCreateWebsitePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Полезные статьи</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/free-website" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Создать сайт бесплатно</h3>
-              <p className="text-secondary-600">Бесплатные способы</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Бесплатные способы</p>
             </Link>
             <Link href="/publish-website" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Как опубликовать сайт</h3>
-              <p className="text-secondary-600">Инструкция по публикации</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Инструкция по публикации</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
             <Link href="/tilda-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Сайт на Tilda</h3>
-              <p className="text-secondary-600">Быстрое решение</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Быстрое решение</p>
             </Link>
           </div>
         </div>

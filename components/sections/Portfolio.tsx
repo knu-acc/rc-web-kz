@@ -6,23 +6,29 @@ export function Portfolio() {
   const displayedItems = portfolioItems.slice(0, 6)
 
   return (
-    <section className="section relative overflow-hidden">
+    <section className="section relative overflow-hidden bg-white dark:bg-secondary-950">
       <div className="container-custom">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Портфолио
             </span>
             <h2 className="heading-lg">
-              Наши <span className="gradient-text">работы</span>
+              Примеры <span className="gradient-text">выполненных работ</span>
             </h2>
+            <p className="mt-3 text-secondary-600 dark:text-secondary-300">
+              Создание сайтов в Алматы — полное портфолио проектов. Каждый сайт уникален и создан под задачи клиента.
+            </p>
+            <p className="mt-2 text-sm text-secondary-500 dark:text-secondary-400">
+              Это раздел на главной. Полная страница с фильтром и всеми проектами — по кнопке справа.
+            </p>
           </div>
-          <Link 
-            href="/portfolio" 
+          <Link
+            href="/portfolio"
             className="btn-outline group self-start md:self-auto"
           >
-            Все проекты
+            Все проекты ({portfolioItems.length})
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -37,7 +43,7 @@ export function Portfolio() {
               className="group relative"
             >
               {/* Image container */}
-              <div className="relative overflow-hidden rounded-2xl bg-secondary-100 aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-2xl bg-secondary-100 dark:bg-secondary-800 aspect-[4/3]">
                 <Image
                   src={item.image}
                   alt={`${item.title} - пример работы`}
@@ -46,33 +52,31 @@ export function Portfolio() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
                 />
-                
+
                 {/* Hover overlay - darkened for text visibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/80 to-secondary-900/60 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                
+
                 {/* Hover content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                   <span className="text-white/70 text-sm font-medium mb-2">{item.category}</span>
                   <h3 className="text-white text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-white/80 text-sm line-clamp-2 mb-4">{item.description}</p>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`/portfolio/${item.id}`}
                     className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
                   >
-                    Открыть сайт
+                    Подробнее о проекте
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
               {/* Info below image (mobile) */}
               <div className="mt-4 md:hidden">
-                <span className="text-secondary-800 text-sm font-medium">{item.category}</span>
-                <h3 className="text-secondary-900 font-bold mt-1">{item.title}</h3>
+                <span className="text-secondary-800 dark:text-secondary-200 text-sm font-medium">{item.category}</span>
+                <h3 className="text-secondary-900 dark:text-white font-bold mt-1">{item.title}</h3>
               </div>
             </article>
           ))}
@@ -80,7 +84,7 @@ export function Portfolio() {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-secondary-600 mb-6">
+          <p className="text-secondary-600 dark:text-secondary-300 mb-6">
             Хотите такой же? Свяжитесь с нами для обсуждения вашего проекта
           </p>
           <Link href="/contact" className="btn-dark">

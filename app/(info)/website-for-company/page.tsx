@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Сайт для компании в Алматы | Бизнес-сайт под ключ',
@@ -182,23 +184,23 @@ export default function WebsiteForCompanyPage() {
       </section>
 
       {/* Site Types */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Типы сайтов
             </span>
             <h2 className="heading-lg mb-6">
               Типы сайтов <span className="gradient-text">для компаний</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Выберите подходящий тип сайта для вашего бизнеса
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {siteTypes.map((type, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl bg-white border border-secondary-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div key={type.title} className="group relative overflow-hidden rounded-2xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={type.image}
@@ -211,9 +213,9 @@ export default function WebsiteForCompanyPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-secondary-900 mb-2">{type.title}</h3>
-                  <p className="text-secondary-600 mb-3">{type.description}</p>
-                  <div className="flex items-center gap-2 text-secondary-800 font-semibold">
+                  <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{type.title}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">{type.description}</p>
+                  <div className="flex items-center gap-2 text-secondary-800 dark:text-secondary-100 font-semibold">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -244,7 +246,7 @@ export default function WebsiteForCompanyPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <div
-                key={index}
+                key={benefit.title}
                 className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5`}>
@@ -259,40 +261,40 @@ export default function WebsiteForCompanyPage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Процесс создания сайта</h2>
-            <p className="text-lg text-secondary-600">Как мы создаём сайт для вашей компании</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Как мы создаём сайт для вашей компании</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800">1</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Консультация</h3>
-              <p className="text-secondary-600 text-sm">Обсуждаем цели и требования к сайту</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Обсуждаем цели и требования к сайту</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800">2</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Дизайн</h3>
-              <p className="text-secondary-600 text-sm">Создаём уникальный дизайн под ваш бренд</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Создаём уникальный дизайн под ваш бренд</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800">3</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Разработка</h3>
-              <p className="text-secondary-600 text-sm">Разрабатываем и программируем сайт</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Разрабатываем и программируем сайт</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800">4</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Запуск</h3>
-              <p className="text-secondary-600 text-sm">Публикуем сайт и обучаем работе</p>
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm">Публикуем сайт и обучаем работе</p>
             </div>
           </div>
         </div>
@@ -320,25 +322,25 @@ export default function WebsiteForCompanyPage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">Многостраничные решения</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Многостраничные решения</p>
             </Link>
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Landing Page</h3>
-              <p className="text-secondary-600">Одностраничные сайты</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Одностраничные сайты</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
             <Link href="/web-design" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Веб-дизайн</h3>
-              <p className="text-secondary-600">Современный дизайн</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Современный дизайн</p>
             </Link>
           </div>
         </div>

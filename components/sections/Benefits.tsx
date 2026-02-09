@@ -58,17 +58,17 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section className="section bg-white">
+    <section className="section bg-white dark:bg-secondary-950">
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Преимущества
           </span>
           <h2 className="heading-lg mb-6">
             Почему выбирают <span className="gradient-text">нас</span>
           </h2>
-          <p className="text-lg text-secondary-600">
+          <p className="text-lg text-secondary-600 dark:text-secondary-300">
             Мы создаём не просто сайты, а эффективные инструменты для развития вашего бизнеса
           </p>
         </div>
@@ -77,21 +77,21 @@ export function Benefits() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div
-              key={index}
-              className="group p-8 rounded-2xl bg-white border border-secondary-100 
-                         hover:border-secondary-200 hover:shadow-lg 
+              key={benefit.title}
+              className="group p-8 rounded-2xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
+                         hover:border-secondary-200 dark:hover:border-secondary-700 hover:shadow-lg 
                          transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-secondary-100 text-secondary-800 flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 flex items-center justify-center mb-5">
                 {benefit.icon}
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-semibold text-secondary-900 mb-2">
+              <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-secondary-600 text-sm leading-relaxed">
+              <p className="text-secondary-600 dark:text-secondary-300 text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </div>

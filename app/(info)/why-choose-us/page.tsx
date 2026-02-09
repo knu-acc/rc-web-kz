@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
+
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
   title: 'Почему выбрать нас | Преимущества RC-WEB создание сайтов Алматы',
@@ -177,7 +179,7 @@ export default function WhyChooseUsPage() {
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 max-w-3xl mx-auto">
                 {stats.map((stat, index) => (
-                  <div key={index} className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
+                  <div key={stat.label} className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
                     <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                     <p className="text-sm text-white/70">{stat.label}</p>
                   </div>
@@ -206,7 +208,7 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <div
-                key={index}
+                key={benefit.title}
                 className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5`}>
@@ -231,7 +233,7 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -240,16 +242,16 @@ export default function WhyChooseUsPage() {
             <h2 className="heading-lg mb-6">
               Наши <span className="gradient-text">достижения</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Цифры, которые говорят сами за себя
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-secondary-800 mb-3">{stat.value}</div>
-                <p className="text-lg text-secondary-600">{stat.label}</p>
+              <div key={stat.label} className="text-center">
+                <div className="text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-3">{stat.value}</div>
+                <p className="text-lg text-secondary-600 dark:text-secondary-300">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -257,20 +259,20 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Процесс работы</h2>
-            <p className="text-lg text-secondary-600">Как мы работаем с клиентами</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Как мы работаем с клиентами</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-secondary-800">{step.step}</span>
+              <div key={`step-${step.step}`} className="text-center">
+                <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-secondary-600 text-sm">{step.description}</p>
+                <p className="text-secondary-600 dark:text-secondary-300 text-sm">{step.description}</p>
               </div>
             ))}
           </div>
@@ -278,7 +280,7 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Reviews Preview */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
@@ -287,7 +289,7 @@ export default function WhyChooseUsPage() {
             <h2 className="heading-lg mb-6">
               Отзывы <span className="gradient-text">клиентов</span>
             </h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Что говорят о нас наши клиенты
             </p>
           </div>
@@ -298,16 +300,16 @@ export default function WhyChooseUsPage() {
               { name: 'Мария С.', text: 'Создали интернет-магазин. Очень удобная админка. Спасибо за работу!', rating: 5 },
               { name: 'Дмитрий В.', text: 'Landing Page для рекламы. Дизайн отличный, конверсия высокая. Доволен!', rating: 5 },
             ].map((review, index) => (
-              <div key={index} className="card p-6">
+              <div key={review.name} className="card p-6">
                 <div className="flex items-center gap-2 mb-3">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <svg key={i} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <svg key={`star-${i}`} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <p className="text-secondary-700 mb-3">"{review.text}"</p>
-                <p className="font-bold text-secondary-900">{review.name}</p>
+                <p className="text-secondary-700 dark:text-secondary-300 mb-3">"{review.text}"</p>
+                <p className="font-bold text-secondary-900 dark:text-white">{review.name}</p>
               </div>
             ))}
           </div>
@@ -345,25 +347,25 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные страницы</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/reviews" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Отзывы</h3>
-              <p className="text-secondary-600">Отзывы наших клиентов</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Отзывы</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Отзывы наших клиентов</p>
             </Link>
             <Link href="/portfolio" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Портфолио</h3>
-              <p className="text-secondary-600">Примеры наших работ</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Портфолио</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Примеры наших работ</p>
             </Link>
             <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Контакты</h3>
-              <p className="text-secondary-600">Свяжитесь с нами</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Контакты</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Свяжитесь с нами</p>
             </Link>
             <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Цены</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Цены</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
             </Link>
           </div>
         </div>

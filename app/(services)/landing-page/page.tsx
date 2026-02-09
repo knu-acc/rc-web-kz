@@ -2,13 +2,15 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
+import dynamic from 'next/dynamic'
 import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
-import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
 import { placeholderReviewImages } from '@/data/reviews'
 
+const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
+
 export const metadata: Metadata = {
-  title: 'Landing Page в Алматы | Одностраничный сайт 85-135 тыс ₸',
-  description: 'Профессиональная разработка Landing Page в Алматы. Продающие одностраничники с высокой конверсией для Google-рекламы. Современный дизайн, быстрая загрузка, SEO-оптимизация. Цена 85-135 тыс тенге.',
+  title: 'Создание Landing Page в Алматы от 85 000₸ | Лендинг под ключ - RC-WEB.KZ',
+  description: 'Разработка продающих лендингов в Алматы от 85 000₸. Высокая конверсия, современный дизайн, SEO-оптимизация. ✓ Бесплатная техподдержка ✓ Срок 3-5 дней. Заказать создание landing page.',
   keywords: [
     'landing page Алматы',
     'одностраничный сайт Алматы',
@@ -74,7 +76,7 @@ const benefits = [
     ),
     title: 'Мобильная адаптация',
     description: 'Идеальное отображение на всех устройствах: телефоны, планшеты, компьютеры',
-    gradient: 'from-blue-500 to-cyan-600',
+    gradient: 'from-emerald-500 to-teal-600',
   },
   {
     icon: (
@@ -117,36 +119,39 @@ export default function LandingPagePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      
+
       {/* Hero Section with floating cards */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
+          {/* Animated gradient orbs */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Content */}
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
                 </span>
                 Landing Page в Алматы
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-900">
+              <h1 className="heading-xl text-secondary-900 dark:text-white">
                 <span className="block">Продающие</span>
-                <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">одностраничники</span>
-                <span className="block text-secondary-700 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
+                <span className="gradient-text">одностраничники</span>
+                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
                   для вашего бизнеса
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 max-w-xl leading-relaxed">
-                Создаём высококонверсионные Landing Page для вашего бизнеса. Идеальное решение для <Link href="/website-advertising" className="text-blue-600 hover:underline font-semibold">Google-рекламы</Link>, 
+              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+                Создаём высококонверсионные Landing Page для вашего бизнеса. Идеальное решение для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">Google-рекламы</Link>,
                 запуска новых продуктов и увеличения продаж. Современный дизайн, быстрая загрузка, мобильная адаптация.
               </p>
 
@@ -161,13 +166,13 @@ export default function LandingPagePage() {
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl p-4 border border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent mb-1">15-25%</div>
-                  <p className="text-sm font-semibold text-blue-700">Конверсия</p>
+                <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-1">15-25%</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-200">Конверсия</p>
                 </div>
-                <div className="bg-gradient-to-br from-violet-50 to-violet-100/50 rounded-xl p-4 border border-violet-200 hover:border-violet-400 transition-all duration-300 hover:shadow-lg">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-violet-600 to-violet-700 bg-clip-text text-transparent mb-1">3-5 дней</div>
-                  <p className="text-sm font-semibold text-violet-700">Срок разработки</p>
+                <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-1">3-5 дней</div>
+                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-200">Срок разработки</p>
                 </div>
               </div>
             </div>
@@ -179,19 +184,20 @@ export default function LandingPagePage() {
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-300/30 animate-spin" style={{ animationDuration: '30s' }} />
                 <div className="absolute inset-8 rounded-full border-2 border-dashed border-violet-300/30 animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }} />
               </div>
-              
+
               <div className="relative z-10">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
                     alt="Landing Page разработка в Алматы"
                     width={600}
                     height={450}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
 
                 {/* Floating card: Конверсия */}
@@ -204,8 +210,8 @@ export default function LandingPagePage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-semibold text-secondary-900">Высокая конверсия</p>
-                      <p className="text-sm text-secondary-500">до 25%</p>
+                      <p className="font-semibold text-secondary-900 dark:text-white">Высокая конверсия</p>
+                      <p className="text-sm text-secondary-500 dark:text-secondary-400">до 25%</p>
                     </div>
                   </div>
                 </div>
@@ -219,8 +225,8 @@ export default function LandingPagePage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-semibold text-secondary-900">Быстрая разработка</p>
-                      <p className="text-sm text-secondary-500">3-5 дней</p>
+                      <p className="font-semibold text-secondary-900 dark:text-white">Быстрая разработка</p>
+                      <p className="text-sm text-secondary-500 dark:text-secondary-400">3-5 дней</p>
                     </div>
                   </div>
                 </div>
@@ -231,24 +237,24 @@ export default function LandingPagePage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Примеры работ
             </span>
             <h2 className="heading-lg mb-6">
               Примеры наших <span className="gradient-text">Landing Page</span>
             </h2>
-            <p className="text-lg text-secondary-600">
-              Посмотрите примеры успешных лендингов, которые мы создали для наших клиентов. 
-              Больше работ в нашем <Link href="/portfolio" className="text-secondary-800 hover:underline font-semibold">портфолио</Link>.
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">
+              Посмотрите примеры успешных лендингов, которые мы создали для наших клиентов.
+              Больше работ в нашем <Link href="/portfolio" className="text-secondary-800 dark:text-secondary-200 hover:underline font-semibold">портфолио</Link>.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {galleryImages.map((img, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100">
+              <div key={img.alt} className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100 dark:bg-secondary-800 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -257,7 +263,10 @@ export default function LandingPagePage() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-white font-semibold text-sm">{img.alt}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -265,10 +274,10 @@ export default function LandingPagePage() {
       </section>
 
       {/* Benefits Bento Grid */}
-      <section className="section bg-secondary-900 text-white relative">
+      <section className="section bg-secondary-900 dark:bg-secondary-950 text-white relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
             <h2 className="heading-lg mb-6 text-white">
@@ -282,14 +291,16 @@ export default function LandingPagePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
               <div
-                key={index}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                key={benefit.title}
+                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5`}>
+                {/* Gradient glow on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
                   {benefit.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
-                <p className="text-white/70 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{benefit.title}</h3>
+                <p className="text-white/70 leading-relaxed relative z-10">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -297,38 +308,38 @@ export default function LandingPagePage() {
       </section>
 
       {/* What is Landing Page */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="heading-lg mb-6">Что такое Landing Page?</h2>
-              <p className="text-lg text-secondary-600 mb-4 leading-relaxed">
-                Landing Page (лендинг) — это одностраничный сайт, созданный специально для достижения одной цели: 
-                конверсии посетителя в клиента. В отличие от <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">многостраничных сайтов</Link>, лендинг фокусируется на конкретном 
-                предложении и ведёт пользователя к одному действию — заказу, звонку или заявке.
+              <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-4 leading-relaxed">
+                Landing Page (лендинг) — это одностраничный сайт, созданный специально для достижения одной цели:
+                конверсии посетителя в клиента. В отличие от <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">многостраничных сайтов</Link>, лендинг фокусируется на конкретном
+                предложении и ведёт пользователя к одному действию — заказу, звонку или заявке. Подробнее о том, <Link href="/blog/kak-sozdat-sajt-almaty-2026" className="text-primary-600 hover:underline font-semibold">как создать сайт в Алматы</Link>, читайте в нашем блоге.
               </p>
-              <p className="text-lg text-secondary-600 mb-6 leading-relaxed">
-                Такие сайты особенно эффективны для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">контекстной рекламы</Link> в Google и Яндекс, так как пользователь сразу 
-                попадает на релевантную страницу с нужной информацией, без необходимости искать её на сайте.
+              <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-6 leading-relaxed">
+                Такие сайты особенно эффективны для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">контекстной рекламы</Link> в Google и Яндекс, так как пользователь сразу
+                попадает на релевантную страницу с нужной информацией, без необходимости искать её на сайте. Для долгосрочного продвижения также рекомендуем <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-оптимизацию</Link> и <Link href="/blog/landing-page-vs-korporativnyj-sajt" className="text-primary-600 hover:underline font-semibold">выбор между Landing Page и корпоративным сайтом</Link>.
               </p>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">Высокая конверсия — до 15-25% при правильной настройке</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">Высокая конверсия — до 15-25% при правильной настройке</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">Быстрая разработка — готовый сайт за 3-5 дней</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">Быстрая разработка — готовый сайт за 3-5 дней</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-secondary-700">Оптимизация под мобильные устройства</p>
+                  <p className="text-secondary-700 dark:text-secondary-300">Оптимизация под мобильные устройства</p>
                 </div>
               </div>
             </div>
@@ -347,21 +358,21 @@ export default function LandingPagePage() {
       </section>
 
       {/* Pricing */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Цены на Landing Page в Алматы</h2>
-            <p className="text-lg text-secondary-600">Прозрачное ценообразование без скрытых платежей</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Прозрачное ценообразование без скрытых платежей</p>
           </div>
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+          <div className="max-w-4xl mx-auto bg-white dark:bg-secondary-950 rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
               <div className="text-5xl font-bold text-primary-600 mb-2">85-135 тыс ₸</div>
-              <p className="text-secondary-600">Базовая стоимость Landing Page</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость Landing Page</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-secondary-900">Что входит в стоимость:</h3>
-                <ul className="space-y-2 text-secondary-700">
+                <h3 className="text-xl font-bold text-secondary-900 dark:text-white">Что входит в стоимость:</h3>
+                <ul className="space-y-2 text-secondary-700 dark:text-secondary-300">
                   <li className="flex items-start gap-2">
                     <span className="text-primary-600">✓</span>
                     <span>Уникальный дизайн под ваш бренд</span>
@@ -389,8 +400,8 @@ export default function LandingPagePage() {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-secondary-900">Сроки разработки:</h3>
-                <ul className="space-y-2 text-secondary-700">
+                <h3 className="text-xl font-bold text-secondary-900 dark:text-white">Сроки разработки:</h3>
+                <ul className="space-y-2 text-secondary-700 dark:text-secondary-300">
                   <li className="flex items-start gap-2">
                     <span className="text-primary-600">✓</span>
                     <span>Обсуждение проекта и ТЗ: 1 день</span>
@@ -408,7 +419,7 @@ export default function LandingPagePage() {
                     <span>Тестирование и запуск: 1 день</span>
                   </li>
                 </ul>
-                <p className="text-sm text-secondary-500 mt-4">
+                <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-4">
                   Итого: 3-5 рабочих дней от начала работы до публикации сайта
                 </p>
               </div>
@@ -423,40 +434,40 @@ export default function LandingPagePage() {
       </section>
 
       {/* Process */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Как мы создаём Landing Page</h2>
-            <p className="text-lg text-secondary-600">Пошаговый процесс разработки</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Пошаговый процесс разработки</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">1</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-200">1</span>
               </div>
               <h3 className="text-xl font-bold mb-3">Анализ и планирование</h3>
-              <p className="text-secondary-600">
-                Изучаем ваш бизнес, целевую аудиторию и конкурентов. Определяем ключевые преимущества 
+              <p className="text-secondary-600 dark:text-secondary-300">
+                Изучаем ваш бизнес, целевую аудиторию и конкурентов. Определяем ключевые преимущества
                 и формируем уникальное торговое предложение.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">2</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-xl font-bold mb-3">Дизайн и вёрстка</h3>
-              <p className="text-secondary-600">
-                Создаём уникальный дизайн, который отражает ваш бренд и ведёт пользователя к цели. 
+              <p className="text-secondary-600 dark:text-secondary-300">
+                Создаём уникальный дизайн, который отражает ваш бренд и ведёт пользователя к цели.
                 Разрабатываем адаптивную вёрстку для всех устройств.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-primary-600">3</span>
+              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-xl font-bold mb-3">Запуск и оптимизация</h3>
-              <p className="text-secondary-600">
-                Публикуем сайт, настраиваем аналитику и проводим тестирование. Обеспечиваем быструю 
+              <p className="text-secondary-600 dark:text-secondary-300">
+                Публикуем сайт, настраиваем аналитику и проводим тестирование. Обеспечиваем быструю
                 загрузку и корректную работу на всех устройствах.
               </p>
             </div>
@@ -465,15 +476,15 @@ export default function LandingPagePage() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-secondary-50">
+      <section className="section bg-secondary-50 dark:bg-secondary-800">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
               {faqItems.map((item) => (
-                <div key={item.id} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-semibold text-secondary-900 mb-2">{item.question}</h3>
-                  <p className="text-secondary-600">
+                <div key={item.id} className="bg-white dark:bg-secondary-900 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">{item.question}</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300">
                     {item.id === '3' ? (
                       <>
                         {item.answer.split('многостраничный сайт')[0]}
@@ -508,7 +519,7 @@ export default function LandingPagePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <a href={SOCIAL_LINKS.whatsapp} className="bg-white text-primary-600 hover:bg-primary-50 font-semibold px-8 py-4 rounded-xl transition-all duration-200 text-lg inline-flex items-center gap-2">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               Написать в WhatsApp
             </a>
@@ -520,25 +531,25 @@ export default function LandingPagePage() {
       </section>
 
       {/* Related Services */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-secondary-900">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>
-              <p className="text-secondary-600">Многостраничные сайты для бизнеса</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Многостраничные сайты для бизнеса</p>
             </Link>
             <Link href="/website-advertising" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Реклама сайта</h3>
-              <p className="text-secondary-600">Настройка Google и Яндекс рекламы</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Настройка Google и Яндекс рекламы</p>
             </Link>
             <Link href="/seo-optimization" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">SEO-оптимизация</h3>
-              <p className="text-secondary-600">Продвижение в поисковых системах</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Продвижение в поисковых системах</p>
             </Link>
-            <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600">Стоимость разработки</p>
+            <Link href="/blog" className="card p-6 hover:shadow-lg transition-all group border-2 border-primary-200">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Блог</h3>
+              <p className="text-secondary-600 dark:text-secondary-300">Гайды и статьи о создании сайтов</p>
             </Link>
           </div>
         </div>

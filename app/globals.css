@@ -64,6 +64,67 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 243 75% 59%;
   }
+
+  /* High Contrast Mode - улучшенная контрастность для доступности */
+  .high-contrast {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 243 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 0%;
+
+    --accent: 243 75% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 243 75% 50%;
+  }
+
+  .high-contrast.dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 243 75% 70%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 100%;
+
+    --accent: 243 75% 70%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 243 75% 70%;
+  }
 }
 
 @layer base {
@@ -90,6 +151,30 @@
 }
 
 @layer utilities {
+  /* Screen reader only - для доступности */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+  
   .container-custom {
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
@@ -98,11 +183,9 @@
   }
   .heading-lg {
     @apply text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight;
-    color: #232323;
   }
   .heading-md {
     @apply text-xl sm:text-2xl lg:text-3xl font-bold leading-tight;
-    color: #232323;
   }
   .text-dark {
     color: #232323;
@@ -111,11 +194,11 @@
     @apply py-16 lg:py-24;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     will-change: transform;
   }
   .btn-dark {
-    @apply inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-secondary-600 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     background-color: #232323;
     will-change: transform;
   }
@@ -123,7 +206,7 @@
     background-color: #1a1a1a;
   }
   .btn-whatsapp {
-    @apply inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     background-color: #25D366;
     will-change: transform;
   }
@@ -131,7 +214,7 @@
     background-color: #1fa856;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-secondary-50 text-secondary-900 font-semibold rounded-xl border border-secondary-200 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-white dark:bg-secondary-800 hover:bg-secondary-50 dark:hover:bg-secondary-700 text-secondary-900 dark:text-secondary-100 font-semibold rounded-xl border border-secondary-200 dark:border-secondary-700 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     will-change: transform;
   }
   .stagger-1 { animation-delay: 0.1s; }
@@ -152,11 +235,11 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-violet-600;
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-secondary-50 text-secondary-900 font-semibold rounded-xl border-2 border-secondary-300 hover:border-primary-500 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-white dark:bg-secondary-800 hover:bg-secondary-50 dark:hover:bg-secondary-700 text-secondary-900 dark:text-secondary-100 font-semibold rounded-xl border-2 border-secondary-300 dark:border-secondary-600 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     will-change: transform;
   }
   .card {
-    @apply bg-white rounded-2xl border border-secondary-100 transition-all duration-300;
+    @apply bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 transition-all duration-300;
   }
 }
 
@@ -182,6 +265,35 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
 }
 
 /* Оптимизация прокрутки */
@@ -256,6 +368,27 @@
   @apply bg-green-600;
 }
 
+/* Shimmer анимация для skeleton screens */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--secondary)) 0%,
+    hsl(var(--secondary) / 0.5) 50%,
+    hsl(var(--secondary)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
 /* Улучшение производительности анимаций */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -266,4 +399,163 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  
+  .animate-shimmer {
+    animation: none !important;
+  }
 }
+
+/* High Contrast Mode - дополнительные стили */
+html.high-contrast {
+  --border-width: 2px;
+}
+
+html.high-contrast button,
+html.high-contrast a,
+html.high-contrast [role="button"] {
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+
+html.high-contrast input,
+html.high-contrast textarea,
+html.high-contrast select {
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+
+/* Touch-friendly элементы для мобильных устройств */
+@media (hover: none) and (pointer: coarse) {
+  /* Увеличиваем размеры touch-целей на мобильных */
+  button,
+  a,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+
+  /* Улучшаем отступы для удобства нажатия */
+  .btn-primary,
+  .btn-secondary,
+  .btn-dark,
+  .btn-outline,
+  .btn-whatsapp {
+    min-height: 48px;
+    padding: 12px 24px;
+  }
+}
+
+/* Swiper стили для карусели отзывов */
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Навигация Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 48px !important;
+  height: 48px !important;
+  background: white !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+  color: #1e293b !important;
+}
+
+.dark .swiper-button-next,
+.dark .swiper-button-prev {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #6366f1 !important;
+  transform: scale(1.1) !important;
+  color: white !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0.35 !important;
+}
+
+/* Пагинация Swiper */
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: #cbd5e1 !important;
+  opacity: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.dark .swiper-pagination-bullet {
+  background: #475569 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #6366f1 !important;
+  transform: scale(1.2) !important;
+}
+
+/* Контейнер для карусели отзывов */
+.reviews-carousel-wrapper {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.reviews-carousel-wrapper .swiper-slide {
+  height: auto;
+}
+
+.reviews-carousel-wrapper .swiper-slide article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-carousel-wrapper .swiper-slide article > div {
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
