@@ -31,9 +31,13 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'swiper'],
   },
   
+  // Turbopack конфигурация (для Next.js 16+)
+  // Добавляем пустую конфигурацию для избежания конфликта с webpack
+  turbopack: {},
+  
   // Performance Budget - предупреждения при превышении размера бандла
-  // Используем webpack только если не используется Turbopack
-  ...(process.env.NEXT_PRIVATE_TURBOPACK !== 'true' && {
+  // Используем webpack только если явно указан флаг --webpack
+  ...(process.env.NEXT_PRIVATE_TURBOPACK === 'false' && {
     webpack: (config, { isServer }) => {
       if (!isServer) {
         config.performance = {
@@ -45,10 +49,6 @@ const nextConfig = {
       return config
     },
   }),
-  
-  // Turbopack конфигурация (для Next.js 16+)
-  // Примечание: turbopack может не работать со статическим экспортом
-  // turbopack: {},
   
   // Заголовки безопасности и SEO
   // Примечание: headers() не работает со статическим экспортом
