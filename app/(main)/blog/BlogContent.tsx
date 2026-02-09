@@ -1,26 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
 import type { BlogPost } from '@/data/blog'
 import { BlogSearch } from '@/components/blog/BlogSearch'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-
-import type { SwiperModule } from 'swiper/types'
-
-const SwiperComponent = dynamic(
-  () => import('swiper/react').then((mod) => ({ default: mod.Swiper })),
-  { ssr: false }
-)
-
-const SwiperSlideComponent = dynamic(
-  () => import('swiper/react').then((mod) => ({ default: mod.SwiperSlide })),
-  { ssr: false }
-)
+import { EmblaCarousel } from '@/components/ui/EmblaCarousel'
+import type { EmblaOptionsType } from 'embla-carousel'
 
 const categoryLabels: Record<string, string> = {
   guides: 'Гайды',
@@ -39,38 +25,54 @@ interface BlogContentProps {
 export function BlogContent({ posts, categories }: BlogContentProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [searchResults, setSearchResults] = useState<BlogPost[]>(posts)
-  const [isSwiperLoaded, setIsSwiperLoaded] = useState(false)
-  const [swiperModules, setSwiperModules] = useState<unknown[]>([])
 
   // Обновляем результаты поиска при изменении posts
   useEffect(() => {
     setSearchResults(posts)
   }, [posts])
 
-  // Загружаем Swiper модули если категорий больше 5
-  useEffect(() => {
-    const totalButtons = categories.length + 1 // +1 для кнопки "Все статьи"
-    if (totalButtons > 5) {
-      Promise.all([
-        import('swiper/modules').then((mod) => mod.Navigation),
-        import('swiper/modules').then((mod) => mod.A11y),
-      ])
-        .then(([Navigation, A11y]) => {
-          setSwiperModules([Navigation, A11y])
-          setIsSwiperLoaded(true)
-        })
-        .catch(() => {
-          setIsSwiperLoaded(true)
-        })
-    }
-  }, [categories.length])
-
   const filteredPosts = activeCategory
     ? searchResults.filter((post) => post.category === activeCategory)
     : searchResults
 
-  const totalButtons = categories.length + 1
-  const shouldUseSlider = totalButtons > 5 && isSwiperLoaded
+  const emblaOptions: EmblaOptionsType = useMemo(
+    () => ({
+      align: 'start',
+      containScroll: 'trimSnaps',
+      slidesToScroll: 1,
+    }),
+    []
+  )
+
+  const categorySlides = useMemo(
+    () => [
+      <button
+        key="all"
+        onClick={() => setActiveCategory(null)}
+        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+          activeCategory === null
+            ? 'bg-primary-600 text-white shadow-md'
+            : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
+        }`}
+      >
+        Все статьи
+      </button>,
+      ...categories.map((category) => (
+        <button
+          key={category}
+          onClick={() => setActiveCategory(category)}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+            activeCategory === category
+              ? 'bg-primary-600 text-white shadow-md'
+              : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
+          }`}
+        >
+          {categoryLabels[category] || category}
+        </button>
+      )),
+    ],
+    [categories, activeCategory]
+  )
 
   return (
     <>
@@ -82,76 +84,42 @@ export function BlogContent({ posts, categories }: BlogContentProps) {
         }} 
       />
 
-      {/* Категории */}
-      {shouldUseSlider ? (
-        <div className="mb-12">
-          <SwiperComponent
-            modules={swiperModules as SwiperModule[]}
-            spaceBetween={8}
-            slidesPerView="auto"
-            freeMode
-            navigation
-            a11y={{
-              prevSlideMessage: 'Предыдущие категории',
-              nextSlideMessage: 'Следующие категории',
-            }}
-            className="!pb-2"
-          >
-            <SwiperSlideComponent style={{ width: 'auto' }}>
-              <button
-                onClick={() => setActiveCategory(null)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                  activeCategory === null
-                    ? 'bg-primary-600 text-white shadow-md'
-                    : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
-                }`}
-              >
-                Все статьи
-              </button>
-            </SwiperSlideComponent>
-            {categories.map((category) => (
-              <SwiperSlideComponent key={category} style={{ width: 'auto' }}>
-                <button
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                    activeCategory === category
-                      ? 'bg-primary-600 text-white shadow-md'
-                      : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
-                  }`}
-                >
-                  {categoryLabels[category] || category}
-                </button>
-              </SwiperSlideComponent>
-            ))}
-          </SwiperComponent>
-        </div>
-      ) : (
-        <div className="flex flex-wrap gap-2 justify-center mb-12">
+      {/* Категории: на ПК — все кнопки в ряд, на мобилке — слайдер (3 видимых, по 1 за клик) */}
+      <div className="hidden md:flex flex-wrap gap-2 justify-center mb-12">
+        <button
+          onClick={() => setActiveCategory(null)}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            activeCategory === null
+              ? 'bg-primary-600 text-white shadow-md'
+              : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
+          }`}
+        >
+          Все статьи
+        </button>
+        {categories.map((category) => (
           <button
-            onClick={() => setActiveCategory(null)}
+            key={category}
+            onClick={() => setActiveCategory(category)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              activeCategory === null
+              activeCategory === category
                 ? 'bg-primary-600 text-white shadow-md'
                 : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
             }`}
           >
-            Все статьи
+            {categoryLabels[category] || category}
           </button>
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === category
-                  ? 'bg-primary-600 text-white shadow-md'
-                  : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
-              }`}
-            >
-              {categoryLabels[category] || category}
-            </button>
-          ))}
-        </div>
-      )}
+        ))}
+      </div>
+      <div className="blog-categories-slider md:hidden mb-12 relative px-12">
+        <EmblaCarousel
+          slides={categorySlides}
+          options={emblaOptions}
+          showNavigation={true}
+          showPagination={false}
+          enableAutoplay={false}
+          slideClassName="min-w-0 flex-[0_0_calc(50%-3px)]"
+        />
+      </div>
 
       {/* Количество */}
       {activeCategory && (
@@ -202,7 +170,9 @@ export function BlogContent({ posts, categories }: BlogContentProps) {
                 {post.description}
               </p>
               <div className="flex items-center justify-between">
-                <time className="text-sm text-secondary-500 dark:text-secondary-400">{post.date}</time>
+                <time className="text-sm text-secondary-500 dark:text-secondary-400" dateTime={post.date}>
+                  {new Date(post.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
+                </time>
                 <Link
                   href={`/blog/${post.slug}`}
                   className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium text-sm"

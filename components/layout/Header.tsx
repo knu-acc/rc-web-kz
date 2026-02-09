@@ -2,9 +2,26 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
-import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { AnalyticsEvents } from '@/lib/analytics-events'
+
+// Динамический импорт ThemeToggle без SSR для предотвращения hydration mismatch
+const ThemeToggle = dynamic(() => import('@/components/ui/ThemeToggle').then(mod => ({ default: mod.ThemeToggle })), {
+  ssr: false,
+  loading: () => (
+    <div className="relative p-2 rounded-lg bg-secondary-100 dark:bg-secondary-800 min-h-[44px] min-w-[44px] flex items-center justify-center">
+      <div className="relative w-5 h-5 flex items-center justify-center">
+        <div className="absolute inset-0 text-yellow-500 opacity-100">
+          <svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  ),
+})
 
 interface HeaderProps {
   /** Server-rendered logo slot for LCP (avoids waiting for client hydration) */
@@ -58,6 +75,15 @@ export function Header({ logoSlot }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu()
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
     document.body.style.overflow = !isMenuOpen ? 'hidden' : ''
@@ -78,10 +104,13 @@ export function Header({ logoSlot }: HeaderProps) {
         Перейти к основному содержимому
       </a>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'py-3 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-xl shadow-soft border-b border-secondary-100 dark:border-secondary-800'
-          : 'py-5 bg-transparent'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isMenuOpen
+            ? 'py-3 bg-white dark:bg-secondary-900 shadow-md border-b border-secondary-100 dark:border-secondary-800'
+            : isScrolled
+              ? 'py-3 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-xl shadow-soft border-b border-secondary-100 dark:border-secondary-800'
+              : 'py-5 bg-transparent'
+        }`}
         role="banner"
       >
         <nav className="container-custom" aria-label="Основная навигация">
@@ -178,7 +207,7 @@ export function Header({ logoSlot }: HeaderProps) {
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
             <button
-              className={`relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 ${isMenuOpen ? 'burger-active' : ''}`}
+              className="relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
               onClick={toggleMenu}
               aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
               aria-expanded={isMenuOpen}
@@ -196,7 +225,7 @@ export function Header({ logoSlot }: HeaderProps) {
       {mounted && (
         <div
           id="mobile-menu"
-          className={`md:hidden fixed inset-x-0 top-0 z-[100] bg-white dark:bg-secondary-900 transition-all duration-300 overflow-y-auto pt-20 ${isMenuOpen
+          className={`md:hidden fixed inset-x-0 top-0 z-40 bg-white dark:bg-secondary-900 transition-all duration-300 overflow-y-auto pt-20 ${isMenuOpen
             ? 'opacity-100 visible translate-y-0'
             : 'opacity-0 invisible -translate-y-4 pointer-events-none'
             }`}
@@ -205,6 +234,7 @@ export function Header({ logoSlot }: HeaderProps) {
           }}
           role="menu"
           aria-label="Мобильное меню"
+          suppressHydrationWarning
         >
         <div className="container-custom py-8">
           <nav className="flex flex-col gap-2">

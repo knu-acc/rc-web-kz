@@ -31,7 +31,7 @@ export default function NotFound() {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap justify-center gap-5 mb-12">
-            <Link href="/" className="btn-dark min-h-[52px] px-8 py-4">
+            <Link href="/" className="btn-dark min-h-[52px] px-8 py-4" aria-label="Вернуться на главную страницу">
               На главную
             </Link>
             <a href={SOCIAL_LINKS.whatsapp} className="btn-secondary min-h-[52px] px-8 py-4">

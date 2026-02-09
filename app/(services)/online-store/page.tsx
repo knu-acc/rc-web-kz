@@ -101,7 +101,7 @@ export default function OnlineStorePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />

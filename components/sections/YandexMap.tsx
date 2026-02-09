@@ -120,8 +120,7 @@ export function YandexMap({ showProjects = false, showDistricts = false }: { sho
         id="yandex-map" 
         role="img" 
         aria-label="Карта расположения офиса RC-WEB в Алматы" 
-        style={{ width: '100%', height: '400px' }}
-        className="rounded-xl overflow-hidden"
+        className="w-full h-[280px] sm:h-[350px] lg:h-[400px] rounded-xl overflow-hidden"
       />
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800 rounded-xl" role="status" aria-live="polite">

@@ -99,7 +99,7 @@ export function FAQ() {
                         <a href="/portfolio" className="btn-outline">
                           Смотреть портфолио
                         </a>
-                        <a href="https://rc-web.kz/brif.doc" className="btn-secondary" download>
+                        <a href="/brif.doc" className="btn-secondary" download>
                           Скачать бриф
                         </a>
                       </div>

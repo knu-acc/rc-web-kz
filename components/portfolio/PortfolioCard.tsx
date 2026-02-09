@@ -33,10 +33,10 @@ export function PortfolioCard({ item }: { item: PortfolioItem }) {
           </span>
           {/* Затемнение при наведении на карточку — белый текст «Открыть сайт» хорошо виден */}
           <div
-            className="absolute inset-0 z-[1] flex items-end justify-center bg-black/0 p-6 transition-colors duration-200 group-hover:bg-black/70"
+            className="absolute inset-0 z-[1] flex items-end justify-center bg-black/50 sm:bg-black/0 p-6 transition-colors duration-200 sm:group-hover:bg-black/70"
             aria-hidden
           >
-            <span className="flex items-center gap-2 text-base font-semibold text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <span className="flex items-center gap-2 text-base font-semibold text-white opacity-100 sm:opacity-0 sm:transition-opacity sm:duration-200 sm:group-hover:opacity-100">
               Открыть сайт
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

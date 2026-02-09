@@ -120,6 +120,10 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1e1b4b" media="(prefers-color-scheme: dark)" />
+        {/* Замените на ваши коды верификации из панелей поисковиков */}
+        <meta name="google-site-verification" content="" />
+        <meta name="yandex-verification" content="" />
+        <meta name="msvalidate.01" content="" />
         <ThemeScript />
         {/* Preconnect для критических ресурсов */}
         <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
@@ -133,6 +137,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preload" href="/img/main.png" as="image" />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider>

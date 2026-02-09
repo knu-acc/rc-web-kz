@@ -169,7 +169,7 @@ export default function ContactPage() {
                   href={method.href}
                   target={method.id === 'whatsapp' || method.id === 'telegram' ? '_blank' : undefined}
                   rel={method.id === 'whatsapp' || method.id === 'telegram' ? 'noopener noreferrer' : undefined}
-                  className="group relative flex flex-col items-center text-center p-8 rounded-3xl border-2 bg-white dark:bg-secondary-900 border-secondary-200 dark:border-secondary-800 hover:border-secondary-400 dark:hover:border-secondary-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="group relative flex flex-col items-center text-center p-4 sm:p-6 lg:p-8 rounded-3xl border-2 bg-white dark:bg-secondary-900 border-secondary-200 dark:border-secondary-800 hover:border-secondary-400 dark:hover:border-secondary-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                   aria-label={`Связаться через ${method.title}`}
                 >
                   {/* Icon with dark background */}

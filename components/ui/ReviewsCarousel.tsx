@@ -1,35 +1,13 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
+import { useState, useCallback, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReviewsCarouselFilter } from './ReviewsCarouselFilter'
 import { ReviewModal } from './ReviewModal'
 import { AnalyticsEvents } from '@/lib/analytics-events'
-import styles from './ReviewsCarousel.module.css'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-
-import type { SwiperModule } from 'swiper/types'
-
-const SwiperComponent = dynamic(
-  () => import('swiper/react').then((mod) => ({ default: mod.Swiper })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-96 flex items-center justify-center">
-        <div className="animate-pulse text-secondary-400">Загрузка...</div>
-      </div>
-    ),
-  }
-)
-
-const SwiperSlideComponent = dynamic(
-  () => import('swiper/react').then((mod) => ({ default: mod.SwiperSlide })),
-  { ssr: false }
-)
+import { EmblaCarousel } from './EmblaCarousel'
+import type { EmblaOptionsType } from 'embla-carousel'
 
 export interface ReviewImage {
   id: string
@@ -55,25 +33,8 @@ export function ReviewsCarousel({
   className = '',
   showFilter = false,
 }: ReviewsCarouselProps) {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [swiperModules, setSwiperModules] = useState<unknown[]>([])
   const [reviews, setReviews] = useState<ReviewImage[]>(initialReviews)
   const [selectedReview, setSelectedReview] = useState<ReviewImage | null>(null)
-
-  useEffect(() => {
-    Promise.all([
-      import('swiper/modules').then((mod) => mod.Navigation),
-      import('swiper/modules').then((mod) => mod.Pagination),
-      import('swiper/modules').then((mod) => mod.A11y),
-    ])
-      .then(([Navigation, Pagination, A11y]) => {
-        setSwiperModules([Navigation, Pagination, A11y])
-        setIsLoaded(true)
-      })
-      .catch(() => {
-        setIsLoaded(true)
-      })
-  }, [])
 
   const handleFilterChange = useCallback(
     (filtered: ReviewImage[]) => {
@@ -88,27 +49,37 @@ export function ReviewsCarousel({
     [initialReviews]
   )
 
-  if (!isLoaded) {
-    return (
-      <section className={`section bg-secondary-50 dark:bg-secondary-900 ${className}`}>
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
-              Отзывы
-            </span>
-            <h2 className="heading-lg mb-6">
-              {title.split(' ').slice(0, -1).join(' ')}{' '}
-              <span className="gradient-text">{title.split(' ').slice(-1)}</span>
-            </h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">{subtitle}</p>
+  const emblaOptions: EmblaOptionsType = useMemo(
+    () => ({
+      align: 'start',
+      slidesToScroll: 1,
+    }),
+    []
+  )
+
+  const slides = useMemo(
+    () =>
+      reviews.map((review) => (
+        <button
+          key={review.id}
+          onClick={() => setSelectedReview(review)}
+          className="group relative w-full h-full cursor-pointer mx-3"
+          aria-label={`Открыть отзыв: ${review.alt}`}
+        >
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+            <Image
+              src={review.image}
+              alt={review.alt}
+              fill
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              loading="lazy"
+            />
           </div>
-          <div className="h-96 flex items-center justify-center">
-            <div className="animate-pulse text-secondary-400">Загрузка карусели...</div>
-          </div>
-        </div>
-      </section>
-    )
-  }
+        </button>
+      )),
+    [reviews]
+  )
 
   return (
     <section className={`section bg-secondary-50 dark:bg-secondary-900 ${className}`}>
@@ -129,47 +100,14 @@ export function ReviewsCarousel({
         )}
 
         {reviews.length > 0 ? (
-          <div className={`reviews-carousel-wrapper ${styles.wrapper}`}>
-            <SwiperComponent
-              modules={swiperModules as SwiperModule[]}
-              spaceBetween={24}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              loop={reviews.length > 3}
-              breakpoints={{
-                640: { slidesPerView: 2, spaceBetween: 20 },
-                1024: { slidesPerView: 3, spaceBetween: 24 },
-                1280: { slidesPerView: 4, spaceBetween: 24 },
-              }}
-              a11y={{
-                prevSlideMessage: 'Предыдущий отзыв',
-                nextSlideMessage: 'Следующий отзыв',
-                paginationBulletMessage: 'Перейти к отзыву {{index}}',
-              }}
-              className="!pb-14"
-            >
-              {reviews.map((review) => (
-                <SwiperSlideComponent key={review.id}>
-                  <button
-                    onClick={() => setSelectedReview(review)}
-                    className="group relative w-full h-full cursor-pointer"
-                    aria-label={`Открыть отзыв: ${review.alt}`}
-                  >
-                    <div className="relative aspect-[3/4] overflow-hidden">
-                      <Image
-                        src={review.image}
-                        alt={review.alt}
-                        fill
-                        className="object-contain transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        loading="lazy"
-                      />
-                    </div>
-                  </button>
-                </SwiperSlideComponent>
-              ))}
-            </SwiperComponent>
+          <div className="relative px-12">
+            <EmblaCarousel
+              slides={slides}
+              options={emblaOptions}
+              showNavigation={true}
+              showPagination={true}
+              slideClassName="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] xl:flex-[0_0_calc(25%-18px)]"
+            />
           </div>
         ) : (
           <div className="text-center py-12">

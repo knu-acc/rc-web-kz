@@ -7,7 +7,7 @@
 - **Framework**: Next.js 16.1.1 (App Router)
 - **Language**: TypeScript 5.6
 - **Styling**: Tailwind CSS 3.4.17
-- **Слайдер**: Swiper 11.1.14
+- **Слайдер**: Embla Carousel 9.0.0-rc01
 - **Deployment**: Static Export (SSG)
 
 ## ✨ Особенности

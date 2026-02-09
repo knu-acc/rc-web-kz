@@ -80,8 +80,11 @@
   # Referrer Policy
   Header set Referrer-Policy "origin-when-cross-origin"
   
+  # HSTS — принудительное использование HTTPS
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  
   # Content Security Policy (настройте под ваши нужды)
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://api-maps.yandex.ru; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://api-maps.yandex.ru; frame-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://api-maps.yandex.ru; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://api-maps.yandex.ru; frame-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
 </IfModule>
 
 # Защита от просмотра директорий

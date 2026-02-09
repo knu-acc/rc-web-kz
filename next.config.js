@@ -28,7 +28,7 @@ const nextConfig = {
   // compress: true,
   
   experimental: {
-    optimizePackageImports: ['lucide-react', 'swiper'],
+    optimizePackageImports: ['lucide-react', 'embla-carousel-react', 'embla-carousel-autoplay'],
   },
   
   // Turbopack конфигурация (для Next.js 16+)

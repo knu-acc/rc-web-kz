@@ -38,7 +38,7 @@ export default function ReviewsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section with rating */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-32">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-32">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900" />
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
@@ -89,7 +89,7 @@ export default function ReviewsPage() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 max-w-2xl mx-auto">
                 <div className="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20">
                   <div className="text-2xl font-bold text-white mb-1">120+</div>
                   <p className="text-sm text-white/70">Отзывов</p>

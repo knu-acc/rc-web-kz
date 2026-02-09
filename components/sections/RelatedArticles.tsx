@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import type { BlogPost } from '@/data/blog'
 
 interface RelatedArticle {
   slug: string

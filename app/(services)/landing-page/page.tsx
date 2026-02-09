@@ -121,7 +121,7 @@ export default function LandingPagePage() {
       />
 
       {/* Hero Section with floating cards */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
@@ -200,7 +200,7 @@ export default function LandingPagePage() {
                 </div>
 
                 {/* Floating card: Конверсия */}
-                <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 shadow-xl animate-float relative z-10">
+                <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 shadow-xl animate-float relative z-10 hidden sm:block">
                   <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-dashed border-primary-300/40 rounded-full animate-float pointer-events-none" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-md">
@@ -216,7 +216,7 @@ export default function LandingPagePage() {
                 </div>
 
                 {/* Floating card: Быстро */}
-                <div className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl animate-float relative z-10" style={{ animationDelay: '1s' }}>
+                <div className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl animate-float relative z-10 hidden sm:block" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shadow-md">
                       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -422,7 +422,7 @@ export default function LandingPagePage() {
               </div>
             </div>
             <div className="text-center">
-              <a href={SOCIAL_LINKS.whatsapp} className="btn-dark\">
+              <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                 Заказать Landing Page
               </a>
             </div>

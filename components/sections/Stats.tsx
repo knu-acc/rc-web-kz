@@ -4,7 +4,7 @@ export function Stats() {
   return (
     <section className="section bg-secondary-50 dark:bg-secondary-900" aria-label="Статистика компании">
       <div className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2" aria-label={`${SITE_CONFIG.projectsCount} выполненных проектов`}>
               {SITE_CONFIG.projectsCount}
