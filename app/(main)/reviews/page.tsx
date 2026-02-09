@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
-import { generateBreadcrumbSchema, generateReviewSchema, ReviewData } from '@/lib/schema'
+import { generateBreadcrumbSchema } from '@/lib/schema'
 import { placeholderReviewImages } from '@/data/reviews'
 import { ReviewsCarousel } from '@/components/ui/ReviewsCarousel'
+import { ReviewsGallery } from '@/components/reviews/ReviewsGallery'
 
 export const metadata: Metadata = {
   title: 'Отзывы о RC-WEB.KZ | 120+ клиентов о создании сайтов в Алматы',
@@ -26,71 +27,15 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_CONFIG.url}/reviews` },
 }
 
-const textReviews = [
-  {
-    name: 'Александр К.',
-    company: 'ООО "Торговый дом"',
-    text: 'Заказал корпоративный сайт для компании. Всё сделали быстро и качественно. Сайт работает отлично, клиенты довольны. Рекомендую!',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
-  },
-  {
-    name: 'Мария С.',
-    company: 'Интернет-магазин одежды',
-    text: 'Создали интернет-магазин на Tilda. Очень удобная админка, легко управлять товарами. Платежи работают без проблем. Спасибо за работу!',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
-  },
-  {
-    name: 'Дмитрий В.',
-    company: 'Студия красоты',
-    text: 'Нужен был Landing Page для рекламы в Google. Сделали за 4 дня, дизайн отличный, конверсия высокая. Очень доволен результатом.',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
-  },
-  {
-    name: 'Елена П.',
-    company: 'Частный предприниматель',
-    text: 'Заказала сайт-визитку для своего бизнеса. Всё сделали профессионально, поддержка на высшем уровне. Цена адекватная.',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
-  },
-  {
-    name: 'Игорь М.',
-    company: 'IT-компания',
-    text: 'Корпоративный сайт с множеством страниц. Работали оперативно, учли все пожелания. SEO-оптимизация на высоте, сайт в топе Google.',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
-  },
-  {
-    name: 'Анна Л.',
-    company: 'Кафе и ресторан',
-    text: 'Создали красивый сайт для нашего кафе. Меню, онлайн-бронирование, фотографии — всё работает идеально. Клиенты довольны!',
-    rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100',
-  },
-]
-
-// Данные для Schema.org разметки отзывов
-const reviewsForSchema: ReviewData[] = textReviews.map((review) => ({
-  author: review.name,
-  reviewBody: review.text,
-  rating: review.rating,
-  datePublished: '2025-01-01',
-}))
-
 export default function ReviewsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Главная', url: SITE_CONFIG.url },
     { name: 'Отзывы', url: `${SITE_CONFIG.url}/reviews` },
   ])
 
-  const reviewSchema = generateReviewSchema(reviewsForSchema)
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
       
       {/* Hero Section with rating */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-32">
@@ -178,79 +123,7 @@ export default function ReviewsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {placeholderReviewImages.map((review) => (
-              <div
-                key={review.id}
-                className="group relative bg-white dark:bg-secondary-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="relative aspect-[3/4] bg-secondary-100 dark:bg-secondary-800 p-4">
-                  <Image
-                    src={review.image}
-                    alt={review.alt}
-                    fill
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    loading="lazy"
-                  />
-                </div>
-                {review.service && (
-                  <div className="absolute bottom-2 left-2 right-2">
-                    <span className="inline-block px-3 py-1.5 bg-white/95 dark:bg-secondary-800/95 backdrop-blur-sm rounded-lg text-xs font-medium text-secondary-700 dark:text-secondary-300 shadow-sm">
-                      {review.service}
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Text Reviews Cards */}
-      <section className="section bg-secondary-50 dark:bg-secondary-900">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
-              Отзывы
-            </span>
-            <h2 className="heading-lg mb-6">
-              Что говорят <span className="gradient-text">наши клиенты</span>
-            </h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">
-              Реальные отзывы от довольных клиентов, которые заказали у нас сайты
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {textReviews.map((review) => (
-              <div key={review.name} className="card p-6 hover:shadow-lg transition-all bg-white dark:bg-secondary-900">
-                <div className="flex items-center gap-2 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={`star-${star}`} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-secondary-700 dark:text-secondary-300 mb-4 leading-relaxed">"{review.text}"</p>
-                <div className="flex items-center gap-3 border-t border-secondary-200 dark:border-secondary-700 pt-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-secondary-100">
-                    <Image
-                      src={review.avatar}
-                      alt={review.name}
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-bold text-secondary-900 dark:text-white">{review.name}</p>
-                    <p className="text-sm text-secondary-600 dark:text-secondary-300">{review.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ReviewsGallery reviews={placeholderReviewImages} />
         </div>
       </section>
 

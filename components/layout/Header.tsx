@@ -206,19 +206,6 @@ export function Header({ logoSlot }: HeaderProps) {
           role="menu"
           aria-label="Мобильное меню"
         >
-        {/* Close button */}
-        <div className="container-custom pt-4 pb-2">
-          <button
-            onClick={closeMenu}
-            className="ml-auto flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors"
-            aria-label="Закрыть меню"
-            type="button"
-          >
-            <svg className="w-6 h-6 text-secondary-700 dark:text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
         <div className="container-custom py-8">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link, index) => (

@@ -79,7 +79,7 @@ export function RelatedServices({
             <Link
               key={service.slug}
               href={service.slug}
-              className="group bg-white dark:bg-secondary-950 rounded-2xl p-6 border border-secondary-200 dark:border-secondary-800 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-lg transition-all"
+              className="group bg-white dark:bg-secondary-950 rounded-2xl p-6 border-2 border-secondary-200 dark:border-secondary-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
             >
               <h3 className="text-xl font-bold mb-2 text-secondary-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                 {service.name}

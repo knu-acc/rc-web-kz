@@ -62,7 +62,7 @@ export function RelatedArticles({
             <Link
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="group bg-secondary-50 dark:bg-secondary-900 rounded-2xl p-6 border border-secondary-200 dark:border-secondary-800 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-lg transition-all"
+              className="group bg-secondary-50 dark:bg-secondary-900 rounded-2xl p-6 border-2 border-secondary-200 dark:border-secondary-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
             >
               <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 {categoryLabels[article.category] || article.category}
@@ -76,20 +76,28 @@ export function RelatedArticles({
                 </p>
               )}
               <div className="flex items-center justify-between">
-                {article.date && (
-                  <time className="text-xs text-secondary-500 dark:text-secondary-400">
-                    {new Date(article.date).toLocaleDateString('ru-RU', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                )}
-                {article.readingTime && (
-                  <span className="text-xs text-secondary-500 dark:text-secondary-400">
-                    {article.readingTime} мин
-                  </span>
-                )}
+                <div className="flex items-center gap-2">
+                  {article.date && (
+                    <time className="text-xs text-secondary-500 dark:text-secondary-400">
+                      {new Date(article.date).toLocaleDateString('ru-RU', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                  )}
+                  {article.readingTime && (
+                    <span className="text-xs text-secondary-500 dark:text-secondary-400">
+                      {article.readingTime} мин
+                    </span>
+                  )}
+                </div>
+                <span className="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 font-medium text-sm group-hover:gap-2 transition-all">
+                  Читать
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
               </div>
             </Link>
           ))}

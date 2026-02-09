@@ -39,16 +39,16 @@ export function PortfolioFilter({ children }: { children: React.ReactNode }) {
         <span className="text-sm font-semibold uppercase tracking-wide text-secondary-600 dark:text-secondary-400">
           Категории
         </span>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               type="button"
               onClick={() => setActiveCategory(cat.id)}
-              className={`min-h-[48px] rounded-xl px-6 py-3.5 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950 ${
                 activeCategory === cat.id
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200 dark:bg-secondary-800 dark:text-secondary-200 dark:hover:bg-secondary-700'
+                  ? 'bg-primary-600 text-white shadow-md'
+                  : 'bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 hover:bg-secondary-200 dark:hover:bg-secondary-700'
               }`}
             >
               {cat.label}

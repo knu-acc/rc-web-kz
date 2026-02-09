@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReviewsCarouselFilter } from './ReviewsCarouselFilter'
+import { ReviewModal } from './ReviewModal'
 import { AnalyticsEvents } from '@/lib/analytics-events'
 import styles from './ReviewsCarousel.module.css'
 import 'swiper/css'
@@ -57,6 +58,7 @@ export function ReviewsCarousel({
   const [isLoaded, setIsLoaded] = useState(false)
   const [swiperModules, setSwiperModules] = useState<unknown[]>([])
   const [reviews, setReviews] = useState<ReviewImage[]>(initialReviews)
+  const [selectedReview, setSelectedReview] = useState<ReviewImage | null>(null)
 
   useEffect(() => {
     Promise.all([
@@ -149,28 +151,22 @@ export function ReviewsCarousel({
             >
               {reviews.map((review) => (
                 <SwiperSlideComponent key={review.id}>
-                  <article className="group relative bg-white dark:bg-secondary-950 rounded-2xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 h-full">
-                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary-100 dark:bg-secondary-800 p-3 sm:p-4">
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={review.image}
-                          alt={review.alt}
-                          fill
-                          className="object-contain transition-transform duration-500 group-hover:scale-105"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <button
+                    onClick={() => setSelectedReview(review)}
+                    className="group relative w-full h-full cursor-pointer"
+                    aria-label={`Открыть отзыв: ${review.alt}`}
+                  >
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <Image
+                        src={review.image}
+                        alt={review.alt}
+                        fill
+                        className="object-contain transition-transform duration-300 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        loading="lazy"
+                      />
                     </div>
-                    {review.service && (
-                      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-700">
-                          {review.service}
-                        </span>
-                      </div>
-                    )}
-                  </article>
+                  </button>
                 </SwiperSlideComponent>
               ))}
             </SwiperComponent>
@@ -192,6 +188,14 @@ export function ReviewsCarousel({
           </div>
         )}
       </div>
+      {selectedReview && (
+        <ReviewModal
+          isOpen={!!selectedReview}
+          image={selectedReview.image}
+          alt={selectedReview.alt}
+          onClose={() => setSelectedReview(null)}
+        />
+      )}
     </section>
   )
 }
