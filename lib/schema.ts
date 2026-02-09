@@ -300,3 +300,66 @@ export function generateArticleSchema(article: {
     },
   }
 }
+
+/**
+ * Схема ProfessionalService для страниц услуг
+ */
+export function generateProfessionalServiceSchema(service: {
+  name: string
+  description: string
+  priceFrom: string
+  url: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: service.name,
+    description: service.description,
+    url: service.url,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+      telephone: SITE_CONFIG.phone,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: SITE_CONFIG.address.addressLocality,
+        addressCountry: SITE_CONFIG.address.addressCountry,
+      },
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Алматы',
+    },
+    offers: {
+      '@type': 'Offer',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: service.priceFrom,
+        priceCurrency: 'KZT',
+      },
+    },
+  }
+}
+
+/**
+ * Схема HowTo для инструкций
+ */
+export function generateHowToSchema(howTo: {
+  name: string
+  description: string
+  steps: { name: string; text: string }[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howTo.name,
+    description: howTo.description,
+    step: howTo.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  }
+}

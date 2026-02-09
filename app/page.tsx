@@ -24,10 +24,14 @@ const FAQ = dynamic(() => import('@/components/sections/FAQ').then(mod => ({ def
   loading: () => null,
   ssr: true,
 })
+const CTA = dynamic(() => import('@/components/sections/CTA').then(mod => ({ default: mod.CTA })), {
+  loading: () => null,
+  ssr: true,
+})
 
 export const metadata: Metadata = {
   title: SITE_CONFIG.title,
-  description: SITE_CONFIG.description,
+  description: 'Создание сайтов в Алматы с 2020 года. 120+ проектов. От 85 000₸. SEO-оптимизация. Техподдержка бесплатно. Срок 5-10 дней. Лендинги, корпоративные сайты, интернет-магазины.',
   keywords: [
     'создание сайтов Алматы',
     'разработка сайтов Алматы',
@@ -44,7 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: SITE_CONFIG.title,
-    description: SITE_CONFIG.description,
+    description: 'Создание сайтов в Алматы с 2020 года. 120+ проектов под ключ от 85 000₸.',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     images: [
@@ -61,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: SITE_CONFIG.title,
-    description: SITE_CONFIG.description,
+    description: 'Создание сайтов в Алматы от 85 000₸. 120+ проектов, SEO-оптимизация, техподдержка бесплатно.',
     images: [`${SITE_CONFIG.url}/img/slider4.png`],
   },
 }
@@ -79,6 +83,7 @@ export default function HomePage() {
       <Portfolio />
       <BlogPreview />
       <FAQ />
+      <CTA />
     </>
   )
 }

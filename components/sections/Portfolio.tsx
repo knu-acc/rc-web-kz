@@ -73,10 +73,24 @@ export function Portfolio() {
                 </div>
               </div>
 
-              {/* Info below image (mobile) */}
-              <div className="mt-4 md:hidden">
-                <span className="text-secondary-800 dark:text-secondary-200 text-sm font-medium">{item.category}</span>
+              {/* Info below image (mobile-friendly always visible) */}
+              <div className="mt-4 md:mt-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-primary-600 dark:text-primary-400 text-sm font-medium">{item.category}</span>
+                  {item.url && (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-secondary-400 hover:text-primary-500 transition-colors"
+                      aria-label={`Посетить сайт ${item.title}`}
+                    >
+                      Посетить сайт ↗
+                    </a>
+                  )}
+                </div>
                 <h3 className="text-secondary-900 dark:text-white font-bold mt-1">{item.title}</h3>
+                <p className="text-secondary-500 dark:text-secondary-400 text-sm mt-1 line-clamp-2 md:hidden">{item.description}</p>
               </div>
             </article>
           ))}

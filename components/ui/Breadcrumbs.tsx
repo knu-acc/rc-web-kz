@@ -32,7 +32,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
         className="pt-20 bg-secondary-100 dark:bg-secondary-900 border-b border-secondary-200 dark:border-secondary-800"
       >
         <div className="container-custom py-4">
-          <ol className="flex flex-wrap items-center text-sm text-secondary-500 dark:text-secondary-400">
+          <ol className="flex flex-wrap items-center text-sm text-secondary-500 dark:text-secondary-400" role="list">
             {items.map((item, index) => (
               <li key={item.href} className="flex items-center">
                 {index > 0 && (

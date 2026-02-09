@@ -108,4 +108,24 @@ export const AnalyticsEvents = {
       fatal: false,
       error_type: errorType,
     }),
+
+  // Скролл до секции
+  scrollToSection: (sectionName: string) =>
+    trackEvent('scroll_to_section', { category: 'Engagement', label: sectionName }),
+
+  // Время на странице (для пользовательских метрик)
+  timeOnPage: (seconds: number, page: string) =>
+    trackEvent('time_on_page', { category: 'Engagement', label: page, value: seconds }),
+
+  // Клик на внешнюю ссылку
+  externalLinkClick: (url: string) =>
+    trackEvent('external_link_click', { category: 'Engagement', label: url }),
+
+  // Скачивание файла
+  fileDownload: (fileName: string) =>
+    trackEvent('file_download', { category: 'Engagement', label: fileName }),
+
+  // Копирование телефона/email
+  copyContact: (contactType: string) =>
+    trackEvent('copy_contact', { category: 'Engagement', label: contactType }),
 }

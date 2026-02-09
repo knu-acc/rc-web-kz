@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { AnalyticsEvents } from '@/lib/analytics-events'
@@ -28,7 +29,13 @@ interface HeaderProps {
   logoSlot?: React.ReactNode
 }
 
-const navLinks = [
+interface NavLink {
+  href: string
+  label: string
+  submenu?: { href: string; label: string }[]
+}
+
+const navLinks: NavLink[] = [
   { href: '/', label: 'Главная' },
   {
     href: '#',
@@ -54,6 +61,7 @@ export function Header({ logoSlot }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -178,10 +186,17 @@ export function Header({ logoSlot }: HeaderProps) {
                 <Link
                   key={`nav-link-${idx}-${link.href}`}
                   href={link.href}
-                  className="relative px-4 py-2 text-secondary-600 dark:text-secondary-300 font-medium rounded-lg transition-all duration-300 hover:text-secondary-800 dark:hover:text-white hover:bg-secondary-50 dark:hover:bg-secondary-800 group"
+                  className={`relative px-4 py-2 font-medium rounded-lg transition-all duration-300 hover:bg-secondary-50 dark:hover:bg-secondary-800 group ${
+                    pathname === link.href
+                      ? 'text-primary-600 dark:text-primary-400'
+                      : 'text-secondary-600 dark:text-secondary-300 hover:text-secondary-800 dark:hover:text-white'
+                  }`}
+                  aria-current={pathname === link.href ? 'page' : undefined}
                 >
                   <span>{link.label}</span>
-                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-primary-500 scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                  <span className={`absolute bottom-1 left-4 right-4 h-0.5 bg-primary-500 transition-transform duration-300 ${
+                    pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`} />
                 </Link>
               )
             })}
@@ -223,6 +238,15 @@ export function Header({ logoSlot }: HeaderProps) {
       </nav>
 
       {mounted && (
+        <>
+        {/* \u0417\u0430\u0442\u0435\u043c\u043d\u0435\u043d\u0438\u0435 \u0444\u043e\u043d\u0430 \u043f\u0440\u0438 \u043e\u0442\u043a\u0440\u044b\u0442\u043e\u043c \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u043c \u043c\u0435\u043d\u044e */}
+        <div
+          className={`md:hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+            isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+          }`}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
         <div
           id="mobile-menu"
           className={`md:hidden fixed inset-x-0 top-0 z-40 bg-white dark:bg-secondary-900 transition-all duration-300 overflow-y-auto pt-20 ${isMenuOpen
@@ -306,6 +330,7 @@ export function Header({ logoSlot }: HeaderProps) {
           </div>
         </div>
         </div>
+        </>
       )}
     </header>
     </>

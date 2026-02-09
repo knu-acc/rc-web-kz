@@ -200,12 +200,10 @@
   }
   .btn-primary {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
-    will-change: transform;
   }
   .btn-dark {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-secondary-600 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     background-color: #232323;
-    will-change: transform;
   }
   .btn-dark:hover {
     background-color: #1a1a1a;
@@ -213,14 +211,12 @@
   .btn-whatsapp {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
     background-color: #25D366;
-    will-change: transform;
   }
   .btn-whatsapp:hover {
     background-color: #1fa856;
   }
   .btn-secondary {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-white dark:bg-secondary-800 hover:bg-secondary-50 dark:hover:bg-secondary-700 text-secondary-900 dark:text-secondary-100 font-semibold rounded-xl border border-secondary-200 dark:border-secondary-700 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
-    will-change: transform;
   }
   .stagger-1 { animation-delay: 0.1s; }
   .stagger-2 { animation-delay: 0.2s; }
@@ -232,10 +228,18 @@
   }
   .btn-outline {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-white dark:bg-secondary-800 hover:bg-secondary-50 dark:hover:bg-secondary-700 text-secondary-900 dark:text-secondary-100 font-semibold rounded-xl border-2 border-secondary-300 dark:border-secondary-600 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
-    will-change: transform;
   }
   .card {
     @apply bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 transition-all duration-300;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .section-divider {
+    @apply w-24 h-1 bg-gradient-to-r from-primary-500 to-violet-500 rounded-full mx-auto;
   }
 }
 
@@ -297,7 +301,11 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  will-change: transform, opacity;
+}
+
+#back-to-top:focus-visible {
+  @apply ring-2 ring-white ring-offset-2;
+  outline: none;
 }
 
 #back-to-top.visible {
@@ -322,7 +330,34 @@
 
 .floating-btn {
   @apply w-14 h-14 flex items-center justify-center rounded-full shadow-lg transition-all duration-300;
-  will-change: transform;
+  position: relative;
+}
+
+.floating-btn:focus-visible {
+  @apply ring-2 ring-white ring-offset-2;
+  outline: none;
+}
+
+/* Тултипы для плавающих кнопок */
+.floating-btn::before {
+  content: attr(title);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.floating-btn:hover::before {
+  opacity: 1;
 }
 
 .floating-btn:hover {
@@ -627,9 +662,70 @@ html.high-contrast select {
   body {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000 !important;
+    background: #fff !important;
   }
   a[href]::after {
+    content: " (" attr(href) ")" !important;
+    font-size: 0.85em;
+    color: #666;
+  }
+  a[href^="/"]::after {
+    content: " (https://rc-web.kz" attr(href) ")" !important;
+  }
+  a[href^="tel:"]::after,
+  a[href^="mailto:"]::after {
     content: none !important;
   }
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  .section {
+    page-break-inside: avoid;
+  }
+}
+
+/* Оптимизация отрисовки: content-visibility для секций ниже fold */
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Firefox скроллбар (dark mode) */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+    scrollbar-width: thin;
+  }
+  html.dark {
+    scrollbar-color: hsl(217 33% 35%) hsl(222 84% 5% / 0.5);
+  }
+}
+
+/* Подсветка ссылок в футере */
+footer a {
+  position: relative;
+}
+footer nav a::after,
+footer ul a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+footer nav a:hover::after,
+footer ul a:hover::after {
+  width: 100%;
 }
 

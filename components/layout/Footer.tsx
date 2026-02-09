@@ -3,12 +3,14 @@
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { AnalyticsEvents } from '@/lib/analytics-events'
+import { formatPhone } from '@/lib/utils'
 
 const footerLinks = {
   navigation: [
     { label: 'Главная', href: '/' },
     { label: 'Блог', href: '/blog' },
     { label: 'Портфолио', href: '/portfolio' },
+    { label: 'Отзывы', href: '/reviews' },
     { label: 'Контакты', href: '/contact' },
     { label: 'Скачать бриф', href: '/brif.doc' },
   ],
@@ -19,6 +21,7 @@ const footerLinks = {
     { label: 'Сайт на Tilda', href: '/tilda-site' },
     { label: 'SEO-оптимизация', href: '/seo-optimization' },
     { label: 'Веб-дизайн', href: '/web-design' },
+    { label: 'Реклама сайта', href: '/website-advertising' },
   ],
 }
 
@@ -66,7 +69,7 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <nav aria-label="Навигация по сайту">
             <h3 className="text-lg font-semibold mb-6">Навигация</h3>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
@@ -80,10 +83,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
-          <div>
+          <nav aria-label="Услуги">
             <h3 className="text-lg font-semibold mb-6">Услуги</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
@@ -97,7 +100,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact */}
           <div>
@@ -115,7 +118,7 @@ export function Footer() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <span className="flex-1">{SITE_CONFIG.phone}</span>
+                  <span className="flex-1">{formatPhone(SITE_CONFIG.phone)}</span>
                 </a>
               </li>
               <li>
@@ -154,14 +157,18 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Дополнительные ссылки */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-secondary-400 text-sm">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. Все права защищены.
           </p>
-          <p className="text-secondary-400 text-sm">
-            Разработка сайтов в Алматы
-          </p>
+          <div className="flex items-center gap-4 text-secondary-400 text-sm">
+            <Link href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/terms" className="hover:text-white transition-colors">Условия использования</Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/sitemap.xml" className="hover:text-white transition-colors">Карта сайта</Link>
+          </div>
         </div>
       </div>
     </footer>

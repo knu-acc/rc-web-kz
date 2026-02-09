@@ -5,6 +5,9 @@
 
 import { AnalyticsEvents } from './analytics-events'
 
+const MAX_ERRORS_PER_SESSION = 10
+let errorCount = 0
+
 interface ErrorInfo {
   message: string
   source?: string
@@ -52,6 +55,9 @@ export function initErrorMonitoring() {
  * Логирование ошибки
  */
 function logError(errorInfo: ErrorInfo) {
+  if (errorCount >= MAX_ERRORS_PER_SESSION) return
+  errorCount++
+
   const errorMessage = errorInfo.error?.message || errorInfo.message || 'Unknown error'
   const errorType = errorInfo.error?.name || 'Error'
 

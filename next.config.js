@@ -70,6 +70,12 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  
+  // Оптимизация TypeScript
+  typescript: {
+    // При продакшн-сборке не останавливаться на ошибках типов (lint делать отдельно)
+    ignoreBuildErrors: false,
+  },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)

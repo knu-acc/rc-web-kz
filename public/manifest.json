@@ -45,7 +45,35 @@
     {
       "src": "/img/favs/android-icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/favs/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Портфолио",
+      "short_name": "Портфолио",
+      "url": "/portfolio",
+      "description": "Примеры выполненных работ"
+    },
+    {
+      "name": "Контакты",
+      "short_name": "Контакты",
+      "url": "/contact",
+      "description": "Связаться с нами"
+    },
+    {
+      "name": "Блог",
+      "short_name": "Блог",
+      "url": "/blog",
+      "description": "Полезные статьи о создании сайтов"
     }
   ]
 }

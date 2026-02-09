@@ -30,6 +30,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (initialTheme === 'dark') {
       document.documentElement.classList.add('dark')
     }
+
+    // Слушаем изменения системной темы (если пользователь не выбирал тему вручную)
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light'
+        setThemeState(newTheme)
+        document.documentElement.classList.remove('dark')
+        if (newTheme === 'dark') {
+          document.documentElement.classList.add('dark')
+        }
+      }
+    }
+    mediaQuery.addEventListener('change', handleSystemThemeChange)
+    return () => mediaQuery.removeEventListener('change', handleSystemThemeChange)
   }, [])
 
   const setTheme = (newTheme: Theme) => {

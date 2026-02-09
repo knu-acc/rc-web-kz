@@ -79,11 +79,13 @@ export function Benefits() {
             <div
               key={benefit.title}
               className="group p-8 rounded-2xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
-                         hover:border-secondary-200 dark:hover:border-secondary-700 hover:shadow-lg 
-                         transition-all duration-300 hover:-translate-y-1"
+                         hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-lg 
+                         transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
             >
+              {/* Градиентный фон при наведении */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-violet-50 dark:from-primary-950/20 dark:to-violet-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
               {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 flex items-center justify-center mb-5">
+              <div className="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 flex items-center justify-center mb-5 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
                 {benefit.icon}
               </div>
 

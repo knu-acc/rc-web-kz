@@ -83,7 +83,10 @@ export function BlogPreview() {
       <div className="container-custom">
         {/* Заголовок секции */}
         <div className="text-center mb-12">
-          <h2 className="heading-lg mb-4">Полезные статьи о создании сайтов</h2>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
+            Блог
+          </span>
+          <h2 className="heading-lg mb-4">Полезные статьи <span className="gradient-text">о создании сайтов</span></h2>
           <p className="text-lg text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
             Читайте наши гайды, кейсы и советы по разработке сайтов, SEO-продвижению и
             веб-дизайну в Алматы

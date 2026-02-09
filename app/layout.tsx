@@ -48,12 +48,14 @@ export const metadata: Metadata = {
     'создание сайтов Алматы',
     'разработка сайтов Алматы',
     'веб-разработка',
-    'landing page',
-    'корпоративный сайт',
-    'интернет-магазин',
+    'веб-студия Алматы',
+    'landing page Алматы',
+    'корпоративный сайт Алматы',
+    'интернет-магазин Алматы',
     'заказать сайт Алматы',
     'сайт под ключ Алматы',
-    'веб-студия Алматы',
+    'SEO оптимизация Алматы',
+    'разработка сайтов Казахстан',
   ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
@@ -120,24 +122,30 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1e1b4b" media="(prefers-color-scheme: dark)" />
+        {/* Гео-мета для локального SEO */}
+        <meta name="geo.region" content="KZ-ALA" />
+        <meta name="geo.placename" content="Алматы" />
+        <meta name="geo.position" content="43.2220;76.8512" />
+        <meta name="ICBM" content="43.2220, 76.8512" />
+        <meta name="content-language" content="ru" />
+        {/* Безопасность */}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
+        <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
         {/* Замените на ваши коды верификации из панелей поисковиков */}
         <meta name="google-site-verification" content="" />
         <meta name="yandex-verification" content="" />
         <meta name="msvalidate.01" content="" />
         <ThemeScript />
-        {/* Preconnect для критических ресурсов */}
+        {/* Preconnect для критических ресурсов (без дублирования dns-prefetch) */}
         <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://mc.yandex.ru" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* DNS Prefetch для других доменов */}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* DNS Prefetch для внешних доменов (без дублирования preconnect) */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="preload" href="/img/main.png" as="image" />
+        <link rel="preload" href="/img/main.png" as="image" fetchPriority="high" />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider>

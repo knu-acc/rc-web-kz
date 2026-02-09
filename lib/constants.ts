@@ -35,6 +35,7 @@ export const SITE_CONFIG = {
   },
   foundingDate: '2020',
   projectsCount: '120+',
+  yearsOnMarket: `${new Date().getFullYear() - 2020}`,
   // Районы Алматы для локального SEO
   districts: [
     'Алмалинский район',

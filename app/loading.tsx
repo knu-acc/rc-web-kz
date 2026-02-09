@@ -2,7 +2,8 @@ import { Skeleton, SkeletonCard, SkeletonText } from '@/components/ui/Skeleton'
 
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-white dark:bg-secondary-950">
+    <div className="min-h-screen bg-white dark:bg-secondary-950" role="status" aria-label="Загрузка...">
+      <span className="sr-only">Загрузка страницы...</span>
       {/* Header skeleton */}
       <div className="border-b border-secondary-200 dark:border-secondary-800">
         <div className="container-custom py-4">

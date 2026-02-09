@@ -17,7 +17,7 @@ export function Hero() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-200/30 dark:bg-violet-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="container-custom py-20 lg:py-32">
+      <div className="container-custom py-16 sm:py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Left: Content */}
@@ -32,14 +32,15 @@ export function Hero() {
             </div>
 
             {/* Main heading */}
-            <h1 className="heading-xl stagger-2 animate-in">
+            <h1 className="heading-xl stagger-2 animate-in text-balance">
               <span className="block">Разработка сайтов в Алматы</span>
               <span className="gradient-text">под ключ от 85 000 ₸</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed stagger-3 animate-in">
-              ✓ Создание сайтов в Алматы с 2020 года ✓ 120+ проектов ✓ От 85 000₸ ✓ SEO-оптимизация ✓ Техподдержка бесплатно ✓ Срок 5-10 дней. Лендинги, корпоративные сайты, интернет-магазины. Заказать сайт → WhatsApp +7 778 949 29 10
+            <p className="text-base sm:text-lg lg:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed stagger-3 animate-in">
+              Создаём сайты с 2020 года. Более 120 проектов, SEO-оптимизация, бесплатная техподдержка. Лендинги, корпоративные сайты, интернет-магазины.
+              Срок сдачи — 5–10 дней.
             </p>
 
             {/* CTA buttons */}
@@ -87,13 +88,14 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-violet-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                 <Image
                   src="/img/main.png"
-                  alt="Веб-разработка сайтов в Алматы"
+                  alt="Веб-разработка сайтов в Алматы - RC-WEB.KZ создание сайтов"
                   width={600}
                   height={450}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 600px"
                   className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                   priority
                   unoptimized
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent z-10" />
               </div>

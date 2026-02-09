@@ -4,10 +4,22 @@
  * Featured service gets larger card with background image
  */
 import Image from 'next/image'
+import Link from 'next/link'
 import { SOCIAL_LINKS } from '@/lib/constants'
 
+interface ServiceItem {
+  id: number
+  title: string
+  description: string
+  price: string
+  icon: React.ReactNode
+  gradient: string
+  featured: boolean
+  href: string
+}
+
 // Service offerings data
-const services = [
+const services: ServiceItem[] = [
   {
     id: 1,
     title: 'Landing Page',
@@ -20,6 +32,7 @@ const services = [
     ),
     gradient: 'from-violet-500 to-purple-600',
     featured: false,
+    href: '/landing-page',
   },
   {
     id: 2,
@@ -33,6 +46,7 @@ const services = [
     ),
     gradient: 'from-cyan-500 to-teal-600',
     featured: true,
+    href: '/corporate-site',
   },
   {
     id: 3,
@@ -46,6 +60,7 @@ const services = [
     ),
     gradient: 'from-emerald-500 to-teal-600',
     featured: false,
+    href: '/online-store',
   },
   {
     id: 4,
@@ -59,6 +74,7 @@ const services = [
     ),
     gradient: 'from-orange-500 to-red-600',
     featured: false,
+    href: '/tilda-site',
   },
 ]
 
@@ -118,7 +134,7 @@ export function Services() {
               {/* Service info */}
               <div className={service.featured ? 'space-y-4 relative z-10' : 'space-y-3'}>
                 <h3 className={`font-bold ${service.featured ? 'text-2xl text-white' : 'text-xl text-white'}`}>
-                  {service.title}
+                  <span lang={service.title === 'Landing Page' ? 'en' : undefined}>{service.title}</span>
                 </h3>
                 <p className={service.featured ? 'text-white/80 text-lg' : 'text-white/70'}>
                   {service.description}
@@ -129,20 +145,20 @@ export function Services() {
               </div>
 
               {/* CTA link */}
-              <div className={`mt-6 ${service.featured ? 'relative z-10' : ''}`}>
-                <a
-                  href={SOCIAL_LINKS.whatsapp}
+              <div className={`mt-6 flex items-center gap-4 ${service.featured ? 'relative z-10' : ''}`}>
+                <Link
+                  href={service.href}
                   className={`inline-flex items-center gap-2 font-semibold transition-all ${service.featured
                       ? 'px-6 py-3 bg-white text-primary-600 rounded-xl hover:bg-white/90 hover:shadow-lg'
-                      : 'text-white hover:gap-4 hover:text-secondary-300'
+                      : 'text-white hover:gap-3 hover:text-secondary-300'
                     }`}
-                  aria-label={`Заказать ${service.title}`}
+                  aria-label={`Подробнее о ${service.title}`}
                 >
-                  Заказать
+                  Подробнее
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Featured badge */}

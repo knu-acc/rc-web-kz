@@ -35,9 +35,11 @@ export function FAQ() {
                 <button
                   className="w-full flex items-center justify-between p-6 text-left"
                   aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${item.id}`}
+                  aria-label={`${isOpen ? 'Свернуть' : 'Развернуть'}: ${item.question}`}
                   onClick={() => toggleFAQ(item.id)}
                 >
-                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white pr-8">
+                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white pr-8" id={`faq-question-${item.id}`}>
                     {item.question}
                   </h3>
                   <span
@@ -52,6 +54,9 @@ export function FAQ() {
 
                 {/* Animated answer container */}
                 <div
+                  id={`faq-answer-${item.id}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${item.id}`}
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
                 >
