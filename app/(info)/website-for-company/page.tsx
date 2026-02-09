@@ -267,29 +267,29 @@ export default function WebsiteForCompanyPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">1</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Консультация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Обсуждаем цели и требования к сайту</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">2</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Дизайн</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Создаём уникальный дизайн под ваш бренд</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">3</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Разработка</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Разрабатываем и программируем сайт</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">4</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Запуск</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Публикуем сайт и обучаем работе</p>

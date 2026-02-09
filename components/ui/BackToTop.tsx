@@ -62,7 +62,7 @@ export function BackToTop() {
       <button
         id="back-to-top"
         aria-label="Наверх"
-        className={`${isVisible ? 'visible' : ''} min-h-[48px] min-w-[48px] touch-manipulation`}
+        className={`${isVisible ? 'visible' : ''} min-h-[48px] min-w-[48px] touch-manipulation flex items-center justify-center`}
         onClick={scrollToTop}
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

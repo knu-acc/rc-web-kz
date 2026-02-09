@@ -123,7 +123,7 @@ export default function GuaranteesPage() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${guarantee.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                 
                 {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${guarantee.gradient} text-white flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${guarantee.gradient} text-white flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {guarantee.icon}
                 </div>
 

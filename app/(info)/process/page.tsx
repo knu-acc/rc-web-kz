@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
@@ -97,8 +97,8 @@ export default function ProcessPage() {
                 className="flex gap-6 items-start"
               >
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary-600">{step.number}</span>
+                  <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center shadow-sm">
+                    <span className="text-xl font-bold text-primary-600">{step.number}</span>
                   </div>
                   {index < steps.length - 1 && (
                     <div className="w-0.5 h-full bg-secondary-200 ml-8 -mt-2" style={{ height: 'calc(100% + 2rem)' }} />

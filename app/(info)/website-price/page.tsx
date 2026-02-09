@@ -199,8 +199,8 @@ export default function WebsitePricePage() {
                 href={item.link} 
                 className="group relative rounded-3xl p-6 bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-700 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-4`}>
-                  <span className="text-2xl font-bold">{item.price.split(' ')[1]}</span>
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-4 shadow-md`}>
+                  <span className="text-xl font-bold">{item.price.split(' ')[1]}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-800 dark:text-secondary-100 mb-2">{item.price}</h3>
                 <h4 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">{item.name}</h4>

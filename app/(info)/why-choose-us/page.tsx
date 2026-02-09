@@ -268,8 +268,8 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
               <div key={`step-${step.step}`} className="text-center">
-                <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
+                <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                 <p className="text-secondary-600 dark:text-secondary-300 text-sm">{step.description}</p>
