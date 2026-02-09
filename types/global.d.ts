@@ -68,7 +68,7 @@ export interface FormData {
 }
 
 // Типы для API ответов
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean
   data?: T
   error?: string

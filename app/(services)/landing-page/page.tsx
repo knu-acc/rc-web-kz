@@ -195,7 +195,6 @@ export default function LandingPagePage() {
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
@@ -204,8 +203,8 @@ export default function LandingPagePage() {
                 <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 shadow-xl animate-float relative z-10">
                   <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-dashed border-primary-300/40 rounded-full animate-float pointer-events-none" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-md">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     </div>
@@ -219,8 +218,8 @@ export default function LandingPagePage() {
                 {/* Floating card: Быстро */}
                 <div className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl animate-float relative z-10" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shadow-md">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
@@ -261,7 +260,6 @@ export default function LandingPagePage() {
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
@@ -296,7 +294,7 @@ export default function LandingPagePage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{benefit.title}</h3>
@@ -350,7 +348,6 @@ export default function LandingPagePage() {
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-xl"
-                unoptimized
               />
             </div>
           </div>
@@ -442,8 +439,8 @@ export default function LandingPagePage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-200">1</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-200">1</span>
               </div>
               <h3 className="text-xl font-bold mb-3">Анализ и планирование</h3>
               <p className="text-secondary-600 dark:text-secondary-300">
@@ -452,8 +449,8 @@ export default function LandingPagePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-xl font-bold mb-3">Дизайн и вёрстка</h3>
               <p className="text-secondary-600 dark:text-secondary-300">
@@ -462,8 +459,8 @@ export default function LandingPagePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-xl font-bold mb-3">Запуск и оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300">

@@ -132,7 +132,6 @@ export default function PublishWebsitePage() {
                     height={450}
                     className="w-full h-auto object-cover"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
                 </div>
@@ -168,7 +167,6 @@ export default function PublishWebsitePage() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized
                     />
                   </div>
                 </div>

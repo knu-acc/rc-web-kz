@@ -283,7 +283,6 @@ export default function TildaSitePage() {
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
@@ -291,7 +290,7 @@ export default function TildaSitePage() {
                 {/* Floating card: Tilda */}
                 <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 shadow-xl animate-float relative z-10">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center shadow-md">
                       <span className="text-white font-bold text-lg">T</span>
                     </div>
                     <div>
@@ -304,8 +303,8 @@ export default function TildaSitePage() {
                 {/* Floating card: Edit */}
                 <div className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl animate-float relative z-10" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shadow-md">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                     </div>
@@ -347,7 +346,6 @@ export default function TildaSitePage() {
                   className="object-cover transition-all duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   loading="lazy"
-                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/90 via-secondary-900/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
@@ -383,7 +381,7 @@ export default function TildaSitePage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{advantage.title}</h3>
@@ -448,7 +446,6 @@ export default function TildaSitePage() {
                 height={400}
                 className="rounded-2xl shadow-xl"
                 loading="lazy"
-                unoptimized
               />
               <div className="absolute -bottom-4 -right-4 bg-primary-600 text-white rounded-2xl p-4 shadow-lg">
                 <div className="text-2xl font-bold">от 120 тыс ₸</div>
@@ -563,7 +560,7 @@ export default function TildaSitePage() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="rounded-3xl bg-secondary-800 p-8 border border-secondary-700">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-lg">T</span>
+                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-base shadow-md">T</span>
                 Сайт на Tilda
               </h3>
               <ul className="space-y-4">
@@ -606,8 +603,8 @@ export default function TildaSitePage() {
 
             <div className="rounded-3xl bg-secondary-800 p-8 border border-secondary-700">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shadow-md">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
                 </span>

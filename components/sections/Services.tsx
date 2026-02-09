@@ -14,7 +14,7 @@ const services = [
     description: 'Продающие одностраничники с высокой конверсией',
     price: '85-135 тыс ₸',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
       </svg>
     ),
@@ -27,7 +27,7 @@ const services = [
     description: 'Многостраничные сайты для серьёзного бизнеса',
     price: '135-195 тыс ₸',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
@@ -40,7 +40,7 @@ const services = [
     description: 'E-commerce решения с удобной админкой',
     price: '175-275 тыс ₸',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
       </svg>
     ),
@@ -53,7 +53,7 @@ const services = [
     description: 'Быстрые решения на популярных платформах',
     price: 'от 120 тыс ₸ и выше',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
       </svg>
     ),
@@ -95,21 +95,24 @@ export function Services() {
                 <div className="absolute inset-0 -z-10">
                   <Image
                     src="/img/slider.png"
-                    alt=""
+                    alt="Корпоративный сайт - пример работы RC-WEB.KZ"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/95 via-teal-600/90 to-teal-700/95" />
                 </div>
               )}
 
               {/* Service icon */}
-              <div className={`mb-6 transition-transform duration-300 group-hover:scale-110 ${service.featured
-                  ? 'w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-white'
-                  : 'w-14 h-14 rounded-2xl bg-gradient-to-br ' + service.gradient + ' text-white flex items-center justify-center'
+              <div className={`mb-6 transition-transform duration-300 group-hover:scale-110 relative ${service.featured
+                  ? 'w-12 h-12 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-white shadow-lg'
+                  : 'w-10 h-10 rounded-2xl bg-gradient-to-br ' + service.gradient + ' text-white flex items-center justify-center shadow-md'
                 }`}>
                 {service.icon}
+                {/* Decorative ring */}
+                <div className={`absolute inset-0 rounded-2xl border-2 ${service.featured ? 'border-white/20' : 'border-white/10'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               </div>
 
               {/* Service info */}
@@ -133,9 +136,10 @@ export function Services() {
                       ? 'px-6 py-3 bg-white text-primary-600 rounded-xl hover:bg-white/90 hover:shadow-lg'
                       : 'text-white hover:gap-4 hover:text-secondary-300'
                     }`}
+                  aria-label={`Заказать ${service.title}`}
                 >
                   Заказать
-                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>

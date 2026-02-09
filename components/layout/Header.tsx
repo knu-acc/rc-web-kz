@@ -35,6 +35,12 @@ const navLinks = [
 export function Header({ logoSlot }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     let ticking = false
@@ -96,21 +102,31 @@ export function Header({ logoSlot }: HeaderProps) {
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link, idx) => {
               if (link.submenu) {
+                const isSubmenuOpen = openSubmenu === link.label
                 return (
-                  <div key={`nav-${idx}-${link.label}`} className="relative group">
+                  <div 
+                    key={`nav-${idx}-${link.label}`} 
+                    className="relative group"
+                    onMouseEnter={() => setOpenSubmenu(link.label)}
+                    onMouseLeave={() => setOpenSubmenu(null)}
+                  >
                     <button
                       className="relative px-4 py-2 text-secondary-600 dark:text-secondary-300 font-medium rounded-lg transition-all duration-300 hover:text-secondary-800 dark:hover:text-white hover:bg-secondary-50 dark:hover:bg-secondary-800 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                       aria-haspopup="true"
-                      aria-expanded="false"
+                      aria-expanded={isSubmenuOpen}
+                      onClick={() => setOpenSubmenu(isSubmenuOpen ? null : link.label)}
                     >
                       <span>{link.label}</span>
-                      <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg className={`w-4 h-4 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
                     <div
-                      className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-secondary-900 rounded-xl shadow-lg border border-secondary-100 dark:border-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                      className={`absolute top-full left-0 mt-2 w-64 bg-white dark:bg-secondary-900 rounded-xl shadow-lg border border-secondary-100 dark:border-secondary-800 transition-all duration-300 z-50 ${
+                        isSubmenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                      }`}
                       role="menu"
+                      aria-label={`Подменю ${link.label}`}
                     >
                       <div className="p-2">
                         {link.submenu.map((subLink) => (
@@ -119,6 +135,7 @@ export function Header({ logoSlot }: HeaderProps) {
                             href={subLink.href}
                             className="block px-4 py-2 text-secondary-700 dark:text-secondary-300 rounded-lg hover:bg-secondary-50 dark:hover:bg-secondary-800 hover:text-secondary-800 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
                             role="menuitem"
+                            onClick={() => setOpenSubmenu(null)}
                           >
                             <span>{subLink.label}</span>
                           </Link>
@@ -176,25 +193,41 @@ export function Header({ logoSlot }: HeaderProps) {
         </div>
       </nav>
 
-      <div
-        id="mobile-menu"
-        className={`md:hidden fixed inset-x-0 bottom-0 z-[100] bg-white dark:bg-secondary-900 transition-all duration-300 overflow-y-auto ${isMenuOpen
-          ? 'opacity-100 visible translate-y-0'
-          : 'opacity-0 invisible -translate-y-4 pointer-events-none'
-          }`}
-        style={{
-          top: isScrolled ? '73px' : '80px'
-        }}
-        role="menu"
-        aria-label="Мобильное меню"
-      >
+      {mounted && (
+        <div
+          id="mobile-menu"
+          className={`md:hidden fixed inset-x-0 top-0 z-[100] bg-white dark:bg-secondary-900 transition-all duration-300 overflow-y-auto pt-20 ${isMenuOpen
+            ? 'opacity-100 visible translate-y-0'
+            : 'opacity-0 invisible -translate-y-4 pointer-events-none'
+            }`}
+          style={{
+            height: '100vh'
+          }}
+          role="menu"
+          aria-label="Мобильное меню"
+        >
         <div className="container-custom py-8">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link, index) => (
               link.submenu ? (
                 <div key={link.label} className="border-b border-secondary-100 dark:border-secondary-800">
-                  <div className="text-2xl font-semibold text-secondary-800 dark:text-secondary-100 py-4">{link.label}</div>
-                  <div className="pl-4 pb-2 space-y-2">
+                  <button
+                    className="w-full text-left text-2xl font-semibold text-secondary-800 dark:text-secondary-100 py-4 flex items-center justify-between"
+                    onClick={() => setOpenSubmenu(openSubmenu === link.label ? null : link.label)}
+                    aria-expanded={openSubmenu === link.label}
+                    aria-controls={`mobile-submenu-${index}`}
+                  >
+                    <span>{link.label}</span>
+                    <svg className={`w-5 h-5 transition-transform ${openSubmenu === link.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    id={`mobile-submenu-${index}`}
+                    className={`pl-4 pb-2 space-y-2 overflow-hidden transition-all duration-300 ${
+                      openSubmenu === link.label ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
                     {link.submenu.map((subLink) => (
                       <Link
                         key={subLink.href}
@@ -242,7 +275,8 @@ export function Header({ logoSlot }: HeaderProps) {
             </a>
           </div>
         </div>
-      </div>
+        </div>
+      )}
     </header>
     </>
   )

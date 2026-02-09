@@ -25,7 +25,6 @@ export function PortfolioCard({ item }: { item: PortfolioItem }) {
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
-            unoptimized
           />
           <span
             className={`absolute left-3 top-3 z-10 rounded-md px-2.5 py-1.5 text-xs font-medium shadow ${categoryStyle[category] ?? 'bg-secondary-600 text-white'}`}

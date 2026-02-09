@@ -24,22 +24,31 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Логирование ошибки
-    console.error('ErrorBoundary caught an error:', error, errorInfo)
+    // Логирование ошибки только в development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('ErrorBoundary caught an error:', error, errorInfo)
+    }
 
     // Отправка в аналитику
     if (typeof window !== 'undefined') {
-      if (window.gtag) {
-        window.gtag('event', 'exception', {
-          description: error.message,
-          fatal: false,
-        })
-      }
+      try {
+        if (window.gtag) {
+          window.gtag('event', 'exception', {
+            description: error.message,
+            fatal: false,
+          })
+        }
 
-      if (window.ym && process.env.NEXT_PUBLIC_YANDEX_METRICA_ID) {
-        window.ym(process.env.NEXT_PUBLIC_YANDEX_METRICA_ID, 'reachGoal', 'error_boundary', {
-          error: error.message,
-        })
+        if (window.ym && process.env.NEXT_PUBLIC_YANDEX_METRICA_ID) {
+          window.ym(process.env.NEXT_PUBLIC_YANDEX_METRICA_ID, 'reachGoal', 'error_boundary', {
+            error: error.message,
+          })
+        }
+      } catch (analyticsError) {
+        // Игнорируем ошибки аналитики, чтобы не создавать бесконечный цикл
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('Failed to send error to analytics:', analyticsError)
+        }
       }
     }
   }

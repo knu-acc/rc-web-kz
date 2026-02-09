@@ -168,7 +168,6 @@ export default function WebsitePricePage() {
                     height={450}
                     className="w-full h-auto object-cover"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
                 </div>

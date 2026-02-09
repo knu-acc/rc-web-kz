@@ -150,16 +150,18 @@ export function ReviewsCarousel({
               {reviews.map((review) => (
                 <SwiperSlideComponent key={review.id}>
                   <article className="group relative bg-white dark:bg-secondary-950 rounded-2xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 h-full">
-                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary-100 dark:bg-secondary-800">
-                      <Image
-                        src={review.image}
-                        alt={review.alt}
-                        fill
-                        className="object-contain transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative aspect-[3/4] overflow-hidden bg-secondary-100 dark:bg-secondary-800 p-3 sm:p-4">
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={review.image}
+                          alt={review.alt}
+                          fill
+                          className="object-contain transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     </div>
                     {review.service && (
                       <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">

@@ -163,7 +163,6 @@ export default function ProgrammingCoursesPage() {
                     height={450}
                     className="w-full h-auto object-cover"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
                 </div>
@@ -198,7 +197,6 @@ export default function ProgrammingCoursesPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur text-secondary-900 dark:text-white font-semibold text-sm">
@@ -281,7 +279,6 @@ export default function ProgrammingCoursesPage() {
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>

@@ -47,7 +47,7 @@ export function Hero() {
               <a
                 href={SOCIAL_LINKS.whatsapp}
                 className="btn-dark group"
-                aria-label="Заказать сайт"
+                aria-label="Заказать сайт в WhatsApp"
               >
                 Заказать сайт
               </a>
@@ -55,6 +55,7 @@ export function Hero() {
               <Link
                 href="/portfolio"
                 className="btn-secondary group"
+                aria-label="Посмотреть портфолио работ"
               >
                 Портфолио
               </Link>
@@ -92,6 +93,7 @@ export function Hero() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 600px"
                   className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                   priority
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent z-10" />
               </div>

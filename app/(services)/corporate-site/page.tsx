@@ -216,7 +216,6 @@ export default function CorporateSitePage() {
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
@@ -251,7 +250,6 @@ export default function CorporateSitePage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 via-secondary-900/20 to-transparent" />
                 </div>
@@ -294,7 +292,7 @@ export default function CorporateSitePage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{advantage.title}</h3>
@@ -348,7 +346,6 @@ export default function CorporateSitePage() {
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-xl"
-                unoptimized
               />
             </div>
           </div>
@@ -367,8 +364,8 @@ export default function CorporateSitePage() {
               {processSteps.map((step, index) => (
                 <div key={`step-${step.step}`} className="relative flex gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center">
-                      <span className="text-2xl font-bold text-primary-600">{step.step}</span>
+                    <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center shadow-sm">
+                      <span className="text-xl font-bold text-primary-600">{step.step}</span>
                     </div>
                     {index < processSteps.length - 1 && (
                       <div className="absolute left-8 top-16 w-0.5 h-full bg-secondary-200" />

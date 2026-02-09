@@ -179,7 +179,6 @@ export default function WebsiteAdvertisingPage() {
                     height={450}
                     className="w-full h-auto object-cover"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
                 </div>
@@ -208,14 +207,13 @@ export default function WebsiteAdvertisingPage() {
             {adTypes.map((ad, index) => (
               <div key={ad.title} className="group relative rounded-3xl p-8 bg-secondary-50 dark:bg-secondary-800 border border-secondary-100 dark:border-secondary-700 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-md">
+                  <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-md group-hover:shadow-lg transition-shadow">
                     <Image
                       src={ad.logo}
                       alt={ad.title}
-                      width={60}
-                      height={60}
+                      width={48}
+                      height={48}
                       className="object-contain"
-                      unoptimized
                     />
                   </div>
                   <div>
@@ -252,7 +250,7 @@ export default function WebsiteAdvertisingPage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{advantage.title}</h3>
@@ -295,7 +293,6 @@ export default function WebsiteAdvertisingPage() {
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -313,29 +310,29 @@ export default function WebsiteAdvertisingPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Анализ</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Изучаем ваш бизнес и целевую аудиторию</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Настройка</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Создаём объявления и настраиваем кампании</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Запуск</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Запускаем рекламу и отслеживаем результаты</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Постоянно улучшаем эффективность кампаний</p>

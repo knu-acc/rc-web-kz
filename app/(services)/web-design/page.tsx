@@ -171,7 +171,6 @@ export default function WebDesignPage() {
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
@@ -205,7 +204,6 @@ export default function WebDesignPage() {
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -239,7 +237,6 @@ export default function WebDesignPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
                 </div>
@@ -276,7 +273,7 @@ export default function WebDesignPage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{feature.title}</h3>
@@ -296,29 +293,29 @@ export default function WebDesignPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Изучение</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Изучаем ваш бренд, целевую аудиторию и конкурентов</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Концепция</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Разрабатываем концепцию дизайна и создаём макеты</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Согласование</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Показываем вам макеты и вносим правки</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Финализация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Подготавливаем финальные файлы для разработки</p>

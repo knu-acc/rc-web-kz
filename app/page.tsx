@@ -7,18 +7,22 @@ import { SITE_CONFIG } from '@/lib/constants'
 import { generateFAQPageSchema } from '@/lib/schema'
 import { faqItems } from '@/data/faq'
 
-// Lazy load компонентов ниже fold для улучшения First Contentful Paint
+// Lazy load компонентов ниже fold для улучшения First Contentful Paint и уменьшения работы в основном потоке
 const Benefits = dynamic(() => import('@/components/sections/Benefits').then(mod => ({ default: mod.Benefits })), {
   loading: () => null,
+  ssr: true, // SSR для SEO, но загружается после критического контента
 })
 const Portfolio = dynamic(() => import('@/components/sections/Portfolio').then(mod => ({ default: mod.Portfolio })), {
   loading: () => null,
+  ssr: true,
 })
 const BlogPreview = dynamic(() => import('@/components/sections/BlogPreview').then(mod => ({ default: mod.BlogPreview })), {
   loading: () => null,
+  ssr: true,
 })
 const FAQ = dynamic(() => import('@/components/sections/FAQ').then(mod => ({ default: mod.FAQ })), {
   loading: () => null,
+  ssr: true,
 })
 
 export const metadata: Metadata = {

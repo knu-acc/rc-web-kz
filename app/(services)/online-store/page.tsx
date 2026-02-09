@@ -152,7 +152,6 @@ export default function OnlineStorePage() {
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
@@ -186,7 +185,6 @@ export default function OnlineStorePage() {
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -218,7 +216,7 @@ export default function OnlineStorePage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{feature.title}</h3>
@@ -238,20 +236,21 @@ export default function OnlineStorePage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {paymentSystems.map((system, index) => (
-              <div key={system.name} className="flex flex-col items-center justify-center p-6 bg-secondary-50 dark:bg-secondary-800 rounded-2xl hover:shadow-md transition-shadow">
-                <div className="w-24 h-24 rounded-xl bg-white dark:bg-secondary-700 mb-4 flex items-center justify-center overflow-hidden">
+              <div key={system.name} className="group flex flex-col items-center justify-center p-6 bg-secondary-50 dark:bg-secondary-800 rounded-2xl hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 rounded-xl bg-white dark:bg-secondary-700 mb-4 flex items-center justify-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow relative">
                   {system.logo ? (
                     <Image
                       src={system.logo}
                       alt={system.name}
-                      width={80}
-                      height={80}
+                      width={56}
+                      height={56}
                       className="object-contain"
-                      unoptimized
                     />
                   ) : (
-                    <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">{system.name.charAt(0)}</span>
+                    <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">{system.name.charAt(0)}</span>
                   )}
+                  {/* Decorative border on hover */}
+                  <div className="absolute inset-0 rounded-xl border-2 border-primary-200/50 dark:border-primary-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <p className="font-semibold text-secondary-900 dark:text-white">{system.name}</p>
               </div>

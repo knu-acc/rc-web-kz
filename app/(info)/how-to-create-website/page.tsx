@@ -148,7 +148,6 @@ export default function HowToCreateWebsitePage() {
                     height={450}
                     className="w-full h-auto object-cover"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
                 </div>
@@ -184,7 +183,6 @@ export default function HowToCreateWebsitePage() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      unoptimized
                     />
                   </div>
                 </div>
@@ -246,7 +244,6 @@ export default function HowToCreateWebsitePage() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 20vw"
-                      unoptimized
                     />
                   </div>
                   <div className="absolute -top-2 -right-2 w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">

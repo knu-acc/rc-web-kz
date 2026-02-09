@@ -1,17 +1,20 @@
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
+import dynamic from 'next/dynamic'
 import { Header } from '@/components/layout/Header'
 import { HeaderLogo } from '@/components/layout/HeaderLogo'
 import { Footer } from '@/components/layout/Footer'
-import { Analytics } from '@/lib/analytics'
 import { SITE_CONFIG } from '@/lib/constants'
-import { BackToTop } from '@/components/ui/BackToTop'
-import { StructuredData } from '@/components/sections/StructuredData'
-import { ServiceWorker } from '@/components/ui/ServiceWorker'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { ThemeScript } from '@/components/providers/ThemeScript'
 import { ErrorMonitoringScript } from '@/components/providers/ErrorMonitoringScript'
+import { ClientComponents } from '@/components/layout/ClientComponents'
+
+// Lazy load компонентов для SSR (SEO)
+const StructuredData = dynamic(() => import('@/components/sections/StructuredData').then(mod => ({ default: mod.StructuredData })), {
+  ssr: true, // SSR для SEO
+})
 
 // Оптимизация шрифтов: загружаем только необходимые начертания
 const inter = Inter({
@@ -21,6 +24,7 @@ const inter = Inter({
   preload: true,
   weight: ['400', '500', '600', '700'], // Только используемые начертания
   fallback: ['system-ui', '-apple-system', 'sans-serif'], // Fallback на системные шрифты
+  adjustFontFallback: true, // Автоматическая настройка fallback для уменьшения CLS
 })
 
 const montserrat = Montserrat({
@@ -30,6 +34,7 @@ const montserrat = Montserrat({
   preload: false, // Не предзагружаем второй шрифт для улучшения FCP
   weight: ['400', '500', '600', '700'],
   fallback: ['system-ui', '-apple-system', 'sans-serif'],
+  adjustFontFallback: true, // Автоматическая настройка fallback для уменьшения CLS
 })
 
 export const metadata: Metadata = {
@@ -45,9 +50,15 @@ export const metadata: Metadata = {
     'веб-разработка',
     'landing page',
     'корпоративный сайт',
+    'интернет-магазин',
+    'заказать сайт Алматы',
+    'сайт под ключ Алматы',
+    'веб-студия Алматы',
   ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
+  applicationName: SITE_CONFIG.name,
   robots: {
     index: true,
     follow: true,
@@ -58,6 +69,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  alternates: {
+    canonical: SITE_CONFIG.url,
   },
   openGraph: {
     type: 'website',
@@ -80,17 +94,20 @@ export const metadata: Metadata = {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
     images: ['/img/slider4.png'],
+    creator: '@rcwebkz',
   },
   icons: {
     icon: [
       { url: '/img/favs/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/img/favs/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/img/favs/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
     apple: [
       { url: '/img/favs/apple-icon-180x180.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   manifest: '/manifest.json',
+  category: 'technology',
 }
 
 export default function RootLayout({
@@ -125,10 +142,7 @@ export default function RootLayout({
           <Footer />
 
           <StructuredData />
-          <BackToTop />
-          <ServiceWorker />
-
-          <Analytics />
+          <ClientComponents />
         </ThemeProvider>
       </body>
     </html>

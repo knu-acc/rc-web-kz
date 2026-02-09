@@ -179,13 +179,13 @@
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   .heading-xl {
-    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
   }
   .heading-lg {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight;
+    @apply text-xl sm:text-2xl lg:text-3xl font-bold leading-tight;
   }
   .heading-md {
-    @apply text-xl sm:text-2xl lg:text-3xl font-bold leading-tight;
+    @apply text-lg sm:text-xl lg:text-2xl font-bold leading-tight;
   }
   .text-dark {
     color: #232323;
@@ -445,6 +445,32 @@ html.high-contrast select {
   .btn-whatsapp {
     min-height: 48px;
     padding: 12px 24px;
+  }
+
+  /* Улучшаем отступы между интерактивными элементами */
+  nav a + a,
+  nav button + button,
+  nav a + button,
+  nav button + a {
+    margin-left: 8px;
+  }
+
+  /* Улучшаем читаемость текста на мобильных */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Улучшаем прокрутку на мобильных */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Улучшаем производительность касаний */
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
   }
 }
 

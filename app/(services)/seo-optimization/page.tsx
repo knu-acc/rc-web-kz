@@ -162,7 +162,6 @@ export default function SEOOptimizationPage() {
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
                     priority
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent z-10" />
                 </div>
@@ -195,7 +194,7 @@ export default function SEOOptimizationPage() {
               >
                 {/* Gradient glow on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 relative z-10">{item.title}</h3>
@@ -231,7 +230,6 @@ export default function SEOOptimizationPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/60 to-transparent" />
                 </div>
@@ -286,29 +284,29 @@ export default function SEOOptimizationPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Аудит сайта</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Анализируем текущее состояние и находим проблемы</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Техническая оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Исправляем технические ошибки и улучшаем структуру</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Контентная оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Оптимизируем тексты и создаём новый контент</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
+              <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Мониторинг</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Отслеживаем позиции и трафик, корректируем стратегию</p>

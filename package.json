@@ -11,10 +11,9 @@
     "analyze": "cross-env ANALYZE=true next build --webpack"
   },
   "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari versions",
-    "not dead"
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
   ],
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

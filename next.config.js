@@ -17,7 +17,8 @@ const nextConfig = {
       { protocol: 'https', hostname: 'rc-web-kz.netlify.app' },
       { protocol: 'https', hostname: 'images.unsplash.com' },
     ],
-    unoptimized: true,
+    // Оптимизация включена для автоматической конвертации в WebP/AVIF
+    unoptimized: false,
   },
   
   // Сжатие
@@ -25,6 +26,8 @@ const nextConfig = {
   
   experimental: {
     optimizePackageImports: ['lucide-react', 'swiper'],
+    // Inline CSS для улучшения FCP и LCP (особенно полезно для Tailwind CSS)
+    inlineCss: true,
   },
   
   // Performance Budget - предупреждения при превышении размера бандла

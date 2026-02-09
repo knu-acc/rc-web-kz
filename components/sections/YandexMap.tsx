@@ -124,8 +124,11 @@ export function YandexMap({ showProjects = false, showDistricts = false }: { sho
         className="rounded-xl overflow-hidden"
       />
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800 rounded-xl">
-          <div className="animate-pulse text-secondary-400">Загрузка карты...</div>
+        <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800 rounded-xl" role="status" aria-live="polite">
+          <div className="animate-pulse text-secondary-400">
+            <span className="sr-only">Загрузка карты</span>
+            <span aria-hidden="true">Загрузка карты...</span>
+          </div>
         </div>
       )}
     </>
