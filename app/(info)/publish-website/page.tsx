@@ -1,181 +1,183 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
-import dynamic from 'next/dynamic'
-import { generateBreadcrumbSchema } from '@/lib/schema'
-import { placeholderReviewImages } from '@/data/reviews'
-
-const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Как опубликовать сайт в интернете | Добавить сайт в Google и Яндекс',
-  description: 'Пошаговая инструкция по публикации сайта: домен, хостинг, Search Console, Вебмастер, sitemap и robots. Помощь в Алматы.',
+  title: 'Как опубликовать сайт в интернете  пошаговая инструкция 2025',
+  description:
+    'Инструкция из 6 шагов: домен, хостинг, SSL, Google Search Console, Яндекс.Вебмастер, sitemap. Чеклист перед запуском.',
   keywords: ['как опубликовать сайт', 'добавить сайт в гугл', 'добавить сайт в яндекс', 'публикация сайта'],
   openGraph: {
-    title: 'Как опубликовать сайт в интернете',
-    description: 'Инструкция по публикации сайта в Google и Яндекс',
+    title: 'Как опубликовать сайт  пошаговая инструкция',
+    description: 'Домен, хостинг, SSL, Google, Яндекс  всё в одном руководстве.',
     url: `${SITE_CONFIG.url}/publish-website`,
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/img/slider4.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Как опубликовать сайт в интернете',
-      },
-    ],
+    siteName: SITE_CONFIG.name,
+    locale: 'ru_RU',
+    type: 'article',
+    images: [{ url: `${SITE_CONFIG.url}/img/slider4.png`, width: 1200, height: 630, alt: 'Как опубликовать сайт' }],
   },
   alternates: { canonical: `${SITE_CONFIG.url}/publish-website` },
 }
 
 const steps = [
   {
-    step: 1,
-    title: 'Выбор домена и хостинга',
-    description: 'Зарегистрируйте доменное имя (например, вашсайт.kz) и выберите хостинг-провайдера. Для сайтов на Tilda домен можно подключить прямо в настройках конструктора.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600',
+    number: 1,
+    title: 'Зарегистрируйте домен',
+    description: 'Домен  это адрес сайта в интернете (например, vashsite.kz). Зарегистрируйте его на свое имя через официального регистратора.',
+    details: [
+      'Для зоны .kz используйте ps.kz или nic.kz  от 2 500 тг/год',
+      'Для .com  namecheap.com или reg.ru  от 5 000 тг/год',
+      'Выбирайте короткое имя без дефисов и цифр',
+      'Регистрируйте всегда на себя, не на разработчика',
+    ],
+    warning: 'Если домен зарегистрирован на разработчика  при смене подрядчика вы можете потерять его.',
+    duration: '30 минут',
   },
   {
-    step: 2,
-    title: 'Загрузка файлов на хостинг',
-    description: 'Если сайт создан на чистом коде (HTML, CSS, JS), загрузите все файлы на хостинг через FTP-клиент или файловый менеджер хостинга. Для сайтов на Tilda этот шаг не требуется.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600',
+    number: 2,
+    title: 'Выберите хостинг',
+    description: 'Хостинг  это сервер, на котором физически хранится ваш сайт. Выбор зависит от типа сайта.',
+    details: [
+      'Статический сайт (HTML)  Netlify или Vercel (бесплатно, быстро, CDN по миру)',
+      'Сайт на Tilda  хостинг встроен, достаточно подключить домен',
+      'WordPress  хостинг от 1 500 тг/мес (ps.kz, hoster.kz)',
+      'Интернет-магазин  VPS от 3 000 тг/мес или облако (DigitalOcean, Timeweb)',
+    ],
+    warning: null,
+    duration: '1 час',
   },
   {
-    step: 3,
-    title: 'Добавление сайта в Google',
-    description: 'Зарегистрируйтесь в Google Search Console, добавьте свой сайт и подтвердите права на него. После подтверждения отправьте sitemap.xml для быстрой индексации.',
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600',
+    number: 3,
+    title: 'Установите SSL-сертификат',
+    description: 'SSL обеспечивает шифрование (HTTPS)  это обязательно для безопасности и SEO. Без него браузер показывает Небезопасно.',
+    details: [
+      'На Netlify, Vercel, Tilda  SSL включается автоматически',
+      "На обычном хостинге  используйте бесплатный Let's Encrypt",
+      'Проверьте, что все страницы открываются через https://',
+      'Настройте редирект с http на https',
+    ],
+    warning: 'Google понижает сайты без SSL в результатах поиска с 2018 года.',
+    duration: '15 минут',
   },
   {
-    step: 4,
-    title: 'Добавление сайта в Яндекс',
-    description: 'Зарегистрируйтесь в Яндекс.Вебмастер, добавьте сайт и подтвердите права через файл или мета-тег. Также отправьте sitemap.xml в Яндекс.Вебмастер.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600',
+    number: 4,
+    title: 'Загрузите файлы сайта',
+    description: 'Способ загрузки зависит от того, как создан сайт и какой хостинг вы выбрали.',
+    details: [
+      'Tilda  файлы загружать не нужно, всё уже на серверах Tilda',
+      'Netlify/Vercel  подключите GitHub репозиторий (деплой при каждом коммите)',
+      'Обычный хостинг  загрузите через FTP (FileZilla) или файловый менеджер',
+      'Подключите домен к хостингу через DNS-записи (A-запись или CNAME)',
+    ],
+    warning: null,
+    duration: '30 минут  2 часа',
   },
   {
-    step: 5,
-    title: 'Настройка robots.txt и sitemap.xml',
-    description: 'Создайте файл robots.txt в корне сайта для указания правил индексации поисковыми системами. Создайте sitemap.xml со списком всех страниц сайта.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600',
+    number: 5,
+    title: 'Добавьте сайт в Google и Яндекс',
+    description: 'Чтобы сайт появился в поисковых системах, нужно зарегистрировать его в вебмастер-панелях.',
+    details: [
+      'Google Search Console (search.google.com/search-console)  добавьте сайт, подтвердите через DNS или HTML-файл',
+      'Яндекс.Вебмастер (webmaster.yandex.ru)  аналогичная регистрация',
+      'В обоих сервисах отправьте sitemap.xml (обычно yourdomain.kz/sitemap.xml)',
+      'Ожидайте индексацию: Google  1-2 недели, Яндекс  2-4 недели',
+    ],
+    warning: null,
+    duration: '30 минут',
+  },
+  {
+    number: 6,
+    title: 'Настройте аналитику',
+    description: 'Без аналитики вы не знаете, сколько людей посещают сайт, откуда приходят и что делают. Это основа для принятия решений.',
+    details: [
+      'Google Analytics 4 (analytics.google.com)  основной инструмент аналитики',
+      'Яндекс.Метрика (metrika.yandex.ru)  вебвизор, карта кликов, тепловые карты',
+      'Добавьте оба! Они дополняют друг друга',
+      'Настройте цели: отправка формы, клик по телефону, клик по WhatsApp',
+    ],
+    warning: null,
+    duration: '30 минут',
   },
 ]
 
 const checklist = [
-  'Домен зарегистрирован и подключён',
-  'Хостинг настроен и файлы загружены',
-  'SSL сертификат установлен (HTTPS)',
-  'Сайт добавлен в Google Search Console',
-  'Сайт добавлен в Яндекс.Вебмастер',
-  'Sitemap.xml создан и отправлен',
-  'Robots.txt настроен правильно',
-  'Мета-теги и заголовки заполнены',
+  { category: 'Домен и хостинг', items: ['Домен зарегистрирован на ваше имя', 'Хостинг настроен и оплачен', 'DNS-записи указывают на хостинг', 'SSL-сертификат установлен (HTTPS)'] },
+  { category: 'Контент', items: ['Все страницы содержат контент', 'Изображения оптимизированы (до 300 КБ)', 'Контактные данные актуальны', 'Нет рыбных текстов и lorem ipsum'] },
+  { category: 'Техническое', items: ['Сайт корректно отображается на телефоне', 'Все ссылки работают (нет 404)', 'Формы отправляют заявки', 'Скорость загрузки: PageSpeed 80+'] },
+  { category: 'SEO и аналитика', items: ['Meta-title и meta-description заполнены', 'Sitemap.xml создан и отправлен', 'Robots.txt настроен', 'Google Analytics подключен', 'Яндекс.Метрика подключена', 'Сайт добавлен в Google Search Console', 'Сайт добавлен в Яндекс.Вебмастер'] },
 ]
 
-export default function PublishWebsitePage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'Как опубликовать сайт', url: `${SITE_CONFIG.url}/publish-website` },
-  ])
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Как опубликовать сайт в интернете',
+  description: 'Пошаговая инструкция из 6 шагов по публикации сайта.',
+  totalTime: 'P1D',
+  step: steps.map(s => ({ '@type': 'HowToStep', name: s.title, text: s.description, position: s.number })),
+}
 
+export default function PublishWebsitePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      
-      {/* Hero Section with step-by-step */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-32">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900" />
-        </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Публикация сайта', href: '/publish-website' }]} />
 
-        <div className="container-custom py-20 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-                </span>
-                Публикация сайта
-              </div>
-
-              <h1 className="heading-xl text-white">
-                <span className="block">Как опубликовать</span>
-                <span className="gradient-text">сайт в интернете</span>
-                <span className="block text-white/80 text-3xl sm:text-4xl lg:text-5xl font-semibold mt-2">
-                  пошаговая инструкция
-                </span>
-              </h1>
-
-              <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-                Подробная инструкция по публикации сайта в интернете, добавлению в Google и Яндекс, настройке домена 
-                и хостинга. Поможем опубликовать ваш сайт правильно. Также рекомендуем <Link href="/seo-optimization" className="text-primary-300 hover:underline font-semibold">SEO-оптимизацию</Link> после публикации.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
-                  Помощь с публикацией
-                </a>
-                <Link href="/how-to-create-website" className="btn-secondary">
-                  Как создать сайт
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative lg:h-[600px] animate-in">
-              <div className="relative z-10">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
-                    alt="Как опубликовать сайт в интернете"
-                    width={600}
-                    height={450}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/40 to-transparent" />
-                </div>
-              </div>
-            </div>
+      {/* Hero */}
+      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+        <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">Инструкция</span>
+          <h1 className="heading-xl text-white mb-6">Как опубликовать <span className="gradient-text">сайт</span></h1>
+          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+            Пошаговая инструкция: домен, хостинг, SSL, добавление в Google и Яндекс. Готовый чеклист перед запуском.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="#steps" className="btn-primary">К инструкции</a>
+            <Link href="/how-to-create-website" className="btn-secondary">Как создать сайт</Link>
           </div>
         </div>
       </section>
 
-      {/* Visual Steps */}
-      <section className="section bg-white dark:bg-secondary-950">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
-              Шаги публикации
-            </span>
-            <h2 className="heading-lg mb-6">
-              Шаги <span className="gradient-text">публикации сайта</span>
-            </h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">
-              Визуальная инструкция с примерами скриншотов
-            </p>
+      {/* Steps */}
+      <section id="steps" className="section bg-white dark:bg-secondary-950">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Пошагово</span>
+            <h2 className="heading-lg mb-4">6 шагов <span className="gradient-text">публикации</span></h2>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">От регистрации домена до первых посетителей из поисковиков</p>
           </div>
-
-          <div className="space-y-8 max-w-4xl mx-auto">
+          <div className="space-y-10">
             {steps.map((step, index) => (
-              <div key={`step-${step.step}`} className="grid md:grid-cols-2 gap-8 items-center">
-                <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-secondary-100">
-                    <Image
-                      src={step.image}
-                      alt={step.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
+              <div key={step.number} className="relative pl-16 md:pl-20">
+                <div className="absolute left-0 top-0 flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-primary-600/30">{step.number}</div>
+                  {index < steps.length - 1 && <div className="w-0.5 flex-1 bg-primary-200 dark:bg-primary-800 mt-2" />}
                 </div>
-                <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 font-bold text-xl mb-4">
-                    {step.step}
+                <div className="bg-secondary-50 dark:bg-secondary-800/50 rounded-2xl p-6 md:p-8">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <h3 className="text-xl md:text-2xl font-bold">{step.title}</h3>
+                    <span className="text-sm text-primary-600 dark:text-primary-400 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">{step.duration}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-3">{step.title}</h3>
-                  <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{step.description}</p>
+                  <p className="text-secondary-700 dark:text-secondary-300 leading-relaxed mb-4">{step.description}</p>
+                  <div className="bg-white dark:bg-secondary-900 rounded-xl p-4 border border-secondary-100 dark:border-secondary-700 mb-3">
+                    <ul className="space-y-2">
+                      {step.details.map(detail => (
+                        <li key={detail} className="flex items-start gap-2 text-sm text-secondary-600 dark:text-secondary-400">
+                          <svg className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4" /></svg>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {step.warning && (
+                    <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 rounded-lg p-3">
+                      <p className="text-sm text-amber-800 dark:text-amber-300 flex items-start gap-2">
+                        <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                        <span>{step.warning}</span>
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -185,100 +187,78 @@ export default function PublishWebsitePage() {
 
       {/* Checklist */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="heading-lg mb-4">Чеклист публикации</h2>
-              <p className="text-lg text-secondary-600 dark:text-secondary-300">Убедитесь, что всё готово к публикации</p>
-            </div>
-            <div className="bg-white dark:bg-secondary-950 rounded-2xl p-8 shadow-lg">
-              <div className="space-y-4">
-                {checklist.map((item, index) => (
-                  <div key={`checklist-${item}`} className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <p className="text-secondary-700 dark:text-secondary-300 text-lg">{item}</p>
-                  </div>
-                ))}
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">Чеклист <span className="gradient-text">перед запуском</span></h2>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">Проверьте все пункты, прежде чем объявлять о запуске сайта</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {checklist.map(group => (
+              <div key={group.category} className="bg-white dark:bg-secondary-950 rounded-2xl p-6 shadow-lg border border-secondary-100 dark:border-secondary-800">
+                <h3 className="text-lg font-bold mb-4 text-primary-600 dark:text-primary-400">{group.category}</h3>
+                <div className="space-y-3">
+                  {group.items.map(item => (
+                    <div key={item} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded border-2 border-primary-300 dark:border-primary-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-secondary-700 dark:text-secondary-300 text-sm">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="section bg-white dark:bg-secondary-950">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
-            <div className="space-y-4">
-              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько времени занимает индексация сайта?</h3>
-                <p className="text-secondary-600 dark:text-secondary-300">
-                  Обычно Google индексирует сайт в течение 1-2 недель, Яндекс — 2-4 недели. После добавления sitemap.xml процесс ускоряется.
-                </p>
+        <div className="container-custom max-w-3xl">
+          <h2 className="heading-lg text-center mb-12">Частые вопросы</h2>
+          <div className="space-y-4">
+            {[
+              { q: 'Сколько времени занимает индексация?', a: 'Google  1-2 недели, Яндекс  2-4 недели. После отправки sitemap.xml процесс ускоряется. Можно запросить индексацию конкретной страницы вручную.' },
+              { q: 'Нужен ли SSL-сертификат?', a: 'Обязательно. Без HTTPS браузер показывает Небезопасно, Google понижает позиции, а пользователи теряют доверие.' },
+              { q: 'Что делать, если сайт не индексируется?', a: 'Проверьте robots.txt (не заблокирован ли сайт), наличие sitemap.xml, доступность страниц. В Search Console нажмите Запросить индексирование.' },
+              { q: 'Как выбрать между Netlify и обычным хостингом?', a: 'Netlify  для статических сайтов (HTML, Next.js static export). Бесплатный, быстрый, CDN по миру. Обычный хостинг  для WordPress, CMS, серверных приложений.' },
+              { q: 'Можно ли опубликовать бесплатно?', a: 'Да. Netlify, Vercel, GitHub Pages  бесплатный хостинг для статических сайтов. Нужно только купить домен (от 2 500 тг/год).' },
+            ].map(faq => (
+              <div key={faq.q} className="bg-secondary-50 dark:bg-secondary-800/50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-secondary-900 dark:text-white mb-2">{faq.q}</h3>
+                <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{faq.a}</p>
               </div>
-              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Нужен ли SSL сертификат?</h3>
-                <p className="text-secondary-600 dark:text-secondary-300">
-                  Да, SSL сертификат обязателен. Он обеспечивает безопасное соединение (HTTPS) и влияет на ранжирование в поисковых системах.
-                </p>
-              </div>
-              <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Что делать, если сайт не индексируется?</h3>
-                <p className="text-secondary-600 dark:text-secondary-300">
-                  Проверьте robots.txt, убедитесь что сайт доступен для поисковых роботов, проверьте наличие sitemap.xml и правильность его структуры.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* Reviews Carousel */}
-      <ReviewsCarousel
-        reviews={placeholderReviewImages.slice(0, 6)}
-        title="Отзывы наших клиентов"
-        subtitle="Реальные отзывы от клиентов, которым мы помогли с публикацией сайтов."
-      />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="heading-lg mb-4">Нужна помощь с публикацией?</h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Мы поможем опубликовать ваш сайт, настроить домен, хостинг и добавить сайт в поисковые системы. 
-            Всё это входит в стоимость разработки сайта.
-          </p>
+          <h2 className="heading-lg mb-4 text-white">Нужна помощь с публикацией?</h2>
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Публикация, настройка домена и добавление в поисковики входят в стоимость разработки сайта.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">Написать в WhatsApp</a>
-            <a href={`tel:${SITE_CONFIG.phone}`} className="btn-secondary">Позвонить</a>
+            <Link href="/website-price" className="btn-secondary">Стоимость разработки</Link>
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
+      {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Полезные статьи</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            <Link href="/how-to-create-website" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Как создать сайт</h3>
-              <p className="text-secondary-600 dark:text-secondary-300">Пошаговая инструкция</p>
-            </Link>
-            <Link href="/seo-optimization" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">SEO оптимизация</h3>
-              <p className="text-secondary-600 dark:text-secondary-300">Продвижение в поисковиках</p>
-            </Link>
-            <Link href="/contact" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Контакты</h3>
-              <p className="text-secondary-600 dark:text-secondary-300">Свяжитесь с нами</p>
-            </Link>
-            <Link href="/website-price" className="card p-6 hover:shadow-lg transition-all group">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Цены на сайты</h3>
-              <p className="text-secondary-600 dark:text-secondary-300">Стоимость разработки</p>
-            </Link>
+          <h2 className="heading-md text-center mb-8">Читайте также</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { href: '/how-to-create-website', title: 'Как создать сайт', desc: 'Полная инструкция из 7 шагов' },
+              { href: '/seo-optimization', title: 'SEO-оптимизация', desc: 'Продвижение после публикации' },
+              { href: '/website-price', title: 'Цены на сайты', desc: 'Стоимость разработки' },
+              { href: '/technologies', title: 'Технологии', desc: 'Какие инструменты мы используем' },
+            ].map(link => (
+              <Link key={link.href} href={link.href} className="card p-6 hover:shadow-lg transition-all group">
+                <h3 className="text-lg font-bold mb-2 group-hover:text-primary-600 transition-colors">{link.title}</h3>
+                <p className="text-secondary-600 dark:text-secondary-300 text-sm">{link.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -12,7 +12,6 @@ const footerLinks = {
     { label: 'Портфолио', href: '/portfolio' },
     { label: 'Отзывы', href: '/reviews' },
     { label: 'Контакты', href: '/contact' },
-    { label: 'Скачать бриф', href: '/brif.doc' },
   ],
   services: [
     { label: 'Landing Page', href: '/landing-page' },
@@ -22,6 +21,23 @@ const footerLinks = {
     { label: 'SEO-оптимизация', href: '/seo-optimization' },
     { label: 'Веб-дизайн', href: '/web-design' },
     { label: 'Реклама сайта', href: '/website-advertising' },
+    { label: 'Цены на сайты', href: '/website-price' },
+  ],
+  company: [
+    { label: 'О нас', href: '/about' },
+    { label: 'Процесс работы', href: '/process' },
+    { label: 'Гарантии', href: '/guarantees' },
+    { label: 'Технологии', href: '/technologies' },
+    { label: 'Почему мы', href: '/why-choose-us' },
+    { label: 'Глоссарий', href: '/glossary' },
+    { label: 'Районы Алматы', href: '/districts' },
+  ],
+  useful: [
+    { label: 'Как создать сайт', href: '/how-to-create-website' },
+    { label: 'Бесплатный сайт', href: '/free-website' },
+    { label: 'Публикация сайта', href: '/publish-website' },
+    { label: 'Сайт для бизнеса', href: '/website-for-company' },
+    { label: 'Курсы программирования', href: '/programming-courses' },
   ],
 }
 
@@ -30,9 +46,9 @@ export function Footer() {
     <footer className="bg-secondary-900 dark:bg-secondary-950 text-white border-t border-secondary-800 dark:border-secondary-900">
       {/* Main footer content */}
       <div className="container-custom pt-16 pb-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-violet-400 bg-clip-text text-transparent">
                 {SITE_CONFIG.name}
@@ -91,6 +107,40 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-secondary-300 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Company */}
+          <nav aria-label="О компании">
+            <h3 className="text-lg font-semibold mb-6">О компании</h3>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-secondary-300 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Useful */}
+          <nav aria-label="Полезное">
+            <h3 className="text-lg font-semibold mb-6">Полезное</h3>
+            <ul className="space-y-3">
+              {footerLinks.useful.map((link) => (
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-secondary-300 hover:text-white transition-colors"

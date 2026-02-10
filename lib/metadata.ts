@@ -6,6 +6,12 @@
 import type { Metadata } from 'next'
 import { SITE_CONFIG } from './constants'
 
+/** Обрезка описания по границе слова (не более 160 символов) */
+function truncateDescription(text: string, max = 160): string {
+  if (text.length <= max) return text
+  return text.slice(0, max).replace(/\s+\S*$/, '') + '...'
+}
+
 export interface ServiceMetadataParams {
   serviceName: string
   serviceDescription: string
@@ -55,13 +61,18 @@ export function generateServiceMetadata({
     'веб-разработка алматы',
   ]
 
+  // Обрезка по границе слова (не более 160 символов)
+  const truncatedDesc = description.length > 160
+    ? description.slice(0, 160).replace(/\s+\S*$/, '') + '...'
+    : description
+
   return {
     title,
-    description: description.slice(0, 160), // Ограничение до 160 символов
+    description: truncatedDesc,
     keywords: [...defaultKeywords, ...keywords],
     openGraph: {
       title,
-      description: description.slice(0, 160),
+      description: truncatedDesc,
       url: `${SITE_CONFIG.url}${path}`,
       siteName: SITE_CONFIG.name,
       locale: 'ru_RU',
@@ -78,7 +89,7 @@ export function generateServiceMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description: description.slice(0, 160),
+      description: truncatedDesc,
       images: [image || `${SITE_CONFIG.url}/img/slider4.png`],
     },
     alternates: {
@@ -120,13 +131,15 @@ export function generateInfoMetadata({
     'создание сайтов алматы',
   ]
 
+  const truncatedDesc = truncateDescription(description)
+
   return {
-    title: seoTitle.slice(0, 60), // Ограничение до 60 символов
-    description: description.slice(0, 160),
+    title: seoTitle.slice(0, 60),
+    description: truncatedDesc,
     keywords: [...defaultKeywords, ...keywords],
     openGraph: {
       title: seoTitle,
-      description: description.slice(0, 160),
+      description: truncatedDesc,
       url: `${SITE_CONFIG.url}${path}`,
       siteName: SITE_CONFIG.name,
       locale: 'ru_RU',
@@ -143,7 +156,7 @@ export function generateInfoMetadata({
     twitter: {
       card: 'summary_large_image',
       title: seoTitle,
-      description: description.slice(0, 160),
+      description: truncatedDesc,
       images: [image || `${SITE_CONFIG.url}/img/slider4.png`],
     },
     alternates: {
@@ -177,7 +190,7 @@ export function generateBlogMetadata({
   path,
 }: BlogMetadataParams): Metadata {
   const seoTitle = title.length > 70 ? `${title.slice(0, 67)}...` : title
-  const metaDescription = description.slice(0, 160)
+  const metaDescription = truncateDescription(description)
 
   return {
     title: `${seoTitle} | RC-WEB.KZ`,

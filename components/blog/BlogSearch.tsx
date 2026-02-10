@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import type { BlogPost } from '@/data/blog'
 import { AnalyticsEvents } from '@/lib/analytics-events'
 
@@ -11,6 +11,17 @@ interface BlogSearchProps {
 
 export function BlogSearch({ posts, onSearchResults }: BlogSearchProps) {
   const [searchQuery, setSearchQuery] = useState('')
+  const analyticsTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Debounced analytics tracking — не спамить при каждом нажатии
+  const trackSearch = useCallback((query: string) => {
+    if (analyticsTimeout.current) clearTimeout(analyticsTimeout.current)
+    analyticsTimeout.current = setTimeout(() => {
+      if (query.length > 2) {
+        AnalyticsEvents.search(query)
+      }
+    }, 500)
+  }, [])
 
   const filteredPosts = useMemo(() => {
     if (!searchQuery.trim()) {
@@ -29,13 +40,10 @@ export function BlogSearch({ posts, onSearchResults }: BlogSearchProps) {
       return titleMatch || descriptionMatch || keywordsMatch || categoryMatch
     })
 
-    // Отслеживание поиска
-    if (query.length > 2) {
-      AnalyticsEvents.search(query)
-    }
+    trackSearch(query)
 
     return results
-  }, [searchQuery, posts])
+  }, [searchQuery, posts, trackSearch])
 
   // Обновляем результаты при изменении фильтрации
   useEffect(() => {

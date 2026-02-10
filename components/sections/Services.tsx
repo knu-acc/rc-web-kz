@@ -115,7 +115,7 @@ export function Services() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/95 via-teal-600/90 to-teal-700/95" />
                 </div>

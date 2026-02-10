@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
    * ────────────────────────────────────────────── */
   const parseMarkdown = (text: string) => {
     const lines = text.split('\n')
-    const out: JSX.Element[] = []
+    const out: React.ReactElement[] = []
     let buf: string[] = []
     let mode: 'none' | 'ul' | 'table' = 'none'
     let uid = 0
@@ -119,14 +119,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
     /* inline: **bold**, [link](url) */
     const inline = (raw: string, li: number) => {
-      const parts: (string | JSX.Element)[] = []
+      const parts: (string | React.ReactElement)[] = []
       let ec = 0
 
       // сначала ссылки
       const lr = /\[([^\]]+)\]\(([^)]+)\)/g
       let m: RegExpExecArray | null
       let last = 0
-      const lp: (string | JSX.Element)[] = []
+      const lp: (string | React.ReactElement)[] = []
       while ((m = lr.exec(raw)) !== null) {
         if (m.index > last) lp.push(raw.slice(last, m.index))
         lp.push(

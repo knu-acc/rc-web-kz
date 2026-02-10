@@ -38,7 +38,7 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { href: '/', label: 'Главная' },
   {
-    href: '#',
+    href: '/services',
     label: 'Услуги',
     submenu: [
       { href: '/landing-page', label: 'Landing Page' },
@@ -48,6 +48,18 @@ const navLinks: NavLink[] = [
       { href: '/seo-optimization', label: 'SEO оптимизация' },
       { href: '/website-advertising', label: 'Реклама сайта' },
       { href: '/web-design', label: 'Веб-дизайн' },
+      { href: '/website-price', label: 'Цены на сайты' },
+    ]
+  },
+  {
+    href: '/about',
+    label: 'О компании',
+    submenu: [
+      { href: '/about', label: 'О нас' },
+      { href: '/process', label: 'Процесс работы' },
+      { href: '/guarantees', label: 'Гарантии' },
+      { href: '/technologies', label: 'Технологии' },
+      { href: '/why-choose-us', label: 'Почему мы' },
     ]
   },
   { href: '/blog', label: 'Блог' },
@@ -254,7 +266,7 @@ export function Header({ logoSlot }: HeaderProps) {
             : 'opacity-0 invisible -translate-y-4 pointer-events-none'
             }`}
           style={{
-            height: '100vh'
+            height: '100dvh'
           }}
           role="menu"
           aria-label="Мобильное меню"
@@ -299,7 +311,11 @@ export function Header({ logoSlot }: HeaderProps) {
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  className="text-2xl font-semibold text-secondary-800 dark:text-secondary-100 py-4 border-b border-secondary-100 dark:border-secondary-800 transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+                  className={`text-2xl font-semibold py-4 border-b border-secondary-100 dark:border-secondary-800 transition-colors ${
+                    pathname === link.href
+                      ? 'text-primary-600 dark:text-primary-400'
+                      : 'text-secondary-800 dark:text-secondary-100 hover:text-primary-600 dark:hover:text-primary-400'
+                  }`}
                 >
                   {link.label}
                 </Link>

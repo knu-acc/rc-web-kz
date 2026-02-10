@@ -4,6 +4,7 @@ const STATIC_CACHE = 'rc-web-static-v2'
 
 const urlsToCache = [
   '/',
+  '/services',
   '/landing-page',
   '/corporate-site',
   '/online-store',
@@ -11,6 +12,12 @@ const urlsToCache = [
   '/contact',
   '/reviews',
   '/website-price',
+  '/about',
+  '/blog',
+  '/glossary',
+  '/technologies',
+  '/process',
+  '/guarantees',
 ]
 
 // Установка Service Worker

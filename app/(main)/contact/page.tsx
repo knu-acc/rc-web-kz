@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { generateContactPageSchema, generateBreadcrumbSchema } from '@/lib/schema'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
+import { ContactForm } from '@/components/ui/ContactForm'
 import { Phone, Mail, MessageCircle, Send, Clock, MapPin, Zap, ArrowRight, Star } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -239,6 +240,23 @@ export default function ContactPage() {
               <p className="text-secondary-600 dark:text-secondary-300 text-sm mb-1">В течение 15 минут</p>
               <p className="text-secondary-500 dark:text-secondary-400 text-xs">в рабочее время</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="section bg-white dark:bg-secondary-950">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="heading-lg mb-4">
+                Отправьте <span className="gradient-text">заявку</span>
+              </h2>
+              <p className="text-lg text-secondary-600 dark:text-secondary-300">
+                Заполните форму и мы свяжемся с вами в течение 15 минут
+              </p>
+            </div>
+            <ContactForm />
           </div>
         </div>
       </section>

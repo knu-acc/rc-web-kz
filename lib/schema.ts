@@ -18,9 +18,9 @@ export function generateReviewSchema(reviews: ReviewData[]) {
     name: SITE_CONFIG.name,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      bestRating: '5',
-      worstRating: '1',
+      ratingValue: SITE_CONFIG.aggregateRating.ratingValue,
+      bestRating: SITE_CONFIG.aggregateRating.bestRating,
+      worstRating: SITE_CONFIG.aggregateRating.worstRating,
       ratingCount: reviews.length.toString(),
       reviewCount: reviews.length.toString(),
     },
@@ -138,14 +138,6 @@ export function generateWebSiteSchema() {
     '@type': 'WebSite',
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_CONFIG.url}/?s={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   }
 }
 
