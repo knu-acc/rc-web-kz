@@ -586,6 +586,8 @@ html.high-contrast select {
   cursor: pointer;
   transition: all 0.2s ease;
   opacity: 1;
+  min-height: unset;
+  min-width: unset;
 }
 
 .dark .embla__pagination__button {

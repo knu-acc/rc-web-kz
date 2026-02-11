@@ -131,7 +131,6 @@ export default function RootLayout({
         {/* Безопасность */}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
         <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
         {/* Замените на ваши коды верификации из панелей поисковиков */}
         <ThemeScript />

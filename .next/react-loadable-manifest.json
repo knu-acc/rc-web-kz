@@ -1,0 +1,66 @@
+{
+  "components\\layout\\ClientComponents.tsx -> @/components/ui/BackToTop": {
+    "id": 4938,
+    "files": [
+      "static/chunks/4938.ae3a331d1ede2f1b.js"
+    ]
+  },
+  "components\\layout\\ClientComponents.tsx -> @/components/ui/ServiceWorker": {
+    "id": 7294,
+    "files": [
+      "static/chunks/7294.44e864eeb137ac36.js"
+    ]
+  },
+  "components\\layout\\ClientComponents.tsx -> @/lib/analytics": {
+    "id": 6170,
+    "files": [
+      "static/chunks/3789.fe439166b70c19b5.js"
+    ]
+  },
+  "components\\layout\\Header.tsx -> @/components/ui/ThemeToggle": {
+    "id": 4590,
+    "files": [
+      "static/chunks/4590.04fefe7d4e5b8f00.js"
+    ]
+  },
+  "data\\blog.ts -> ./blog/articles": {
+    "id": 3305,
+    "files": []
+  },
+  "data\\blog.ts -> ./blog/articles/cases": {
+    "id": 4380,
+    "files": []
+  },
+  "data\\blog.ts -> ./blog/articles/design": {
+    "id": 9985,
+    "files": []
+  },
+  "data\\blog.ts -> ./blog/articles/guides": {
+    "id": 3870,
+    "files": []
+  },
+  "data\\blog.ts -> ./blog/articles/marketing": {
+    "id": 2609,
+    "files": []
+  },
+  "data\\blog.ts -> ./blog/articles/seo": {
+    "id": 8608,
+    "files": []
+  },
+  "data\\blog.ts -> ./blog/articles/technical": {
+    "id": 6846,
+    "files": []
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 5139,
+    "files": [
+      "static/chunks/5139.c5e46d26064a85db.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 1646,
+    "files": [
+      "static/chunks/1646.9123ee47220ed70b.js"
+    ]
+  }
+}

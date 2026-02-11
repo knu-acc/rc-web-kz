@@ -14,8 +14,8 @@ export function ThemeToggle() {
 
     if (!mounted) {
         return (
-            <div className="relative w-12 h-6 rounded-full bg-secondary-200 dark:bg-secondary-700 min-h-[44px] min-w-[48px] flex items-center" suppressHydrationWarning>
-                <div className="w-5 h-5 rounded-full bg-white shadow-md transition-transform duration-300 translate-x-1" />
+            <div className="relative inline-flex h-8 w-14 items-center rounded-full bg-secondary-200 dark:bg-secondary-700 p-1" suppressHydrationWarning>
+                <div className="h-6 w-6 rounded-full bg-white shadow-md transition-transform duration-300 translate-x-0" />
             </div>
         )
     }
@@ -25,7 +25,7 @@ export function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className={`relative w-12 h-6 rounded-full transition-colors duration-300 min-h-[44px] min-w-[48px] flex items-center touch-manipulation ${
+            className={`relative inline-flex h-8 w-14 items-center rounded-full p-1 transition-colors duration-300 touch-manipulation ${
                 isLight ? 'bg-primary-500' : 'bg-secondary-700'
             }`}
             aria-label={isLight ? 'Переключить на тёмную тему' : 'Переключить на светлую тему'}
@@ -34,14 +34,14 @@ export function ThemeToggle() {
         >
             {/* Switch thumb */}
             <div
-                className={`absolute w-5 h-5 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${
-                    isLight ? 'translate-x-1' : 'translate-x-6'
+                className={`h-6 w-6 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center ${
+                    isLight ? 'translate-x-0' : 'translate-x-6'
                 }`}
             >
                 {isLight ? (
-                    <Sun size={12} className="text-yellow-500" />
+                    <Sun size={14} className="text-yellow-500" />
                 ) : (
-                    <Moon size={12} className="text-blue-400" />
+                    <Moon size={14} className="text-blue-400" />
                 )}
             </div>
         </button>

@@ -1,0 +1,97 @@
+# Apache конфигурация для Next.js статического экспорта
+# Скопируйте этот файл в корень сайта после сборки (в папку out/)
+
+# Включить перезапись URL
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Редирект с www на без www (или наоборот - измените по необходимости)
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  
+  # Редирект с HTTP на HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  
+  # Редиректы для миграции с Tilda
+  RewriteRule ^price/?$ /website-price [R=301,L]
+  RewriteRule ^multi-page/?$ /corporate-site [R=301,L]
+  RewriteRule ^publish/?$ /publish-website [R=301,L]
+  RewriteRule ^design/?$ /web-design [R=301,L]
+  RewriteRule ^testimonials/?$ /reviews [R=301,L]
+  RewriteRule ^services/?$ /#services [R=301,L]
+  RewriteRule ^company-website/?$ /website-for-company [R=301,L]
+  RewriteRule ^seo/?$ /seo-optimization [R=301,L]
+  
+  # Обработка Next.js роутов (SPA routing)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /index.html [L]
+</IfModule>
+
+# Кэширование статических файлов
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Изображения
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # CSS и JavaScript
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  
+  # Шрифты
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  
+  # HTML (кэшируем меньше)
+  ExpiresByType text/html "access plus 1 hour"
+  
+  # XML файлы (sitemap, robots)
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/xml "access plus 1 day"
+</IfModule>
+
+# Сжатие
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml text/xml
+</IfModule>
+
+# Безопасность
+<IfModule mod_headers.c>
+  # Защита от XSS
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Защита от MIME-sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Защита от clickjacking
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Referrer Policy
+  Header set Referrer-Policy "origin-when-cross-origin"
+  
+  # HSTS — принудительное использование HTTPS
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  
+  # Content Security Policy (настройте под ваши нужды)
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru https://api-maps.yandex.ru; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://api-maps.yandex.ru; frame-src 'self' https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+</IfModule>
+
+# Защита от просмотра директорий
+Options -Indexes
+
+# Защита важных файлов
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
