@@ -77,12 +77,12 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
         {/* Hero Section */}
         <section className="section pt-20">
           <div className="container-custom max-w-4xl">
-            <div className="text-center mb-12">
+            <div className="text-left md:text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
                 {project.category}
               </span>
               <h1 className="heading-xl mb-6">{project.title}</h1>
-              <p className="text-xl text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
+              <p className="text-xl text-secondary-600 dark:text-secondary-300 max-w-2xl md:mx-auto">
                 {project.description}
               </p>
             </div>
