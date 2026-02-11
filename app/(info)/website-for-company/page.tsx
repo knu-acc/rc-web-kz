@@ -84,10 +84,10 @@ export default function WebsiteForCompanyPage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Сайт для компании', href: '/website-for-company' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl" />
         <div className="container-custom relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-left md:text-center">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">Для бизнеса</span>
             <h1 className="heading-xl text-white mb-6">Сайт для <span className="gradient-text">вашей компании</span></h1>
             <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -117,14 +117,14 @@ export default function WebsiteForCompanyPage() {
       {/* Why need */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Зачем</span>
             <h2 className="heading-lg mb-4">Зачем компании <span className="gradient-text">нужен сайт</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Цифры, которые убеждают лучше слов</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {whyNeedSite.map(item => (
-              <div key={item.title} className="bg-secondary-50 dark:bg-secondary-800/50 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div key={item.title} className="bg-secondary-50 dark:bg-secondary-800/50 rounded-2xl p-6 text-left md:text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-3">{item.stat}</div>
                 <h3 className="font-bold mb-2">{item.title}</h3>
                 <p className="text-secondary-600 dark:text-secondary-400 text-sm leading-relaxed">{item.description}</p>
@@ -137,7 +137,7 @@ export default function WebsiteForCompanyPage() {
       {/* Site Types */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <h2 className="heading-lg mb-4">Типы сайтов <span className="gradient-text">для бизнеса</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Выберите подходящий вариант</p>
           </div>
@@ -177,7 +177,7 @@ export default function WebsiteForCompanyPage() {
       {/* Process */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Как <span className="gradient-text">создается сайт</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Прозрачный процесс от первого контакта до запуска</p>
           </div>
@@ -208,7 +208,7 @@ export default function WebsiteForCompanyPage() {
       {/* FAQ */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-12">Частые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-12">Частые вопросы</h2>
           <div className="space-y-4">
             {[
               { q: 'Нужно ли мне предоставлять контент?', a: 'Желательно. Тексты, фото продукции, логотип  чем больше контента вы подготовите, тем лучше будет результат. Если нет контента  поможем написать тексты и подобрать изображения.' },
@@ -228,7 +228,7 @@ export default function WebsiteForCompanyPage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Обсудим ваш проект?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Бесплатная консультация — рассказать, какой тип сайта подойдет и сколько это будет стоить.</p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -241,7 +241,7 @@ export default function WebsiteForCompanyPage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Читайте также</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Читайте также</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { href: '/corporate-site', title: 'Корпоративный сайт', desc: 'Подробнее об услуге' },

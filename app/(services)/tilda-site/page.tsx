@@ -211,7 +211,7 @@ export default function TildaSitePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
@@ -323,7 +323,7 @@ export default function TildaSitePage() {
       {/* Tilda Blocks Gallery */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Возможности Tilda
             </span>
@@ -360,7 +360,7 @@ export default function TildaSitePage() {
       {/* Advantages */}
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
@@ -459,7 +459,7 @@ export default function TildaSitePage() {
       {/* Process Section */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Процесс работы
             </span>
@@ -489,7 +489,7 @@ export default function TildaSitePage() {
       {/* Pricing Section */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Тарифы
             </span>
@@ -545,7 +545,7 @@ export default function TildaSitePage() {
       {/* Tilda vs Custom Development */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Сравнение
             </span>
@@ -649,7 +649,7 @@ export default function TildaSitePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-left md:text-center mt-12">
             <p className="text-white/60 mb-4">Не знаете, что выбрать?</p>
             <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp text-lg px-8 py-3">
               Получить консультацию
@@ -669,7 +669,7 @@ export default function TildaSitePage() {
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-left md:text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
                 FAQ
               </span>
@@ -689,7 +689,7 @@ export default function TildaSitePage() {
 
       {/* CTA */}
       <section className="section bg-gradient-to-br from-primary-600 to-primary-700 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы создать сайт на Tilda?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для бесплатной консультации. Поможем выбрать оптимальный вариант для вашего бизнеса.
@@ -711,7 +711,7 @@ export default function TildaSitePage() {
       {/* Related Services */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/landing-page" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>

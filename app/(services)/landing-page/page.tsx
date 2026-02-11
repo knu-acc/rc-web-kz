@@ -121,7 +121,7 @@ export default function LandingPagePage() {
       />
 
       {/* Hero Section with floating cards */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
@@ -238,7 +238,7 @@ export default function LandingPagePage() {
       {/* Gallery Section */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Примеры работ
             </span>
@@ -274,7 +274,7 @@ export default function LandingPagePage() {
       {/* Benefits Bento Grid */}
       <section className="section bg-secondary-900 dark:bg-secondary-950 text-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
@@ -357,12 +357,12 @@ export default function LandingPagePage() {
       {/* Pricing */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Цены на Landing Page в Алматы</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Прозрачное ценообразование без скрытых платежей</p>
           </div>
           <div className="max-w-4xl mx-auto bg-white dark:bg-secondary-950 rounded-2xl shadow-lg p-8">
-            <div className="text-center mb-8">
+            <div className="text-left md:text-center mb-8">
               <div className="text-5xl font-bold text-primary-600 mb-2">85-135 тыс ₸</div>
               <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость Landing Page</p>
             </div>
@@ -421,7 +421,7 @@ export default function LandingPagePage() {
                 </p>
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
                 Заказать Landing Page
               </a>
@@ -433,12 +433,12 @@ export default function LandingPagePage() {
       {/* Process */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Как мы создаём Landing Page</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Пошаговый процесс разработки</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-200">1</span>
               </div>
@@ -448,7 +448,7 @@ export default function LandingPagePage() {
                 и формируем уникальное торговое предложение.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
@@ -458,7 +458,7 @@ export default function LandingPagePage() {
                 Разрабатываем адаптивную вёрстку для всех устройств.
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
@@ -476,7 +476,7 @@ export default function LandingPagePage() {
       <section className="section bg-secondary-50 dark:bg-secondary-800">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
+            <h2 className="heading-lg text-left md:text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
               {faqItems.map((item) => (
                 <div key={item.id} className="bg-white dark:bg-secondary-900 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -508,7 +508,7 @@ export default function LandingPagePage() {
 
       {/* CTA */}
       <section className="section bg-gradient-to-br from-primary-600 to-primary-700 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы создать свой Landing Page?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для бесплатной консультации и расчёта стоимости вашего проекта
@@ -530,7 +530,7 @@ export default function LandingPagePage() {
       {/* Related Services */}
       <section className="section bg-white dark:bg-secondary-900">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Корпоративный сайт</h3>

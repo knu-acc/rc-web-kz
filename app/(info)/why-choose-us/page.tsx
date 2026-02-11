@@ -144,7 +144,7 @@ export default function WhyChooseUsPage() {
         </div>
 
         <div className="container-custom py-20 lg:py-32">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-left md:text-center">
             <div className="space-y-8 animate-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
@@ -193,7 +193,7 @@ export default function WhyChooseUsPage() {
       {/* Benefits Bento Grid */}
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
@@ -235,7 +235,7 @@ export default function WhyChooseUsPage() {
       {/* Stats Section */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
               Достижения
             </span>
@@ -249,7 +249,7 @@ export default function WhyChooseUsPage() {
 
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={stat.label} className="text-center">
+              <div key={stat.label} className="text-left md:text-center">
                 <div className="text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-3">{stat.value}</div>
                 <p className="text-lg text-secondary-600 dark:text-secondary-300">{stat.label}</p>
               </div>
@@ -261,13 +261,13 @@ export default function WhyChooseUsPage() {
       {/* Process */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Процесс работы</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Как мы работаем с клиентами</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
-              <div key={`step-${step.step}`} className="text-center">
+              <div key={`step-${step.step}`} className="text-left md:text-center">
                 <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
                 </div>
@@ -282,7 +282,7 @@ export default function WhyChooseUsPage() {
       {/* Reviews Preview */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
               Отзывы
             </span>
@@ -314,7 +314,7 @@ export default function WhyChooseUsPage() {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className="text-left md:text-center">
             <Link href="/reviews" className="btn-outline">
               Все отзывы
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -334,7 +334,7 @@ export default function WhyChooseUsPage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4">Готовы начать?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Свяжитесь для бесплатной консультации и обсуждения проекта
@@ -349,7 +349,7 @@ export default function WhyChooseUsPage() {
       {/* Related Services */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные страницы</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные страницы</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/reviews" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Отзывы</h3>

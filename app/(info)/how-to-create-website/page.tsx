@@ -203,10 +203,10 @@ export default function HowToCreateWebsitePage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Как создать сайт', href: '/how-to-create-website' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-3xl" />
-        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
+        <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">Пошаговая инструкция 2026</span>
           <h1 className="heading-xl text-white mb-6">Как создать <span className="gradient-text">сайт</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -222,7 +222,7 @@ export default function HowToCreateWebsitePage() {
       {/* 7 Steps */}
       <section id="steps" className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-16">
+          <div className="text-left md:text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Пошаговый план</span>
             <h2 className="heading-lg mb-4">7 шагов к <span className="gradient-text">готовому сайту</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Следуйте этим шагам и через 1-2 недели у вас будет работающий сайт</p>
@@ -261,7 +261,7 @@ export default function HowToCreateWebsitePage() {
       {/* Comparison */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-200 dark:bg-secondary-700 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">Сравнение</span>
             <h2 className="heading-lg mb-4">3 способа <span className="gradient-text">создания сайта</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Сравните стоимость, сроки и сложность каждого подхода</p>
@@ -274,7 +274,7 @@ export default function HowToCreateWebsitePage() {
                   <p className="text-white/80 text-sm">{method.subtitle}</p>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
-                  <div className="grid grid-cols-3 gap-4 mb-6 text-center">
+                  <div className="grid grid-cols-3 gap-4 mb-6 text-left md:text-center">
                     <div><p className="text-xs text-secondary-500 dark:text-secondary-400 mb-1">Цена</p><p className="font-bold text-sm">{method.price}</p></div>
                     <div><p className="text-xs text-secondary-500 dark:text-secondary-400 mb-1">Сроки</p><p className="font-bold text-sm">{method.time}</p></div>
                     <div><p className="text-xs text-secondary-500 dark:text-secondary-400 mb-1">Сложность</p><p className="font-bold text-sm">{method.difficulty}</p></div>
@@ -295,7 +295,7 @@ export default function HowToCreateWebsitePage() {
       {/* Mistakes */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-sm font-medium mb-4">Важно</span>
             <h2 className="heading-lg mb-4">6 ошибок, <span className="text-red-600">которых нужно избежать</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Эти ошибки совершают 80% людей при создании сайта</p>
@@ -319,7 +319,7 @@ export default function HowToCreateWebsitePage() {
       {/* Checklist */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-3xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Чеклист <span className="gradient-text">готовности сайта</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Проверяйте каждый пункт перед запуском</p>
           </div>
@@ -339,7 +339,7 @@ export default function HowToCreateWebsitePage() {
       {/* FAQ */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-12">Часто задаваемые вопросы</h2>
           <div className="space-y-4">
             {[
               { q: 'Сколько стоит создание сайта?', a: 'Бесплатно на конструкторе с ограничениями. Заказ у специалиста  от 85 000 тг за лендинг, от 150 000 тг за корпоративный сайт, от 250 000 тг за интернет-магазин.', link: '/website-price', linkText: 'Смотреть цены' },
@@ -360,7 +360,7 @@ export default function HowToCreateWebsitePage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Не хотите разбираться сами?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Мы создадим профессиональный сайт за 5-10 дней. Консультация бесплатна.</p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -373,7 +373,7 @@ export default function HowToCreateWebsitePage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Читайте также</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Читайте также</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { href: '/free-website', title: 'Бесплатный сайт', desc: 'Обзор бесплатных конструкторов' },

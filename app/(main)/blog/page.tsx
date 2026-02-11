@@ -42,7 +42,7 @@ export default function BlogPage() {
 
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
             <h1 className="heading-lg mb-4">Блог о создании сайтов</h1>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Полезные статьи о веб-разработке, SEO-продвижении, дизайне и маркетинге в Алматы
@@ -52,7 +52,7 @@ export default function BlogPage() {
           <BlogContent posts={blogPosts} categories={categories} />
 
           {blogPosts.length === 0 && (
-            <div className="text-center py-12">
+            <div className="text-left md:text-center py-12">
               <p className="text-secondary-600 dark:text-secondary-300">Статьи скоро появятся...</p>
             </div>
           )}

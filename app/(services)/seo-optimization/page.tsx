@@ -92,7 +92,7 @@ export default function SEOOptimizationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section with metrics */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
@@ -174,7 +174,7 @@ export default function SEOOptimizationPage() {
       {/* What includes SEO */}
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Что включает
             </span>
@@ -208,7 +208,7 @@ export default function SEOOptimizationPage() {
       {/* Before/After Gallery */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Результаты
             </span>
@@ -248,7 +248,7 @@ export default function SEOOptimizationPage() {
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg mb-8 text-center">Почему важна SEO-оптимизация?</h2>
+            <h2 className="heading-lg mb-8 text-left md:text-center">Почему важна SEO-оптимизация?</h2>
             <div className="space-y-4">
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-bold mb-2">Органический трафик</h3>
@@ -278,33 +278,33 @@ export default function SEOOptimizationPage() {
       {/* Process */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Процесс SEO оптимизации</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Пошаговый подход к продвижению вашего сайта</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">1</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Аудит сайта</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Анализируем текущее состояние и находим проблемы</p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">2</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Техническая оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Исправляем технические ошибки и улучшаем структуру</p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">3</span>
               </div>
               <h3 className="text-lg font-bold mb-2">Контентная оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300 text-sm">Оптимизируем тексты и создаём новый контент</p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                 <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">4</span>
               </div>
@@ -324,7 +324,7 @@ export default function SEOOptimizationPage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы оптимизировать свой сайт?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для аудита сайта и консультации по SEO-продвижению
@@ -340,7 +340,7 @@ export default function SEOOptimizationPage() {
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
+            <h2 className="heading-lg text-left md:text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько стоит SEO-оптимизация сайта в Алматы?</h3>
@@ -374,7 +374,7 @@ export default function SEOOptimizationPage() {
       {/* Related Services */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/website-advertising" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Реклама сайта</h3>

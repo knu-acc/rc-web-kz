@@ -82,7 +82,7 @@ export function BlogPreview() {
     <section className="section bg-secondary-50 dark:bg-secondary-900">
       <div className="container-custom">
         {/* Заголовок секции */}
-        <div className="text-center mb-12">
+        <div className="text-left md:text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Блог
           </span>
@@ -105,7 +105,7 @@ export function BlogPreview() {
         </div>
 
         {/* Кнопка "Все статьи" */}
-        <div className="text-center">
+        <div className="text-left md:text-center">
           <Link href="/blog" target="_blank" rel="noopener noreferrer" className="btn-outline inline-flex items-center gap-2">
             Все статьи блога
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

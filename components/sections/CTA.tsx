@@ -18,7 +18,7 @@ export function CTA() {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-left md:text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             Готовы заказать{' '}
             <span className="text-primary-200">сайт?</span>

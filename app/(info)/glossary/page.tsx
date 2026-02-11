@@ -119,8 +119,8 @@ export default function GlossaryPage() {
 
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <h1 className="heading-lg mb-4 text-center">Глоссарий терминов</h1>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-center mb-12">
+          <h1 className="heading-lg mb-4 text-left md:text-center">Глоссарий терминов</h1>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-12">
             Полезный словарь терминов веб-разработки для понимания процесса создания сайтов
           </p>
 

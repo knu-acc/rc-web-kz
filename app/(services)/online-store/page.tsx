@@ -101,7 +101,7 @@ export default function OnlineStorePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
@@ -164,7 +164,7 @@ export default function OnlineStorePage() {
       {/* Gallery Section */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Примеры работ
             </span>
@@ -196,7 +196,7 @@ export default function OnlineStorePage() {
       {/* Features Section */}
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Функционал
             </span>
@@ -230,7 +230,7 @@ export default function OnlineStorePage() {
       {/* Payment Systems */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Интеграция платёжных систем</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Подключаем все популярные способы оплаты. Для сайтов на <Link href="/tilda-site" className="text-primary-600 hover:underline font-semibold">Tilda</Link> доступно более 40 платёжных систем для СНГ и всего мира. Подробнее о <Link href="/blog/internet-magazin-kazahstan" className="text-primary-600 hover:underline font-semibold">создании интернет-магазина в Казахстане</Link> читайте в нашем блоге.</p>
           </div>
@@ -262,11 +262,11 @@ export default function OnlineStorePage() {
       {/* Pricing */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Цены на интернет-магазин</h2>
           </div>
           <div className="max-w-4xl mx-auto bg-white dark:bg-secondary-950 rounded-2xl shadow-lg p-8">
-            <div className="text-center mb-8">
+            <div className="text-left md:text-center mb-8">
               <div className="text-5xl font-bold text-secondary-800 dark:text-secondary-100 mb-2">175-275 тыс ₸</div>
               <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость интернет-магазина</p>
             </div>
@@ -294,7 +294,7 @@ export default function OnlineStorePage() {
                 </p>
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">Заказать интернет-магазин</a>
             </div>
           </div>
@@ -305,7 +305,7 @@ export default function OnlineStorePage() {
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
+            <h2 className="heading-lg text-left md:text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-secondary-900 mb-2">Сколько стоит создать интернет-магазин в Алматы?</h3>
@@ -338,7 +338,7 @@ export default function OnlineStorePage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы запустить интернет-магазин?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для консультации и расчёта стоимости вашего проекта
@@ -353,7 +353,7 @@ export default function OnlineStorePage() {
       {/* Related Services */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/corporate-site" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 transition-colors">Корпоративный сайт</h3>

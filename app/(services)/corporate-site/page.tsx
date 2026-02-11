@@ -144,7 +144,7 @@ export default function CorporateSitePage() {
       />
       
       {/* Hero Section with stats */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
           {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
@@ -228,7 +228,7 @@ export default function CorporateSitePage() {
       {/* Types of Corporate Sites */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Типы сайтов
             </span>
@@ -272,7 +272,7 @@ export default function CorporateSitePage() {
       {/* Advantages - Dark Section */}
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
@@ -355,7 +355,7 @@ export default function CorporateSitePage() {
       {/* Process Timeline */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Этапы создания корпоративного сайта</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Пошаговый процесс от идеи до запуска</p>
           </div>
@@ -385,12 +385,12 @@ export default function CorporateSitePage() {
       {/* Pricing */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Цены на корпоративный сайт</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Стоимость зависит от количества страниц и функционала</p>
           </div>
           <div className="max-w-4xl mx-auto bg-secondary-50 dark:bg-secondary-800 rounded-2xl shadow-lg border border-secondary-300 dark:border-secondary-600 p-8">
-            <div className="text-center mb-8">
+            <div className="text-left md:text-center mb-8">
               <div className="text-5xl font-bold text-primary-600 mb-2">135-195 тыс ₸</div>
               <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость корпоративного сайта</p>
             </div>
@@ -447,7 +447,7 @@ export default function CorporateSitePage() {
                 <p className="text-sm text-secondary-500 mt-4">Итого: 6-10 рабочих дней</p>
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">Заказать корпоративный сайт</a>
             </div>
           </div>
@@ -458,7 +458,7 @@ export default function CorporateSitePage() {
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg text-center mb-12">Часто задаваемые вопросы</h2>
+            <h2 className="heading-lg text-left md:text-center mb-12">Часто задаваемые вопросы</h2>
             <div className="space-y-4">
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько стоит корпоративный сайт в Алматы?</h3>
@@ -491,7 +491,7 @@ export default function CorporateSitePage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 !text-white">Готовы создать корпоративный сайт?</h2>
           <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Свяжитесь с нами для бесплатной консультации и расчёта стоимости
@@ -506,7 +506,7 @@ export default function CorporateSitePage() {
       {/* Related Services */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные услуги</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/landing-page" className="card p-6 rounded-xl shadow-soft border border-secondary-300 dark:border-secondary-600 hover:shadow-lg hover:border-primary-500 transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Landing Page</h3>

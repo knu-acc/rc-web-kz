@@ -157,7 +157,7 @@ export default function GuaranteesPage() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container-custom text-center max-w-3xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-6">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -232,7 +232,7 @@ export default function GuaranteesPage() {
       {/* Contract Section */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-10">
+          <div className="text-left md:text-center mb-10">
             <h2 className="heading-lg text-white mb-4">
               Работаем по <span className="gradient-text">договору</span>
             </h2>
@@ -260,14 +260,14 @@ export default function GuaranteesPage() {
       {/* Comparison: we vs others */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <h2 className="heading-lg text-center mb-10">RC-WEB vs фрилансеры</h2>
+          <h2 className="heading-lg text-left md:text-center mb-10">RC-WEB vs фрилансеры</h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-secondary-50 dark:bg-secondary-800">
                   <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-left font-bold">Критерий</th>
-                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold text-primary-600">RC-WEB.KZ</th>
-                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-center font-bold">Фрилансер</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-left md:text-center font-bold text-primary-600">RC-WEB.KZ</th>
+                  <th className="border border-secondary-200 dark:border-secondary-700 p-4 text-left md:text-center font-bold">Фрилансер</th>
                 </tr>
               </thead>
               <tbody>
@@ -283,8 +283,8 @@ export default function GuaranteesPage() {
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 1 ? 'bg-secondary-50 dark:bg-secondary-800' : ''}>
                     <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-secondary-700 dark:text-secondary-300 font-medium">{row[0]}</td>
-                    <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center text-emerald-600 dark:text-emerald-400 font-semibold">{row[1]}</td>
-                    <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-center text-secondary-500">{row[2]}</td>
+                    <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-left md:text-center text-emerald-600 dark:text-emerald-400 font-semibold">{row[1]}</td>
+                    <td className="border border-secondary-200 dark:border-secondary-700 p-4 text-left md:text-center text-secondary-500">{row[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -296,7 +296,7 @@ export default function GuaranteesPage() {
       {/* FAQ */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-10">Частые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-10">Частые вопросы</h2>
           <div className="space-y-4">
             {faq.map((item, i) => (
               <details key={i} className="group bg-white dark:bg-secondary-800 rounded-xl border border-secondary-100 dark:border-secondary-700">
@@ -315,7 +315,7 @@ export default function GuaranteesPage() {
 
       {/* CTA */}
       <section className="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-        <div className="container-custom text-center max-w-2xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Готовы к надёжному партнёрству?</h2>
           <p className="text-lg text-white/90 mb-8">
             Свяжитесь с нами  обсудим ваш проект и условия сотрудничества. Консультация бесплатна.
@@ -330,7 +330,7 @@ export default function GuaranteesPage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Полезные страницы</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Полезные страницы</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: '/process', title: 'Процесс работы', desc: '6 этапов создания' },

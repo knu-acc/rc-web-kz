@@ -46,7 +46,7 @@ export default function ReviewsPage() {
         </div>
 
         <div className="container-custom py-20 lg:py-32">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-left md:text-center">
             <div className="space-y-8 animate-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
@@ -111,7 +111,7 @@ export default function ReviewsPage() {
       {/* Review Images Gallery */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
               Скриншоты отзывов
             </span>
@@ -130,7 +130,7 @@ export default function ReviewsPage() {
       {/* Why Trust Us */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <h2 className="heading-lg mb-6 text-white">
               Почему нам <span className="gradient-text">доверяют</span>
             </h2>
@@ -140,7 +140,7 @@ export default function ReviewsPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -149,7 +149,7 @@ export default function ReviewsPage() {
               <h3 className="text-xl font-bold text-white mb-3">Гарантия качества</h3>
               <p className="text-white/70">Каждый проект мы доводим до идеала. Вносим правки до полного удовлетворения клиента.</p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-14 h-14 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -158,7 +158,7 @@ export default function ReviewsPage() {
               <h3 className="text-xl font-bold text-white mb-3">Соблюдаем сроки</h3>
               <p className="text-white/70">Всегда сдаём проекты вовремя. Если срок критичен — сообщаем заранее.</p>
             </div>
-            <div className="text-center">
+            <div className="text-left md:text-center">
               <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -179,7 +179,7 @@ export default function ReviewsPage() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
         </div>
         
-        <div className="container-custom text-center py-16 lg:py-20">
+        <div className="container-custom text-left md:text-center py-16 lg:py-20">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg mb-6 text-white">Станьте нашим клиентом</h2>
             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -213,7 +213,7 @@ export default function ReviewsPage() {
       {/* Related Services */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные страницы</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные страницы</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/portfolio" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Портфолио</h3>

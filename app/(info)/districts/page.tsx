@@ -52,8 +52,8 @@ export default function DistrictsPage() {
 
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <h1 className="heading-lg mb-4 text-center">Районы Алматы, где мы работаем</h1>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-center mb-12">
+          <h1 className="heading-lg mb-4 text-left md:text-center">Районы Алматы, где мы работаем</h1>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-12">
             Мы создаём сайты для клиентов во всех районах Алматы. Выезд на встречу бесплатно.
           </p>
 
@@ -74,7 +74,7 @@ export default function DistrictsPage() {
             ))}
           </div>
 
-          <div className="mt-12 bg-primary-50 rounded-xl p-8 text-center">
+          <div className="mt-12 bg-primary-50 rounded-xl p-8 text-left md:text-center">
             <h2 className="text-2xl font-bold mb-4">Работаем по всему Казахстану</h2>
             <p className="text-lg text-secondary-700 dark:text-secondary-300 mb-6">
               Хотя наш офис находится в Алматы, мы создаём сайты для клиентов по всему Казахстану.

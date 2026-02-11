@@ -70,7 +70,7 @@ export function RelatedServices({
   return (
     <section className="section bg-secondary-50/50 dark:bg-secondary-900" aria-labelledby="related-services-heading">
       <div className="container-custom">
-        <h2 id="related-services-heading" className="heading-md text-center mb-12">
+        <h2 id="related-services-heading" className="heading-md text-left md:text-center mb-12">
           {title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -104,7 +104,7 @@ export function RelatedServices({
             </Link>
           ))}
         </div>
-        <div className="text-center mt-8">
+        <div className="text-left md:text-center mt-8">
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"

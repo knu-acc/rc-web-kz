@@ -84,7 +84,7 @@ export default function ServicesPage() {
 
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-left md:text-center mb-16">
             <h1 className="heading-lg mb-4">Услуги веб-разработки</h1>
             <p className="text-lg text-secondary-600 dark:text-secondary-300 max-w-3xl mx-auto">
               Полный спектр услуг по созданию и продвижению сайтов в Алматы.
@@ -118,7 +118,7 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
+          <div className="mt-16 text-left md:text-center">
             <p className="text-secondary-600 dark:text-secondary-300 mb-6">
               Не знаете какой тип сайта вам нужен? Рассчитайте стоимость онлайн
             </p>

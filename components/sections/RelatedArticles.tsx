@@ -53,7 +53,7 @@ export function RelatedArticles({
   return (
     <section className="section bg-white dark:bg-secondary-950" aria-labelledby="related-articles-heading">
       <div className="container-custom">
-        <h2 id="related-articles-heading" className="heading-md text-center mb-12">
+        <h2 id="related-articles-heading" className="heading-md text-left md:text-center mb-12">
           {title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -101,7 +101,7 @@ export function RelatedArticles({
             </Link>
           ))}
         </div>
-        <div className="text-center mt-8">
+        <div className="text-left md:text-center mt-8">
           <Link
             href="/blog"
             target="_blank"

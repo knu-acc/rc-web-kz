@@ -123,7 +123,7 @@ export function BlogContent({ posts, categories }: BlogContentProps) {
 
       {/* Количество */}
       {activeCategory && (
-        <p className="text-center text-secondary-500 dark:text-secondary-400 mb-8 text-sm">
+        <p className="text-left md:text-center text-secondary-500 dark:text-secondary-400 mb-8 text-sm">
           Найдено статей: {filteredPosts.length}
         </p>
       )}
@@ -186,7 +186,7 @@ export function BlogContent({ posts, categories }: BlogContentProps) {
       </div>
 
       {filteredPosts.length === 0 && (
-        <div className="text-center py-12">
+        <div className="text-left md:text-center py-12">
           <p className="text-secondary-500 dark:text-secondary-400">
             В этой категории пока нет статей
           </p>

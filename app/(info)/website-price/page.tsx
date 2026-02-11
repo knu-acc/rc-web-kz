@@ -209,7 +209,7 @@ export default function WebsitePricePage() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container-custom text-center max-w-3xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
@@ -247,7 +247,7 @@ export default function WebsitePricePage() {
       {/* Price Cards */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
             <h2 className="heading-lg mb-4">Тарифы на <span className="gradient-text">создание сайтов</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Выберите подходящий вариант или свяжитесь для индивидуального расчёта
@@ -288,7 +288,7 @@ export default function WebsitePricePage() {
                   ))}
                 </ul>
 
-                <Link href={item.link} className="block text-center py-2.5 px-4 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-900 dark:text-white font-semibold hover:bg-primary-600 hover:text-white transition-all text-sm">
+                <Link href={item.link} className="block text-left md:text-center py-2.5 px-4 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-900 dark:text-white font-semibold hover:bg-primary-600 hover:text-white transition-all text-sm">
                   Подробнее
                 </Link>
               </div>
@@ -300,8 +300,8 @@ export default function WebsitePricePage() {
       {/* What is included */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-4xl">
-          <h2 className="heading-lg text-center mb-4">Что входит в стоимость</h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-center mb-10">
+          <h2 className="heading-lg text-left md:text-center mb-4">Что входит в стоимость</h2>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-10">
             Каждый тариф уже включает всё необходимое для запуска
           </p>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -322,8 +322,8 @@ export default function WebsitePricePage() {
       {/* Price Factors */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom">
-          <h2 className="heading-lg text-center text-white mb-4">Что влияет на стоимость</h2>
-          <p className="text-lg text-white/80 text-center mb-10">
+          <h2 className="heading-lg text-left md:text-center text-white mb-4">Что влияет на стоимость</h2>
+          <p className="text-lg text-white/80 text-left md:text-center mb-10">
             Основные факторы, определяющие финальную цену
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -343,7 +343,7 @@ export default function WebsitePricePage() {
       {/* Calculator */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-10">
+          <div className="text-left md:text-center mb-10">
             <h2 className="heading-lg mb-4">Калькулятор стоимости</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Выберите параметры и узнайте примерную стоимость проекта</p>
           </div>
@@ -354,16 +354,16 @@ export default function WebsitePricePage() {
       {/* Comparison Table */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-5xl">
-          <h2 className="heading-lg text-center mb-10">Сравнение тарифов</h2>
+          <h2 className="heading-lg text-left md:text-center mb-10">Сравнение тарифов</h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse bg-white dark:bg-secondary-800 rounded-xl overflow-hidden shadow-sm">
               <thead>
                 <tr className="bg-secondary-100 dark:bg-secondary-700">
                   <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-left font-bold">Параметр</th>
-                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-center font-bold">Landing</th>
-                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-center font-bold text-primary-600">Корпоративный</th>
-                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-center font-bold">Магазин</th>
-                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-center font-bold">Tilda</th>
+                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-left md:text-center font-bold">Landing</th>
+                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-left md:text-center font-bold text-primary-600">Корпоративный</th>
+                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-left md:text-center font-bold">Магазин</th>
+                  <th className="border border-secondary-200 dark:border-secondary-600 p-4 text-left md:text-center font-bold">Tilda</th>
                 </tr>
               </thead>
               <tbody>
@@ -381,10 +381,10 @@ export default function WebsitePricePage() {
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 1 ? 'bg-secondary-50 dark:bg-secondary-750' : ''}>
                     <td className="border border-secondary-200 dark:border-secondary-600 p-3 font-medium text-secondary-700 dark:text-secondary-300">{row[0]}</td>
-                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-center">{row[1]}</td>
-                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-center font-semibold">{row[2]}</td>
-                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-center">{row[3]}</td>
-                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-center">{row[4]}</td>
+                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-left md:text-center">{row[1]}</td>
+                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-left md:text-center font-semibold">{row[2]}</td>
+                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-left md:text-center">{row[3]}</td>
+                    <td className="border border-secondary-200 dark:border-secondary-600 p-3 text-left md:text-center">{row[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -396,7 +396,7 @@ export default function WebsitePricePage() {
       {/* FAQ */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-10">Частые вопросы о ценах</h2>
+          <h2 className="heading-lg text-left md:text-center mb-10">Частые вопросы о ценах</h2>
           <div className="space-y-4">
             {faq.map((item, i) => (
               <details key={i} className="group bg-secondary-50 dark:bg-secondary-900 rounded-xl border border-secondary-100 dark:border-secondary-800">
@@ -415,7 +415,7 @@ export default function WebsitePricePage() {
 
       {/* CTA */}
       <section className="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-        <div className="container-custom text-center max-w-2xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Нужна точная стоимость?</h2>
           <p className="text-lg text-white/90 mb-8">
             Расскажите о проекте  рассчитаем стоимость за 30 минут. Консультация бесплатна.
@@ -430,8 +430,8 @@ export default function WebsitePricePage() {
       {/* Basic Services */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <h2 className="heading-lg text-center mb-4">Базовые услуги</h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-center mb-10">
+          <h2 className="heading-lg text-left md:text-center mb-4">Базовые услуги</h2>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-10">
             Дополнительные услуги для вашего сайта
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -469,7 +469,7 @@ export default function WebsitePricePage() {
       {/* Related Services */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Связанные услуги</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: '/landing-page', title: 'Landing Page', desc: 'от 85 000 ₸' },

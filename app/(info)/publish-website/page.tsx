@@ -124,9 +124,9 @@ export default function PublishWebsitePage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Публикация сайта', href: '/publish-website' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
+        <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">Инструкция</span>
           <h1 className="heading-xl text-white mb-6">Как опубликовать <span className="gradient-text">сайт</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -142,7 +142,7 @@ export default function PublishWebsitePage() {
       {/* Steps */}
       <section id="steps" className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-16">
+          <div className="text-left md:text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Пошагово</span>
             <h2 className="heading-lg mb-4">6 шагов <span className="gradient-text">публикации</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">От регистрации домена до первых посетителей из поисковиков</p>
@@ -188,7 +188,7 @@ export default function PublishWebsitePage() {
       {/* Checklist */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Чеклист <span className="gradient-text">перед запуском</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Проверьте все пункты, прежде чем объявлять о запуске сайта</p>
           </div>
@@ -213,7 +213,7 @@ export default function PublishWebsitePage() {
       {/* FAQ */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-12">Частые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-12">Частые вопросы</h2>
           <div className="space-y-4">
             {[
               { q: 'Сколько времени занимает индексация?', a: 'Google  1-2 недели, Яндекс  2-4 недели. После отправки sitemap.xml процесс ускоряется. Можно запросить индексацию конкретной страницы вручную.' },
@@ -233,7 +233,7 @@ export default function PublishWebsitePage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Нужна помощь с публикацией?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Публикация, настройка домена и добавление в поисковики входят в стоимость разработки сайта.</p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -246,7 +246,7 @@ export default function PublishWebsitePage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Читайте также</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Читайте также</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { href: '/how-to-create-website', title: 'Как создать сайт', desc: 'Полная инструкция из 7 шагов' },

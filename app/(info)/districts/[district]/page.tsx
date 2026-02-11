@@ -114,7 +114,7 @@ export default async function DistrictPage({
         </div>
 
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-left md:text-center">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-6">
               {districtData.nameFull}
             </span>
@@ -145,7 +145,7 @@ export default async function DistrictPage({
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="heading-md text-center mb-12">
+            <h2 className="heading-md text-left md:text-center mb-12">
               Наши услуги в {districtData.nameFull}
             </h2>
 
@@ -197,12 +197,12 @@ export default async function DistrictPage({
       <section className="section bg-secondary-50/50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="heading-md text-center mb-12">
+            <h2 className="heading-md text-left md:text-center mb-12">
               Почему выбирают нас в {districtData.nameFull}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
+              <div className="text-left md:text-center">
                 <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <svg className="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -214,7 +214,7 @@ export default async function DistrictPage({
                 </p>
               </div>
 
-              <div className="text-center">
+              <div className="text-left md:text-center">
                 <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -226,7 +226,7 @@ export default async function DistrictPage({
                 </p>
               </div>
 
-              <div className="text-center">
+              <div className="text-left md:text-center">
                 <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -244,7 +244,7 @@ export default async function DistrictPage({
 
       <section className="section bg-gradient-to-br from-primary-600 to-primary-700 dark:from-primary-700 dark:to-primary-800 text-white">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-left md:text-center">
             <h2 className="text-3xl font-bold mb-4">
               Готовы создать сайт в {districtData.nameFull}?
             </h2>
@@ -267,7 +267,7 @@ export default async function DistrictPage({
         <section className="section bg-white dark:bg-secondary-950">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
-              <h2 className="heading-md text-center mb-8">
+              <h2 className="heading-md text-left md:text-center mb-8">
                 Мы работаем и в других районах Алматы
               </h2>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -275,7 +275,7 @@ export default async function DistrictPage({
                   <Link
                     key={d.slug}
                     href={`/districts/${d.slug}`}
-                    className="bg-secondary-50 dark:bg-secondary-900 rounded-xl p-4 text-center hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors"
+                    className="bg-secondary-50 dark:bg-secondary-900 rounded-xl p-4 text-left md:text-center hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors"
                   >
                     <p className="font-medium text-secondary-900 dark:text-white">
                       {d.nameFull}
@@ -283,7 +283,7 @@ export default async function DistrictPage({
                   </Link>
                 ))}
               </div>
-              <div className="text-center mt-6">
+              <div className="text-left md:text-center mt-6">
                 <Link href="/districts" className="text-primary-600 hover:text-primary-700 font-medium">
                   Все районы Алматы →
                 </Link>

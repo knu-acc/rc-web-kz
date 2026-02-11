@@ -75,9 +75,9 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
 
       <article className="min-h-screen bg-white dark:bg-secondary-950">
         {/* Hero Section */}
-        <section className="section pt-20">
+        <section className="section pt-16">
           <div className="container-custom max-w-4xl">
-            <div className="text-left md:text-center mb-12">
+            <div className="text-left md:text-left md:text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
                 {project.category}
               </span>
@@ -141,7 +141,7 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
             </div>
 
             {/* CTA */}
-            <div className="text-center bg-gradient-to-r from-primary-600 to-violet-600 rounded-2xl p-8 text-white">
+            <div className="text-left md:text-center bg-gradient-to-r from-primary-600 to-violet-600 rounded-2xl p-8 text-white">
               <h2 className="text-2xl font-bold mb-4">Хотите такой же сайт?</h2>
               <p className="mb-6 opacity-90">
                 Свяжитесь с нами для обсуждения вашего проекта
@@ -170,7 +170,7 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
         {relatedProjects.length > 0 && (
           <section className="section bg-secondary-50 dark:bg-secondary-900">
             <div className="container-custom">
-              <h2 className="heading-lg text-center mb-12">
+              <h2 className="heading-lg text-left md:text-center mb-12">
                 Другие проекты в категории "{project.category}"
               </h2>
               <div className="grid md:grid-cols-3 gap-6">

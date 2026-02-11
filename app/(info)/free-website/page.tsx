@@ -114,9 +114,9 @@ export default function FreeWebsitePage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Бесплатный сайт', href: '/free-website' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl" />
-        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
+        <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 text-amber-300 text-sm font-medium mb-6">Честный обзор</span>
           <h1 className="heading-xl text-white mb-6">Создать сайт <span className="gradient-text">бесплатно</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -132,7 +132,7 @@ export default function FreeWebsitePage() {
       {/* Platforms */}
       <section id="platforms" className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Обзор</span>
             <h2 className="heading-lg mb-4">6 бесплатных <span className="gradient-text">платформ</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Честный разбор каждой с плюсами, минусами и оценкой</p>
@@ -171,19 +171,19 @@ export default function FreeWebsitePage() {
       {/* Comparison Table */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-3xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Бесплатно vs <span className="gradient-text">профессионально</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Что вы получаете в каждом случае</p>
           </div>
           <div className="bg-white dark:bg-secondary-950 rounded-2xl p-6 md:p-8 shadow-lg">
             <table className="w-full">
-              <thead><tr className="border-b-2 border-secondary-200 dark:border-secondary-700"><th className="text-left p-3 font-bold">Функция</th><th className="text-center p-3 font-bold">Бесплатно</th><th className="text-center p-3 font-bold">Заказать</th></tr></thead>
+              <thead><tr className="border-b-2 border-secondary-200 dark:border-secondary-700"><th className="text-left p-3 font-bold">Функция</th><th className="text-left md:text-center p-3 font-bold">Бесплатно</th><th className="text-left md:text-center p-3 font-bold">Заказать</th></tr></thead>
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.feature} className="border-b border-secondary-100 dark:border-secondary-800">
                     <td className="p-3 text-secondary-700 dark:text-secondary-300">{row.feature}</td>
-                    <td className="p-3 text-center">{row.free ? <svg className="w-5 h-5 text-emerald-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg> : <svg className="w-5 h-5 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>}</td>
-                    <td className="p-3 text-center">{row.paid ? <svg className="w-5 h-5 text-emerald-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg> : <svg className="w-5 h-5 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>}</td>
+                    <td className="p-3 text-left md:text-center">{row.free ? <svg className="w-5 h-5 text-emerald-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg> : <svg className="w-5 h-5 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>}</td>
+                    <td className="p-3 text-left md:text-center">{row.paid ? <svg className="w-5 h-5 text-emerald-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg> : <svg className="w-5 h-5 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>}</td>
                   </tr>
                 ))}
               </tbody>
@@ -235,7 +235,7 @@ export default function FreeWebsitePage() {
       {/* FAQ */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-12">Частые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-12">Частые вопросы</h2>
           <div className="space-y-4">
             {[
               { q: 'Действительно ли это полностью бесплатно?', a: 'Да, но с ограничениями: субдомен, реклама платформы, мало функций. Для полноценного сайта нужен платный тариф или заказ у разработчика.' },
@@ -254,7 +254,7 @@ export default function FreeWebsitePage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы к профессиональному сайту?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Сайт, который окупится за счет привлечения клиентов. Консультация бесплатна.</p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -267,7 +267,7 @@ export default function FreeWebsitePage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Читайте также</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Читайте также</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { href: '/how-to-create-website', title: 'Как создать сайт', desc: 'Полная инструкция из 7 шагов' },

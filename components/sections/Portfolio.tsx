@@ -97,7 +97,7 @@ export function Portfolio() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-left md:text-center">
           <p className="text-secondary-600 dark:text-secondary-300 mb-6">
             Хотите такой же? Свяжитесь для обсуждения проекта
           </p>

@@ -61,9 +61,9 @@ export default function AboutPage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'О компании', href: '/about' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-3xl" />
-        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
+        <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">О компании</span>
           <h1 className="heading-xl text-white mb-6">RC-WEB<span className="gradient-text">.KZ</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -88,7 +88,7 @@ export default function AboutPage() {
       {/* Timeline */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-3xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Наша <span className="gradient-text">история</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Путь от первого лендинга до 120+ проектов</p>
           </div>
@@ -114,7 +114,7 @@ export default function AboutPage() {
       {/* Values */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <h2 className="heading-lg mb-4">Наши <span className="gradient-text">принципы</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Чем мы руководствуемся в работе</p>
           </div>
@@ -135,7 +135,7 @@ export default function AboutPage() {
       {/* What we do */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Что мы <span className="gradient-text">делаем</span></h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -155,7 +155,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Давайте работать вместе</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Расскажите о вашем проекте  мы предложим лучшее решение.</p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -168,7 +168,7 @@ export default function AboutPage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Узнайте больше</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Узнайте больше</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { href: '/process', title: 'Процесс работы', desc: 'Как мы создаем сайты' },

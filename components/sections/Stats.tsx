@@ -29,7 +29,7 @@ export function Stats() {
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center group">
+            <div key={stat.label} className="text-left md:text-center group">
               <div
                 className="text-4xl md:text-5xl font-bold text-primary-600 mb-2 group-hover:scale-110 transition-transform duration-300"
                 aria-label={stat.ariaLabel}

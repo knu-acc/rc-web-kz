@@ -95,7 +95,7 @@ export default function ContactPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 lg:pt-24 lg:pb-20 bg-gradient-to-br from-primary-50 via-white to-violet-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950 relative overflow-hidden">
+      <section className="pt-16 pb-16 lg:pt-24 lg:pb-20 bg-gradient-to-br from-primary-50 via-white to-violet-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950 relative overflow-hidden">
         {/* Animated background decorations */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-200/40 dark:bg-primary-500/20 rounded-full blur-3xl animate-pulse" />
@@ -103,7 +103,7 @@ export default function ContactPage() {
         </div>
 
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-left md:text-center space-y-8">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium">
               <span className="relative flex h-2 w-2">
@@ -148,7 +148,7 @@ export default function ContactPage() {
       {/* Contact Methods - Beautiful cards */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Способы связи
             </span>
@@ -169,7 +169,7 @@ export default function ContactPage() {
                   href={method.href}
                   target={method.id === 'whatsapp' || method.id === 'telegram' ? '_blank' : undefined}
                   rel={method.id === 'whatsapp' || method.id === 'telegram' ? 'noopener noreferrer' : undefined}
-                  className="group relative flex flex-col items-center text-center p-4 sm:p-6 lg:p-8 rounded-3xl border-2 bg-white dark:bg-secondary-900 border-secondary-200 dark:border-secondary-800 hover:border-secondary-400 dark:hover:border-secondary-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="group relative flex flex-col items-center text-left md:text-center p-4 sm:p-6 lg:p-8 rounded-3xl border-2 bg-white dark:bg-secondary-900 border-secondary-200 dark:border-secondary-800 hover:border-secondary-400 dark:hover:border-secondary-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                   aria-label={`Связаться через ${method.title}`}
                 >
                   {/* Icon with dark background */}
@@ -211,7 +211,7 @@ export default function ContactPage() {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Working Hours */}
-            <div className="text-center p-6 bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-200 dark:border-secondary-800">
+            <div className="text-left md:text-center p-6 bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-200 dark:border-secondary-800">
               <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-secondary-800 dark:bg-secondary-700 flex items-center justify-center shadow-md">
                 <Clock className="w-6 h-6 text-white" strokeWidth={2} />
               </div>
@@ -221,7 +221,7 @@ export default function ContactPage() {
             </div>
 
             {/* Location */}
-            <div className="text-center p-6 bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-200 dark:border-secondary-800">
+            <div className="text-left md:text-center p-6 bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-200 dark:border-secondary-800">
               <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-secondary-800 dark:bg-secondary-700 flex items-center justify-center shadow-md">
                 <MapPin className="w-6 h-6 text-white" strokeWidth={2} />
               </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
             </div>
 
             {/* Response Time */}
-            <div className="text-center p-6 bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-200 dark:border-secondary-800">
+            <div className="text-left md:text-center p-6 bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-200 dark:border-secondary-800">
               <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-secondary-800 dark:bg-secondary-700 flex items-center justify-center shadow-md">
                 <Zap className="w-6 h-6 text-white" strokeWidth={2} />
               </div>
@@ -248,7 +248,7 @@ export default function ContactPage() {
       <section className="section bg-secondary-50/50 dark:bg-secondary-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-left md:text-center mb-12">
               <h2 className="heading-lg mb-4">
                 Часто задаваемые <span className="gradient-text">вопросы</span>
               </h2>
@@ -286,7 +286,7 @@ export default function ContactPage() {
       {/* CTA Section */}
       <section className="section bg-gradient-to-br from-primary-600 to-violet-600 text-white">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
+          <div className="max-w-3xl mx-auto text-left md:text-center space-y-8">
             <h2 className="text-2xl sm:text-3xl font-bold">
               Готовы начать проект?
             </h2>

@@ -61,7 +61,7 @@ export function Benefits() {
     <section className="section bg-white dark:bg-secondary-950">
       <div className="container-custom">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Преимущества
           </span>

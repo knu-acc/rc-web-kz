@@ -242,7 +242,7 @@ export default function TechnologiesPage() {
           <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container-custom text-center max-w-3xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm font-medium mb-6">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -265,10 +265,10 @@ export default function TechnologiesPage() {
       {/* Why Tech Matters */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom">
-          <h2 className="heading-lg text-center text-white mb-10">Почему технологии важны</h2>
+          <h2 className="heading-lg text-left md:text-center text-white mb-10">Почему технологии важны</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyMatters.map((item) => (
-              <div key={item.title} className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700 text-center">
+              <div key={item.title} className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700 text-left md:text-center">
                 <div className="w-12 h-12 rounded-full bg-primary-600/20 text-primary-400 flex items-center justify-center mx-auto mb-4">
                   {item.icon}
                 </div>
@@ -322,7 +322,7 @@ export default function TechnologiesPage() {
 
       {/* CTA */}
       <section className="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-        <div className="container-custom text-center max-w-2xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Нужен сайт на современных технологиях?</h2>
           <p className="text-lg text-white/90 mb-8">
             Мы создадим быстрый, SEO-оптимизированный сайт на Next.js или Tilda. Консультация бесплатна.
@@ -342,7 +342,7 @@ export default function TechnologiesPage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Полезные страницы</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Полезные страницы</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: '/process', title: 'Процесс работы', desc: '6 этапов разработки' },

@@ -109,9 +109,9 @@ export default function ProgrammingCoursesPage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Курсы программирования', href: '/programming-courses' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
+      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-violet-500/10 rounded-full blur-3xl" />
-        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
+        <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/20 text-violet-300 text-sm font-medium mb-6">Обучение</span>
           <h1 className="heading-xl text-white mb-6">Курсы <span className="gradient-text">веб-разработки</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
@@ -127,7 +127,7 @@ export default function ProgrammingCoursesPage() {
       {/* Courses */}
       <section id="courses" className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Программы</span>
             <h2 className="heading-lg mb-4">Программы <span className="gradient-text">обучения</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Выберите курс в зависимости от вашего уровня</p>
@@ -177,7 +177,7 @@ export default function ProgrammingCoursesPage() {
       {/* Advantages */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
             <h2 className="heading-lg mb-4">Почему <span className="gradient-text">учиться у нас</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Чем наши курсы отличаются от онлайн-школ</p>
           </div>
@@ -198,7 +198,7 @@ export default function ProgrammingCoursesPage() {
       {/* How it works */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-4xl">
-          <div className="text-center mb-12">
+          <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Как проходит <span className="gradient-text">обучение</span></h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6">
@@ -208,7 +208,7 @@ export default function ProgrammingCoursesPage() {
               { step: 3, title: 'Практика', desc: 'Домашние задания, код-ревью, реальные проекты.' },
               { step: 4, title: 'Результат', desc: 'Портфолио из 3-5 проектов, помощь с трудоустройством.' },
             ].map(item => (
-              <div key={item.step} className="text-center">
+              <div key={item.step} className="text-left md:text-center">
                 <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4 shadow-lg shadow-primary-600/30">{item.step}</div>
                 <h3 className="font-bold mb-2">{item.title}</h3>
                 <p className="text-secondary-600 dark:text-secondary-400 text-sm">{item.desc}</p>
@@ -221,7 +221,7 @@ export default function ProgrammingCoursesPage() {
       {/* FAQ */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-12">Частые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-12">Частые вопросы</h2>
           <div className="space-y-4">
             {[
               { q: 'Нужен ли опыт программирования?', a: 'Для курса Основы  нет. Начинаем с нуля: что такое HTML-тег, как работает браузер. Для Продвинутого Course нужны базовые знания JavaScript.' },
@@ -241,7 +241,7 @@ export default function ProgrammingCoursesPage() {
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom text-center">
+        <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Запишитесь на бесплатное пробное занятие</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Определим ваш уровень, покажем формат обучения и составим индивидуальный план.</p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -254,7 +254,7 @@ export default function ProgrammingCoursesPage() {
       {/* Related */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Читайте также</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Читайте также</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { href: '/how-to-create-website', title: 'Как создать сайт', desc: 'Инструкция из 7 шагов' },

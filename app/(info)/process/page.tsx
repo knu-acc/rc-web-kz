@@ -213,7 +213,7 @@ export default function ProcessPage() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="container-custom text-center max-w-3xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-6">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
@@ -307,8 +307,8 @@ export default function ProcessPage() {
       {/* What We Provide */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-4xl">
-          <h2 className="heading-lg text-center mb-4">Что вы получаете</h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-center mb-10">
+          <h2 className="heading-lg text-left md:text-center mb-4">Что вы получаете</h2>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-10">
             После завершения проекта мы передаём вам всё необходимое
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -329,7 +329,7 @@ export default function ProcessPage() {
 
       {/* Summary */}
       <section className="section bg-secondary-900 text-white">
-        <div className="container-custom max-w-4xl text-center">
+        <div className="container-custom max-w-4xl text-left md:text-center">
           <h2 className="heading-lg text-white mb-6">
             Итого: от идеи до <span className="gradient-text">работающего сайта</span>
           </h2>
@@ -357,7 +357,7 @@ export default function ProcessPage() {
       {/* FAQ */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom max-w-3xl">
-          <h2 className="heading-lg text-center mb-10">Частые вопросы</h2>
+          <h2 className="heading-lg text-left md:text-center mb-10">Частые вопросы</h2>
           <div className="space-y-4">
             {faq.map((item, i) => (
               <details key={i} className="group bg-secondary-50 dark:bg-secondary-900 rounded-xl border border-secondary-100 dark:border-secondary-800">
@@ -376,7 +376,7 @@ export default function ProcessPage() {
 
       {/* CTA */}
       <section className="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-        <div className="container-custom text-center max-w-2xl mx-auto">
+        <div className="container-custom text-left md:text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Готовы начать?</h2>
           <p className="text-lg text-white/90 mb-8">
             Свяжитесь — обсудить проект, рассчитать сроки и стоимость. Консультация бесплатна.
@@ -391,7 +391,7 @@ export default function ProcessPage() {
       {/* Related */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Полезные страницы</h2>
+          <h2 className="heading-md text-left md:text-center mb-8">Полезные страницы</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: '/guarantees', title: 'Гарантии', desc: 'Качество и надёжность' },

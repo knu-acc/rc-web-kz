@@ -738,3 +738,24 @@ footer ul a:hover::after {
   width: 100%;
 }
 
+/* Карточки-ссылки на связанные услуги */
+a.card {
+  display: block;
+  border: 2px solid transparent;
+  border-color: hsl(var(--border));
+  transition: all 0.3s ease;
+  position: relative;
+}
+a.card:hover {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+a.card::after {
+  content: 'Подробнее →';
+  display: block;
+  margin-top: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(var(--primary));
+}
