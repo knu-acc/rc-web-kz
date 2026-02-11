@@ -8,7 +8,7 @@ import { SOCIAL_LINKS } from '@/lib/constants'
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background with animated gradient */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary-50 via-white to-secondary-50/50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950/50" />
