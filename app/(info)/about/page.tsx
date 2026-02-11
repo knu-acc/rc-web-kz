@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
@@ -25,7 +25,7 @@ const timeline = [
   { year: '2021', title: 'Рост и технологии', description: 'Перешли на React и Next.js. Запустили первые корпоративные сайты и начали работать с SEO.' },
   { year: '2022', title: 'Расширение услуг', description: 'Добавили интернет-магазины, SEO-оптимизацию и веб-дизайн. Вышли за пределы Алматы  работа по всему Казахстану.' },
   { year: '2023', title: '100 проектов', description: 'Преодолели отметку в 100 проектов. Начали обучение  индивидуальные курсы по веб-разработке.' },
-  { year: '2024-2025', title: 'Сегодня', description: '120+ проектов, постоянные клиенты, сложные бизнес-решения. Фокус на производительность и SEO.' },
+  { year: '2024-2026', title: 'Сегодня', description: '120+ проектов, постоянные клиенты, сложные бизнес-решения. Фокус на производительность и SEO.' },
 ]
 
 const values = [

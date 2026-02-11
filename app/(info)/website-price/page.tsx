@@ -1,19 +1,20 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { generateBreadcrumbSchema } from '@/lib/schema'
 import dynamic from 'next/dynamic'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 const PriceCalculator = dynamic(() => import('@/components/ui/PriceCalculator').then(mod => ({ default: mod.PriceCalculator })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Цены на создание сайта в Алматы 2025 | Стоимость разработки  RC-WEB.KZ',
-  description: 'Цены на создание сайтов в Алматы: landing page от 85 тыс , корпоративный от 135 тыс , интернет-магазин от 175 тыс . Калькулятор стоимости, сравнение, FAQ.',
+  title: 'Цены на создание сайта в Алматы 2026 | Стоимость разработки  RC-WEB.KZ',
+  description: 'Цены на создание сайтов в Алматы: landing page от 85 000 ₸, корпоративный от 85 000 ₸, интернет-магазин от 175 000 ₸. Калькулятор стоимости, сравнение, FAQ.',
   keywords: ['цена сайта Алматы', 'стоимость создания сайта', 'сколько стоит сайт', 'цены на сайты Алматы', 'заказать сайт недорого'],
   openGraph: {
-    title: 'Цены на создание сайта в Алматы 2025',
-    description: 'Landing page от 85 тыс , корпоративный от 135 тыс , интернет-магазин от 175 тыс ',
+    title: 'Цены на создание сайта в Алматы 2026',
+    description: 'Landing page от 85 000 ₸, корпоративный от 85 000 ₸, интернет-магазин от 175 000 ₸',
     url: `${SITE_CONFIG.url}/website-price`,
     siteName: SITE_CONFIG.name,
     locale: 'ru_RU',
@@ -25,10 +26,10 @@ export const metadata: Metadata = {
 const prices = [
   {
     name: 'Landing Page',
-    price: '85135 тыс ',
+    price: 'от 85 000 ₸',
     description: 'Одностраничный рекламный сайт для привлечения клиентов и сбора заявок.',
     link: '/landing-page',
-    duration: '35 дней',
+    duration: '7-14 дней',
     popular: false,
     features: [
       'Уникальный дизайн с нуля',
@@ -42,16 +43,16 @@ const prices = [
   },
   {
     name: 'Корпоративный сайт',
-    price: '135195 тыс ',
+    price: 'от 85 000 ₸',
     description: 'Многостраничный сайт для компании с блогом, портфолио и формами.',
     link: '/corporate-site',
-    duration: '710 дней',
+    duration: '7-14 дней',
     popular: true,
     features: [
       'Всё из Landing Page +',
-      '310 страниц (можно больше)',
-      'Блог / новости',
-      'Портфолио / кейсы',
+      '1-2 страницы (можно больше)',
+      'Блог / новости (опционально)',
+      'Портфолио / кейсы (опционально)',
       'Интеграция с CRM',
       'Панель управления',
     ],
@@ -59,10 +60,10 @@ const prices = [
   },
   {
     name: 'Интернет-магазин',
-    price: '175275 тыс ',
+    price: 'от 175 000 ₸',
     description: 'E-commerce решение с каталогом, корзиной, оплатой и интеграциями.',
     link: '/online-store',
-    duration: '1015 дней',
+    duration: '7-14 дней',
     popular: false,
     features: [
       'Всё из корпоративного +',
@@ -76,10 +77,10 @@ const prices = [
   },
   {
     name: 'Сайт на Tilda',
-    price: 'от 120 тыс ',
+    price: 'от 115 000 ₸',
     description: 'Быстрое решение на конструкторе для тех, кто хочет управлять сайтом сам.',
     link: '/tilda-site',
-    duration: '35 дней',
+    duration: '7-14 дней',
     popular: false,
     features: [
       'Дизайн из 550+ блоков',
@@ -214,7 +215,7 @@ export default function WebsitePricePage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
             </span>
-            Актуальные цены 2025
+            Актуальные цены 2026
           </div>
 
           <h1 className="heading-xl text-white mb-6">
@@ -230,9 +231,9 @@ export default function WebsitePricePage() {
           <div className="grid grid-cols-4 gap-3 max-w-lg mx-auto">
             {[
               { num: 'от 85K', label: ' Landing' },
-              { num: 'от 135K', label: ' Корпоратив' },
+              { num: 'от 85K', label: ' Корпоратив' },
               { num: 'от 175K', label: ' Магазин' },
-              { num: 'от 120K', label: ' Tilda' },
+              { num: 'от 115K', label: ' Tilda' },
             ].map((s) => (
               <div key={s.label} className="bg-white/10 backdrop-blur-sm rounded-xl p-3">
                 <div className="text-lg font-bold text-white">{s.num}</div>
@@ -367,16 +368,16 @@ export default function WebsitePricePage() {
               </thead>
               <tbody>
                 {[
-                  ['Цена', '85135K ', '135195K ', '175275K ', 'от 120K '],
-                  ['Сроки', '35 дней', '710 дней', '1015 дней', '35 дней'],
-                  ['Количество страниц', '1', '310+', '520+', '15'],
-                  ['Уникальный дизайн', '', '', '', ''],
-                  ['SEO-оптимизация', '', '', '', ''],
-                  ['Админ-панель', '', '', '', ''],
-                  ['Каталог товаров', '', '', '', ''],
-                  ['Онлайн-оплата', '', '', '', ''],
-                  ['Блог', '', '', '', ''],
-                  ['PageSpeed 90+', '', '', '', ''],
+                  ['Цена', 'от 85 000 ₸', 'от 85 000 ₸', 'от 175 000 ₸', 'от 115 000 ₸'],
+                  ['Сроки', '7-14 дней', '7-14 дней', '7-14 дней', '7-14 дней'],
+                  ['Количество страниц', '1', '1-2', '5-20+', '1-5'],
+                  ['Уникальный дизайн', '✓', '✓', '✓', '—'],
+                  ['SEO-оптимизация', '✓', '✓', '✓', '✓'],
+                  ['Админ-панель', '—', '✓', '✓', '✓'],
+                  ['Каталог товаров', '—', '—', '✓', '—'],
+                  ['Онлайн-оплата', '—', '—', '✓', '—'],
+                  ['Блог', '—', '✓', '✓', '—'],
+                  ['PageSpeed 90+', '✓', '✓', '✓', '—'],
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 1 ? 'bg-secondary-50 dark:bg-secondary-750' : ''}>
                     <td className="border border-secondary-200 dark:border-secondary-600 p-3 font-medium text-secondary-700 dark:text-secondary-300">{row[0]}</td>
@@ -420,24 +421,63 @@ export default function WebsitePricePage() {
             Расскажите о проекте  рассчитаем стоимость за 30 минут. Консультация бесплатна.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">Написать в WhatsApp</a>
+            <WhatsAppLink className="btn-whatsapp">Написать в WhatsApp</WhatsAppLink>
             <a href={`tel:${SITE_CONFIG.phone}`} className="btn-secondary">Позвонить</a>
           </div>
         </div>
       </section>
 
-      {/* Related Services */}
+      {/* Basic Services */}
       <section className="section bg-white dark:bg-secondary-950">
+        <div className="container-custom max-w-4xl">
+          <h2 className="heading-lg text-center mb-4">Базовые услуги</h2>
+          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-center mb-10">
+            Дополнительные услуги для вашего сайта
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { title: 'Домены (.com, .kz)', price: '10 000 ₸', description: 'Регистрация доменного имени' },
+              { title: 'Хостинг', price: 'от 10 000 ₸', description: 'Размещение сайта на сервере' },
+              { title: 'Настройка рекламы', price: '50 000 ₸', description: 'Настройка Google Ads и Яндекс.Директ' },
+              { title: 'SEO-оптимизация', price: 'БЕСПЛАТНО', description: 'Базовая SEO-оптимизация включена', free: true },
+            ].map((service) => (
+              <div key={service.title} className="flex items-center gap-4 bg-secondary-50 dark:bg-secondary-800 rounded-xl p-5 border border-secondary-100 dark:border-secondary-700">
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${service.free ? 'bg-emerald-100 dark:bg-emerald-900/30' : 'bg-primary-100 dark:bg-primary-900/30'}`}>
+                  {service.free ? (
+                    <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-secondary-900 dark:text-white mb-1">{service.title}</h3>
+                  <p className="text-sm text-secondary-600 dark:text-secondary-400 mb-1">{service.description}</p>
+                  <p className={`text-lg font-bold ${service.free ? 'text-emerald-600 dark:text-emerald-400' : 'text-primary-600 dark:text-primary-400'}`}>
+                    {service.price}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <h2 className="heading-md text-center mb-8">Наши услуги</h2>
+          <h2 className="heading-md text-center mb-8">Связанные услуги</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { href: '/landing-page', title: 'Landing Page', desc: 'от 85 тыс ' },
-              { href: '/corporate-site', title: 'Корпоративный сайт', desc: 'от 135 тыс ' },
-              { href: '/online-store', title: 'Интернет-магазин', desc: 'от 175 тыс ' },
-              { href: '/tilda-site', title: 'Сайт на Tilda', desc: 'от 120 тыс ' },
+              { href: '/landing-page', title: 'Landing Page', desc: 'от 85 000 ₸' },
+              { href: '/corporate-site', title: 'Корпоративный сайт', desc: 'от 85 000 ₸' },
+              { href: '/online-store', title: 'Интернет-магазин', desc: 'от 175 000 ₸' },
+              { href: '/tilda-site', title: 'Сайт на Tilda', desc: 'от 115 000 ₸' },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-5 border border-secondary-100 dark:border-secondary-700 hover:shadow-lg hover:-translate-y-1 transition-all group">
+              <Link key={l.href} href={l.href} className="bg-white dark:bg-secondary-800 rounded-xl p-5 border border-secondary-100 dark:border-secondary-700 hover:shadow-lg hover:-translate-y-1 transition-all group">
                 <h3 className="font-bold group-hover:text-primary-600 transition-colors">{l.title}</h3>
                 <p className="text-sm text-secondary-500 dark:text-secondary-400">{l.desc}</p>
               </Link>

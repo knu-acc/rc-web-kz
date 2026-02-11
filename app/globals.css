@@ -145,12 +145,12 @@
     border-radius: 4px;
   }
   ::selection {
-    background: hsl(var(--primary) / 0.4);
-    color: hsl(var(--primary-foreground));
+    background: rgba(59, 130, 246, 0.3);
+    color: inherit;
   }
   ::-moz-selection {
-    background: hsl(var(--primary) / 0.4);
-    color: hsl(var(--primary-foreground));
+    background: rgba(59, 130, 246, 0.3);
+    color: inherit;
   }
   img, picture, video, canvas, svg {
     display: block;

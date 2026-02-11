@@ -1,10 +1,10 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Как создать сайт в 2025  пошаговая инструкция для начинающих',
+  title: 'Как создать сайт в 2026  пошаговая инструкция для начинающих',
   description:
     'Подробная инструкция из 7 шагов: от идеи до запуска сайта. Сравнение конструкторов, кода и заказа у специалиста. Чеклист, ошибки и советы.',
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'инструкция создание сайта',
   ],
   openGraph: {
-    title: 'Как создать сайт  пошаговая инструкция 2025',
+    title: 'Как создать сайт  пошаговая инструкция 2026',
     description:
       'Подробная инструкция из 7 шагов: конструкторы, код, заказ у специалиста. Чеклист, ошибки и советы.',
     url: `${SITE_CONFIG.url}/how-to-create-website`,
@@ -207,7 +207,7 @@ export default function HowToCreateWebsitePage() {
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-3xl" />
         <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">Пошаговая инструкция 2025</span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">Пошаговая инструкция 2026</span>
           <h1 className="heading-xl text-white mb-6">Как создать <span className="gradient-text">сайт</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
             Подробное руководство из 7 шагов  от идеи до публикации. Разбираем три способа, типичные ошибки и даем готовый чеклист.

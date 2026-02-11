@@ -88,7 +88,7 @@ export function BlogPreview() {
           </span>
           <h2 className="heading-lg mb-4">Полезные статьи <span className="gradient-text">о создании сайтов</span></h2>
           <p className="text-lg text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
-            Читайте наши гайды, кейсы и советы по разработке сайтов, SEO-продвижению и
+            Читайте гайды, кейсы и советы по разработке сайтов, SEO-продвижению и
             веб-дизайну в Алматы
           </p>
         </div>
@@ -106,7 +106,7 @@ export function BlogPreview() {
 
         {/* Кнопка "Все статьи" */}
         <div className="text-center">
-          <Link href="/blog" className="btn-outline inline-flex items-center gap-2">
+          <Link href="/blog" target="_blank" rel="noopener noreferrer" className="btn-outline inline-flex items-center gap-2">
             Все статьи блога
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path

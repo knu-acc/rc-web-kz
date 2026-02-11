@@ -1,10 +1,10 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Как опубликовать сайт в интернете  пошаговая инструкция 2025',
+  title: 'Как опубликовать сайт в интернете  пошаговая инструкция 2026',
   description:
     'Инструкция из 6 шагов: домен, хостинг, SSL, Google Search Console, Яндекс.Вебмастер, sitemap. Чеклист перед запуском.',
   keywords: ['как опубликовать сайт', 'добавить сайт в гугл', 'добавить сайт в яндекс', 'публикация сайта'],

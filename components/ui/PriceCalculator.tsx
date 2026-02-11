@@ -16,8 +16,8 @@ type AdditionalServices = {
 
 const basePrices: Record<SiteType, number> = {
   landing: 85000,
-  corporate: 125000,
-  store: 220000,
+  corporate: 85000,
+  store: 175000,
 }
 
 const pagesMultiplier: Record<PagesCount, number> = {
@@ -32,8 +32,8 @@ const designMultiplier: Record<DesignType, number> = {
 }
 
 const additionalPrices = {
-  seo: 50000,
-  advertising: 30000,
+  seo: 0,
+  advertising: 50000,
   copywriting: 25000,
 }
 

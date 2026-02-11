@@ -1,10 +1,10 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Как создать сайт бесплатно в 2025  обзор 6 способов',
+  title: 'Как создать сайт бесплатно в 2026  обзор 6 способов',
   description:
     'Обзор бесплатных способов создания сайта: Tilda, Wix, WordPress, GitHub Pages, Notion, Google Sites. Честное сравнение и когда лучше заказать.',
   keywords: ['создать сайт бесплатно', 'бесплатный сайт', 'бесплатный конструктор сайтов', 'tilda бесплатно'],

@@ -104,6 +104,8 @@ export function RelatedArticles({
         <div className="text-center mt-8">
           <Link
             href="/blog"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
           >
             Все статьи блога

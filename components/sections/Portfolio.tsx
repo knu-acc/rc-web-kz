@@ -28,7 +28,7 @@ export function Portfolio() {
             href="/portfolio"
             className="btn-outline group self-start md:self-auto"
           >
-            Все проекты ({portfolioItems.length})
+            Все проекты
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -99,7 +99,7 @@ export function Portfolio() {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <p className="text-secondary-600 dark:text-secondary-300 mb-6">
-            Хотите такой же? Свяжитесь с нами для обсуждения вашего проекта
+            Хотите такой же? Свяжитесь для обсуждения проекта
           </p>
           <Link href="/contact" className="btn-dark">
             Обсудить проект

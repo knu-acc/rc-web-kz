@@ -27,8 +27,8 @@ interface ReviewsCarouselProps {
 
 export function ReviewsCarousel({
   reviews: initialReviews,
-  title = 'Отзывы наших клиентов',
-  subtitle = 'Реальные отзывы от довольных клиентов, которые заказали у нас сайты',
+  title = 'Отзывы клиентов',
+  subtitle = 'Реальные отзывы от довольных клиентов, которые заказали сайты',
   showAllButton = true,
   className = '',
   showFilter = false,

@@ -127,7 +127,7 @@ export default function GlossaryPage() {
           <div className="space-y-6">
             {terms.map((item, index) => (
               <div key={item.term} className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-6">
-                <h2 className="text-xl font-bold mb-2 text-primary-600">{item.term}</h2>
+                <h2 className="text-xl font-bold mb-2 text-secondary-900 dark:text-white">{item.term}</h2>
                 <p className="text-secondary-700 dark:text-secondary-300 leading-relaxed">{item.definition}</p>
               </div>
             ))}

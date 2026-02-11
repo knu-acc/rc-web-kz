@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
@@ -379,7 +379,7 @@ export default function ProcessPage() {
         <div className="container-custom text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Готовы начать?</h2>
           <p className="text-lg text-white/90 mb-8">
-            Свяжитесь с нами  обсудим ваш проект, рассчитаем сроки и стоимость. Консультация бесплатна.
+            Свяжитесь — обсудить проект, рассчитать сроки и стоимость. Консультация бесплатна.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">Написать в WhatsApp</a>

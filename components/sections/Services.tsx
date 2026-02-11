@@ -99,11 +99,12 @@ export function Services() {
         {/* Bento Grid layout */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
-            <div
+            <Link
+              href={service.href}
               key={service.id}
-              className={`group relative rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 ${service.featured
+              className={`group relative rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 cursor-pointer ${service.featured
                   ? 'md:col-span-2 lg:row-span-2 overflow-hidden'
-                  : 'bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 hover:shadow-2xl text-white'
+                  : 'bg-secondary-800 border-2 border-secondary-700 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 text-white'
                 }`}
             >
               {/* Featured card background */}
@@ -146,19 +147,17 @@ export function Services() {
 
               {/* CTA link */}
               <div className={`mt-6 flex items-center gap-4 ${service.featured ? 'relative z-10' : ''}`}>
-                <Link
-                  href={service.href}
+                <span
                   className={`inline-flex items-center gap-2 font-semibold transition-all ${service.featured
-                      ? 'px-6 py-3 bg-white text-primary-600 rounded-xl hover:bg-white/90 hover:shadow-lg'
-                      : 'text-white hover:gap-3 hover:text-secondary-300'
+                      ? 'px-6 py-3 bg-white text-primary-600 rounded-xl group-hover:bg-white/90 group-hover:shadow-lg'
+                      : 'text-white group-hover:gap-3 group-hover:text-secondary-300'
                     }`}
-                  aria-label={`Подробнее о ${service.title}`}
                 >
                   Подробнее
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
+                </span>
               </div>
 
               {/* Featured badge */}
@@ -179,7 +178,7 @@ export function Services() {
                   <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 -z-10`} />
                 </>
               )}
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -240,7 +240,7 @@ export default function WhyChooseUsPage() {
               Достижения
             </span>
             <h2 className="heading-lg mb-6">
-              Наши <span className="gradient-text">достижения</span>
+              <span className="gradient-text">Достижения</span>
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Цифры, которые говорят сами за себя
@@ -290,7 +290,7 @@ export default function WhyChooseUsPage() {
               Отзывы <span className="gradient-text">клиентов</span>
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">
-              Что говорят о нас наши клиенты
+              Что говорят клиенты
             </p>
           </div>
 
@@ -328,16 +328,16 @@ export default function WhyChooseUsPage() {
       {/* Reviews Carousel */}
       <ReviewsCarousel
         reviews={placeholderReviewImages.slice(0, 6)}
-        title="Отзывы наших клиентов"
-        subtitle="Более 120 положительных отзывов от наших довольных клиентов."
+        title="Отзывы клиентов"
+        subtitle="Более 120 положительных отзывов от довольных клиентов."
       />
 
       {/* CTA */}
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="heading-lg mb-4">Готовы стать нашим клиентом?</h2>
+          <h2 className="heading-lg mb-4">Готовы начать?</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Свяжитесь с нами для бесплатной консультации и обсуждения вашего проекта
+            Свяжитесь для бесплатной консультации и обсуждения проекта
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">Написать в WhatsApp</a>
@@ -353,7 +353,7 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-4 gap-6">
             <Link href="/reviews" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Отзывы</h3>
-              <p className="text-secondary-600 dark:text-secondary-300">Отзывы наших клиентов</p>
+              <p className="text-secondary-600 dark:text-secondary-300">Отзывы клиентов</p>
             </Link>
             <Link href="/portfolio" className="card p-6 hover:shadow-lg transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-800 dark:group-hover:text-secondary-100 transition-colors">Портфолио</h3>

@@ -188,18 +188,18 @@ export default function CorporateSitePage() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-5 pt-8">
-                <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">120+</div>
-                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Проектов выполнено</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-8">
+                <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">120+</div>
+                  <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Проектов выполнено</p>
                 </div>
-                <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">5-10</div>
-                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Страниц сайта</p>
+                <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">5-10</div>
+                  <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Страниц сайта</p>
                 </div>
-                <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">6-10</div>
-                  <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Дней разработки</p>
+                <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">6-10</div>
+                  <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Дней разработки</p>
                 </div>
               </div>
             </div>
@@ -520,7 +520,7 @@ export default function CorporateSitePage() {
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">SEO оптимизация</h3>
               <p className="text-secondary-600 dark:text-secondary-300">Продвижение в поисковиках</p>
             </Link>
-            <Link href="/blog" className="card p-6 rounded-xl shadow-soft border-2 border-primary-300 hover:shadow-lg hover:border-primary-500 transition-all group">
+            <Link href="/blog" target="_blank" rel="noopener noreferrer" className="card p-6 rounded-xl shadow-soft border-2 border-primary-300 hover:shadow-lg hover:border-primary-500 transition-all group">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">Блог</h3>
               <p className="text-secondary-600 dark:text-secondary-300">Статьи о создании сайтов</p>
             </Link>

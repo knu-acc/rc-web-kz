@@ -21,19 +21,19 @@ const defaultServices: Service[] = [
     slug: '/landing-page',
     name: 'Landing Page',
     description: 'Одностраничный сайт для рекламы. Высокая конверсия, быстрый запуск.',
-    price: 'от 85 000₸',
+    price: 'от 85 000 ₸',
   },
   {
     slug: '/corporate-site',
     name: 'Корпоративный сайт',
     description: 'Многостраничный сайт для компании. Идеально для SEO-продвижения.',
-    price: 'от 125 000₸',
+    price: 'от 85 000 ₸',
   },
   {
     slug: '/online-store',
     name: 'Интернет-магазин',
     description: 'Полнофункциональный магазин с корзиной, оплатой и доставкой.',
-    price: 'от 220 000₸',
+    price: 'от 175 000 ₸',
   },
   {
     slug: '/seo-optimization',
@@ -55,7 +55,7 @@ const defaultServices: Service[] = [
 export function RelatedServices({
   currentService,
   services = defaultServices,
-  title = 'Другие наши услуги',
+  title = 'Связанные услуги',
   limit = 3,
 }: RelatedServicesProps) {
   // Фильтруем текущую услугу и ограничиваем количество
@@ -78,25 +78,29 @@ export function RelatedServices({
             <Link
               key={service.slug}
               href={service.slug}
-              className="group bg-white dark:bg-secondary-950 rounded-2xl p-6 border-2 border-secondary-200 dark:border-secondary-800 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+              className="group bg-white dark:bg-secondary-950 rounded-2xl p-6 border-2 border-secondary-200 dark:border-secondary-800 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 cursor-pointer transform hover:-translate-y-1 relative overflow-hidden"
             >
-              <h3 className="text-xl font-bold mb-2 text-secondary-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {service.name}
-              </h3>
-              <p className="text-secondary-600 dark:text-secondary-300 mb-4 text-sm leading-relaxed">
-                {service.description}
-              </p>
-              {service.price && (
-                <p className="text-primary-600 dark:text-primary-400 font-semibold mb-4">
-                  {service.price}
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-600/0 group-hover:from-primary-500/5 group-hover:to-primary-600/5 transition-all duration-300 pointer-events-none" />
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold mb-2 text-secondary-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  {service.name}
+                </h3>
+                <p className="text-secondary-600 dark:text-secondary-300 mb-4 text-sm leading-relaxed">
+                  {service.description}
                 </p>
-              )}
-              <span className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-medium text-sm group-hover:gap-3 transition-all">
-                Узнать больше
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
+                {service.price && (
+                  <p className="text-primary-600 dark:text-primary-400 font-semibold mb-4">
+                    {service.price}
+                  </p>
+                )}
+                <span className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-medium text-sm group-hover:gap-3 transition-all">
+                  Узнать больше
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </div>
             </Link>
           ))}
         </div>

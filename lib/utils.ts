@@ -53,3 +53,13 @@ export function isInViewport(element: HTMLElement): boolean {
     rect.bottom > 0
   )
 }
+
+/**
+ * Генерация WhatsApp URL с динамическим текстом и текущим URL страницы
+ */
+export function getWhatsAppUrl(currentPath?: string): string {
+  const baseUrl = 'https://rc-web.kz'
+  const fullUrl = currentPath ? `${baseUrl}${currentPath}` : baseUrl
+  const message = encodeURIComponent(`Здравствуйте, я пишу с сайта ${fullUrl}`)
+  return `https://wa.me/+77789492910?text=${message}`
+}

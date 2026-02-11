@@ -101,11 +101,11 @@ export function Hero() {
               </div>
 
               {/* Floating card: SEO */}
-              <div className="absolute -bottom-6 -left-6 bg-white/70 dark:bg-secondary-800/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-4 shadow-xl animate-float relative z-10">
+              <div className="absolute -bottom-6 -left-6 bg-white/70 dark:bg-secondary-800/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-4 shadow-xl animate-float relative z-[5] hidden sm:block">
                 {/* Floating dotted spheres around SEO card */}
-                <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-dashed border-primary-300/40 dark:border-primary-500/40 rounded-full animate-float pointer-events-none" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
-                <div className="absolute -bottom-8 -left-8 w-20 h-20 border-2 border-dashed border-violet-300/40 dark:border-violet-500/40 rounded-full animate-float pointer-events-none" style={{ animationDuration: '5s', animationDelay: '1.5s' }} />
-                <div className="flex items-center gap-3">
+                <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-dashed border-primary-300/40 dark:border-primary-500/40 rounded-full animate-float pointer-events-none z-0" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
+                <div className="absolute -bottom-8 -left-8 w-20 h-20 border-2 border-dashed border-violet-300/40 dark:border-violet-500/40 rounded-full animate-float pointer-events-none z-0" style={{ animationDuration: '5s', animationDelay: '1.5s' }} />
+                <div className="flex items-center gap-3 relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -119,7 +119,7 @@ export function Hero() {
               </div>
 
               {/* Floating card: Speed */}
-              <div className="absolute -top-4 -right-4 bg-white/70 dark:bg-secondary-800/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-4 shadow-xl animate-float relative z-10" style={{ animationDelay: '1s' }}>
+              <div className="absolute -top-4 -right-4 bg-white/70 dark:bg-secondary-800/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-4 shadow-xl animate-float relative z-[6] hidden sm:block" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

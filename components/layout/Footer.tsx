@@ -28,7 +28,7 @@ const footerLinks = {
     { label: 'Процесс работы', href: '/process' },
     { label: 'Гарантии', href: '/guarantees' },
     { label: 'Технологии', href: '/technologies' },
-    { label: 'Почему мы', href: '/why-choose-us' },
+    { label: 'Почему выбирают', href: '/why-choose-us' },
     { label: 'Глоссарий', href: '/glossary' },
     { label: 'Районы Алматы', href: '/districts' },
   ],
@@ -212,11 +212,11 @@ export function Footer() {
           <p className="text-secondary-400 text-sm">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. Все права защищены.
           </p>
-          <div className="flex items-center gap-4 text-secondary-400 text-sm">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-4 text-secondary-400 text-sm">
             <Link href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</Link>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true" className="hidden md:inline">·</span>
             <Link href="/terms" className="hover:text-white transition-colors">Условия использования</Link>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true" className="hidden md:inline">·</span>
             <Link href="/sitemap.xml" className="hover:text-white transition-colors">Карта сайта</Link>
           </div>
         </div>
