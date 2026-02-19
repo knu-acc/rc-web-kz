@@ -22,33 +22,39 @@ export function IntersectionObserver({
 }: IntersectionObserverProps) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
-    if (!ref.current || (triggerOnce && isVisible)) return
+    if (!ref.current || (triggerOnce && isVisible) || typeof window === 'undefined') return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          if (triggerOnce && ref.current) {
-            observer.unobserve(ref.current)
-          }
-        } else if (!triggerOnce) {
-          setIsVisible(false)
+    const element = ref.current
+
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries
+      if (entry.isIntersecting) {
+        setIsVisible(true)
+        if (triggerOnce && element && observerRef.current) {
+          observerRef.current.unobserve(element)
         }
-      },
-      {
-        threshold,
-        rootMargin,
+      } else if (!triggerOnce) {
+        setIsVisible(false)
       }
-    )
+    }
 
-    observer.observe(ref.current)
+    const options: IntersectionObserverInit = {
+      threshold,
+      rootMargin,
+    }
+
+    observerRef.current = new window.IntersectionObserver(callback, options)
+
+    observerRef.current.observe(element)
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
+      if (element && observerRef.current) {
+        observerRef.current.unobserve(element)
       }
+      observerRef.current = null
     }
   }, [threshold, rootMargin, triggerOnce, isVisible])
 

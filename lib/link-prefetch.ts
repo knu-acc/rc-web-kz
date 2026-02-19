@@ -9,10 +9,12 @@ export function prefetchLink(href: string) {
   // Проверяем, что ссылка внутренняя
   if (!href.startsWith('/')) return
 
-  // Используем Next.js router для prefetch
-  if (typeof window.next?.router !== 'undefined') {
-    window.next.router.prefetch(href)
-  }
+  // Используем встроенный prefetch через создание link элемента
+  const link = document.createElement('link')
+  link.rel = 'prefetch'
+  link.as = 'document'
+  link.href = href
+  document.head.appendChild(link)
 }
 
 /**
