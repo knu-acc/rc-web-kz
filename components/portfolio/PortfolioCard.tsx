@@ -16,16 +16,18 @@ export function PortfolioCard({ item }: { item: PortfolioItem }) {
       className="portfolio-card group block"
       data-category={category}
     >
-      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-secondary-200 bg-white dark:border-secondary-700 dark:bg-secondary-900 shadow-sm transition-shadow hover:shadow-md">
+      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-secondary-200 bg-white dark:border-secondary-700 dark:bg-secondary-900 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
         <div className="relative aspect-[4/3] shrink-0 overflow-hidden bg-secondary-100 dark:bg-secondary-800">
           <Image
             src={item.image}
             alt={item.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
           />
+          {/* Уникальный градиентный overlay при hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-primary-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <span
             className={`absolute left-3 top-3 z-10 rounded-md px-2.5 py-1.5 text-xs font-medium shadow ${categoryStyle[category] ?? 'bg-secondary-600 text-white'}`}
           >

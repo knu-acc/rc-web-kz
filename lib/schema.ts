@@ -355,3 +355,73 @@ export function generateHowToSchema(howTo: {
     })),
   }
 }
+
+/**
+ * Схема VideoObject для видео-контента
+ */
+export function generateVideoObjectSchema(video: {
+  name: string
+  description: string
+  thumbnailUrl: string
+  contentUrl: string
+  embedUrl?: string
+  uploadDate: string
+  duration?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: video.name,
+    description: video.description,
+    thumbnailUrl: video.thumbnailUrl,
+    contentUrl: video.contentUrl,
+    ...(video.embedUrl && { embedUrl: video.embedUrl }),
+    uploadDate: video.uploadDate,
+    ...(video.duration && { duration: video.duration }),
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/img/logo.png`,
+      },
+    },
+  }
+}
+
+/**
+ * Расширенная схема Review с Rating для отзывов клиентов
+ */
+export function generateReviewRatingSchema(review: {
+  author: string
+  reviewBody: string
+  rating: number
+  datePublished: string
+  itemReviewed?: {
+    name: string
+    type: string
+  }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: review.author,
+    },
+    reviewBody: review.reviewBody,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.rating.toString(),
+      bestRating: '5',
+      worstRating: '1',
+    },
+    datePublished: review.datePublished,
+    ...(review.itemReviewed && {
+      itemReviewed: {
+        '@type': review.itemReviewed.type,
+        name: review.itemReviewed.name,
+      },
+    }),
+  }
+}

@@ -12,13 +12,22 @@ const BackToTop = dynamic(() => import('@/components/ui/BackToTop').then(mod => 
 const ServiceWorker = dynamic(() => import('@/components/ui/ServiceWorker').then(mod => ({ default: mod.ServiceWorker })), {
   ssr: false,
 })
+const LinkPrefetchProvider = dynamic(() => import('@/components/providers/LinkPrefetchProvider').then(mod => ({ default: mod.LinkPrefetchProvider })), {
+  ssr: false,
+})
+const ProgressBar = dynamic(() => import('@/components/ui/ProgressBar').then(mod => ({ default: mod.ProgressBar })), {
+  ssr: false,
+})
 
 export function ClientComponents() {
   return (
     <>
-      <BackToTop />
-      <ServiceWorker />
-      <Analytics />
+      <LinkPrefetchProvider>
+        <ProgressBar />
+        <BackToTop />
+        <ServiceWorker />
+        <Analytics />
+      </LinkPrefetchProvider>
     </>
   )
 }

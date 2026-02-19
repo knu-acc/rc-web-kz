@@ -1,9 +1,4 @@
 {
-  "/(info)/how-to-create-website/page": "app/(info)/how-to-create-website/page.js",
-  "/(info)/publish-website/page": "app/(info)/publish-website/page.js",
-  "/(main)/blog/[slug]/page": "app/(main)/blog/[slug]/page.js",
   "/(main)/blog/page": "app/(main)/blog/page.js",
-  "/(main)/portfolio/page": "app/(main)/portfolio/page.js",
-  "/(services)/online-store/page": "app/(services)/online-store/page.js",
   "/page": "app/page.js"
 }

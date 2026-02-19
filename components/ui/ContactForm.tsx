@@ -1,6 +1,15 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import {
+  validateName,
+  validatePhone,
+  validateEmail,
+  validateMessage,
+  applyPhoneMask,
+} from '@/lib/form-validation'
+import { KeyboardNavigation } from './KeyboardNavigation'
+import { FormField } from './FormField'
 
 interface FormData {
   name: string
@@ -8,6 +17,13 @@ interface FormData {
   email: string
   service: string
   message: string
+}
+
+interface FormErrors {
+  name?: string
+  phone?: string
+  email?: string
+  message?: string
 }
 
 export function ContactForm() {
@@ -21,9 +37,87 @@ export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const [formErrors, setFormErrors] = useState<FormErrors>({})
+  const [formStartTime] = useState(Date.now())
+  const [honeypot, setHoneypot] = useState('')
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
+
+  const validateForm = (): boolean => {
+    const errors: FormErrors = {}
+    
+    const nameError = validateName(formData.name)
+    if (nameError) errors.name = nameError
+    
+    const phoneError = validatePhone(formData.phone)
+    if (phoneError) errors.phone = phoneError
+    
+    if (formData.email) {
+      const emailError = validateEmail(formData.email)
+      if (emailError) errors.email = emailError
+    }
+    
+    if (formData.message) {
+      const messageError = validateMessage(formData.message)
+      if (messageError) errors.message = messageError
+    }
+    
+    setFormErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+
+  const handleBlur = (field: keyof FormData) => {
+    setTouched({ ...touched, [field]: true })
+    
+    // Валидация при потере фокуса
+    const errors: FormErrors = { ...formErrors }
+    
+    if (field === 'name') {
+      const error = validateName(formData.name)
+      errors.name = error || undefined
+    } else if (field === 'phone') {
+      const error = validatePhone(formData.phone)
+      errors.phone = error || undefined
+    } else if (field === 'email' && formData.email) {
+      const error = validateEmail(formData.email)
+      errors.email = error || undefined
+    } else if (field === 'message' && formData.message) {
+      const error = validateMessage(formData.message)
+      errors.message = error || undefined
+    }
+    
+    setFormErrors(errors)
+  }
+
+  const handlePhoneChange = (value: string) => {
+    const masked = applyPhoneMask(value)
+    setFormData({ ...formData, phone: masked })
+    // Очищаем ошибку при изменении
+    if (formErrors.phone) {
+      setFormErrors({ ...formErrors, phone: undefined })
+    }
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    
+    // Защита от спама: проверка honeypot поля
+    if (honeypot) {
+      return // Бот заполнил honeypot - игнорируем
+    }
+    
+    // Защита от спама: проверка времени заполнения (минимум 3 секунды)
+    const fillTime = Date.now() - formStartTime
+    if (fillTime < 3000) {
+      setError('Пожалуйста, заполните форму внимательнее.')
+      return
+    }
+    
+    // Валидация формы
+    if (!validateForm()) {
+      setError('Пожалуйста, исправьте ошибки в форме.')
+      return
+    }
+    
     setIsSubmitting(true)
     setError('')
 
@@ -78,54 +172,106 @@ export function ContactForm() {
         <textarea name="message"></textarea>
       </form>
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-6 bg-secondary-50 dark:bg-secondary-800/50 rounded-2xl p-8 border border-secondary-200 dark:border-secondary-700"
-      >
+      <KeyboardNavigation>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 bg-secondary-50 dark:bg-secondary-800/50 rounded-2xl p-8 border border-secondary-200 dark:border-secondary-700"
+          noValidate
+        >
+        {/* Honeypot поле для защиты от спама - скрыто от пользователей */}
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          className="sr-only"
+          aria-hidden="true"
+        />
         <div className="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
-              Ваше имя *
-            </label>
+          <FormField
+            label="Ваше имя"
+            htmlFor="name"
+            required
+            error={touched.name ? formErrors.name : undefined}
+          >
             <input
               type="text"
               id="name"
               required
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border-2 border-secondary-200 dark:border-secondary-600 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              onChange={(e) => {
+                setFormData({ ...formData, name: e.target.value })
+                if (formErrors.name) {
+                  setFormErrors({ ...formErrors, name: undefined })
+                }
+              }}
+              onBlur={() => handleBlur('name')}
+              className={`w-full px-4 py-3 rounded-xl border-2 transition-all min-h-[48px] text-base ${
+                formErrors.name && touched.name
+                  ? 'border-red-500 focus:ring-red-500'
+                  : 'border-secondary-200 dark:border-secondary-600 focus:border-primary-500'
+              } bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
               placeholder="Как вас зовут?"
+              autoComplete="name"
+              aria-invalid={formErrors.name && touched.name ? 'true' : 'false'}
             />
-          </div>
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
-              Телефон *
-            </label>
+          </FormField>
+          <FormField
+            label="Телефон"
+            htmlFor="phone"
+            required
+            error={touched.phone ? formErrors.phone : undefined}
+          >
             <input
               type="tel"
               id="phone"
               required
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border-2 border-secondary-200 dark:border-secondary-600 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              onChange={(e) => handlePhoneChange(e.target.value)}
+              onBlur={() => handleBlur('phone')}
+              className={`w-full px-4 py-3 rounded-xl border-2 transition-all min-h-[48px] text-base ${
+                formErrors.phone && touched.phone
+                  ? 'border-red-500 focus:ring-red-500'
+                  : 'border-secondary-200 dark:border-secondary-600 focus:border-primary-500'
+              } bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
               placeholder="+7 (___) ___-__-__"
+              autoComplete="tel"
+              inputMode="tel"
+              aria-invalid={formErrors.phone && touched.phone ? 'true' : 'false'}
             />
-          </div>
+          </FormField>
         </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
-            Email
-          </label>
+        <FormField
+          label="Email"
+          htmlFor="email"
+          error={touched.email ? formErrors.email : undefined}
+          hint="Необязательное поле"
+        >
           <input
             type="email"
             id="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border-2 border-secondary-200 dark:border-secondary-600 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value })
+              if (formErrors.email) {
+                setFormErrors({ ...formErrors, email: undefined })
+              }
+            }}
+            onBlur={() => handleBlur('email')}
+            className={`w-full px-4 py-3 rounded-xl border-2 transition-all min-h-[48px] text-base ${
+              formErrors.email && touched.email
+                ? 'border-red-500 focus:ring-red-500'
+                : 'border-secondary-200 dark:border-secondary-600 focus:border-primary-500'
+            } bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
             placeholder="your@email.com"
+            autoComplete="email"
+            inputMode="email"
+            aria-invalid={formErrors.email && touched.email ? 'true' : 'false'}
           />
-        </div>
+        </FormField>
 
         <div>
           <label htmlFor="service" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
@@ -149,19 +295,32 @@ export function ContactForm() {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
-            Сообщение
-          </label>
+        <FormField
+          label="Сообщение"
+          htmlFor="message"
+          error={touched.message ? formErrors.message : undefined}
+          hint="Необязательное поле"
+        >
           <textarea
             id="message"
             rows={4}
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border-2 border-secondary-200 dark:border-secondary-600 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+            onChange={(e) => {
+              setFormData({ ...formData, message: e.target.value })
+              if (formErrors.message) {
+                setFormErrors({ ...formErrors, message: undefined })
+              }
+            }}
+            onBlur={() => handleBlur('message')}
+            className={`w-full px-4 py-3 rounded-xl border-2 transition-all resize-none min-h-[120px] text-base ${
+              formErrors.message && touched.message
+                ? 'border-red-500 focus:ring-red-500'
+                : 'border-secondary-200 dark:border-secondary-600 focus:border-primary-500'
+            } bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent`}
             placeholder="Расскажите о вашем проекте..."
+            aria-invalid={formErrors.message && touched.message ? 'true' : 'false'}
           />
-        </div>
+        </FormField>
 
         {error && (
           <p className="text-red-500 text-sm">{error}</p>
@@ -177,9 +336,10 @@ export function ContactForm() {
 
         <p className="text-xs text-secondary-400 text-center">
           Нажимая кнопку, вы соглашаетесь с{' '}
-          <a href="/privacy" className="underline hover:text-secondary-600">политикой конфиденциальности</a>
+          <a href="/privacy" className="underline hover:text-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded">политикой конфиденциальности</a>
         </p>
       </form>
+      </KeyboardNavigation>
     </>
   )
 }

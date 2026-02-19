@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { AnalyticsEvents } from '@/lib/analytics-events'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { SkipToContent } from '@/components/ui/SkipToContent'
 
 // Динамический импорт ThemeToggle без SSR для предотвращения hydration mismatch
 const ThemeToggle = dynamic(() => import('@/components/ui/ThemeToggle').then(mod => ({ default: mod.ThemeToggle })), {
@@ -110,6 +111,7 @@ export function Header({ logoSlot }: HeaderProps) {
 
   return (
     <>
+      <SkipToContent />
       {/* Skip to main content link для доступности */}
       <a
         href="#main-content"
@@ -122,9 +124,12 @@ export function Header({ logoSlot }: HeaderProps) {
           isMenuOpen
             ? 'py-3 bg-white dark:bg-secondary-900 shadow-md border-b border-secondary-100 dark:border-secondary-800'
             : isScrolled
-              ? 'py-3 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-xl shadow-soft border-b border-secondary-100 dark:border-secondary-800'
-              : 'py-5 bg-transparent'
+              ? 'py-2 md:py-3 bg-white/95 dark:bg-secondary-900/95 backdrop-blur-xl shadow-soft border-b border-secondary-100 dark:border-secondary-800'
+              : 'py-4 md:py-5 bg-transparent'
         }`}
+        style={{
+          paddingTop: `max(${isScrolled ? '0.5rem' : '1rem'}, env(safe-area-inset-top, ${isScrolled ? '0.5rem' : '1rem'}))`,
+        }}
         role="banner"
       >
         <nav className="container-custom" aria-label="Основная навигация">
@@ -192,6 +197,7 @@ export function Header({ logoSlot }: HeaderProps) {
                 <Link
                   key={`nav-link-${idx}-${link.href}`}
                   href={link.href}
+                  prefetch={link.href === '/' || link.href === '/portfolio' || link.href === '/blog'}
                   className={`relative px-4 py-2 font-medium rounded-lg transition-all duration-300 hover:bg-secondary-50 dark:hover:bg-secondary-800 group ${
                     pathname === link.href
                       ? 'text-primary-600 dark:text-primary-400'
@@ -252,15 +258,18 @@ export function Header({ logoSlot }: HeaderProps) {
         />
         <div
           id="mobile-menu"
-          className={`md:hidden fixed inset-x-0 top-0 z-40 bg-white dark:bg-secondary-900 transition-all duration-300 overflow-y-auto pt-20 ${isMenuOpen
+          className={`md:hidden fixed inset-x-0 top-0 z-40 bg-white dark:bg-secondary-900 transition-all duration-500 ease-out overflow-y-auto pt-20 ${isMenuOpen
             ? 'opacity-100 visible translate-y-0'
-            : 'opacity-0 invisible -translate-y-4 pointer-events-none'
+            : 'opacity-0 invisible -translate-y-8 pointer-events-none'
             }`}
           style={{
-            height: '100dvh'
+            height: '100dvh',
+            maxHeight: '100dvh',
+            paddingTop: `max(5rem, env(safe-area-inset-top, 5rem))`,
           }}
           role="menu"
           aria-label="Мобильное меню"
+          aria-hidden={!isMenuOpen}
           suppressHydrationWarning
         >
         <div className="container-custom py-8">
@@ -281,8 +290,8 @@ export function Header({ logoSlot }: HeaderProps) {
                   </button>
                   <div
                     id={`mobile-submenu-${index}`}
-                    className={`pl-4 pb-2 space-y-2 overflow-hidden transition-all duration-300 ${
-                      openSubmenu === link.label ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    className={`pl-4 pb-2 space-y-2 overflow-hidden transition-all duration-500 ease-in-out ${
+                      openSubmenu === link.label ? 'max-h-96 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-2'
                     }`}
                   >
                     {link.submenu.map((subLink) => (

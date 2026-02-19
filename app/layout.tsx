@@ -10,6 +10,8 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { ThemeScript } from '@/components/providers/ThemeScript'
 import { ErrorMonitoringScript } from '@/components/providers/ErrorMonitoringScript'
 import { ClientComponents } from '@/components/layout/ClientComponents'
+import { ErrorBoundaryWrapper } from '@/components/ui/ErrorBoundaryWrapper'
+import { ToastProvider } from '@/components/providers/ToastProvider'
 
 // Lazy load компонентов для SSR (SEO)
 const StructuredData = dynamic(() => import('@/components/sections/StructuredData').then(mod => ({ default: mod.StructuredData })), {
@@ -125,6 +127,8 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${inter.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
+        {/* Viewport для всех экранов от 320px до 3840px */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
         <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1e1b4b" media="(prefers-color-scheme: dark)" />
         {/* Гео-мета для локального SEO */}
@@ -137,26 +141,37 @@ export default function RootLayout({
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+        {/* Safe area для устройств с вырезами */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         {/* Замените на ваши коды верификации из панелей поисковиков */}
         <ThemeScript />
         {/* Preconnect для критических ресурсов (без дублирования dns-prefetch) */}
+        {/* Аналитика: preconnect только если используется, чтобы не тратить ресурсы впустую */}
         <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://mc.yandex.ru" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        {/* Yandex Maps API: preconnect для карт */}
+        <link rel="preconnect" href="https://api-maps.yandex.ru" crossOrigin="anonymous" />
         {/* DNS Prefetch для внешних доменов (без дублирования preconnect) */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
-        <ThemeProvider>
-          <ErrorMonitoringScript />
-          <Header logoSlot={<HeaderLogo />} />
-          <main id="main-content">{children}</main>
-          <Footer />
+        <ErrorBoundaryWrapper>
+          <ThemeProvider>
+            <ToastProvider>
+              <ErrorMonitoringScript />
+              <Header logoSlot={<HeaderLogo />} />
+              <main id="main-content" tabIndex={-1}>{children}</main>
+              <Footer />
 
-          <StructuredData />
-          <ClientComponents />
-        </ThemeProvider>
+              <StructuredData />
+              <ClientComponents />
+            </ToastProvider>
+          </ThemeProvider>
+        </ErrorBoundaryWrapper>
       </body>
     </html>
   )

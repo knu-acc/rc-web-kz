@@ -3,8 +3,7 @@ import { SITE_CONFIG } from '@/lib/constants'
 import { generateCollectionPageSchema, generateItemListSchema, generateBreadcrumbSchema } from '@/lib/schema'
 import { portfolioItems } from '@/data/portfolio'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-import { PortfolioCard } from '@/components/portfolio/PortfolioCard'
-import { PortfolioFilter } from '@/components/portfolio/PortfolioFilter'
+import { PortfolioPageClient } from './page-client'
 import { SOCIAL_LINKS } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -83,16 +82,10 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Фильтр + сетка */}
+        {/* Поиск, фильтры + сетка */}
         <section className="bg-white dark:bg-secondary-950">
           <div className="container-custom py-12 lg:py-16">
-            <PortfolioFilter>
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {portfolioItems.map((item) => (
-                  <PortfolioCard key={item.id} item={item} />
-                ))}
-              </div>
-            </PortfolioFilter>
+            <PortfolioPageClient />
           </div>
         </section>
 

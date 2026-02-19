@@ -6,6 +6,17 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || ''
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || ''
 const YANDEX_METRICA_ID = process.env.NEXT_PUBLIC_YANDEX_METRICA_ID || ''
 
+/**
+ * Компонент аналитики с оптимизированной загрузкой скриптов
+ * 
+ * Использует strategy="lazyOnload" для:
+ * - Не блокирует рендеринг страницы
+ * - Загружается после интерактивности страницы
+ * - Улучшает Core Web Vitals (LCP, FID, CLS)
+ * 
+ * Для критической аналитики можно использовать strategy="afterInteractive",
+ * но это может замедлить интерактивность страницы
+ */
 export function Analytics() {
   if (process.env.NODE_ENV !== 'production') {
     return null
@@ -16,7 +27,11 @@ export function Analytics() {
       {/* Google Tag Manager */}
       {GTM_ID && (
         <>
-          <Script id="google-tag-manager" strategy="lazyOnload">
+          <Script 
+            id="google-tag-manager" 
+            strategy="lazyOnload"
+            // crossOrigin не нужен для inline скриптов
+          >
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -31,6 +46,8 @@ export function Analytics() {
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}
+              loading="lazy"
+              title="Google Tag Manager"
             />
           </noscript>
         </>
@@ -42,6 +59,9 @@ export function Analytics() {
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
             strategy="lazyOnload"
+            crossOrigin="anonymous"
+            // Примечание: SRI не используется для динамических скриптов GA,
+            // так как они часто обновляются и хеш будет невалидным
           />
           <Script id="google-analytics" strategy="lazyOnload">
             {`
@@ -50,6 +70,9 @@ export function Analytics() {
               gtag('js', new Date());
               gtag('config', '${GA_MEASUREMENT_ID}', {
                 page_path: window.location.pathname,
+                // Оптимизация производительности
+                send_page_view: true,
+                anonymize_ip: true,
               });
             `}
           </Script>
@@ -59,7 +82,12 @@ export function Analytics() {
       {/* Yandex Metrica */}
       {YANDEX_METRICA_ID && (
         <>
-          <Script id="yandex-metrica" strategy="lazyOnload">
+          <Script 
+            id="yandex-metrica" 
+            strategy="lazyOnload"
+            // Примечание: Yandex Metrica загружается через inline скрипт,
+            // который сам создает async script элемент
+          >
             {`
               (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
               m[i].l=1*new Date();
@@ -71,7 +99,9 @@ export function Analytics() {
                 clickmap:true,
                 trackLinks:true,
                 accurateTrackBounce:true,
-                webvisor:true
+                webvisor:true,
+                // Оптимизация производительности
+                defer: true,
               });
             `}
           </Script>
@@ -81,6 +111,7 @@ export function Analytics() {
                 src={`https://mc.yandex.ru/watch/${YANDEX_METRICA_ID}`}
                 style={{ position: 'absolute', left: '-9999px' }}
                 alt=""
+                loading="lazy"
               />
             </div>
           </noscript>

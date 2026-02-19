@@ -5,6 +5,20 @@ export interface PortfolioItem {
   image: string
   url: string
   category?: string
+  technologies?: string[]
+  year?: string
+  caseStudy?: {
+    challenge?: string
+    solution?: string
+    results?: string[]
+    metrics?: {
+      label: string
+      value: string
+    }[]
+  }
+  features?: string[]
+  client?: string
+  duration?: string
 }
 
 export interface FAQItem {

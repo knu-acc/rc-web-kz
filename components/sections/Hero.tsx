@@ -55,6 +55,7 @@ export function Hero() {
 
               <Link
                 href="/portfolio"
+                prefetch
                 className="btn-secondary group"
                 aria-label="Посмотреть портфолио работ"
               >

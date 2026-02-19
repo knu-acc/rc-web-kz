@@ -65,7 +65,7 @@
     --ring: 243 75% 59%;
   }
 
-  /* High Contrast Mode - улучшенная контрастность для доступности */
+  /* High Contrast Mode - улучшенная контрастность для доступности (WCAG AA минимум 4.5:1) */
   .high-contrast {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
@@ -76,7 +76,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 243 75% 50%;
+    --primary: 243 75% 45%; /* Улучшенный контраст для WCAG AA */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 90%;
@@ -85,15 +85,30 @@
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 0%;
 
-    --accent: 243 75% 50%;
+    --accent: 243 75% 45%; /* Улучшенный контраст */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 50%;
+    --destructive: 0 84% 45%; /* Улучшенный контраст */
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 0%;
     --input: 0 0% 0%;
-    --ring: 243 75% 50%;
+    --ring: 243 75% 45%;
+  }
+  
+  /* Улучшение контраста для обычного режима - минимум WCAG AA (4.5:1) */
+  :root {
+    /* Улучшаем контраст текста на светлом фоне */
+    --foreground: 222.2 84% 8%; /* Темнее для лучшего контраста */
+    --secondary-foreground: 222.2 47.4% 15%; /* Темнее */
+    --muted-foreground: 215.4 16.3% 35%; /* Темнее для лучшей читаемости */
+  }
+  
+  .dark {
+    /* Улучшаем контраст текста на темном фоне */
+    --foreground: 210 40% 98%;
+    --secondary-foreground: 210 40% 95%; /* Светлее для лучшего контраста */
+    --muted-foreground: 215 20.2% 75%; /* Светлее */
   }
 
   .high-contrast.dark {
@@ -138,6 +153,8 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    /* Safe area insets для устройств с вырезами */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   a:focus-visible {
     outline: 2px solid currentColor;
@@ -184,22 +201,136 @@
   }
   
   .container-custom {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full max-w-7xl mx-auto;
+    /* Адаптивные отступы с учетом safe area */
+    padding-left: max(1rem, env(safe-area-inset-left, 1rem));
+    padding-right: max(1rem, env(safe-area-inset-right, 1rem));
   }
+  
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: max(1.5rem, env(safe-area-inset-left, 1.5rem));
+      padding-right: max(1.5rem, env(safe-area-inset-right, 1.5rem));
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: max(2rem, env(safe-area-inset-left, 2rem));
+      padding-right: max(2rem, env(safe-area-inset-right, 2rem));
+    }
+  }
+  
+  /* Контейнерные запросы для более точной адаптивности компонентов */
+  @container (min-width: 320px) {
+    .container-query-sm {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @container (min-width: 640px) {
+    .container-query-md {
+      font-size: 1rem;
+    }
+  }
+  
+  @container (min-width: 1024px) {
+    .container-query-lg {
+      font-size: 1.125rem;
+    }
+  }
+  /* Адаптивная типографика с clamp() для плавного масштабирования */
+  /* Уникальная типографика: Inter для основного текста, Montserrat для заголовков */
   .heading-xl {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    font-size: clamp(1.875rem, 1.5rem + 1.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
   .heading-lg {
-    @apply text-xl sm:text-2xl lg:text-3xl font-bold leading-tight;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    font-size: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
   .heading-md {
-    @apply text-lg sm:text-xl lg:text-2xl font-bold leading-tight;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    font-size: clamp(1.125rem, 1rem + 0.75vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  /* Улучшенная типографика для основного текста */
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Улучшенные стили для skip-to-content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .sr-only:focus,
+  .sr-only:focus-visible {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+  
+  /* Уникальные стили для параграфов */
+  p {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+  
+  /* Улучшенная типографика для ссылок */
+  a {
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
   .section {
     @apply py-10 sm:py-16 lg:py-24;
   }
   .btn-primary {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
+    /* Уникальный градиентный эффект при hover */
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.9) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-primary:hover::before {
+    left: 100%;
   }
   .btn-dark {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-secondary-600 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
@@ -231,6 +362,26 @@
   }
   .card {
     @apply bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 transition-all duration-300;
+    /* Уникальный эффект при hover */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.5));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover::before {
+    transform: scaleX(1);
   }
   .text-balance {
     text-wrap: balance;
@@ -245,6 +396,7 @@
 
 /* Бургер — единая иконка (без превращения в крестик), только открытие/закрытие по нажатию */
 
+/* Уникальные микро-анимации */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -443,15 +595,28 @@ html.high-contrast select {
 
 /* Touch-friendly элементы для мобильных устройств */
 @media (hover: none) and (pointer: coarse) {
-  /* Увеличиваем размеры touch-целей на мобильных */
+  /* Увеличиваем размеры touch-целей на мобильных - минимум 44×44px */
   button,
   a,
   [role="button"],
   input[type="button"],
-  input[type="submit"] {
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
     min-height: 44px;
     min-width: 44px;
     padding: 12px 16px;
+  }
+  
+  /* Улучшаем отступы между интерактивными элементами для удобства нажатия */
+  nav a + a,
+  nav button + button,
+  nav a + button,
+  nav button + a,
+  .btn-primary + .btn-primary,
+  .btn-secondary + .btn-secondary {
+    margin-left: 12px;
   }
 
   /* Компактные элементы — не раздувать */
@@ -510,6 +675,8 @@ html.high-contrast select {
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
+  /* Улучшенная поддержка жестов swipe на мобильных */
+  -webkit-overflow-scrolling: touch;
 }
 
 .embla__slide {
@@ -665,7 +832,11 @@ html.high-contrast select {
   .embla__prev,
   .embla__next,
   .embla__pagination,
-  nav[aria-label="Основная навигация"] {
+  nav[aria-label="Основная навигация"],
+  button[aria-label*="сравнени"],
+  button[aria-label*="PDF"],
+  .portfolio-search,
+  .portfolio-filter {
     display: none !important;
   }
   body {
@@ -699,12 +870,189 @@ html.high-contrast select {
   .section {
     page-break-inside: avoid;
   }
+  /* Улучшенные стили для портфолио при печати */
+  .portfolio-card {
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
-/* Оптимизация отрисовки: content-visibility для секций ниже fold */
+  /* Оптимизация отрисовки: content-visibility для секций ниже fold */
 .section {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
+}
+
+/* Улучшенные стили для форм на мобильных */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px !important; /* Предотвращает зум на iOS */
+  }
+  
+  /* Улучшенные размеры полей для удобства ввода */
+  input,
+  textarea,
+  select {
+    padding: 14px 16px !important;
+    min-height: 48px !important;
+  }
+}
+
+/* Уникальные микро-анимации для улучшения UX */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    opacity: 0;
+    transform: rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.animate-rotate-in {
+  animation: rotate-in 0.5s ease-out;
+}
+
+/* Оптимизация для малых экранов (320px-375px) */
+@media (max-width: 375px) {
+  .container-custom {
+    padding-left: max(0.75rem, env(safe-area-inset-left, 0.75rem));
+    padding-right: max(0.75rem, env(safe-area-inset-right, 0.75rem));
+  }
+  
+  .heading-xl {
+    font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  }
+  
+  .heading-lg {
+    font-size: clamp(1.25rem, 1rem + 0.75vw, 1.75rem);
+  }
+  
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Адаптивные таблицы с горизонтальной прокруткой на мобильных */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    width: 100%;
+  }
+  
+  thead {
+    display: none;
+  }
+  
+  tbody {
+    display: block;
+  }
+  
+  tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border: none;
+    text-align: right;
+  }
+  
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    margin-right: 1rem;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  td:first-child {
+    padding-top: 0;
+  }
+  
+  td:last-child {
+    padding-bottom: 0;
+  }
+}
+
+/* Поддержка landscape ориентации для планшетов */
+@media (orientation: landscape) and (min-width: 768px) and (max-width: 1024px) {
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .container-custom {
+    max-width: 90vw;
+  }
+}
+
+/* Оптимизация производительности прокрутки на мобильных */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Используем will-change для элементов с анимацией */
+  .animate-float,
+  .animate-in,
+  [class*="animate-"] {
+    will-change: transform, opacity;
+  }
+  
+  /* Passive listeners для лучшей производительности */
+  body {
+    touch-action: pan-y pinch-zoom;
+  }
 }
 
 /* Firefox скроллбар (dark mode) */

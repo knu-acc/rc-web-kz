@@ -6,6 +6,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { SOCIAL_LINKS } from '@/lib/constants'
+import { IntersectionObserver } from '@/components/ui/IntersectionObserver'
 
 interface ServiceItem {
   id: number
@@ -101,8 +102,9 @@ export function Services() {
           {services.map((service) => (
             <Link
               href={service.href}
+              prefetch
               key={service.id}
-              className={`group relative rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 cursor-pointer ${service.featured
+              className={`group relative rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-3xl ${service.featured
                   ? 'md:col-span-2 lg:row-span-2 overflow-hidden'
                   : 'bg-secondary-800 border-2 border-secondary-700 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 text-white'
                 }`}

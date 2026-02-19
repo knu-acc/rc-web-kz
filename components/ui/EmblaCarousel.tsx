@@ -29,6 +29,10 @@ export function EmblaCarousel({
     {
       align: 'start',
       slidesToScroll: 1,
+      dragFree: false,
+      containScroll: 'trimSnaps',
+      // Улучшенная поддержка жестов swipe на мобильных
+      watchDrag: true,
       ...options,
     },
     plugins

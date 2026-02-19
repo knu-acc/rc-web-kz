@@ -3,6 +3,9 @@
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 
+// Prefetch для важных ссылок футера
+const prefetchLinks = ['/', '/portfolio', '/blog', '/contact']
+
 const footerLinks = {
   navigation: [
     { label: 'Главная', href: '/' },
@@ -47,7 +50,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" prefetch className="inline-block mb-6 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded">
               <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-violet-400 bg-clip-text text-transparent">
                 {SITE_CONFIG.name}
               </span>
@@ -90,7 +93,8 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-secondary-300 hover:text-white transition-colors"
+                    prefetch={prefetchLinks.includes(link.href)}
+                    className="text-secondary-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
                   >
                     {link.label}
                   </Link>

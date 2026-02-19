@@ -30,6 +30,41 @@ const nextConfig = {
   
   experimental: {
     optimizePackageImports: ['lucide-react', 'embla-carousel-react', 'embla-carousel-autoplay'],
+    // Оптимизация code splitting
+    optimizeCss: true,
+  },
+  
+  // Оптимизация webpack для лучшего code splitting
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Оптимизация для клиентской сборки
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Отдельный chunk для vendor библиотек
+            vendor: {
+              name: 'vendor',
+              chunks: 'all',
+              test: /node_modules/,
+              priority: 20,
+            },
+            // Отдельный chunk для общих компонентов
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              priority: 10,
+              reuseExistingChunk: true,
+            },
+          },
+        },
+      }
+    }
+    return config
   },
   
   // Дополнительные настройки

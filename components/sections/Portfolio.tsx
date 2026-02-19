@@ -26,10 +26,11 @@ export function Portfolio() {
           </div>
           <Link
             href="/portfolio"
+            prefetch
             className="btn-outline group self-start md:self-auto"
           >
             Все проекты
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
@@ -63,10 +64,11 @@ export function Portfolio() {
                   <p className="text-white/80 text-sm line-clamp-2 mb-4">{item.description}</p>
                   <Link
                     href={`/portfolio/${item.id}`}
-                    className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
+                    prefetch
+                    className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-white rounded"
                   >
                     Подробнее о проекте
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
@@ -101,9 +103,9 @@ export function Portfolio() {
           <p className="text-secondary-600 dark:text-secondary-300 mb-6">
             Хотите такой же? Свяжитесь для обсуждения проекта
           </p>
-          <Link href="/contact" className="btn-dark">
+          <Link href="/contact" prefetch className="btn-dark">
             Обсудить проект
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
           </Link>

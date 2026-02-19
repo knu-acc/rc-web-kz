@@ -29,6 +29,8 @@ export interface PortfolioItem {
   url: string
   category?: string
   tags?: string[]
+  technologies?: string[]
+  year?: string
 }
 
 // Типы для отзывов

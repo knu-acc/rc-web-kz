@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import Script from 'next/script'
 import { SITE_CONFIG } from '@/lib/constants'
 import { almatyDistricts } from '@/data/districts'
@@ -13,8 +13,18 @@ interface MapPlacemark {
   type?: 'office' | 'project' | 'district'
 }
 
+/**
+ * Компонент Yandex Maps с оптимизированной загрузкой
+ * 
+ * Оптимизации:
+ * - Загружает скрипт карты только когда карта видна на экране (Intersection Observer)
+ * - Использует lazyOnload стратегию для неблокирующей загрузки
+ * - Добавлен crossOrigin для безопасности
+ */
 export function YandexMap({ showProjects = false, showDistricts = false }: { showProjects?: boolean; showDistricts?: boolean }) {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [shouldLoadScript, setShouldLoadScript] = useState(false)
+  const mapContainerRef = useRef<HTMLDivElement>(null)
 
   const initMap = useCallback(() => {
     if (typeof window === 'undefined' || !window.ymaps) return
@@ -109,27 +119,60 @@ export function YandexMap({ showProjects = false, showDistricts = false }: { sho
     initMap()
   }, [initMap])
 
+  // Intersection Observer для загрузки карты только когда она видна
+  useEffect(() => {
+    if (!mapContainerRef.current || shouldLoadScript) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoadScript(true)
+            observer.disconnect()
+          }
+        })
+      },
+      {
+        // Загружаем когда карта находится в пределах 200px от viewport
+        rootMargin: '200px',
+        threshold: 0.01,
+      }
+    )
+
+    observer.observe(mapContainerRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [shouldLoadScript])
+
   return (
     <>
-      <Script
-        src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
-        strategy="lazyOnload"
-        onLoad={handleLoad}
-      />
+      {/* Загружаем скрипт только когда карта видна или почти видна */}
+      {shouldLoadScript && (
+        <Script
+          src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+          strategy="lazyOnload"
+          onLoad={handleLoad}
+          crossOrigin="anonymous"
+        />
+      )}
       <div 
+        ref={mapContainerRef}
         id="yandex-map" 
         role="img" 
         aria-label="Карта расположения офиса RC-WEB в Алматы" 
-        className="w-full h-[280px] sm:h-[350px] lg:h-[400px] rounded-xl overflow-hidden"
-      />
-      {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800 rounded-xl" role="status" aria-live="polite">
-          <div className="animate-pulse text-secondary-400">
-            <span className="sr-only">Загрузка карты</span>
-            <span aria-hidden="true">Загрузка карты...</span>
+        className="w-full h-[280px] sm:h-[350px] lg:h-[400px] rounded-xl overflow-hidden relative"
+      >
+        {!isLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800 rounded-xl" role="status" aria-live="polite">
+            <div className="animate-pulse text-secondary-400">
+              <span className="sr-only">Загрузка карты</span>
+              <span aria-hidden="true">Загрузка карты...</span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   )
 }
