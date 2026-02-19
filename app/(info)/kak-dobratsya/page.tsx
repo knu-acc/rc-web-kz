@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
-import dynamic from 'next/dynamic'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
-
-const YandexMap = dynamic(() => import('@/components/sections/YandexMap').then(mod => ({ default: mod.YandexMap })), { loading: () => <div style={{ width: '100%', height: '400px' }} /> })
 
 export const metadata: Metadata = {
   title: 'Как добраться | Контакты RC-WEB.KZ в Алматы',
@@ -79,14 +76,6 @@ export default function KakDobratsyaPage() {
                   <strong>Режим работы:</strong> {SITE_CONFIG.businessHours.full}
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Карта */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Карта</h2>
-            <div className="rounded-xl overflow-hidden">
-              <YandexMap />
             </div>
           </div>
 

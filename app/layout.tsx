@@ -152,8 +152,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://mc.yandex.ru" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        {/* Yandex Maps API: preconnect для карт */}
-        <link rel="preconnect" href="https://api-maps.yandex.ru" crossOrigin="anonymous" />
         {/* DNS Prefetch для внешних доменов (без дублирования preconnect) */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
