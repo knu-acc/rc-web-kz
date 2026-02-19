@@ -75,8 +75,7 @@ export default function ReviewsPage() {
               <p className="text-white/70 text-lg">На основе 120+ отзывов</p>
 
               <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-                За всё время работы было выполнено более 120 проектов, и каждый отзыв — положительный. 
-                Наши клиенты довольны результатом и рекомендуют нас своим знакомым. Посмотрите наши работы в <Link href="/portfolio" className="text-primary-300 hover:underline font-semibold">портфолио</Link>.
+                Выполнено более 120 проектов, каждый отзыв — положительный. Клиенты довольны результатом и рекомендуют нас. Работы в <Link href="/portfolio" className="text-primary-300 hover:underline font-semibold">портфолио</Link>.
               </p>
 
               <div className="flex flex-wrap justify-center gap-5">

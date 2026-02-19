@@ -40,7 +40,7 @@ const navLinks: NavLink[] = [
       { href: '/corporate-site', label: 'Корпоративный сайт' },
       { href: '/online-store', label: 'Интернет-магазин' },
       { href: '/tilda-site', label: 'Сайт на Tilda' },
-      { href: '/seo-optimization', label: 'SEO оптимизация' },
+      { href: '/seo-optimization', label: 'SEO-оптимизация' },
       { href: '/website-advertising', label: 'Реклама сайта' },
       { href: '/web-design', label: 'Веб-дизайн' },
       { href: '/website-price', label: 'Цены на сайты' },

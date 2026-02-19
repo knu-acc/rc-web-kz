@@ -24,8 +24,8 @@ const benefits = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     ),
-    title: 'SEO оптимизация',
-    description: 'Сайты видны в Google и Яндекс. Семантическая разметка и метатеги.',
+    title: 'SEO-оптимизация',
+    description: 'Сайты видны в Google и Яндекс. Семантическая разметка Schema.org, метатеги, sitemap.xml.',
   },
   {
     icon: (
@@ -69,7 +69,7 @@ export function Benefits() {
             Почему выбирают <span className="gradient-text">нас</span>
           </h2>
           <p className="text-lg text-secondary-600 dark:text-secondary-300">
-            Мы создаём не просто сайты, а эффективные инструменты для развития вашего бизнеса
+            Создаём эффективные инструменты для развития бизнеса: быстрые, безопасные и оптимизированные для поисковых систем
           </p>
         </div>
 

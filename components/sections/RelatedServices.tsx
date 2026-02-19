@@ -21,13 +21,13 @@ const defaultServices: Service[] = [
     slug: '/landing-page',
     name: 'Landing Page',
     description: 'Одностраничный сайт для рекламы. Высокая конверсия, быстрый запуск.',
-    price: 'от 85 000 ₸',
+    price: 'от 135 000₸',
   },
   {
     slug: '/corporate-site',
     name: 'Корпоративный сайт',
     description: 'Многостраничный сайт для компании. Идеально для SEO-продвижения.',
-    price: 'от 85 000 ₸',
+    price: 'от 135 000₸',
   },
   {
     slug: '/online-store',

@@ -94,10 +94,10 @@ export default function KakDobratsyaPage() {
           <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-8">
             <h2 className="text-2xl font-bold mb-4">Встреча с клиентами</h2>
             <p className="text-lg text-secondary-700 dark:text-secondary-300 mb-4">
-              Мы можем встретиться с вами лично в Алматы для обсуждения проекта. Выезд на встречу бесплатно.
+              Можем встретиться лично в Алматы для обсуждения проекта. Выезд на встречу бесплатно.
             </p>
             <p className="text-lg text-secondary-700 dark:text-secondary-300">
-              Также мы проводим консультации онлайн через Google Meet, Zoom, Skype или другие платформы.
+              Также проводим консультации онлайн через Google Meet, Zoom, Skype или другие платформы.
             </p>
           </div>
         </div>

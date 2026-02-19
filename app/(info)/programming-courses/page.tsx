@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
@@ -32,12 +32,12 @@ const courses = [
     subtitle: 'HTML + CSS + JavaScript',
     duration: '2-3 месяца',
     level: 'С нуля',
-    price: 'от 40 000 тг/мес',
+    price: 'от 40 000₸/мес',
     gradient: 'from-blue-500 to-cyan-600',
     modules: [
-      { name: 'HTML  структура сайта', topics: ['Теги и атрибуты', 'Формы и таблицы', 'Семантическая разметка', 'Доступность (accessibility)'] },
-      { name: 'CSS  стили и дизайн', topics: ['Селекторы и каскад', 'Flexbox и Grid', 'Адаптивная верстка (media queries)', 'Анимации и переходы'] },
-      { name: 'JavaScript  интерактивность', topics: ['Переменные, функции, циклы', 'Работа с DOM', 'Обработка событий', 'Fetch API и работа с сервером'] },
+      { name: 'HTML — структура сайта', topics: ['Теги и атрибуты', 'Формы и таблицы', 'Семантическая разметка', 'Доступность (accessibility)'] },
+      { name: 'CSS — стили и дизайн', topics: ['Селекторы и каскад', 'Flexbox и Grid', 'Адаптивная верстка (media queries)', 'Анимации и переходы'] },
+      { name: 'JavaScript — интерактивность', topics: ['Переменные, функции, циклы', 'Работа с DOM', 'Обработка событий', 'Fetch API и работа с сервером'] },
       { name: 'Практика', topics: ['Верстка 3 реальных страниц', 'Адаптив для мобильных', 'Публикация на GitHub Pages', 'Код-ревью от наставника'] },
     ],
     result: 'Создадите 3 полноценные страницы и сможете верстать сайты на заказ',
@@ -47,11 +47,11 @@ const courses = [
     subtitle: 'React + Next.js + TypeScript',
     duration: '3-4 месяца',
     level: 'Нужны основы JS',
-    price: 'от 50 000 тг/мес',
+    price: 'от 50 000₸/мес',
     gradient: 'from-violet-500 to-purple-600',
     modules: [
-      { name: 'React  современный фронтенд', topics: ['Компоненты и JSX', 'State и Props', 'Хуки (useState, useEffect, useRef)', 'React Router'] },
-      { name: 'TypeScript  типизация', topics: ['Типы и интерфейсы', 'Generic типы', 'Типизация React-компонентов', 'Строгая проверка типов'] },
+      { name: 'React — современный фронтенд', topics: ['Компоненты и JSX', 'State и Props', 'Хуки (useState, useEffect, useRef)', 'React Router'] },
+      { name: 'TypeScript — типизация', topics: ['Типы и интерфейсы', 'Generic типы', 'Типизация React-компонентов', 'Строгая проверка типов'] },
       { name: 'Next.js  фуллстек фреймворк', topics: ['Серверный рендеринг (SSR, SSG)', 'App Router и маршрутизация', 'API Routes', 'Оптимизация и SEO'] },
       { name: 'Практика', topics: ['Создание SPA-приложения', 'Деплой на Vercel/Netlify', 'Работа с базой данных (Supabase)', 'Создание полноценного проекта для портфолио'] },
     ],

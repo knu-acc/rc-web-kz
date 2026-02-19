@@ -139,8 +139,7 @@ export default function WebsiteAdvertisingPage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-                Настройка и ведение рекламных кампаний в Google Ads и Яндекс.Директ для вашего сайта. Эффективное 
-                привлечение клиентов, оптимизация бюджета и увеличение продаж. Идеально для <Link href="/landing-page" className="text-red-600 hover:underline font-semibold">лендингов</Link>.
+                Настройка и ведение рекламных кампаний в Google Ads и Яндекс.Директ для вашего сайта. Эффективное привлечение клиентов, оптимизация бюджета и увеличение продаж. Идеально для <Link href="/landing-page" className="text-red-600 hover:underline font-semibold">лендингов</Link>.
               </p>
 
               <div className="flex flex-wrap gap-4">

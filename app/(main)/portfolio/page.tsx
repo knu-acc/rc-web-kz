@@ -55,7 +55,7 @@ export default function PortfolioPage() {
                   Примеры выполненных работ
                 </h1>
                 <p className="mt-3 text-secondary-600 dark:text-secondary-300 max-w-xl">
-                  Создание сайтов в Алматы — полное портфолио. Каждый сайт создан под задачи клиента.
+                  Полное портфолио выполненных работ. Каждый сайт создан под задачи клиента.
                 </p>
                 <p className="mt-2 text-sm text-secondary-500 dark:text-secondary-400">
                   {portfolioItems.length} проектов

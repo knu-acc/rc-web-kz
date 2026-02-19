@@ -39,8 +39,7 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg lg:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed stagger-3 animate-in">
-              Создаём сайты с 2020 года. Более 120 проектов, SEO-оптимизация, бесплатная техподдержка. Лендинги, корпоративные сайты, интернет-магазины.
-              Срок сдачи — 5–10 дней.
+              Профессиональная разработка сайтов с SEO-оптимизацией и бесплатной техподдержкой. Лендинги, корпоративные сайты, интернет-магазины. Срок разработки — 5–10 дней.
             </p>
 
             {/* CTA buttons */}
@@ -67,11 +66,11 @@ export function Hero() {
             <div className="grid grid-cols-2 gap-6 pt-4 stagger-5 animate-in">
               <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent mb-1">120+</div>
-                <p className="text-sm text-secondary-600 dark:text-secondary-300">Проектов выполнено с 2020 года</p>
+                <p className="text-sm text-secondary-600 dark:text-secondary-300">Проектов выполнено</p>
               </div>
               <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent mb-1">5 лет</div>
-                <p className="text-sm text-secondary-600 dark:text-secondary-300">Создаём сайты для клиентов по Казахстану</p>
+                <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent mb-1">&lt; 2 сек</div>
+                <p className="text-sm text-secondary-600 dark:text-secondary-300">Средняя скорость загрузки</p>
               </div>
             </div>
           </div>

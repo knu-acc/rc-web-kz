@@ -151,8 +151,7 @@ export default function LandingPagePage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-                Создаём высококонверсионные Landing Page для вашего бизнеса. Идеальное решение для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">Google-рекламы</Link>,
-                запуска новых продуктов и увеличения продаж. Современный дизайн, быстрая загрузка, мобильная адаптация.
+                Создаём высококонверсионные Landing Page для бизнеса. Идеально для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">Google-рекламы</Link>, запуска продуктов и увеличения продаж. Современный дизайн, быстрая загрузка, мобильная адаптация.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -312,13 +311,10 @@ export default function LandingPagePage() {
             <div>
               <h2 className="heading-lg mb-6">Что такое Landing Page?</h2>
               <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-4 leading-relaxed">
-                Landing Page (лендинг) — это одностраничный сайт, созданный специально для достижения одной цели:
-                конверсии посетителя в клиента. В отличие от <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">многостраничных сайтов</Link>, лендинг фокусируется на конкретном
-                предложении и ведёт пользователя к одному действию — заказу, звонку или заявке. Подробнее о том, <Link href="/blog/kak-sozdat-sajt-almaty-2026" className="text-primary-600 hover:underline font-semibold">как создать сайт в Алматы</Link>, читайте в нашем блоге.
+                Landing Page (лендинг) — одностраничный сайт для конверсии посетителя в клиента. В отличие от <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">многостраничных сайтов</Link>, лендинг фокусируется на конкретном предложении и ведёт к одному действию — заказу, звонку или заявке. Подробнее о том, <Link href="/blog/kak-sozdat-sajt-almaty-2026" className="text-primary-600 hover:underline font-semibold">как создать сайт в Алматы</Link>, — в блоге.
               </p>
               <p className="text-lg text-secondary-600 dark:text-secondary-300 mb-6 leading-relaxed">
-                Такие сайты особенно эффективны для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">контекстной рекламы</Link> в Google и Яндекс, так как пользователь сразу
-                попадает на релевантную страницу с нужной информацией, без необходимости искать её на сайте. Для долгосрочного продвижения также рекомендуем <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-оптимизацию</Link> и <Link href="/blog/landing-page-vs-korporativnyj-sajt" className="text-primary-600 hover:underline font-semibold">выбор между Landing Page и корпоративным сайтом</Link>.
+                Особенно эффективны для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">контекстной рекламы</Link> в Google и Яндекс — пользователь сразу попадает на релевантную страницу. Для долгосрочного продвижения рекомендуем <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-оптимизацию</Link> и <Link href="/blog/landing-page-vs-korporativnyj-sajt" className="text-primary-600 hover:underline font-semibold">выбор между Landing Page и корпоративным сайтом</Link>.
               </p>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">

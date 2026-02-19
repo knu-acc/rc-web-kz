@@ -18,10 +18,7 @@ export function Portfolio() {
               Примеры <span className="gradient-text">выполненных работ</span>
             </h2>
             <p className="mt-3 text-secondary-600 dark:text-secondary-300">
-              Создание сайтов в Алматы — полное портфолио проектов. Каждый сайт уникален и создан под задачи клиента.
-            </p>
-            <p className="mt-2 text-sm text-secondary-500 dark:text-secondary-400">
-              Это раздел на главной. Полная страница с фильтром и всеми проектами — по кнопке справа.
+              Примеры выполненных проектов. Каждый сайт уникален и создан под задачи клиента.
             </p>
           </div>
           <Link

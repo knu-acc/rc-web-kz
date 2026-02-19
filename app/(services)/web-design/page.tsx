@@ -146,8 +146,7 @@ export default function WebDesignPage() {
               </h1>
 
               <p className="text-lg sm:text-xl max-w-xl leading-relaxed text-secondary-600 dark:text-secondary-300">
-                Создаём уникальный дизайн для вашего сайта, который отражает ваш бренд и привлекает клиентов. 
-                Современные тренды, удобный интерфейс, адаптивность для всех устройств. Посмотрите наши работы в <Link href="/portfolio" className="text-purple-600 hover:underline font-semibold">портфолио</Link>.
+                Создаём уникальный дизайн для сайта, который отражает ваш бренд и привлекает клиентов. Современные тренды, удобный интерфейс, адаптивность для всех устройств. Работы в <Link href="/portfolio" className="text-purple-600 hover:underline font-semibold">портфолио</Link>.
               </p>
 
               <div className="flex flex-wrap gap-4">

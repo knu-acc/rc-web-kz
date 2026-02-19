@@ -36,7 +36,7 @@ const benefits = [
       </svg>
     ),
     title: 'Качество разработки',
-    description: 'За всё время работы было выполнено более 120 проектов, и каждый отзыв — положительный. Все отзывы вы можете посмотреть на странице <Link href="/reviews" className="text-secondary-300 hover:underline font-semibold">отзывов</Link>.',
+    description: 'Выполнено более 120 проектов, каждый отзыв — положительный. Все отзывы — на странице <Link href="/reviews" className="text-secondary-300 hover:underline font-semibold">отзывов</Link>.',
     gradient: 'from-emerald-500 to-teal-600',
     linkText: 'отзывов',
     linkHref: '/reviews',
@@ -48,7 +48,7 @@ const benefits = [
       </svg>
     ),
     title: 'Поддержка клиентов',
-    description: 'Практически все клиенты рано или поздно просят внести мелкие корректировки на сайт. Практически во всех случаях мы делаем такую работу абсолютно БЕСПЛАТНО.',
+    description: 'Клиенты часто просят внести мелкие корректировки на сайт. В большинстве случаев делаем такую работу бесплатно.',
     gradient: 'from-blue-500 to-cyan-600',
   },
   {
@@ -58,7 +58,7 @@ const benefits = [
       </svg>
     ),
     title: 'Комплексная услуга',
-    description: 'Мы делаем всё вместе: создание сайта, дизайн и правки. Клиенту остаётся только заплатить за настройку рекламы (по желанию).',
+    description: 'Делаем всё: создание сайта, дизайн и правки. Клиенту остаётся только заплатить за настройку рекламы (по желанию).',
     gradient: 'from-violet-500 to-purple-600',
   },
   {
@@ -68,7 +68,7 @@ const benefits = [
       </svg>
     ),
     title: 'Доступные цены',
-    description: 'Цены по созданию сайтов подходят для большинства клиентов. Прозрачное ценообразование без скрытых платежей. Посмотрите <Link href="/website-price" className="text-secondary-300 hover:underline font-semibold">цены на сайты</Link>.',
+    description: 'Доступные цены для большинства клиентов. Прозрачное ценообразование без скрытых платежей. Посмотрите <Link href="/website-price" className="text-secondary-300 hover:underline font-semibold">цены на сайты</Link>.',
     gradient: 'from-amber-500 to-orange-600',
     linkText: 'цены на сайты',
     linkHref: '/website-price',
@@ -80,7 +80,7 @@ const benefits = [
       </svg>
     ),
     title: 'Быстрая разработка',
-    description: 'Средний срок разработки сайта — 3-10 дней в зависимости от сложности. Быстрее, чем у большинства конкурентов.',
+    description: 'Средний срок разработки — 5-10 дней в зависимости от сложности. Быстрее большинства конкурентов.',
     gradient: 'from-rose-500 to-pink-600',
   },
   {

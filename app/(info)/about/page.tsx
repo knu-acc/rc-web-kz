@@ -67,7 +67,7 @@ export default function AboutPage() {
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">О компании</span>
           <h1 className="heading-xl text-white mb-6">RC-WEB<span className="gradient-text">.KZ</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Веб-студия в Алматы. Создаем сайты для бизнеса с 2020 года. Более {SITE_CONFIG.projectsCount} проектов, современные технологии, индивидуальный подход.
+            Веб-студия в Алматы. Создаём сайты для бизнеса с 2020 года. {SITE_CONFIG.projectsCount} проектов, современные технологии, индивидуальный подход к каждому клиенту.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {[
@@ -90,7 +90,7 @@ export default function AboutPage() {
         <div className="container-custom max-w-3xl">
           <div className="text-left md:text-center mb-12">
             <h2 className="heading-lg mb-4">Наша <span className="gradient-text">история</span></h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">Путь от первого лендинга до 120+ проектов</p>
+            <p className="text-lg text-secondary-600 dark:text-secondary-300">От первого лендинга до {SITE_CONFIG.projectsCount} проектов</p>
           </div>
           <div className="space-y-8">
             {timeline.map((item, index) => (

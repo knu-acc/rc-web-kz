@@ -9,11 +9,11 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'SEO продвижение сайтов в Алматы | СЕО оптимизация - RC-WEB.KZ',
-  description: 'SEO-продвижение сайтов в Алматы. Вывод в топ Google и Яндекс, увеличение трафика, улучшение позиций. Техническая и контентная оптимизация. Заказать SEO-продвижение.',
-  keywords: ['SEO оптимизация Алматы', 'продвижение сайта', 'сео Алматы', 'оптимизация сайта'],
+  title: 'SEO-продвижение сайтов в Алматы | Оптимизация для Google и Яндекс - RC-WEB.KZ',
+  description: 'SEO-продвижение сайтов в Алматы. Вывод в топ Google и Яндекс, увеличение органического трафика, улучшение позиций. Техническая и контентная оптимизация. Заказать SEO.',
+  keywords: ['SEO-оптимизация Алматы', 'продвижение сайта Алматы', 'SEO Алматы', 'оптимизация сайта Алматы', 'продвижение в Google', 'продвижение в Яндекс'],
   openGraph: {
-    title: 'SEO оптимизация сайта в Алматы',
+    title: 'SEO-оптимизация сайта в Алматы',
     description: 'Профессиональное продвижение сайтов в поисковых системах',
     url: `${SITE_CONFIG.url}/seo-optimization`,
     images: [
@@ -78,12 +78,12 @@ const beforeAfter = [
 
 export default function SEOOptimizationPage() {
   const serviceSchema = generateServiceSchema({
-    name: 'SEO оптимизация',
+    name: 'SEO-оптимизация',
     description: 'SEO-оптимизация и продвижение сайтов в Алматы',
   })
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Главная', url: SITE_CONFIG.url },
-    { name: 'SEO оптимизация', url: `${SITE_CONFIG.url}/seo-optimization` },
+    { name: 'SEO-оптимизация', url: `${SITE_CONFIG.url}/seo-optimization` },
   ])
 
   return (
@@ -109,7 +109,7 @@ export default function SEOOptimizationPage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
                 </span>
-                SEO оптимизация в Алматы
+                SEO-продвижение в Алматы
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
@@ -121,8 +121,7 @@ export default function SEOOptimizationPage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-                Профессиональная SEO-оптимизация вашего сайта для продвижения в Google и Яндекс. Увеличиваем органический 
-                трафик, улучшаем позиции в поисковой выдаче и помогаем привлекать клиентов без <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">рекламы</Link>.
+                Профессиональная SEO-оптимизация для продвижения в Google и Яндекс. Увеличиваем органический трафик, улучшаем позиции в поисковой выдаче. Привлекаем клиентов без <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">платной рекламы</Link>.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -157,7 +156,7 @@ export default function SEOOptimizationPage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-teal-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
-                    alt="SEO оптимизация сайта в Алматы"
+                    alt="SEO-оптимизация сайта в Алматы"
                     width={600}
                     height={450}
                     className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
@@ -213,7 +212,7 @@ export default function SEOOptimizationPage() {
               Результаты
             </span>
             <h2 className="heading-lg mb-6">
-              До и после <span className="gradient-text">SEO оптимизации</span>
+              До и после <span className="gradient-text">SEO-оптимизации</span>
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Примеры роста трафика и позиций после оптимизации
@@ -253,15 +252,13 @@ export default function SEOOptimizationPage() {
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-bold mb-2">Органический трафик</h3>
                 <p className="text-secondary-600 dark:text-secondary-300">
-                  Правильная SEO-оптимизация позволяет привлекать клиентов из поисковых систем без платной рекламы, 
-                  что экономит бюджет на маркетинг. В отличие от <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">контекстной рекламы</Link>, результаты работают постоянно. Подробнее о <Link href="/blog/seo-prodvizhenie-almaty" className="text-primary-600 hover:underline font-semibold">SEO-продвижении в Алматы</Link> читайте в нашем блоге.
+                  Правильная SEO-оптимизация привлекает клиентов из поисковых систем без платной рекламы, экономя бюджет. В отличие от <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">контекстной рекламы</Link>, результаты работают постоянно. Подробнее о <Link href="/blog/seo-prodvizhenie-almaty" className="text-primary-600 hover:underline font-semibold">SEO-продвижении</Link> — в блоге.
                 </p>
               </div>
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-bold mb-2">Долгосрочный результат</h3>
                 <p className="text-secondary-600 dark:text-secondary-300">
-                  Результаты SEO работают постоянно и накапливаются со временем, обеспечивая стабильный поток клиентов. 
-                  Особенно эффективно для <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">многостраничных сайтов</Link>. Узнайте, <Link href="/blog/kak-uvelichit-zayavki-s-sajta" className="text-primary-600 hover:underline font-semibold">как увеличить заявки с сайта</Link> без рекламы.
+                  Результаты SEO работают постоянно и накапливаются со временем, обеспечивая стабильный поток клиентов. Особенно эффективно для <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">многостраничных сайтов</Link>. Узнайте, <Link href="/blog/kak-uvelichit-zayavki-s-sajta" className="text-primary-600 hover:underline font-semibold">как увеличить заявки</Link> без рекламы.
                 </p>
               </div>
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -279,7 +276,7 @@ export default function SEOOptimizationPage() {
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-left md:text-center mb-12">
-            <h2 className="heading-lg mb-4">Процесс SEO оптимизации</h2>
+            <h2 className="heading-lg mb-4">Процесс SEO-оптимизации</h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Пошаговый подход к продвижению вашего сайта</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
@@ -345,13 +342,13 @@ export default function SEOOptimizationPage() {
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько стоит SEO-оптимизация сайта в Алматы?</h3>
                 <p className="text-secondary-600 dark:text-secondary-300">
-                  Стоимость SEO-оптимизации зависит от объёма работ и текущего состояния сайта. Базовая оптимизация начинается от 50 000 ₸. Подробнее о ценах и процессе читайте в статье <Link href="/blog/seo-prodvizhenie-almaty" className="text-primary-600 hover:underline font-semibold">SEO-продвижение в Алматы</Link>.
+                  Стоимость зависит от объёма работ и текущего состояния сайта. Базовая оптимизация — от 50 000₸. Подробнее о ценах и процессе — в статье <Link href="/blog/seo-prodvizhenie-almaty" className="text-primary-600 hover:underline font-semibold">SEO-продвижение в Алматы</Link>.
                 </p>
               </div>
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">Сколько времени нужно для получения результатов SEO?</h3>
                 <p className="text-secondary-600 dark:text-secondary-300">
-                  Первые результаты SEO-оптимизации обычно появляются через 3-6 месяцев после начала работ. Это связано с тем, что поисковым системам нужно время на индексацию изменений и оценку качества сайта.
+                  Первые результаты обычно появляются через 3-6 месяцев после начала работ. Поисковым системам нужно время на индексацию изменений и оценку качества сайта.
                 </p>
               </div>
               <div className="bg-white dark:bg-secondary-950 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">

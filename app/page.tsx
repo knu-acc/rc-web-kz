@@ -31,7 +31,7 @@ const CTA = dynamic(() => import('@/components/sections/CTA').then(mod => ({ def
 
 export const metadata: Metadata = {
   title: SITE_CONFIG.title,
-  description: 'Создание сайтов в Алматы с 2020 года. 120+ проектов. От 85 000₸. SEO-оптимизация. Техподдержка бесплатно. Срок 5-10 дней. Лендинги, корпоративные сайты, интернет-магазины.',
+  description: 'Создание сайтов в Алматы от 85 000₸. 120+ проектов, SEO-оптимизация, бесплатная техподдержка. Срок 5-10 дней. Лендинги, корпоративные сайты, интернет-магазины.',
   keywords: [
     'создание сайтов Алматы',
     'разработка сайтов Алматы',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: SITE_CONFIG.title,
-    description: 'Создание сайтов в Алматы с 2020 года. 120+ проектов под ключ от 85 000₸.',
+    description: 'Создание сайтов в Алматы от 85 000₸. 120+ проектов под ключ с SEO-оптимизацией.',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     images: [

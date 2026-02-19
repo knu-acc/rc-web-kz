@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import Link from 'next/link'
@@ -77,8 +77,7 @@ export default function DistrictsPage() {
           <div className="mt-12 bg-primary-50 rounded-xl p-8 text-left md:text-center">
             <h2 className="text-2xl font-bold mb-4">Работаем по всему Казахстану</h2>
             <p className="text-lg text-secondary-700 dark:text-secondary-300 mb-6">
-              Хотя наш офис находится в Алматы, мы создаём сайты для клиентов по всему Казахстану.
-              Консультации и обсуждение проекта можем провести онлайн.
+              Хотя наш офис находится в Алматы, мы создаём сайты для клиентов по всему Казахстану. Консультации и обсуждение проекта проводим онлайн.
             </p>
             <Link
               href="/contact"
