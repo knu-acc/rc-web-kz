@@ -31,69 +31,51 @@ export const metadata: Metadata = {
 const benefits = [
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     title: 'Качество разработки',
-    description: 'Выполнено более 120 проектов, каждый отзыв — положительный. Все отзывы — на странице <Link href="/reviews" className="text-secondary-300 hover:underline font-semibold">отзывов</Link>.',
-    gradient: 'from-emerald-500 to-teal-600',
-    linkText: 'отзывов',
-    linkHref: '/reviews',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     ),
     title: 'Поддержка клиентов',
-    description: 'Клиенты часто просят внести мелкие корректировки на сайт. В большинстве случаев делаем такую работу бесплатно.',
-    gradient: 'from-blue-500 to-cyan-600',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
       </svg>
     ),
     title: 'Комплексная услуга',
-    description: 'Делаем всё: создание сайта, дизайн и правки. Клиенту остаётся только заплатить за настройку рекламы (по желанию).',
-    gradient: 'from-violet-500 to-purple-600',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     title: 'Доступные цены',
-    description: 'Доступные цены для большинства клиентов. Прозрачное ценообразование без скрытых платежей. Посмотрите <Link href="/website-price" className="text-secondary-300 hover:underline font-semibold">цены на сайты</Link>.',
-    gradient: 'from-amber-500 to-orange-600',
-    linkText: 'цены на сайты',
-    linkHref: '/website-price',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
     title: 'Быстрая разработка',
-    description: 'Средний срок разработки — 5-10 дней в зависимости от сложности. Быстрее большинства конкурентов.',
-    gradient: 'from-rose-500 to-pink-600',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     ),
     title: 'SEO-оптимизация',
-    description: 'Все сайты включают базовую SEO-оптимизацию для продвижения в поисковых системах. Дополнительно можно заказать <Link href="/seo-optimization" className="text-secondary-300 hover:underline font-semibold">полную SEO-оптимизацию</Link>.',
-    gradient: 'from-indigo-500 to-blue-600',
-    linkText: 'полную SEO-оптимизацию',
-    linkHref: '/seo-optimization',
   },
 ]
 
@@ -190,8 +172,8 @@ export default function WhyChooseUsPage() {
         </div>
       </section>
 
-      {/* Benefits Bento Grid */}
-      <section className="section bg-secondary-900 text-white relative">
+      {/* Benefits - Unified style */}
+      <section className="section bg-white dark:bg-secondary-950 relative">
         <div className="container-custom">
           <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
@@ -202,27 +184,23 @@ export default function WhyChooseUsPage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {benefits.map((benefit, index) => (
+          {/* Benefits grid - unified style like homepage */}
+          <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4">
+            {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="group relative rounded-2xl p-5 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2.5 md:py-3 rounded-xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
+                           hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md 
+                           transition-all duration-300"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-4`}>
+                {/* Icon - 2 colors for 2 themes */}
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {benefit.linkText && benefit.linkHref ? (
-                    <>
-                      {benefit.description.split(benefit.linkText)[0]}
-                      <Link href={benefit.linkHref} className="text-secondary-300 hover:underline font-semibold">{benefit.linkText}</Link>
-                      {benefit.description.split(benefit.linkText)[1] || ''}
-                    </>
-                  ) : (
-                    benefit.description
-                  )}
-                </p>
+                {/* Title */}
+                <h3 className="text-sm md:text-base font-semibold text-secondary-900 dark:text-white">
+                  {benefit.title}
+                </h3>
               </div>
             ))}
           </div>

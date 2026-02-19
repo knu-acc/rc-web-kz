@@ -41,7 +41,7 @@ export function Portfolio() {
               className="group relative"
             >
               {/* Image container */}
-              <div className="relative overflow-hidden rounded-2xl bg-secondary-100 dark:bg-secondary-800 aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-2xl bg-secondary-100 dark:bg-secondary-800 aspect-[4/3] border border-secondary-200 dark:border-secondary-700">
                 <Image
                   src={item.image}
                   alt={`${item.title} - пример работы`}

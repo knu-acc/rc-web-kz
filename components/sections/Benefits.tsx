@@ -70,22 +70,22 @@ export function Benefits() {
           </h2>
         </div>
 
-        {/* Benefits horizontal list */}
-        <div className="flex flex-wrap justify-center gap-4">
+        {/* Benefits grid - 2 columns on mobile, centered on desktop */}
+        <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4">
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
+              className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2.5 md:py-3 rounded-xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
                          hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md 
                          transition-all duration-300"
             >
-              {/* Icon */}
-              <div className="w-8 h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 flex items-center justify-center flex-shrink-0">
+              {/* Icon - 2 colors for 2 themes */}
+              <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
                 {benefit.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-base font-semibold text-secondary-900 dark:text-white whitespace-nowrap">
+              <h3 className="text-sm md:text-base font-semibold text-secondary-900 dark:text-white">
                 {benefit.title}
               </h3>
             </div>

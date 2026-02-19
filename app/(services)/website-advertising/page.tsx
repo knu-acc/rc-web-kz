@@ -56,35 +56,27 @@ const adTypes = [
 const advantages = [
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
     title: 'Быстрый результат',
-    description: 'В отличие от SEO, контекстная реклама начинает работать сразу после запуска',
-    gradient: 'from-emerald-500 to-teal-600',
-    linkText: 'SEO',
-    linkHref: '/seo-optimization',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
     title: 'Точный таргетинг',
-    description: 'Настройка рекламы под конкретную целевую аудиторию по географии, возрасту, интересам',
-    gradient: 'from-violet-500 to-purple-600',
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     title: 'Контроль бюджета',
-    description: 'Вы устанавливаете дневной бюджет и максимальную стоимость клика, полностью контролируя расходы',
-    gradient: 'from-amber-500 to-orange-600',
   },
 ]
 
@@ -226,42 +218,35 @@ export default function WebsiteAdvertisingPage() {
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="section bg-secondary-900 text-white relative">
+      {/* Advantages - Unified style */}
+      <section className="section bg-white dark:bg-secondary-950 relative">
         <div className="container-custom">
-          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Преимущества
             </span>
-            <h2 className="heading-lg mb-6 text-white">
+            <h2 className="heading-lg mb-4">
               Почему выбирают <span className="gradient-text">контекстную рекламу</span>
             </h2>
-            <p className="text-lg text-white/80">
-              Быстрый способ привлечения клиентов с полным контролем бюджета
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {advantages.map((advantage, index) => (
+          {/* Benefits grid - unified style like homepage */}
+          <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4">
+            {advantages.map((advantage) => (
               <div
                 key={advantage.title}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2.5 md:py-3 rounded-xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
+                           hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md 
+                           transition-all duration-300"
               >
-                {/* Gradient glow on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${advantage.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                {/* Icon - 2 colors for 2 themes */}
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
                   {advantage.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{advantage.title}</h3>
-                <p className="text-white/70 leading-relaxed relative z-10">
-                  {advantage.linkText ? (
-                    <>
-                      В отличие от <Link href={advantage.linkHref || '#'} className="text-primary-300 hover:underline font-semibold">{advantage.linkText}</Link>, {advantage.description.split(advantage.linkText)[1]}
-                    </>
-                  ) : (
-                    advantage.description
-                  )}
-                </p>
+                {/* Title */}
+                <h3 className="text-sm md:text-base font-semibold text-secondary-900 dark:text-white">
+                  {advantage.title}
+                </h3>
               </div>
             ))}
           </div>
