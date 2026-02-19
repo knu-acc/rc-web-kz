@@ -197,7 +197,7 @@ export default function CorporateSitePage() {
                   <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Страниц сайта</p>
                 </div>
                 <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">6-10</div>
+                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">7-10</div>
                   <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Дней разработки</p>
                 </div>
               </div>

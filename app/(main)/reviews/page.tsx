@@ -145,8 +145,8 @@ export default function ReviewsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Гарантия качества</h3>
-              <p className="text-white/70">Каждый проект мы доводим до идеала. Вносим правки до полного удовлетворения клиента.</p>
+              <h3 className="text-xl font-bold text-white mb-3">Качество работы</h3>
+              <p className="text-white/70">Каждый проект доводим до идеала. Вносим правки до полного удовлетворения клиента.</p>
             </div>
             <div className="text-left md:text-center">
               <div className="w-14 h-14 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
@@ -183,7 +183,7 @@ export default function ReviewsPage() {
             <h2 className="heading-lg mb-6 text-white">Станьте нашим клиентом</h2>
             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
               Присоединяйтесь к более чем 120 довольным клиентам. Создадим для вас профессиональный сайт 
-              с гарантией качества и поддержкой.
+              с техобслуживанием 30 дней после запуска.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 

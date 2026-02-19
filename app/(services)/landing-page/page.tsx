@@ -10,7 +10,7 @@ const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').
 
 export const metadata: Metadata = {
   title: 'Создание Landing Page в Алматы от 85 000₸ | Лендинг под ключ - RC-WEB.KZ',
-  description: 'Разработка продающих лендингов в Алматы от 85 000₸. Высокая конверсия, современный дизайн, SEO-оптимизация. ✓ Бесплатная техподдержка ✓ Срок 3-5 дней. Заказать создание landing page.',
+  description: 'Разработка продающих лендингов в Алматы от 85 000₸. Высокая конверсия, современный дизайн, SEO-оптимизация. ✓ 30 дней техобслуживания ✓ Срок 3-5 дней. Заказать создание landing page.',
   keywords: [
     'landing page Алматы',
     'одностраничный сайт Алматы',
@@ -384,7 +384,7 @@ export default function LandingPagePage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary-600">✓</span>
-                    <span>Бесплатная поддержка на начальном этапе</span>
+                    <span>30 дней техобслуживания после запуска</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary-600">✓</span>

@@ -27,7 +27,6 @@ const footerLinks = {
   company: [
     { label: 'О нас', href: '/about' },
     { label: 'Процесс работы', href: '/process' },
-    { label: 'Гарантии', href: '/guarantees' },
     { label: 'Технологии', href: '/technologies' },
     { label: 'Почему выбирают', href: '/why-choose-us' },
     { label: 'Глоссарий', href: '/glossary' },

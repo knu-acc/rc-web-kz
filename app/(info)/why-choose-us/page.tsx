@@ -193,29 +193,26 @@ export default function WhyChooseUsPage() {
       {/* Benefits Bento Grid */}
       <section className="section bg-secondary-900 text-white relative">
         <div className="container-custom">
-          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
               Преимущества
             </span>
-            <h2 className="heading-lg mb-6 text-white">
+            <h2 className="heading-lg mb-4 text-white">
               Наши <span className="gradient-text">преимущества</span>
             </h2>
-            <p className="text-lg text-white/80">
-              Почему клиенты выбирают нас для создания сайтов
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {benefits.map((benefit, index) => (
               <div
                 key={benefit.title}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group relative rounded-2xl p-5 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 shadow-soft hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-5`}>
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${benefit.gradient} text-white flex items-center justify-center mb-4`}>
                   {benefit.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
-                <p className="text-white/70 leading-relaxed">
+                <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
+                <p className="text-white/70 text-sm leading-relaxed">
                   {benefit.linkText && benefit.linkHref ? (
                     <>
                       {benefit.description.split(benefit.linkText)[0]}
@@ -235,16 +232,13 @@ export default function WhyChooseUsPage() {
       {/* Stats Section */}
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
+          <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
               Достижения
             </span>
-            <h2 className="heading-lg mb-6">
+            <h2 className="heading-lg mb-4">
               <span className="gradient-text">Достижения</span>
             </h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">
-              Цифры, которые говорят сами за себя
-            </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -261,9 +255,8 @@ export default function WhyChooseUsPage() {
       {/* Process */}
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom">
-          <div className="text-left md:text-center mb-12">
+          <div className="text-left md:text-center mb-10">
             <h2 className="heading-lg mb-4">Процесс работы</h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">Как мы работаем с клиентами</p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
@@ -275,52 +268,6 @@ export default function WhyChooseUsPage() {
                 <p className="text-secondary-600 dark:text-secondary-300 text-sm">{step.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Preview */}
-      <section className="section bg-white dark:bg-secondary-950">
-        <div className="container-custom">
-          <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
-              Отзывы
-            </span>
-            <h2 className="heading-lg mb-6">
-              Отзывы <span className="gradient-text">клиентов</span>
-            </h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">
-              Что говорят клиенты
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-            {[
-              { name: 'Александр К.', text: 'Заказал корпоративный сайт. Всё сделали быстро и качественно. Рекомендую!', rating: 5 },
-              { name: 'Мария С.', text: 'Создали интернет-магазин. Очень удобная админка. Спасибо за работу!', rating: 5 },
-              { name: 'Дмитрий В.', text: 'Landing Page для рекламы. Дизайн отличный, конверсия высокая. Доволен!', rating: 5 },
-            ].map((review, index) => (
-              <div key={review.name} className="card p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <svg key={`star-${i}`} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-secondary-700 dark:text-secondary-300 mb-3">"{review.text}"</p>
-                <p className="font-bold text-secondary-900 dark:text-white">{review.name}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-left md:text-center">
-            <Link href="/reviews" className="btn-outline">
-              Все отзывы
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
           </div>
         </div>
       </section>

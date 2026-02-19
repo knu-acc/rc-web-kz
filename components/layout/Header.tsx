@@ -52,7 +52,6 @@ const navLinks: NavLink[] = [
     submenu: [
       { href: '/about', label: 'О нас' },
       { href: '/process', label: 'Процесс работы' },
-      { href: '/guarantees', label: 'Гарантии' },
       { href: '/technologies', label: 'Технологии' },
       { href: '/why-choose-us', label: 'Почему выбирают' },
     ]

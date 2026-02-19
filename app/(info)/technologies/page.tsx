@@ -34,7 +34,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
     techs: [
       {
         name: 'Next.js 15',
-        description: 'Ведущий фреймворк для React от Vercel с серверным рендерингом, статической генерацией и встроенной SEO-оптимизацией.',
+        description: 'Фреймворк для React с серверным рендерингом и встроенной SEO-оптимизацией.',
         why: 'Максимальная производительность (PageSpeed 95+), отличное SEO, быстрая разработка.',
         features: ['Серверный рендеринг (SSR / SSG)', 'Автоматическая оптимизация изображений', 'Встроенная маршрутизация', 'Edge Runtime'],
         gradient: 'from-gray-800 to-gray-900',
@@ -46,7 +46,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
       },
       {
         name: 'React 19',
-        description: 'Самая популярная библиотека для создания интерактивных интерфейсов с компонентным подходом.',
+        description: 'Библиотека для создания интерактивных интерфейсов с компонентным подходом.',
         why: 'Огромная экосистема, переиспользование компонентов, высокая производительность.',
         features: ['Компонентный подход', 'Virtual DOM', 'React Server Components', 'Hooks API'],
         gradient: 'from-cyan-500 to-blue-600',
@@ -58,7 +58,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
       },
       {
         name: 'TypeScript',
-        description: 'Надстройка над JavaScript со строгой типизацией. Снижает количество ошибок на 40% по данным исследований.',
+        description: 'Надстройка над JavaScript со строгой типизацией для снижения ошибок.',
         why: 'Меньше багов, лучше автодополнение, проще поддерживать проект в будущем.',
         features: ['Строгая типизация', 'Автодополнение в IDE', 'Раннее обнаружение ошибок', 'Рефакторинг без страха'],
         gradient: 'from-blue-600 to-blue-800',
@@ -70,7 +70,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
       },
       {
         name: 'Tailwind CSS',
-        description: 'Utility-first CSS фреймворк для быстрой разработки современного адаптивного дизайна.',
+        description: 'Utility-first CSS фреймворк для быстрой разработки адаптивного дизайна.',
         why: 'В 3 раза быстрее классического CSS, консистентный дизайн, лёгкая поддержка.',
         features: ['Utility-first подход', 'Responsive по умолчанию', 'Тёмная тема за 5 минут', 'Минимальный CSS-бандл (tree-shaking)'],
         gradient: 'from-teal-500 to-cyan-600',
@@ -88,7 +88,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
     techs: [
       {
         name: 'Figma',
-        description: 'Профессиональный инструмент для UI/UX-дизайна, прототипирования и совместной работы в реальном времени.',
+        description: 'Инструмент для UI/UX-дизайна и прототипирования с совместной работой.',
         why: 'Главный инструмент дизайнеров в 2024. Позволяет согласовать дизайн до разработки.',
         features: ['Совместная работа в реальном времени', 'Интерактивные прототипы', 'UI-kit и компоненты', 'Экспорт в SVG, PNG, CSS'],
         gradient: 'from-pink-500 to-rose-600',
@@ -106,7 +106,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
     techs: [
       {
         name: 'Tilda Publishing',
-        description: 'Популярный конструктор сайтов для быстрого создания посадочных страниц и простых сайтов без программирования.',
+        description: 'Конструктор сайтов для быстрого создания посадочных страниц без программирования.',
         why: 'Для проектов, где нужен быстрый запуск (35 дней) и простое управление контентом.',
         features: ['550+ готовых блоков', 'Zero-code редактор', 'Встроенная CRM и формы', 'SEO-настройки'],
         gradient: 'from-amber-500 to-orange-600',
@@ -124,7 +124,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
     techs: [
       {
         name: 'Netlify / Vercel',
-        description: 'Облачные платформы для хостинга JAMstack-приложений с CDN по всему миру и автоматическим деплоем.',
+        description: 'Облачные платформы для хостинга с CDN и автоматическим деплоем.',
         why: 'Бесплатный SSL, мгновенный деплой при каждом коммите, CDN в 100+ точках мира.',
         features: ['Автоматический деплой с GitHub', 'Бесплатный SSL (https://)', 'CDN по всему миру', 'Preview для каждой ветки'],
         gradient: 'from-emerald-500 to-teal-600',
@@ -136,7 +136,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
       },
       {
         name: 'Git & GitHub',
-        description: 'Система контроля версий и крупнейшая платформа для совместной разработки. Каждое изменение отслеживается.',
+        description: 'Система контроля версий и платформа для совместной разработки.',
         why: 'Откат любых правок, командная работа, прозрачная история изменений.',
         features: ['Полная история изменений', 'Откат к любой версии', 'Code review', 'CI/CD автоматизация'],
         gradient: 'from-gray-700 to-gray-900',
@@ -154,7 +154,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
     techs: [
       {
         name: 'PostgreSQL / Supabase',
-        description: 'Мощная реляционная база данных и BaaS-платформа для проектов, которым нужен бэкенд: интернет-магазины, CRM, личные кабинеты.',
+        description: 'Реляционная база данных и BaaS-платформа для проектов с бэкендом.',
         why: 'Надёжная ACID-база данных + готовые API для аутентификации, файлов и real-time.',
         features: ['SQL + RESTful API', 'Аутентификация пользователей', 'Real-time подписки', 'Хранение файлов'],
         gradient: 'from-indigo-500 to-blue-700',
@@ -172,7 +172,7 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
     techs: [
       {
         name: 'Google Analytics & Яндекс.Метрика',
-        description: 'Ведущие системы аналитики для отслеживания посещаемости, поведения пользователей и конверсий.',
+        description: 'Системы аналитики для отслеживания посещаемости и конверсий.',
         why: 'Устанавливаем на каждый проект. Без аналитики невозможно оценить эффективность сайта.',
         features: ['Посещаемость и источники трафика', 'Карта кликов и скроллов (Метрика)', 'Цели и конверсии', 'E-commerce отслеживание'],
         gradient: 'from-orange-500 to-red-600',
@@ -183,49 +183,6 @@ const categories: { title: string; id: string; techs: Tech[] }[] = [
         ),
       },
     ],
-  },
-]
-
-const whyMatters = [
-  {
-    title: 'Скорость',
-    description: 'Next.js + статическая генерация = загрузка менее 1 секунды',
-    metric: '< 1 сек',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'SEO',
-    description: 'Серверный рендеринг + Schema.org = отличная индексация',
-    metric: 'Top 10',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Безопасность',
-    description: 'Статические файлы + HTTPS = минимальная поверхность атаки',
-    metric: '0 уязвимостей',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Масштабирование',
-    description: 'JAMstack + CDN = неограниченное количество посетителей',
-    metric: ' пользователей',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-      </svg>
-    ),
   },
 ]
 
@@ -262,53 +219,27 @@ export default function TechnologiesPage() {
         </div>
       </section>
 
-      {/* Why Tech Matters */}
-      <section className="section bg-secondary-900 text-white">
-        <div className="container-custom">
-          <h2 className="heading-lg text-left md:text-center text-white mb-10">Почему технологии важны</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyMatters.map((item) => (
-              <div key={item.title} className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700 text-left md:text-center">
-                <div className="w-12 h-12 rounded-full bg-primary-600/20 text-primary-400 flex items-center justify-center mx-auto mb-4">
-                  {item.icon}
-                </div>
-                <div className="text-2xl font-bold text-white mb-1">{item.metric}</div>
-                <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Tech Categories */}
       {categories.map((cat) => (
         <section key={cat.id} id={cat.id} className="section bg-white dark:bg-secondary-950 even:bg-secondary-50 even:dark:bg-secondary-900">
           <div className="container-custom max-w-5xl">
             <h2 className="heading-lg mb-8">{cat.title}</h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {cat.techs.map((tech) => (
-                <div key={tech.name} className="bg-white dark:bg-secondary-900 rounded-2xl p-6 sm:p-8 border border-secondary-100 dark:border-secondary-800 shadow-sm">
-                  <div className="flex flex-col sm:flex-row gap-5">
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${tech.gradient} text-white flex items-center justify-center shadow-lg flex-shrink-0`}>
+                <div key={tech.name} className="bg-white dark:bg-secondary-900 rounded-xl p-4 sm:p-6 border border-secondary-100 dark:border-secondary-800 shadow-sm">
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tech.gradient} text-white flex items-center justify-center shadow-lg flex-shrink-0`}>
                       {tech.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl sm:text-2xl font-bold mb-2">{tech.name}</h3>
-                      <p className="text-secondary-700 dark:text-secondary-300 leading-relaxed mb-3">{tech.description}</p>
-                      <div className="bg-primary-50 dark:bg-primary-900/20 rounded-lg p-3 mb-4 border border-primary-100 dark:border-primary-800/30">
-                        <span className="text-sm font-bold text-primary-700 dark:text-primary-300">Почему мы выбрали: </span>
-                        <span className="text-sm text-primary-600 dark:text-primary-400">{tech.why}</span>
-                      </div>
-                      <div className="grid sm:grid-cols-2 gap-2">
+                      <h3 className="text-lg sm:text-xl font-bold mb-2">{tech.name}</h3>
+                      <p className="text-secondary-700 dark:text-secondary-300 text-sm mb-3">{tech.description}</p>
+                      <div className="flex flex-wrap gap-2">
                         {tech.features.map((f, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-secondary-600 dark:text-secondary-400">
-                            <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>{f}</span>
-                          </div>
+                          <span key={i} className="text-xs text-secondary-600 dark:text-secondary-400 bg-secondary-50 dark:bg-secondary-800 px-2 py-1 rounded">
+                            {f}
+                          </span>
                         ))}
                       </div>
                     </div>
@@ -346,7 +277,6 @@ export default function TechnologiesPage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: '/process', title: 'Процесс работы', desc: '6 этапов разработки' },
-              { href: '/guarantees', title: 'Гарантии', desc: 'Качество и надёжность' },
               { href: '/portfolio', title: 'Портфолио', desc: 'Наши работы' },
               { href: '/services', title: 'Услуги', desc: 'Все направления' },
             ].map((l) => (

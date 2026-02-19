@@ -21,7 +21,7 @@ const defaultServices: Service[] = [
     slug: '/landing-page',
     name: 'Landing Page',
     description: 'Одностраничный сайт для рекламы. Высокая конверсия, быстрый запуск.',
-    price: 'от 135 000₸',
+    price: 'от 85 000₸',
   },
   {
     slug: '/corporate-site',

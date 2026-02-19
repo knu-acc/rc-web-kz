@@ -25,10 +25,9 @@ const steps = [
     duration: '12 дня',
     description: 'Собираем информацию о проекте: цели, целевую аудиторию, конкурентов, функциональные требования.',
     details: [
-      'Заполняем бриф: 20+ вопросов о вашем бизнесе и ожиданиях',
-      'Анализируем 3-5 сайтов конкурентов в вашей нише',
-      'Определяем целевую аудиторию и её потребности',
-      'Формируем техническое задание с описанием каждой страницы',
+      'Заполняем бриф: 20+ вопросов о вашем бизнесе',
+      'Анализируем 3-5 сайтов конкурентов',
+      'Формируем техническое задание',
     ],
     result: 'Готовое ТЗ с описанием структуры, функций и дизайн-референсов',
     icon: (
@@ -46,9 +45,8 @@ const steps = [
     description: 'Создаём wireframe — схематичную структуру страниц без дизайна, с логикой расположения блоков.',
     details: [
       'Рисуем wireframe для каждой страницы в Figma',
-      'Определяем расположение блоков: шапка, формы, CTA, услуги',
-      'Продумываем пользовательский путь (UX) и воронку',
-      'Согласовываем прототип с клиентом, вносим правки',
+      'Продумываем пользовательский путь и воронку',
+      'Согласовываем прототип с клиентом',
     ],
     result: 'Согласованный прототип всех страниц в Figma',
     icon: (
@@ -65,8 +63,7 @@ const steps = [
     duration: '23 дня',
     description: 'Создаём визуальный дизайн: цвета, шрифты, иконки, анимации. Каждый элемент продуман для конверсии.',
     details: [
-      'Подбираем цветовую палитру на основе вашего бренда',
-      'Разрабатываем UI-kit: кнопки, формы, карточки, типографика',
+      'Подбираем цветовую палитру и разрабатываем UI-kit',
       'Проектируем адаптивный дизайн (desktop, tablet, mobile)',
       'Готовим макеты всех экранов, до 3 раундов правок',
     ],
@@ -85,10 +82,9 @@ const steps = [
     duration: '35 дней',
     description: 'Превращаем дизайн в рабочий сайт. Используем Next.js, React и Tailwind CSS для максимальной скорости.',
     details: [
-      'Верстаем по pixel-perfect макету (адаптив: desktop, tablet, mobile)',
-      'Программируем формы обратной связи, анимации, слайдеры',
-      'Настраиваем SEO: мета-теги, Schema.org, sitemap, robots.txt',
-      'Оптимизируем производительность: lazy-loading, сжатие, кеш',
+      'Верстаем по pixel-perfect макету с адаптивностью',
+      'Программируем формы, анимации, настраиваем SEO',
+      'Оптимизируем производительность',
     ],
     result: 'Готовый сайт на тестовом домене для проверки',
     icon: (
@@ -105,10 +101,9 @@ const steps = [
     duration: '12 дня',
     description: 'Тщательно проверяем сайт: скорость, кроссбраузерность, адаптивность, работу форм и SEO.',
     details: [
-      'Тестируем на 5+ устройствах: iPhone, Android, планшет, ПК',
-      'Проверяем в Chrome, Firefox, Safari, Edge',
-      'Тест скорости: Google PageSpeed Insights  целевой показатель 90+',
-      'Проверяем формы, отправку заявок, корректность ссылок',
+      'Тестируем на 5+ устройствах и в разных браузерах',
+      'Проверяем скорость (PageSpeed 90+)',
+      'Проверяем формы и корректность ссылок',
     ],
     result: 'Финальная версия сайта, готовая к публикации',
     icon: (
@@ -125,10 +120,9 @@ const steps = [
     duration: '1 день + постоянно',
     description: 'Публикуем сайт на хостинге, подключаем домен, SSL, аналитику. Обучаем вас управлению.',
     details: [
-      'Настраиваем хостинг (Netlify / Vercel) и подключаем домен',
-      'Устанавливаем SSL-сертификат (https://) — бесплатно',
-      'Подключаем Google Analytics и Яндекс.Метрику',
-      'Проводим обучение по редактированию контента (30-60 минут)',
+      'Настраиваем хостинг и подключаем домен',
+      'Устанавливаем SSL и подключаем аналитику',
+      'Проводим обучение по управлению сайтом',
     ],
     result: 'Опубликованный сайт с аналитикой и передача доступов клиенту',
     icon: (
@@ -252,34 +246,33 @@ export default function ProcessPage() {
         <div className="container-custom max-w-4xl">
           <div className="space-y-0">
             {steps.map((step, index) => (
-              <div key={step.number} className="relative pl-16 pb-12 last:pb-0">
+              <div key={step.number} className="relative pl-14 pb-8 last:pb-0">
                 {/* vertical line */}
                 {index < steps.length - 1 && (
-                  <div className="absolute left-[23px] top-12 bottom-0 w-0.5 bg-secondary-200 dark:bg-secondary-700" />
+                  <div className="absolute left-[19px] top-10 bottom-0 w-0.5 bg-secondary-200 dark:bg-secondary-700" />
                 )}
                 {/* circle */}
-                <div className={`absolute left-0 top-0 w-12 h-12 rounded-full bg-gradient-to-br ${step.gradient} text-white flex items-center justify-center shadow-lg`}>
+                <div className={`absolute left-0 top-0 w-10 h-10 rounded-full bg-gradient-to-br ${step.gradient} text-white flex items-center justify-center shadow-lg`}>
                   {step.icon}
                 </div>
 
-                <div className="bg-secondary-50 dark:bg-secondary-900 rounded-2xl p-6 sm:p-8 border border-secondary-100 dark:border-secondary-800">
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">
+                <div className="bg-secondary-50 dark:bg-secondary-900 rounded-xl p-4 sm:p-6 border border-secondary-100 dark:border-secondary-800">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 dark:bg-primary-900/30 px-2 py-1 rounded-full">
                       Этап {step.number}
                     </span>
-                    <span className="text-xs font-medium text-secondary-500 dark:text-secondary-400 bg-secondary-100 dark:bg-secondary-800 px-3 py-1 rounded-full">
+                    <span className="text-xs font-medium text-secondary-500 dark:text-secondary-400 bg-secondary-100 dark:bg-secondary-800 px-2 py-1 rounded-full">
                       {step.duration}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-bold mb-3">{step.title}</h2>
-                  <p className="text-secondary-700 dark:text-secondary-300 leading-relaxed mb-4">{step.description}</p>
+                  <h2 className="text-xl font-bold mb-2">{step.title}</h2>
+                  <p className="text-secondary-700 dark:text-secondary-300 text-sm mb-3">{step.description}</p>
 
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-secondary-500 dark:text-secondary-400 mb-3">Что делаем:</h3>
-                  <ul className="space-y-2 mb-4">
+                  <ul className="space-y-1.5 mb-3">
                     {step.details.map((d, i) => (
-                      <li key={i} className="flex items-start gap-2 text-secondary-700 dark:text-secondary-300">
-                        <svg className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <li key={i} className="flex items-start gap-2 text-sm text-secondary-700 dark:text-secondary-300">
+                        <svg className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
                         <span>{d}</span>
@@ -287,15 +280,8 @@ export default function ProcessPage() {
                     ))}
                   </ul>
 
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="flex-1 bg-white dark:bg-secondary-800 rounded-xl p-4 border border-secondary-100 dark:border-secondary-700">
-                      <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1">Результат:</div>
-                      <p className="text-sm text-secondary-700 dark:text-secondary-300">{step.result}</p>
-                    </div>
-                    <div className="flex-1 bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 border border-amber-100 dark:border-amber-800/30">
-                      <div className="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">Совет:</div>
-                      <p className="text-sm text-secondary-700 dark:text-secondary-300">{step.tip}</p>
-                    </div>
+                  <div className="text-xs text-secondary-600 dark:text-secondary-400">
+                    <span className="font-semibold">Результат:</span> {step.result}
                   </div>
                 </div>
               </div>
@@ -394,7 +380,6 @@ export default function ProcessPage() {
           <h2 className="heading-md text-left md:text-center mb-8">Полезные страницы</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { href: '/guarantees', title: 'Гарантии', desc: 'Качество и надёжность' },
               { href: '/website-price', title: 'Цены', desc: 'Стоимость услуг' },
               { href: '/technologies', title: 'Технологии', desc: 'Наш стек' },
               { href: '/portfolio', title: 'Портфолио', desc: 'Наши работы' },

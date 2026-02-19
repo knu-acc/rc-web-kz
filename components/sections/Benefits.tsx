@@ -52,7 +52,7 @@ const benefits = [
       </svg>
     ),
     title: 'Техподдержка',
-    description: 'Бесплатная поддержка после запуска. Быстрое решение любых вопросов.',
+    description: '30 дней техобслуживания после запуска. Быстрое решение любых вопросов.',
   },
 ]
 
@@ -61,41 +61,33 @@ export function Benefits() {
     <section className="section bg-white dark:bg-secondary-950">
       <div className="container-custom">
         {/* Section header */}
-        <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
+        <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Преимущества
           </span>
-          <h2 className="heading-lg mb-6">
+          <h2 className="heading-lg">
             Почему выбирают <span className="gradient-text">нас</span>
           </h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300">
-            Создаём эффективные инструменты для развития бизнеса: быстрые, безопасные и оптимизированные для поисковых систем
-          </p>
         </div>
 
-        {/* Benefits grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((benefit, index) => (
+        {/* Benefits horizontal list */}
+        <div className="flex flex-wrap justify-center gap-4">
+          {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="group p-8 rounded-2xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
-                         hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-lg 
-                         transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800
+                         hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md 
+                         transition-all duration-300"
             >
-              {/* Градиентный фон при наведении */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-violet-50 dark:from-primary-950/20 dark:to-violet-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
               {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 flex items-center justify-center mb-5 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+              <div className="w-8 h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-800 dark:text-secondary-200 flex items-center justify-center flex-shrink-0">
                 {benefit.icon}
               </div>
 
-              {/* Content */}
-              <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-2">
+              {/* Title */}
+              <h3 className="text-base font-semibold text-secondary-900 dark:text-white whitespace-nowrap">
                 {benefit.title}
               </h3>
-              <p className="text-secondary-600 dark:text-secondary-300 text-sm leading-relaxed">
-                {benefit.description}
-              </p>
             </div>
           ))}
         </div>
