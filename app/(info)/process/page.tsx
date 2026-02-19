@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ['процесс создания сайта', 'этапы разработки сайта', 'как создают сайты', 'этапы веб-разработки', 'процесс разработки сайта Алматы'],
   openGraph: {
     title: 'Процесс работы  6 этапов создания сайта | RC-WEB.KZ',
-    description: 'Прозрачный процесс: от брифа до запуска за 510 дней',
+    description: 'Прозрачный процесс: от брифа до запуска за 5-10 дней',
     url: `${SITE_CONFIG.url}/process`,
     siteName: SITE_CONFIG.name,
     locale: 'ru_RU',
@@ -229,13 +229,13 @@ export default function ProcessPage() {
 
           <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 leading-relaxed mb-8">
             Прозрачный процесс от первого контакта до запуска.
-            Средний срок  <strong>510 рабочих дней</strong>. На каждом этапе вы видите результат и можете вносить правки.
+            Средний срок — <strong>5-10 рабочих дней</strong>. На каждом этапе вы видите результат и можете вносить правки.
           </p>
 
           <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
             {[
               { num: '6', label: 'этапов' },
-              { num: '510', label: 'дней' },
+              { num: '5-10', label: 'дней' },
               { num: '3', label: 'раунда правок' },
             ].map((s) => (
               <div key={s.label} className="bg-white/80 dark:bg-secondary-800/80 backdrop-blur-sm rounded-xl p-3 shadow-sm">
@@ -335,7 +335,7 @@ export default function ProcessPage() {
           </h2>
           <div className="grid sm:grid-cols-3 gap-6 mb-10">
             <div className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700">
-              <div className="text-3xl font-bold text-white mb-2">510 дней</div>
+              <div className="text-3xl font-bold text-white mb-2">5-10 дней</div>
               <p className="text-white/70">Средний срок разработки</p>
             </div>
             <div className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700">
