@@ -120,7 +120,7 @@ export default function WhyChooseUsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section with achievements */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-32">
+      <section className="relative overflow-hidden pt-32">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900" />
         </div>
@@ -194,7 +194,7 @@ export default function WhyChooseUsPage() {
                            transition-all duration-300"
               >
                 {/* Icon - 2 colors for 2 themes */}
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center flex-shrink-0">
                   {benefit.icon}
                 </div>
                 {/* Title */}

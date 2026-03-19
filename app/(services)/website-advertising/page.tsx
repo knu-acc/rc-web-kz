@@ -102,13 +102,9 @@ export default function WebsiteAdvertisingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
+      <section className="relative overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
-          {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-red-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
-          {/* Animated gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-200/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -143,21 +139,21 @@ export default function WebsiteAdvertisingPage() {
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 pt-4">
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-1">1 день</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">1 день</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">До запуска</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-1">+300%</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">+300%</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Рост трафика</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent mb-1">ROI 5:1</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">ROI 5:1</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Окупаемость</p>
                 </div>
               </div>
             </div>
 
-            <div className="relative lg:h-[600px] animate-in">
+            <div className="relative animate-in">
               <div className="relative z-10">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <Image
@@ -237,7 +233,7 @@ export default function WebsiteAdvertisingPage() {
                            transition-all duration-300"
               >
                 {/* Icon - 2 colors for 2 themes */}
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center flex-shrink-0">
                   {advantage.icon}
                 </div>
                 {/* Title */}

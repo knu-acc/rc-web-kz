@@ -92,13 +92,9 @@ export default function SEOOptimizationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section with metrics */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
+      <section className="relative overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
-          {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
-          {/* Animated gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -147,10 +143,9 @@ export default function SEOOptimizationPage() {
               </div>
             </div>
 
-            <div className="relative lg:h-[600px] animate-in">
+            <div className="relative animate-in">
               <div className="relative z-10">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-teal-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
                     alt="SEO-оптимизация сайта в Алматы"

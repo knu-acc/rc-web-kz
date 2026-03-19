@@ -199,13 +199,9 @@ export default function TildaSitePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-16">
+      <section className="relative overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
-          {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
-          {/* Animated gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -256,10 +252,9 @@ export default function TildaSitePage() {
             </div>
 
             {/* Right: Featured image */}
-            <div className="relative lg:h-[600px] animate-in">
+            <div className="relative animate-in">
               <div className="relative z-10">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-amber-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800"
                     alt="Сайт на Tilda разработка в Алматы - пример работы"
@@ -363,7 +358,7 @@ export default function TildaSitePage() {
                            transition-all duration-300"
               >
                 {/* Icon - 2 colors for 2 themes */}
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center flex-shrink-0">
                   {advantage.icon}
                 </div>
                 {/* Title */}

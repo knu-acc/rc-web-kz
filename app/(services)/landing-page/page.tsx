@@ -113,13 +113,9 @@ export default function LandingPagePage() {
       />
 
       {/* Hero Section with floating cards */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
+      <section className="relative overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
-          {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
-          {/* Animated gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -166,16 +162,9 @@ export default function LandingPagePage() {
             </div>
 
             {/* Right: Featured image with floating cards */}
-            <div className="relative lg:h-[600px] animate-in">
-              {/* Decorative floating lines */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 pointer-events-none">
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-300/30 animate-spin" style={{ animationDuration: '30s' }} />
-                <div className="absolute inset-8 rounded-full border-2 border-dashed border-violet-300/30 animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }} />
-              </div>
-
+            <div className="relative animate-in">
               <div className="relative z-10">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
                     alt="Landing Page разработка в Алматы"
@@ -281,7 +270,7 @@ export default function LandingPagePage() {
                            transition-all duration-300"
               >
                 {/* Icon - 2 colors for 2 themes */}
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center flex-shrink-0">
                   {benefit.icon}
                 </div>
                 {/* Title */}
@@ -349,7 +338,7 @@ export default function LandingPagePage() {
           </div>
           <div className="max-w-4xl mx-auto bg-white dark:bg-secondary-950 rounded-2xl shadow-lg p-8">
             <div className="text-left md:text-center mb-8">
-              <div className="text-5xl font-bold text-primary-600 mb-2">85-135 тыс ₸</div>
+              <div className="text-5xl font-bold text-secondary-900 dark:text-white mb-2">85-135 тыс ₸</div>
               <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость Landing Page</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">

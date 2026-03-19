@@ -136,13 +136,9 @@ export default function CorporateSitePage() {
       />
       
       {/* Hero Section with stats */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
+      <section className="relative overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
-          {/* Modern gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
-          {/* Animated gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-200/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -193,10 +189,9 @@ export default function CorporateSitePage() {
             </div>
 
             {/* Right: Featured image */}
-            <div className="relative lg:h-[600px] animate-in">
+            <div className="relative animate-in">
               <div className="relative z-10">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-teal-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800"
                     alt="Корпоративный сайт разработка в Алматы"
@@ -279,7 +274,7 @@ export default function CorporateSitePage() {
                            transition-all duration-300"
               >
                 {/* Icon - 2 colors for 2 themes */}
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center flex-shrink-0">
                   {advantage.icon}
                 </div>
                 {/* Title */}
@@ -354,7 +349,7 @@ export default function CorporateSitePage() {
                 <div key={`step-${step.step}`} className="relative flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-800 rounded-full flex items-center justify-center shadow-sm">
-                      <span className="text-xl font-bold text-primary-600">{step.step}</span>
+                      <span className="text-xl font-bold text-secondary-700 dark:text-secondary-300">{step.step}</span>
                     </div>
                     {index < processSteps.length - 1 && (
                       <div className="absolute left-8 top-16 w-0.5 h-full bg-secondary-200" />
@@ -380,7 +375,7 @@ export default function CorporateSitePage() {
           </div>
           <div className="max-w-4xl mx-auto bg-secondary-50 dark:bg-secondary-800 rounded-2xl shadow-lg border border-secondary-300 dark:border-secondary-600 p-8">
             <div className="text-left md:text-center mb-8">
-              <div className="text-5xl font-bold text-primary-600 mb-2">135-195 тыс ₸</div>
+              <div className="text-5xl font-bold text-secondary-900 dark:text-white mb-2">135-195 тыс ₸</div>
               <p className="text-secondary-600 dark:text-secondary-300">Базовая стоимость корпоративного сайта</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
