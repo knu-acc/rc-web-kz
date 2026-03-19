@@ -133,15 +133,15 @@ export default function SEOOptimizationPage() {
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 pt-4">
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-1">+150%</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">+150%</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Рост трафика</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-1">Топ-10</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">Топ-10</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Позиции в Google</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-1">3-6 мес</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">3-6 мес</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Срок результата</p>
                 </div>
               </div>

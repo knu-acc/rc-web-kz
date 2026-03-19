@@ -124,7 +124,7 @@ export default function OnlineStorePage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-                Создаём полнофункциональные интернет-магазины с безопасной оплатой. E-commerce решения с удобной админкой, интеграцией платёжных систем и простым управлением товарами. Идеально для <Link href="/corporate-site" className="text-emerald-600 hover:underline font-semibold">бизнеса</Link> любого масштаба.
+                Создаём полнофункциональные интернет-магазины с безопасной оплатой. E-commerce решения с удобной админкой, интеграцией платёжных систем и простым управлением товарами. Идеально для <Link href="/corporate-site" className="text-primary-600 hover:underline font-semibold">бизнеса</Link> любого масштаба.
               </p>
 
               <div className="flex flex-wrap gap-4">
