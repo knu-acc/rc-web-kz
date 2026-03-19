@@ -101,10 +101,9 @@ export default function OnlineStorePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] sm:min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden pt-16">
+      <section className="relative overflow-hidden pt-16">
         <div className="absolute inset-0 -z-10">
-          {/* Modern gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-emerald-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
         </div>
 
         <div className="container-custom py-12 lg:py-16 relative z-10">
@@ -137,10 +136,9 @@ export default function OnlineStorePage() {
               </div>
             </div>
 
-            <div className="relative lg:h-[600px] animate-in">
+            <div className="relative animate-in">
               <div className="relative z-10">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-green-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <Image
                     src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800"
                     alt="Интернет-магазин разработка в Алматы"
