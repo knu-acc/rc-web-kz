@@ -52,10 +52,10 @@ export default function PortfolioPage() {
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
               <div>
                 <h1 className="text-3xl font-bold text-secondary-900 dark:text-white sm:text-4xl">
-                  Примеры выполненных работ
+                  Портфолио — <span className="gradient-text">120+ сайтов</span> в Алматы
                 </h1>
                 <p className="mt-3 text-secondary-600 dark:text-secondary-300 max-w-xl">
-                  Полное портфолио выполненных работ. Каждый сайт создан под задачи клиента.
+                  Полное портфолио выполненных работ. Лендинги, корпоративные сайты, интернет-магазины — каждый проект создан под задачи клиента.
                 </p>
                 <p className="mt-2 text-sm text-secondary-500 dark:text-secondary-400">
                   {portfolioItems.length} проектов

@@ -43,7 +43,10 @@ export default function BlogPage() {
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
-            <h1 className="heading-lg mb-4">Блог о создании сайтов</h1>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
+              Полезные материалы
+            </span>
+            <h1 className="heading-lg mb-4">Блог о <span className="gradient-text">создании сайтов</span></h1>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">
               Полезные статьи о веб-разработке, SEO-продвижении, дизайне и маркетинге в Алматы
             </p>

@@ -9,7 +9,7 @@ import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 const PriceCalculator = dynamic(() => import('@/components/ui/PriceCalculator').then(mod => ({ default: mod.PriceCalculator })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Цены на создание сайта в Алматы 2026 | Стоимость разработки  RC-WEB.KZ',
+  title: 'Цены на разработку сайта в Алматы — от 85 000 тенге | RC-WEB.KZ',
   description: 'Цены на создание сайтов в Алматы: landing page от 85 000₸, корпоративный от 135 000₸, интернет-магазин от 175 000₸. Калькулятор стоимости, сравнение, FAQ.',
   keywords: ['цена сайта Алматы', 'стоимость создания сайта', 'сколько стоит сайт', 'цены на сайты Алматы', 'заказать сайт недорого'],
   openGraph: {
@@ -264,7 +264,7 @@ export default function WebsitePricePage() {
                   </div>
                 )}
 
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-4 shadow-md`}>
+                <div className="w-11 h-11 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center mb-4">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
@@ -327,7 +327,7 @@ export default function WebsitePricePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {priceFactors.map((f) => (
               <div key={f.title} className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.gradient} text-white flex items-center justify-center mb-4`}>
+                <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mb-4">
                   {f.icon}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{f.title}</h3>

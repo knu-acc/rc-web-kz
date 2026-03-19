@@ -252,7 +252,7 @@ export default function ProcessPage() {
                   <div className="absolute left-[19px] top-10 bottom-0 w-0.5 bg-secondary-200 dark:bg-secondary-700" />
                 )}
                 {/* circle */}
-                <div className={`absolute left-0 top-0 w-10 h-10 rounded-full bg-gradient-to-br ${step.gradient} text-white flex items-center justify-center shadow-lg`}>
+                <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center border border-secondary-200 dark:border-secondary-700">
                   {step.icon}
                 </div>
 

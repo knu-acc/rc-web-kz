@@ -9,9 +9,9 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Веб-дизайн сайтов в Алматы | Современный дизайн - RC-WEB.KZ',
-  description: 'Профессиональный веб-дизайн для сайтов в Алматы. Современный дизайн, UX/UI оптимизация, адаптивная верстка. Уникальный дизайн под ваш бренд. Заказать дизайн сайта.',
-  keywords: ['веб-дизайн Алматы', 'дизайн сайта', 'web дизайн', 'дизайн сайта Алматы'],
+  title: 'Веб-дизайн в Алматы от 70 000 тенге — UI/UX в Figma | RC-WEB.KZ',
+  description: 'Заказать веб-дизайн в Алматы в веб-студии RC-WEB.KZ. Уникальный UI/UX дизайн в Figma, адаптивная верстка, фирменный стиль. От 70 000 тенге. Звоните или пишите в WhatsApp.',
+  keywords: ['веб-дизайн Алматы', 'дизайн сайта Алматы', 'UI UX дизайн Алматы', 'заказать дизайн сайта', 'дизайн сайта в Figma', 'разработка дизайна Алматы'],
   openGraph: {
     title: 'Веб-дизайн сайта в Алматы',
     description: 'Профессиональный дизайн для вашего сайта',
@@ -129,24 +129,24 @@ export default function WebDesignPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Content */}
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-600"></span>
                 </span>
                 Веб-дизайн в Алматы
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Современный</span>
-                <span className="gradient-text">веб-дизайн</span>
+                Веб-дизайн в Алматы{' '}
+                <span className="gradient-text">от 70 000 тенге</span>
                 <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 text-secondary-700 dark:text-secondary-300">
-                  для вашего сайта
+                  UI/UX в Figma
                 </span>
               </h1>
 
               <p className="text-lg sm:text-xl max-w-xl leading-relaxed text-secondary-600 dark:text-secondary-300">
-                Создаём уникальный дизайн для сайта, который отражает ваш бренд и привлекает клиентов. Современные тренды, удобный интерфейс, адаптивность для всех устройств. Работы в <Link href="/portfolio" className="text-purple-600 hover:underline font-semibold">портфолио</Link>.
+                Создаём уникальный дизайн для сайта, который отражает ваш бренд и привлекает клиентов. Современные тренды, удобный интерфейс, адаптивность для всех устройств. Работы в <Link href="/portfolio" className="text-primary-600 hover:underline font-semibold">портфолио</Link>.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -268,15 +268,13 @@ export default function WebDesignPage() {
             {designFeatures.map((feature, index) => (
               <div
                 key={feature.title}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className="group rounded-2xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Gradient glow on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mb-5 group-hover:bg-secondary-600 transition-colors duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{feature.title}</h3>
-                <p className="text-white/70 leading-relaxed relative z-10">{feature.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                <p className="text-white/70 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>

@@ -3,20 +3,11 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SITE_CONFIG } from '@/lib/constants'
-import { getPostBySlug, blogPosts } from '@/data/blog'
+import { getPostBySlug, blogPosts, categoryLabels } from '@/data/blog'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { generateArticleSchema } from '@/lib/schema'
 import { BlogViewTracker } from '@/components/analytics/BlogViewTracker'
 import { TableOfContents } from '@/components/blog/TableOfContents'
-
-const categoryLabels: Record<string, string> = {
-  guides: 'Гайды',
-  seo: 'SEO и продвижение',
-  design: 'Дизайн и UX',
-  marketing: 'Реклама и маркетинг',
-  cases: 'Кейсы',
-  technical: 'Технические темы',
-}
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({

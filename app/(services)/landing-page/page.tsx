@@ -9,8 +9,8 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Создание Landing Page в Алматы от 85 000₸ | Лендинг под ключ - RC-WEB.KZ',
-  description: 'Разработка продающих лендингов в Алматы от 85 000₸. Высокая конверсия, современный дизайн, SEO-оптимизация. ✓ 30 дней техобслуживания ✓ Срок 3-5 дней. Заказать создание landing page.',
+  title: 'Разработка лендинга в Алматы от 85 000 тенге — под ключ за 3–5 дней | RC-WEB.KZ',
+  description: 'Заказать лендинг в Алматы в веб-студии RC-WEB.KZ. Продающие одностраничники с высокой конверсией. От 85 000 тенге, срок 3–5 дней. SEO-оптимизация и 30 дней поддержки включены.',
   keywords: [
     'landing page Алматы',
     'одностраничный сайт Алматы',
@@ -135,11 +135,8 @@ export default function LandingPagePage() {
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Продающие</span>
-                <span className="gradient-text">одностраничники</span>
-                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
-                  для вашего бизнеса
-                </span>
+                Разработка лендинга в Алматы{' '}
+                <span className="gradient-text">от 85 000 тенге</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
@@ -158,11 +155,11 @@ export default function LandingPagePage() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-1">15-25%</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">15-25%</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-200">Конверсия</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent mb-1">3-5 дней</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">3-5 дней</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-200">Срок разработки</p>
                 </div>
               </div>
@@ -194,7 +191,7 @@ export default function LandingPagePage() {
                 <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-4 shadow-xl animate-float relative z-10 hidden sm:block">
                   <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-dashed border-primary-300/40 rounded-full animate-float pointer-events-none" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-md">
+                    <div className="w-10 h-10 rounded-xl bg-secondary-800 dark:bg-secondary-700 flex items-center justify-center">
                       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
@@ -209,7 +206,7 @@ export default function LandingPagePage() {
                 {/* Floating card: Быстро */}
                 <div className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl animate-float relative z-10 hidden sm:block" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shadow-md">
+                    <div className="w-10 h-10 rounded-xl bg-secondary-800 dark:bg-secondary-700 flex items-center justify-center">
                       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>

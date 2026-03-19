@@ -176,10 +176,10 @@ export default function WhyChooseUsPage() {
       <section className="section bg-white dark:bg-secondary-950 relative">
         <div className="container-custom">
           <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Преимущества
             </span>
-            <h2 className="heading-lg mb-4 text-white">
+            <h2 className="heading-lg mb-4">
               Наши <span className="gradient-text">преимущества</span>
             </h2>
           </div>
@@ -211,7 +211,7 @@ export default function WhyChooseUsPage() {
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Достижения
             </span>
             <h2 className="heading-lg mb-4">

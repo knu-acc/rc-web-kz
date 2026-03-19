@@ -6,8 +6,8 @@ import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 
 export const metadata: Metadata = {
-  title: 'Создание корпоративного сайта в Алматы от 125 000₸ | Разработка - RC-WEB',
-  description: 'Разработка корпоративных сайтов в Алматы от 125 000₸. Многостраничные сайты для бизнеса с SEO-оптимизацией. Современный дизайн, полный функционал, техподдержка. Заказать корпоративный сайт.',
+  title: 'Корпоративный сайт в Алматы от 135 000 тенге — под ключ за 7–10 дней | RC-WEB.KZ',
+  description: 'Заказать корпоративный сайт в Алматы в веб-студии RC-WEB.KZ. Многостраничный сайт для бизнеса с SEO-оптимизацией. От 135 000 тенге, срок 7–10 дней. 30 дней поддержки включено.',
   keywords: [
     'корпоративный сайт Алматы',
     'многостраничный сайт Алматы',
@@ -158,15 +158,12 @@ export default function CorporateSitePage() {
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Многостраничные</span>
-                <span className="gradient-text">корпоративные сайты</span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 text-secondary-700 dark:text-secondary-300">
-                  для серьёзного бизнеса
-                </span>
+                Корпоративный сайт в Алматы{' '}
+                <span className="gradient-text">от 135 000 тенге</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-                Создаём профессиональные корпоративные сайты для бизнеса. Идеально для <Link href="/seo-optimization" className="text-blue-600 hover:underline font-semibold">SEO-продвижения</Link>, представления компании и привлечения клиентов. Полный функционал, современный дизайн, техподдержка.
+                Создаём профессиональные корпоративные сайты для бизнеса. Идеально для <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-продвижения</Link>, представления компании и привлечения клиентов. Полный функционал, современный дизайн, техподдержка.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -181,15 +178,15 @@ export default function CorporateSitePage() {
               {/* Stats */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-8">
                 <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">120+</div>
+                  <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">120+</div>
                   <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Проектов выполнено</p>
                 </div>
                 <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">5-10</div>
+                  <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">5-10</div>
                   <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Страниц сайта</p>
                 </div>
                 <div className="group relative bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent mb-2">7-10</div>
+                  <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">7-10</div>
                   <p className="text-xs sm:text-sm font-semibold text-secondary-700 dark:text-secondary-300">Дней разработки</p>
                 </div>
               </div>

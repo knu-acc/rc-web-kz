@@ -111,7 +111,7 @@ export default function ReviewsPage() {
       <section className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-left md:text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
               Скриншоты отзывов
             </span>
             <h2 className="heading-lg mb-4">
@@ -140,8 +140,8 @@ export default function ReviewsPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-left md:text-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -149,8 +149,8 @@ export default function ReviewsPage() {
               <p className="text-white/70">Каждый проект доводим до идеала. Вносим правки до полного удовлетворения клиента.</p>
             </div>
             <div className="text-left md:text-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -158,8 +158,8 @@ export default function ReviewsPage() {
               <p className="text-white/70">Всегда сдаём проекты вовремя. Если срок критичен — сообщаем заранее.</p>
             </div>
             <div className="text-left md:text-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>

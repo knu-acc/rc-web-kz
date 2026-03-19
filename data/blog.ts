@@ -66,3 +66,12 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const { allArticles: articles } = await import('./blog/articles')
   return articles
 }
+
+export const categoryLabels: Record<BlogPost['category'], string> = {
+  guides: 'Гайды',
+  seo: 'SEO и продвижение',
+  design: 'Дизайн и UX',
+  marketing: 'Реклама и маркетинг',
+  cases: 'Кейсы',
+  technical: 'Технические темы',
+}

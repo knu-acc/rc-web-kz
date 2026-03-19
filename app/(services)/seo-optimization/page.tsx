@@ -9,8 +9,8 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'SEO-продвижение сайтов в Алматы | Оптимизация для Google и Яндекс - RC-WEB.KZ',
-  description: 'SEO-продвижение сайтов в Алматы. Вывод в топ Google и Яндекс, увеличение органического трафика, улучшение позиций. Техническая и контентная оптимизация. Заказать SEO.',
+  title: 'SEO-продвижение сайта в Алматы — вывод в топ Google и Яндекс | RC-WEB.KZ',
+  description: 'Заказать SEO-продвижение сайта в Алматы в веб-студии RC-WEB.KZ. Вывод в топ-10 Google и Яндекс, рост органического трафика. От 50 000 тенге/мес. Техническая и контентная оптимизация.',
   keywords: ['SEO-оптимизация Алматы', 'продвижение сайта Алматы', 'SEO Алматы', 'оптимизация сайта Алматы', 'продвижение в Google', 'продвижение в Яндекс'],
   openGraph: {
     title: 'SEO-оптимизация сайта в Алматы',
@@ -113,11 +113,8 @@ export default function SEOOptimizationPage() {
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Продвижение в</span>
-                <span className="gradient-text">Google и Яндекс</span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 text-secondary-700 dark:text-secondary-300">
-                  увеличение органического трафика
-                </span>
+                SEO-продвижение сайта в Алматы —{' '}
+                <span className="gradient-text">вывод в топ Google и Яндекс</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
@@ -136,15 +133,15 @@ export default function SEOOptimizationPage() {
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 pt-4">
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-1">+150%</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">+150%</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Рост трафика</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-1">Топ-10</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">Топ-10</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Позиции в Google</p>
                 </div>
                 <div className="group bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-1">3-6 мес</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">3-6 мес</div>
                   <p className="text-sm font-semibold text-secondary-700 dark:text-secondary-300">Срок результата</p>
                 </div>
               </div>
@@ -186,18 +183,16 @@ export default function SEOOptimizationPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {seoItems.map((item, index) => (
+            {seoItems.map((item) => (
               <div
                 key={item.title}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className="group rounded-2xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-500 transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Gradient glow on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${item.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mb-5 group-hover:bg-secondary-600 transition-colors duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{item.title}</h3>
-                <p className="text-white/70 leading-relaxed relative z-10">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-white/70 leading-relaxed text-sm">{item.description}</p>
               </div>
             ))}
           </div>
