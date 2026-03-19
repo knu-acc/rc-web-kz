@@ -9,8 +9,8 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Реклама сайта в Алматы | Google Ads и Яндекс Директ - RC-WEB.KZ',
-  description: 'Настройка рекламы сайта в Алматы: Google Ads и Яндекс Директ. Контекстная реклама, привлечение клиентов, оптимизация бюджета. Заказать настройку рекламы.',
+  title: 'Настройка рекламы Google и Яндекс в Алматы от 40 000 тенге/мес | RC-WEB.KZ',
+  description: 'Заказать настройку контекстной рекламы в Алматы в веб-студии RC-WEB.KZ. Google Ads и Яндекс.Директ. От 40 000 тенге/мес. Быстрый результат, точный таргетинг, контроль бюджета.',
   keywords: ['реклама сайта Алматы', 'google реклама', 'яндекс реклама', 'контекстная реклама Алматы'],
   openGraph: {
     title: 'Реклама сайта в Google и Яндекс Алматы',
@@ -114,24 +114,21 @@ export default function WebsiteAdvertisingPage() {
         <div className="container-custom py-12 lg:py-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-600"></span>
                 </span>
                 Реклама сайта в Алматы
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Контекстная реклама</span>
-                <span className="gradient-text">Google и Яндекс</span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 text-secondary-700 dark:text-secondary-300">
-                  быстрый результат
-                </span>
+                Настройка рекламы Google и Яндекс в Алматы{' '}
+                <span className="gradient-text">от 40 000 тенге/мес</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-                Настройка и ведение рекламных кампаний в Google Ads и Яндекс.Директ для вашего сайта. Эффективное привлечение клиентов, оптимизация бюджета и увеличение продаж. Идеально для <Link href="/landing-page" className="text-red-600 hover:underline font-semibold">лендингов</Link>.
+                Настройка и ведение рекламных кампаний в Google Ads и Яндекс.Директ для вашего сайта. Эффективное привлечение клиентов, оптимизация бюджета и увеличение продаж. Идеально для <Link href="/landing-page" className="text-primary-600 hover:underline font-semibold">лендингов</Link>.
               </p>
 
               <div className="flex flex-wrap gap-4">

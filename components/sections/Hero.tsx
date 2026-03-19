@@ -27,21 +27,20 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
               </span>
-              Веб-студия в Алматы — принимаем проекты
+              Веб-студия в Алматы — принимаем заявки
             </div>
 
-            {/* Main heading — SEO: «веб-студия», «Next.js», «Алматы» */}
+            {/* Main heading — SEO: «создание сайтов», «Алматы», «цена» */}
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold font-display tracking-tight leading-[1.1] text-secondary-900 dark:text-white text-balance">
-              Веб-студия в Алматы —{' '}
-              <span className="gradient-text">сайты на Next.js</span>,{' '}
-              которые привлекают клиентов
+              Создание сайтов в Алматы{' '}
+              <span className="gradient-text">от 85 000 тенге</span>{' '}
+              — под ключ за 7–10 дней
             </h1>
 
             {/* Description */}
             <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
-              120+ проектов под ключ: лендинги, корпоративные сайты, интернет-магазины.
-              SEO-оптимизация включена. Срок — от 7 дней. От&nbsp;
-              <span className="font-semibold text-secondary-800 dark:text-secondary-100">85 000 ₸</span>.
+              120+ проектов: лендинги, корпоративные сайты, интернет-магазины.
+              SEO-оптимизация включена в каждый проект. Работаем по всему Казахстану.
             </p>
 
             {/* CTA buttons */}

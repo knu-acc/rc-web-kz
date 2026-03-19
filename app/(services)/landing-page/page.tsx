@@ -9,8 +9,8 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Создание Landing Page в Алматы от 85 000₸ | Лендинг под ключ - RC-WEB.KZ',
-  description: 'Разработка продающих лендингов в Алматы от 85 000₸. Высокая конверсия, современный дизайн, SEO-оптимизация. ✓ 30 дней техобслуживания ✓ Срок 3-5 дней. Заказать создание landing page.',
+  title: 'Разработка лендинга в Алматы от 85 000 тенге — под ключ за 3–5 дней | RC-WEB.KZ',
+  description: 'Заказать лендинг в Алматы в веб-студии RC-WEB.KZ. Продающие одностраничники с высокой конверсией. От 85 000 тенге, срок 3–5 дней. SEO-оптимизация и 30 дней поддержки включены.',
   keywords: [
     'landing page Алматы',
     'одностраничный сайт Алматы',
@@ -135,11 +135,8 @@ export default function LandingPagePage() {
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Продающие</span>
-                <span className="gradient-text">одностраничники</span>
-                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
-                  для вашего бизнеса
-                </span>
+                Разработка лендинга в Алматы{' '}
+                <span className="gradient-text">от 85 000 тенге</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">

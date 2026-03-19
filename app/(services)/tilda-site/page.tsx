@@ -9,8 +9,8 @@ import { placeholderReviewImages } from '@/data/reviews'
 const ReviewsCarousel = dynamic(() => import('@/components/ui/ReviewsCarousel').then(mod => ({ default: mod.ReviewsCarousel })), { loading: () => null })
 
 export const metadata: Metadata = {
-  title: 'Сайт на Tilda в Алматы | Создание сайта на Тильде от 120 тыс ₸ и выше | RC-WEB',
-  description: 'Профессиональное создание сайтов на конструкторе Tilda в Алматы. Быстро, красиво, с возможностью самостоятельного редактирования. Landing page, интернет-магазины, портфолио на Tilda. Срок 2-5 дней.',
+  title: 'Сайт на Tilda в Алматы от 120 000 тенге — за 2–5 дней | RC-WEB.KZ',
+  description: 'Заказать сайт на Tilda в Алматы в веб-студии RC-WEB.KZ. Лендинги, визитки и интернет-магазины на конструкторе Tilda. От 120 000 тенге, срок 2–5 дней. Самостоятельное редактирование.',
   keywords: [
     'сайт на tilda Алматы',
     'создание сайта на тильде',
@@ -212,20 +212,17 @@ export default function TildaSitePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Content */}
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
                 </span>
                 Сайт на Tilda в Алматы
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">Красивые сайты</span>
-                <span className="gradient-text">на конструкторе Tilda</span>
-                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
-                  быстро и выгодно
-                </span>
+                Сайт на Tilda в Алматы{' '}
+                <span className="gradient-text">от 120 000 тенге</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">

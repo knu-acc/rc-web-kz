@@ -6,8 +6,8 @@ import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 
 export const metadata: Metadata = {
-  title: 'Создание интернет-магазина в Алматы от 220 000₸ | Разработка - RC-WEB.KZ',
-  description: 'Разработка интернет-магазинов в Алматы от 220 000₸. E-commerce сайты с оплатой, корзиной, админкой. Интеграция с платежными системами, 1С, складом. Заказать интернет-магазин.',
+  title: 'Интернет-магазин в Алматы от 175 000 тенге — под ключ с оплатой онлайн | RC-WEB.KZ',
+  description: 'Заказать интернет-магазин в Алматы в веб-студии RC-WEB.KZ. E-commerce с каталогом, корзиной и оплатой онлайн. От 175 000 тенге. Интеграция с Kaspi, PayBox. 30 дней поддержки.',
   keywords: ['интернет-магазин Алматы', 'e-commerce сайт', 'создание интернет-магазина', 'онлайн магазин Алматы'],
   openGraph: {
     title: 'Интернет-магазин в Алматы | E-commerce сайт 175-275 тыс ₸',
@@ -110,20 +110,17 @@ export default function OnlineStorePage() {
         <div className="container-custom py-12 lg:py-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
                 </span>
                 Интернет-магазин в Алматы
               </div>
 
               <h1 className="heading-xl text-secondary-900 dark:text-white">
-                <span className="block">E-commerce</span>
-                <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">интернет-магазины</span>
-                <span className="block text-secondary-700 dark:text-secondary-300 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
-                  с безопасной оплатой
-                </span>
+                Интернет-магазин в Алматы{' '}
+                <span className="gradient-text">от 175 000 тенге</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
@@ -208,18 +205,16 @@ export default function OnlineStorePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <div
                 key={feature.title}
-                className="group relative rounded-3xl p-6 bg-secondary-800 border border-secondary-700 hover:border-primary-500/50 shadow-soft hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className="group rounded-2xl p-6 bg-secondary-800 border border-secondary-700 hover:border-secondary-500 transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Gradient glow on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white flex items-center justify-center mb-5 relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                <div className="w-11 h-11 rounded-xl bg-secondary-700 text-secondary-300 flex items-center justify-center mb-5 group-hover:bg-secondary-600 transition-colors duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 relative z-10">{feature.title}</h3>
-                <p className="text-white/70 leading-relaxed relative z-10">{feature.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
+                <p className="text-white/70 leading-relaxed text-sm">{feature.description}</p>
               </div>
             ))}
           </div>

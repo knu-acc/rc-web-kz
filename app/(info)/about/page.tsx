@@ -4,10 +4,9 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'О компании RC-WEB.KZ  веб-студия в Алматы с 2020 года',
-  description:
-    'RC-WEB.KZ  веб-студия по созданию сайтов в Алматы. 120+ проектов, 5 лет опыта. Наша история, ценности, подход к работе и команда.',
-  keywords: ['о нас rc-web', 'веб-студия алматы', 'создание сайтов алматы', 'rc-web.kz'],
+  title: 'О веб-студии RC-WEB.KZ — разработка сайтов в Алматы с 2020 года',
+  description: 'Веб-студия RC-WEB.KZ — создание сайтов в Алматы с 2020 года. 120+ проектов, команда профессионалов, современные технологии. Узнайте о нас больше.',
+  keywords: ['о нас rc-web', 'веб-студия Алматы', 'создание сайтов Алматы', 'rc-web.kz', 'разработка сайтов Алматы команда'],
   openGraph: {
     title: 'О компании RC-WEB.KZ',
     description: 'Веб-студия в Алматы с 2020 года. 120+ проектов, современные технологии.',
@@ -51,7 +50,6 @@ const values = [
   },
 ]
 
-const gradients = ['from-emerald-500 to-teal-600', 'from-blue-500 to-cyan-600', 'from-violet-500 to-purple-600', 'from-amber-500 to-orange-600']
 
 export default function AboutPage() {
   const yearsOnMarket = new Date().getFullYear() - parseInt(SITE_CONFIG.foundingDate)
@@ -65,9 +63,9 @@ export default function AboutPage() {
         <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-3xl" />
         <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">О компании</span>
-          <h1 className="heading-xl text-white mb-6">RC-WEB<span className="gradient-text">.KZ</span></h1>
+          <h1 className="heading-xl text-white mb-6">О веб-студии <span className="gradient-text">RC-WEB.KZ</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Веб-студия в Алматы. Создаём сайты для бизнеса с 2020 года. {SITE_CONFIG.projectsCount} проектов, современные технологии, индивидуальный подход к каждому клиенту.
+            Разработка сайтов в Алматы с 2020 года. {SITE_CONFIG.projectsCount} проектов, современные технологии, индивидуальный подход к каждому клиенту.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {[
@@ -121,7 +119,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {values.map((value, idx) => (
               <div key={value.title} className="bg-white dark:bg-secondary-950 rounded-2xl p-6 border border-secondary-100 dark:border-secondary-800 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradients[idx]} text-white flex items-center justify-center mb-4`}>
+                <div className="w-11 h-11 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center mb-4">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={value.icon} /></svg>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{value.title}</h3>
@@ -142,7 +140,7 @@ export default function AboutPage() {
             {[
               { title: 'Создание сайтов', desc: 'Лендинги, корпоративные сайты, интернет-магазины, сайты на Tilda', link: '/services' },
               { title: 'SEO и продвижение', desc: 'Оптимизация для Google и Яндекса, настройка аналитики, аудит', link: '/seo-optimization' },
-              { title: 'Обучение', desc: 'Индивидуальные курсы по HTML, CSS, JavaScript, React, Next.js', link: '/programming-courses' },
+              { title: 'Реклама и продвижение', desc: 'Настройка Google Ads, Яндекс.Директ, контекстная реклама для бизнеса', link: '/website-advertising' },
             ].map(item => (
               <Link key={item.title} href={item.link} className="bg-secondary-50 dark:bg-secondary-800/50 rounded-xl p-6 hover:shadow-lg transition-all group">
                 <h3 className="font-bold mb-2 group-hover:text-primary-600 transition-colors">{item.title}</h3>
