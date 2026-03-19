@@ -1,12 +1,9 @@
 /**
- * Services Section
- * Displays available services in a Bento Grid layout
- * Featured service gets larger card with background image
+ * Services Section — Modern Minimalist SaaS
+ * Переработан: 7 услуг в unified grid, убрана featured-логика с фоном
  */
-import Image from 'next/image'
 import Link from 'next/link'
 import { SOCIAL_LINKS } from '@/lib/constants'
-import { IntersectionObserver } from '@/components/ui/IntersectionObserver'
 
 interface ServiceItem {
   id: number
@@ -14,173 +11,175 @@ interface ServiceItem {
   description: string
   price: string
   icon: React.ReactNode
-  gradient: string
-  featured: boolean
   href: string
+  badge?: string
 }
 
-// Service offerings data
 const services: ServiceItem[] = [
   {
     id: 1,
     title: 'Landing Page',
-    description: 'Продающие одностраничники с высокой конверсией',
-    price: '85-135 тыс ₸',
+    description: 'Продающие одностраничники с высокой конверсией для рекламных кампаний',
+    price: '85–135 тыс ₸',
+    href: '/landing-page',
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
       </svg>
     ),
-    gradient: 'from-violet-500 to-purple-600',
-    featured: false,
-    href: '/landing-page',
   },
   {
     id: 2,
     title: 'Корпоративный сайт',
-    description: 'Многостраничные сайты для серьёзного бизнеса',
-    price: '135-195 тыс ₸',
+    description: 'Многостраничные сайты, которые представляют ваш бизнес и генерируют лиды',
+    price: '135–195 тыс ₸',
+    href: '/corporate-site',
+    badge: 'Популярное',
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
-    gradient: 'from-cyan-500 to-teal-600',
-    featured: true,
-    href: '/corporate-site',
   },
   {
     id: 3,
     title: 'Интернет-магазин',
-    description: 'E-commerce решения с удобной админкой',
-    price: '175-275 тыс ₸',
+    description: 'E-commerce решения с удобной админкой, каталогом и интеграцией оплаты',
+    price: '175–275 тыс ₸',
+    href: '/online-store',
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
       </svg>
     ),
-    gradient: 'from-emerald-500 to-teal-600',
-    featured: false,
-    href: '/online-store',
   },
   {
     id: 4,
     title: 'Tilda / Конструктор',
-    description: 'Быстрые решения на популярных платформах',
-    price: 'от 120 тыс ₸ и выше',
+    description: 'Быстрые решения на Tilda или WordPress для малого бизнеса',
+    price: 'от 120 тыс ₸',
+    href: '/tilda-site',
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
       </svg>
     ),
-    gradient: 'from-orange-500 to-red-600',
-    featured: false,
-    href: '/tilda-site',
+  },
+  {
+    id: 5,
+    title: 'SEO-оптимизация',
+    description: 'Продвижение сайта в Google и Яндекс по ключевым запросам вашего бизнеса',
+    price: 'от 50 тыс ₸/мес',
+    href: '/seo',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    ),
+  },
+  {
+    id: 6,
+    title: 'Веб-дизайн',
+    description: 'UI/UX дизайн в Figma: прототип, фирменный стиль, дизайн-система',
+    price: 'от 70 тыс ₸',
+    href: '/web-design',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+      </svg>
+    ),
+  },
+  {
+    id: 7,
+    title: 'Реклама сайта',
+    description: 'Настройка Google Ads и Яндекс.Директ для быстрого привлечения клиентов',
+    price: 'от 40 тыс ₸/мес',
+    href: '/advertising',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+      </svg>
+    ),
   },
 ]
 
 export function Services() {
   return (
-    <section id="services" className="section bg-secondary-900 dark:bg-black text-white relative">
+    <section id="services" className="section bg-white dark:bg-secondary-950">
       <div className="container-custom">
         {/* Section header */}
-        <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-500/20 text-secondary-200 text-sm font-medium mb-4">
+        <div className="text-left md:text-center max-w-3xl mx-auto mb-14">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Услуги
           </span>
-          <h2 className="heading-lg mb-6 text-white">
-            Создание сайтов <span className="gradient-text">любой сложности</span>
+          <h2 className="heading-lg mb-4">
+            Создание сайтов{' '}
+            <span className="gradient-text">любой сложности</span>
           </h2>
-          <p className="text-lg text-white/80">
-            Выберите тип сайта для вашего бизнеса. Каждый проект включает адаптивный дизайн, SEO-оптимизацию и 30 дней техобслуживания.
+          <p className="text-lg text-secondary-600 dark:text-secondary-300">
+            Каждый проект включает адаптивный дизайн, SEO-оптимизацию и 30 дней бесплатного техобслуживания.
           </p>
         </div>
 
-        {/* Bento Grid layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Services grid — 7 uniform cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {services.map((service) => (
             <Link
               href={service.href}
               prefetch
               key={service.id}
-              className={`group relative rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-3xl ${service.featured
-                  ? 'md:col-span-2 lg:row-span-2 overflow-hidden'
-                  : 'bg-secondary-800 border-2 border-secondary-700 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/20 text-white'
-                }`}
+              className="group relative bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 p-6 hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-medium transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
-              {/* Featured card background */}
-              {service.featured && (
-                <div className="absolute inset-0 -z-10">
-                  <Image
-                    src="/img/slider.png"
-                    alt="Корпоративный сайт - пример работы RC-WEB.KZ"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/95 via-teal-600/90 to-teal-700/95" />
-                </div>
+              {/* Badge */}
+              {service.badge && (
+                <span className="absolute top-4 right-4 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary-50 dark:bg-primary-950/50 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-800">
+                  {service.badge}
+                </span>
               )}
 
-              {/* Service icon */}
-              <div className={`mb-6 transition-transform duration-300 group-hover:scale-110 relative ${service.featured
-                  ? 'w-12 h-12 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-white shadow-lg'
-                  : 'w-10 h-10 rounded-2xl bg-gradient-to-br ' + service.gradient + ' text-white flex items-center justify-center shadow-md'
-                }`}>
+              {/* Icon */}
+              <div className="w-11 h-11 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 flex items-center justify-center mb-5 transition-all duration-300">
                 {service.icon}
-                {/* Decorative ring */}
-                <div className={`absolute inset-0 rounded-2xl border-2 ${service.featured ? 'border-white/20' : 'border-white/10'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               </div>
 
-              {/* Service info */}
-              <div className={service.featured ? 'space-y-4 relative z-10' : 'space-y-3'}>
-                <h3 className={`font-bold ${service.featured ? 'text-2xl text-white' : 'text-xl text-white'}`}>
-                  <span lang={service.title === 'Landing Page' ? 'en' : undefined}>{service.title}</span>
+              {/* Content */}
+              <div className="space-y-2 mb-5">
+                <h3 className="font-bold text-secondary-900 dark:text-white text-lg leading-snug">
+                  {service.title}
                 </h3>
-                <p className={service.featured ? 'text-white/80 text-lg' : 'text-white/70'}>
+                <p className="text-sm text-secondary-500 dark:text-secondary-400 leading-relaxed">
                   {service.description}
                 </p>
-                <p className={`font-bold ${service.featured ? 'text-3xl text-white' : 'text-xl text-white'}`}>
-                  {service.price}
-                </p>
               </div>
 
-              {/* CTA link */}
-              <div className={`mt-6 flex items-center gap-4 ${service.featured ? 'relative z-10' : ''}`}>
-                <span
-                  className={`inline-flex items-center gap-2 font-semibold transition-all ${service.featured
-                      ? 'px-6 py-3 bg-white text-primary-600 rounded-xl group-hover:bg-white/90 group-hover:shadow-lg'
-                      : 'text-white group-hover:gap-3 group-hover:text-secondary-300'
-                    }`}
-                >
+              {/* Price + arrow */}
+              <div className="flex items-center justify-between pt-4 border-t border-secondary-100 dark:border-secondary-800">
+                <span className="font-bold text-secondary-900 dark:text-white text-sm">
+                  {service.price}
+                </span>
+                <span className="flex items-center gap-1 text-sm text-secondary-400 dark:text-secondary-500 group-hover:text-primary-600 dark:group-hover:text-primary-400 group-hover:gap-2 transition-all duration-200">
                   Подробнее
-                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
                 </span>
               </div>
-
-              {/* Featured badge */}
-              {service.featured && (
-                <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/20 backdrop-blur text-white text-sm font-medium">
-                  Популярное
-                </div>
-              )}
-
-              {/* Hover glow for non-featured cards */}
-              {!service.featured && (
-                <>
-                  <div
-                    className={`absolute inset-0 rounded-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-15 -z-10 blur-xl bg-gradient-to-br ${service.gradient}`}
-                    style={{ transform: 'scale(0.95)' }}
-                  />
-                  {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 -z-10`} />
-                </>
-              )}
             </Link>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 p-6 rounded-2xl bg-secondary-50 dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800">
+          <p className="text-secondary-700 dark:text-secondary-300 font-medium text-center sm:text-left">
+            Не знаете, что выбрать? Расскажите о задаче — подберём оптимальное решение
+          </p>
+          <a
+            href={SOCIAL_LINKS.whatsapp}
+            className="btn-dark whitespace-nowrap flex-shrink-0 inline-flex items-center gap-2"
+            aria-label="Получить бесплатную консультацию в WhatsApp"
+          >
+            Получить консультацию
+          </a>
         </div>
       </div>
     </section>

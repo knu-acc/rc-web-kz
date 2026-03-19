@@ -1,18 +1,24 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Hero } from '@/components/sections/Hero'
-import { Services } from '@/components/sections/Services'
 import { Stats } from '@/components/sections/Stats'
 import { SITE_CONFIG } from '@/lib/constants'
 import { generateFAQPageSchema } from '@/lib/schema'
 import { faqItems } from '@/data/faq'
+import { LogosStrip } from '@/components/sections/LogosStrip'
+import { PainPoints } from '@/components/sections/PainPoints'
+import { Services } from '@/components/sections/Services'
 
-// Lazy load компонентов ниже fold для улучшения First Contentful Paint и уменьшения работы в основном потоке
+// Lazy load компонентов ниже fold для улучшения First Contentful Paint
 const Benefits = dynamic(() => import('@/components/sections/Benefits').then(mod => ({ default: mod.Benefits })), {
   loading: () => null,
-  ssr: true, // SSR для SEO, но загружается после критического контента
+  ssr: true,
 })
 const Portfolio = dynamic(() => import('@/components/sections/Portfolio').then(mod => ({ default: mod.Portfolio })), {
+  loading: () => null,
+  ssr: true,
+})
+const ProcessSteps = dynamic(() => import('@/components/sections/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), {
   loading: () => null,
   ssr: true,
 })
@@ -31,24 +37,26 @@ const CTA = dynamic(() => import('@/components/sections/CTA').then(mod => ({ def
 
 export const metadata: Metadata = {
   title: SITE_CONFIG.title,
-  description: 'Создание сайтов в Алматы от 85 000₸. 120+ проектов, SEO-оптимизация, бесплатная техподдержка. Срок 5-10 дней. Лендинги, корпоративные сайты, интернет-магазины.',
+  description: 'Веб-студия RC-WEB.KZ в Алматы — создание сайтов на Next.js от 85 000₸. 120+ проектов, SEO-оптимизация, адаптивный дизайн, техподдержка 30 дней. Лендинги, корпоративные сайты, интернет-магазины. Срок 7–10 дней.',
   keywords: [
     'создание сайтов Алматы',
     'разработка сайтов Алматы',
-    'веб-разработка',
-    'landing page',
-    'корпоративный сайт',
-    'интернет-магазин',
+    'веб-студия Алматы',
+    'разработка сайтов на Next.js Казахстан',
+    'веб-разработка Алматы',
+    'landing page Алматы',
+    'корпоративный сайт Алматы',
+    'интернет-магазин Алматы',
     'заказать сайт Алматы',
     'сайт под ключ Алматы',
-    'веб-студия Алматы',
+    'создание сайтов КЗ',
   ],
   alternates: {
     canonical: SITE_CONFIG.url,
   },
   openGraph: {
     title: SITE_CONFIG.title,
-    description: 'Создание сайтов в Алматы от 85 000₸. 120+ проектов под ключ с SEO-оптимизацией.',
+    description: 'Веб-студия в Алматы — сайты на Next.js от 85 000₸. 120+ проектов под ключ с SEO-оптимизацией.',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     images: [
@@ -56,7 +64,7 @@ export const metadata: Metadata = {
         url: `${SITE_CONFIG.url}/img/slider4.png`,
         width: 1200,
         height: 630,
-        alt: 'Создание сайтов в Алматы',
+        alt: 'Веб-студия RC-WEB.KZ — создание сайтов в Алматы',
       },
     ],
     locale: 'ru_RU',
@@ -65,7 +73,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: SITE_CONFIG.title,
-    description: 'Создание сайтов в Алматы от 85 000₸. 120+ проектов, SEO-оптимизация, техподдержка бесплатно.',
+    description: 'Веб-студия в Алматы — сайты на Next.js от 85 000₸. SEO, адаптив, 30 дней поддержки.',
     images: [`${SITE_CONFIG.url}/img/slider4.png`],
   },
 }
@@ -76,11 +84,18 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      {/* P1: Hero → LogosStrip → Stats (выше fold) */}
       <Hero />
+      <LogosStrip />
       <Stats />
+      {/* P2: Empathy → Services → Benefits (основной конверсионный блок) */}
+      <PainPoints />
       <Services />
       <Benefits />
+      {/* P3: Социальное доказательство + процесс */}
       <Portfolio />
+      <ProcessSteps />
+      {/* P4: Контент и конверсия */}
       <BlogPreview />
       <FAQ />
       <CTA />

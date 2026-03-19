@@ -1,139 +1,136 @@
 /**
- * Hero Section
- * Main landing section with headline, CTAs and featured image
+ * Hero Section — Modern Minimalist SaaS
+ * Переработан: новый H1 с LSI-фразами, 3 social proof, убраны spinning decorations
  */
 import Link from 'next/link'
 import Image from 'next/image'
-import { SOCIAL_LINKS } from '@/lib/constants'
+import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-      {/* Background with animated gradient */}
+      {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary-50 via-white to-secondary-50/50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950/50" />
-        {/* Animated gradient orbs */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-200/30 dark:bg-primary-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-200/30 dark:bg-violet-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-primary-50/30 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950/50" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-100/40 dark:bg-primary-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-100/30 dark:bg-violet-500/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container-custom py-16 sm:py-20 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container-custom py-16 sm:py-20 lg:py-28">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left: Content */}
-          <div className="space-y-8 animate-in">
+          <div className="space-y-7">
             {/* Status badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium stagger-1 animate-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-950/50 border border-primary-100 dark:border-primary-800 text-primary-700 dark:text-primary-300 text-sm font-medium">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 dark:bg-primary-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500 dark:bg-primary-400"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
               </span>
-              Веб-разработка в Алматы
+              Веб-студия в Алматы — принимаем проекты
             </div>
 
-            {/* Main heading */}
-            <h1 className="heading-xl stagger-2 animate-in text-balance">
-              <span className="block">Разработка сайтов в Алматы</span>
-              <span className="gradient-text">под ключ от 85 000 ₸</span>
+            {/* Main heading — SEO: «веб-студия», «Next.js», «Алматы» */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold font-display tracking-tight leading-[1.1] text-secondary-900 dark:text-white text-balance">
+              Веб-студия в Алматы —{' '}
+              <span className="gradient-text">сайты на Next.js</span>,{' '}
+              которые привлекают клиентов
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg lg:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed stagger-3 animate-in">
-              Профессиональная разработка сайтов с SEO-оптимизацией и 30 днями техобслуживания. Лендинги, корпоративные сайты, интернет-магазины. Срок разработки — 5–10 дней.
+            <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+              120+ проектов под ключ: лендинги, корпоративные сайты, интернет-магазины.
+              SEO-оптимизация включена. Срок — от 7 дней. От&nbsp;
+              <span className="font-semibold text-secondary-800 dark:text-secondary-100">85 000 ₸</span>.
             </p>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4 stagger-4 animate-in">
+            <div className="flex flex-wrap gap-4 pt-1">
               <a
                 href={SOCIAL_LINKS.whatsapp}
-                className="btn-dark group"
-                aria-label="Заказать сайт в WhatsApp"
+                className="btn-dark inline-flex items-center gap-2 group"
+                aria-label="Получить предложение в WhatsApp"
               >
-                Заказать сайт
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Получить предложение
               </a>
-
               <Link
                 href="/portfolio"
                 prefetch
                 className="btn-secondary group"
-                aria-label="Посмотреть портфолио работ"
+                aria-label="Смотреть кейсы и портфолио"
               >
-                Портфолио
+                Смотреть кейсы
+                <svg className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
             </div>
 
-            {/* Social proof */}
-            <div className="grid grid-cols-2 gap-6 pt-4 stagger-5 animate-in">
-              <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent mb-1">120+</div>
-                <p className="text-sm text-secondary-600 dark:text-secondary-300">Проектов выполнено</p>
+            {/* Social proof — 3 metrics */}
+            <div className="grid grid-cols-3 gap-3 pt-2">
+              <div className="bg-white/80 dark:bg-secondary-800/80 backdrop-blur-sm rounded-xl p-4 border border-secondary-100 dark:border-secondary-700 text-center">
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 leading-none mb-1">
+                  {SITE_CONFIG.projectsCount}
+                </div>
+                <p className="text-xs text-secondary-500 dark:text-secondary-400 leading-tight">проектов<br />выполнено</p>
               </div>
-              <div className="group bg-white/90 dark:bg-secondary-800/90 backdrop-blur-md rounded-xl p-5 border border-secondary-200 dark:border-secondary-700 hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent mb-1">&lt; 2 сек</div>
-                <p className="text-sm text-secondary-600 dark:text-secondary-300">Средняя скорость загрузки</p>
+              <div className="bg-white/80 dark:bg-secondary-800/80 backdrop-blur-sm rounded-xl p-4 border border-secondary-100 dark:border-secondary-700 text-center">
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 leading-none mb-1">
+                  {SITE_CONFIG.aggregateRating.ratingValue}★
+                </div>
+                <p className="text-xs text-secondary-500 dark:text-secondary-400 leading-tight">средний<br />рейтинг</p>
+              </div>
+              <div className="bg-white/80 dark:bg-secondary-800/80 backdrop-blur-sm rounded-xl p-4 border border-secondary-100 dark:border-secondary-700 text-center">
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 leading-none mb-1">
+                  {SITE_CONFIG.yearsOnMarket} лет
+                </div>
+                <p className="text-xs text-secondary-500 dark:text-secondary-400 leading-tight">опыта в<br />разработке</p>
               </div>
             </div>
           </div>
 
           {/* Right: Featured image */}
-          <div className="relative lg:h-[600px] animate-in stagger-3">
-            {/* Decorative floating lines */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 pointer-events-none">
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-300/30 animate-spin" style={{ animationDuration: '30s' }} />
-              <div className="absolute inset-8 rounded-full border-2 border-dashed border-violet-300/30 animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }} />
-            </div>
-
+          <div className="relative lg:h-[580px]">
             <div className="relative z-10">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-violet-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-violet-500/10 rounded-3xl transition-all duration-500 group-hover:from-primary-500/15" />
                 <Image
                   src="/img/main.png"
-                  alt="Веб-разработка сайтов в Алматы - RC-WEB.KZ создание сайтов"
+                  alt="Разработка сайтов в Алматы — веб-студия RC-WEB.KZ на Next.js"
                   width={600}
                   height={450}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 600px"
-                  className="w-full h-auto object-cover relative z-10 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto object-cover relative z-10 group-hover:scale-[1.02] transition-transform duration-700"
                   priority
-                  unoptimized
                   fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent z-10" />
               </div>
 
-              {/* Floating card: SEO */}
-              <div className="absolute -bottom-6 -left-6 bg-white/70 dark:bg-secondary-800/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-4 shadow-xl animate-float relative z-[5] hidden sm:block">
-                {/* Floating dotted spheres around SEO card */}
-                <div className="absolute -top-8 -right-8 w-16 h-16 border-2 border-dashed border-primary-300/40 dark:border-primary-500/40 rounded-full animate-float pointer-events-none z-0" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
-                <div className="absolute -bottom-8 -left-8 w-20 h-20 border-2 border-dashed border-violet-300/40 dark:border-violet-500/40 rounded-full animate-float pointer-events-none z-0" style={{ animationDuration: '5s', animationDelay: '1.5s' }} />
-                <div className="flex items-center gap-3 relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-secondary-900 dark:text-white">SEO оптимизация</p>
-                    <p className="text-sm text-secondary-500 dark:text-secondary-300">Топ позиции в Google</p>
-                  </div>
+              {/* Single floating card — SEO badge */}
+              <div className="absolute -bottom-5 -left-5 bg-white dark:bg-secondary-800 border border-secondary-100 dark:border-secondary-700 shadow-large rounded-2xl p-4 z-20 hidden sm:flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-semibold text-sm text-secondary-900 dark:text-white">SEO + скорость</p>
+                  <p className="text-xs text-secondary-500 dark:text-secondary-400">Google PageSpeed 90+</p>
                 </div>
               </div>
 
-              {/* Floating card: Speed */}
-              <div className="absolute -top-4 -right-4 bg-white/70 dark:bg-secondary-800/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg rounded-2xl p-4 shadow-xl animate-float relative z-[6] hidden sm:block" style={{ animationDelay: '1s' }}>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-secondary-900 dark:text-white">Быстрая загрузка</p>
-                    <p className="text-sm text-secondary-500 dark:text-secondary-300">&lt; 2 сек</p>
-                  </div>
-                </div>
+              {/* Trust badge top-right */}
+              <div className="absolute -top-4 -right-4 bg-primary-600 text-white rounded-2xl px-4 py-3 z-20 hidden sm:block shadow-large">
+                <p className="text-xs font-medium opacity-80">от</p>
+                <p className="text-xl font-extrabold leading-none">85 000 ₸</p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

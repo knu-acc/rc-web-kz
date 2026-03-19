@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * @layer components — переиспользуемые UI-компоненты
+ * Централизованные стили карточек, badge и заголовков секций
+ */
+@layer components {
+  /* ── Карточки ─────────────────────────────────────────── */
+  .card-base {
+    @apply bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 p-6 transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-medium hover:-translate-y-1;
+  }
+
+  /* ── Заголовки секций ─────────────────────────────────── */
+  .section-heading {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    @apply font-bold tracking-tight text-secondary-900 dark:text-white;
+  }
+  .section-badge {
+    @apply inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4;
+  }
+
+  /* ── Outline button ───────────────────────────────────── */
+  .btn-outline {
+    @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3
+           bg-white dark:bg-transparent text-secondary-900 dark:text-white
+           font-semibold rounded-xl border border-secondary-200 dark:border-secondary-600
+           hover:border-secondary-400 dark:hover:border-secondary-400
+           transition-all duration-200 hover:shadow-md hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           dark:focus:ring-offset-secondary-950;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

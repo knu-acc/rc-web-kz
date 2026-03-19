@@ -78,6 +78,10 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      fontFamily: {
+        display: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -119,6 +123,10 @@ module.exports = {
           '0%': { opacity: 0, transform: 'translateY(20px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -128,6 +136,7 @@ module.exports = {
         'fade-in': 'fade-in 0.5s ease-out',
         shimmer: 'shimmer 2s linear infinite',
         'animate-in': 'animate-in 0.6s ease-out forwards',
+        marquee: 'marquee 30s linear infinite',
       },
     },
   },
