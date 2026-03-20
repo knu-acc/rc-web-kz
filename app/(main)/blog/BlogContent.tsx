@@ -144,7 +144,7 @@ export function BlogContent({ posts, categories }: BlogContentProps) {
             )}
             <div className="p-6 flex flex-col flex-1">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-primary-100 dark:border-primary-800/50">
+                <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300">
                   {categoryLabels[post.category] || post.category}
                 </span>
                 {post.readingTime && (

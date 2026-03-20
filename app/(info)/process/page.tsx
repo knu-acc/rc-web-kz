@@ -200,7 +200,7 @@ export default function ProcessPage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'Процесс работы', href: '/process' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-24 pb-16">
+      <section className="relative overflow-hidden pt-16 pb-10">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-white via-secondary-50 to-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950" />
         </div>
@@ -231,7 +231,7 @@ export default function ProcessPage() {
               { num: '3', label: 'раунда правок' },
             ].map((s) => (
               <div key={s.label} className="bg-white/80 dark:bg-secondary-800/80 backdrop-blur-sm rounded-xl p-3 shadow-sm">
-                <div className="text-2xl font-bold text-primary-600">{s.num}</div>
+                <div className="text-xl font-bold text-secondary-800 dark:text-secondary-100">{s.num}</div>
                 <div className="text-xs text-secondary-500 dark:text-secondary-400">{s.label}</div>
               </div>
             ))}
@@ -292,7 +292,7 @@ export default function ProcessPage() {
       <section className="section bg-secondary-50 dark:bg-secondary-900">
         <div className="container-custom max-w-4xl">
           <h2 className="heading-lg text-left md:text-center mb-4">Что вы получаете</h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-10">
+          <p className="text-base text-secondary-600 dark:text-secondary-300 text-left md:text-center mb-10">
             После завершения проекта мы передаём вам всё необходимое
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
