@@ -42,7 +42,7 @@ export function Portfolio() {
               className="group bg-white dark:bg-secondary-800 rounded-2xl border border-secondary-100 dark:border-secondary-700 overflow-hidden hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
             >
               {/* Image */}
-              <Link href={`/portfolio/${item.id}`} className="block overflow-hidden aspect-[4/3]" aria-label={`Посмотреть проект ${item.title}`}>
+              <Link href={`/portfolio/${item.id}`} className="relative block overflow-hidden aspect-[4/3]" aria-label={`Посмотреть проект ${item.title}`}>
                 <Image
                   src={item.image}
                   alt={`${item.title} — создание сайта в Алматы, веб-студия RC-WEB.KZ`}
@@ -50,7 +50,6 @@ export function Portfolio() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
-                  style={{ position: 'absolute' }}
                 />
               </Link>
 
