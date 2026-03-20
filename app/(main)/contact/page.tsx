@@ -102,8 +102,8 @@ export default function ContactPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               Онлайн консультация
             </div>
@@ -279,26 +279,26 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-gradient-to-br from-primary-600 to-violet-600 text-white">
+      <section className="section bg-secondary-900 text-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-left md:text-center space-y-8">
             <h2 className="text-2xl sm:text-3xl font-bold">
               Готовы начать проект?
             </h2>
-            <p className="text-xl text-white/90">
+            <p className="text-xl text-white/70">
               Свяжитесь со мной прямо сейчас и получите бесплатную консультацию по вашему проекту
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a 
-                href={SOCIAL_LINKS.whatsapp} 
-                className="inline-flex items-center gap-2 min-h-[56px] px-8 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              <a
+                href={SOCIAL_LINKS.whatsapp}
+                className="inline-flex items-center gap-2 min-h-[56px] px-8 py-3 bg-white text-secondary-900 font-semibold rounded-xl hover:bg-secondary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
                 aria-label="Написать в WhatsApp"
               >
                 <MessageCircle className="w-6 h-6" />
                 Написать в WhatsApp
               </a>
-              <a 
-                href={`tel:${SITE_CONFIG.phone}`} 
+              <a
+                href={`tel:${SITE_CONFIG.phone}`}
                 className="inline-flex items-center gap-2 min-h-[56px] px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-all hover:shadow-xl hover:-translate-y-1"
                 aria-label={`Позвонить по телефону ${SITE_CONFIG.phone}`}
               >
