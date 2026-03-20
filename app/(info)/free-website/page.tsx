@@ -117,9 +117,9 @@ export default function FreeWebsitePage() {
       <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl" />
         <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 text-amber-300 text-sm font-medium mb-6">Честный обзор</span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium mb-6">Честный обзор</span>
           <h1 className="heading-xl text-white mb-6">Создать сайт <span className="gradient-text">бесплатно</span></h1>
-          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-base text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
             Обзор 6 бесплатных платформ для создания сайта. Расскажем, какие есть ограничения, и когда лучше инвестировать в профессиональный сайт.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -133,7 +133,7 @@ export default function FreeWebsitePage() {
       <section id="platforms" className="section bg-white dark:bg-secondary-950">
         <div className="container-custom">
           <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">Обзор</span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">Обзор</span>
             <h2 className="heading-lg mb-4">6 бесплатных <span className="gradient-text">платформ</span></h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-300">Честный разбор каждой с плюсами, минусами и оценкой</p>
           </div>
@@ -256,7 +256,7 @@ export default function FreeWebsitePage() {
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы к профессиональному сайту?</h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Сайт, который окупится за счет привлечения клиентов. Консультация бесплатна.</p>
+          <p className="text-base text-white/80 mb-8 max-w-2xl mx-auto">Сайт, который окупится за счет привлечения клиентов. Консультация бесплатна.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">Написать в WhatsApp</a>
             <Link href="/website-price" className="btn-secondary">Узнать стоимость</Link>

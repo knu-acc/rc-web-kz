@@ -220,7 +220,7 @@ export default function WebsitePricePage() {
             <span className="gradient-text">ценообразование</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8">
+          <p className="text-base text-white/80 leading-relaxed mb-8">
             Все цены включают дизайн, разработку, SEO-оптимизацию и 30 дней техобслуживания. Без скрытых платежей.
           </p>
 
