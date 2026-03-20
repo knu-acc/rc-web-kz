@@ -11,9 +11,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-primary-50/30 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950/50" />
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-100/40 dark:bg-primary-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-100/30 dark:bg-violet-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-white dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950/50 dark:bg-secondary-950" />
       </div>
 
       <div className="container-custom py-16 sm:py-20 lg:py-28">
@@ -22,10 +20,10 @@ export function Hero() {
           {/* Left: Content */}
           <div className="space-y-7">
             {/* Status badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-950/50 border border-primary-100 dark:border-primary-800 text-primary-700 dark:text-primary-300 text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 text-secondary-700 dark:text-secondary-300 text-sm font-medium">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               Веб-студия в Алматы — принимаем заявки
             </div>
@@ -95,7 +93,7 @@ export function Hero() {
           <div className="relative lg:h-[580px]">
             <div className="relative z-10">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-violet-500/10 rounded-3xl transition-all duration-500 group-hover:from-primary-500/15" />
+                <div className="absolute inset-0 rounded-3xl" />
                 <Image
                   src="/img/main.png"
                   alt="Разработка сайтов в Алматы — веб-студия RC-WEB.KZ на Next.js"
@@ -123,7 +121,7 @@ export function Hero() {
               </div>
 
               {/* Trust badge top-right */}
-              <div className="absolute -top-4 -right-4 bg-primary-600 text-white rounded-2xl px-4 py-3 z-20 hidden sm:block shadow-large">
+              <div className="absolute -top-4 -right-4 bg-secondary-900 dark:bg-secondary-800 text-white rounded-2xl px-4 py-3 z-20 hidden sm:block shadow-large">
                 <p className="text-xs font-medium opacity-80">от</p>
                 <p className="text-xl font-extrabold leading-none">85 000 ₸</p>
               </div>

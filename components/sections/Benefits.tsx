@@ -3,6 +3,8 @@
  * Переработан: full-cards с описаниями вместо компактных pill-cards
  */
 
+const iconClass = 'bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300'
+
 const benefits = [
   {
     icon: (
@@ -12,7 +14,6 @@ const benefits = [
     ),
     title: 'Быстрая загрузка',
     description: 'Сайты загружаются менее чем за 2 секунды. Оптимизация изображений, кода и серверного рендеринга на Next.js.',
-    color: 'bg-yellow-50 dark:bg-yellow-950/20 text-yellow-600 dark:text-yellow-400',
   },
   {
     icon: (
@@ -22,7 +23,6 @@ const benefits = [
     ),
     title: 'Адаптивный дизайн',
     description: 'Идеальное отображение на телефонах, планшетах и компьютерах. 70% казахстанцев заходят с мобильных.',
-    color: 'bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400',
   },
   {
     icon: (
@@ -32,7 +32,6 @@ const benefits = [
     ),
     title: 'SEO-оптимизация',
     description: 'Сайты видны в Google и Яндекс с первого дня. Schema.org, метатеги, sitemap.xml — всё включено в стоимость.',
-    color: 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400',
   },
   {
     icon: (
@@ -42,7 +41,6 @@ const benefits = [
     ),
     title: 'Безопасность',
     description: 'SSL-сертификат, защита от взлома и регулярные бэкапы. Ваши данные и данные клиентов в безопасности.',
-    color: 'bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400',
   },
   {
     icon: (
@@ -52,7 +50,6 @@ const benefits = [
     ),
     title: 'Уникальный дизайн',
     description: 'Каждый сайт создаётся индивидуально под ваш бренд. Никаких шаблонов — только дизайн, который выделяет вас.',
-    color: 'bg-pink-50 dark:bg-pink-950/20 text-pink-600 dark:text-pink-400',
   },
   {
     icon: (
@@ -62,7 +59,6 @@ const benefits = [
     ),
     title: 'Техподдержка',
     description: '30 дней бесплатного техобслуживания после запуска. Быстро исправим ошибки, обновим контент.',
-    color: 'bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-400',
   },
   {
     icon: (
@@ -72,7 +68,6 @@ const benefits = [
     ),
     title: 'Работаем по всему Казахстану',
     description: 'Алматы, Астана, Шымкент, Актобе — работаем удалённо по всей стране. Связь по WhatsApp и Zoom.',
-    color: 'bg-cyan-50 dark:bg-cyan-950/20 text-cyan-600 dark:text-cyan-400',
   },
   {
     icon: (
@@ -82,7 +77,6 @@ const benefits = [
     ),
     title: 'Договор и прозрачность',
     description: 'Работаем официально по договору с ТЗ. Чёткие сроки, фиксированная цена, никаких скрытых доплат.',
-    color: 'bg-teal-50 dark:bg-teal-950/20 text-teal-600 dark:text-teal-400',
   },
 ]
 
@@ -112,7 +106,7 @@ export function Benefits() {
               className="group bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 p-6 hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon */}
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${benefit.color}`}>
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${iconClass}`}>
                 {benefit.icon}
               </div>
 

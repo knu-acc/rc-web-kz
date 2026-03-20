@@ -14,8 +14,6 @@ const pains = [
     ),
     title: 'Клиенты не находят вас в Google',
     desc: 'Конкуренты на первой странице, а вы — нет. Без SEO-оптимизации сайт невидим.',
-    color: 'bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/50',
-    iconColor: 'bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400',
   },
   {
     icon: (
@@ -25,8 +23,6 @@ const pains = [
     ),
     title: 'Сайт не работает на телефоне',
     desc: '70% трафика в Алматы — мобильный. Неадаптивный сайт теряет большинство посетителей.',
-    color: 'bg-orange-50 dark:bg-orange-950/30 border-orange-100 dark:border-orange-900/50',
-    iconColor: 'bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400',
   },
   {
     icon: (
@@ -36,8 +32,6 @@ const pains = [
     ),
     title: 'Заявки теряются',
     desc: 'Нет формы, кнопки WhatsApp или чёткого призыва к действию. Посетитель уходит без контакта.',
-    color: 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-100 dark:border-yellow-900/50',
-    iconColor: 'bg-yellow-100 dark:bg-yellow-900/50 text-yellow-600 dark:text-yellow-500',
   },
   {
     icon: (
@@ -47,8 +41,6 @@ const pains = [
     ),
     title: 'Конструктор обходится дорого',
     desc: 'Tilda/Wix: абонплата от 40 000 ₸/год + плохая индексация. Сайт на Next.js окупается за год.',
-    color: 'bg-violet-50 dark:bg-violet-950/30 border-violet-100 dark:border-violet-900/50',
-    iconColor: 'bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400',
   },
 ]
 
@@ -58,7 +50,7 @@ export function PainPoints() {
       <div className="container-custom">
         {/* Section header */}
         <div className="text-left md:text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900 text-red-600 dark:text-red-400 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             Узнаёте себя?
           </span>
           <h2 className="heading-lg mb-4">
@@ -75,9 +67,9 @@ export function PainPoints() {
           {pains.map((pain) => (
             <div
               key={pain.title}
-              className={`rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-medium ${pain.color}`}
+              className="rounded-2xl border border-secondary-100 dark:border-secondary-800 bg-white dark:bg-secondary-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-medium"
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${pain.iconColor}`}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300">
                 {pain.icon}
               </div>
               <h3 className="font-semibold text-secondary-900 dark:text-white mb-2 leading-snug">

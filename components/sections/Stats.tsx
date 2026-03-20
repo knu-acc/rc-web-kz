@@ -62,7 +62,7 @@ export function Stats() {
               className={`flex flex-col items-start md:items-center text-left md:text-center px-0 md:px-6 group ${index > 0 ? 'pl-0 sm:pl-4' : ''}`}
             >
               {/* Icon */}
-              <div className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-primary-950/40 text-primary-600 dark:text-primary-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                 {stat.icon}
               </div>
 

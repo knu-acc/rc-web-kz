@@ -59,10 +59,9 @@ export default function AboutPage() {
       <Breadcrumbs items={[{ name: 'Главная', href: '/' }, { name: 'О компании', href: '/about' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden pt-16 pb-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
-        <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-3xl" />
+      <section className="relative overflow-hidden pt-16 pb-16 bg-secondary-900">
         <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6">О компании</span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium mb-6">О компании</span>
           <h1 className="heading-xl text-white mb-6">О веб-студии <span className="gradient-text">RC-WEB.KZ</span></h1>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
             Разработка сайтов в Алматы с 2020 года. {SITE_CONFIG.projectsCount} проектов, современные технологии, индивидуальный подход к каждому клиенту.
@@ -94,10 +93,10 @@ export default function AboutPage() {
             {timeline.map((item, index) => (
               <div key={item.year} className="flex gap-4 md:gap-6">
                 <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="w-16 h-8 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
-                    <span className="text-sm font-bold text-primary-700 dark:text-primary-300">{item.year}</span>
+                  <div className="w-16 h-8 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center">
+                    <span className="text-sm font-bold text-secondary-700 dark:text-secondary-300">{item.year}</span>
                   </div>
-                  {index < timeline.length - 1 && <div className="w-0.5 flex-1 bg-primary-200 dark:bg-primary-800 mt-2" />}
+                  {index < timeline.length - 1 && <div className="w-0.5 flex-1 bg-secondary-200 dark:bg-secondary-700 mt-2" />}
                 </div>
                 <div className="pb-6">
                   <h3 className="text-lg font-bold mb-1">{item.title}</h3>
