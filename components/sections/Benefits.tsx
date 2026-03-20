@@ -93,14 +93,14 @@ export function Benefits() {
             Почему выбирают{' '}
             <span className="gradient-text">нас</span>
           </h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300">
+          <p className="text-base text-secondary-600 dark:text-secondary-300">
             Более 6 лет делаем сайты, которые работают на бизнес, а не просто красиво выглядят.
           </p>
         </div>
 
-        {/* Benefits grid — full cards with descriptions */}
+        {/* Benefits grid — 4 key cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {benefits.map((benefit) => (
+          {benefits.slice(0, 4).map((benefit) => (
             <div
               key={benefit.title}
               className="group bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-100 dark:border-secondary-800 p-6 hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-medium transition-all duration-300 hover:-translate-y-1"

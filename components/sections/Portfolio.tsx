@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { portfolioItems } from '@/data/portfolio'
 
 export function Portfolio() {
-  const displayedItems = portfolioItems.slice(0, 6)
+  const displayedItems = portfolioItems.slice(0, 4)
 
   return (
     <section className="section relative overflow-hidden bg-secondary-50 dark:bg-secondary-900">
@@ -34,8 +34,8 @@ export function Portfolio() {
           </Link>
         </div>
 
-        {/* Portfolio grid — always visible cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Portfolio grid — 4 cards */}
+        <div className="grid md:grid-cols-2 gap-6">
           {displayedItems.map((item) => (
             <article
               key={item.id}
@@ -58,7 +58,7 @@ export function Portfolio() {
                 <span className="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wide">
                   {item.category}
                 </span>
-                <h3 className="font-bold text-secondary-900 dark:text-white mt-1 text-lg leading-snug">
+                <h3 className="font-bold text-secondary-900 dark:text-white mt-1 text-base leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-secondary-500 dark:text-secondary-400 text-sm mt-1.5 line-clamp-2 leading-relaxed">

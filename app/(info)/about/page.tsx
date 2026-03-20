@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="container-custom relative z-10 text-left md:text-center max-w-3xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium mb-6">О компании</span>
           <h1 className="heading-xl text-white mb-6">О веб-студии <span className="gradient-text">RC-WEB.KZ</span></h1>
-          <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-base text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
             Разработка сайтов в Алматы с 2020 года. {SITE_CONFIG.projectsCount} проектов, современные технологии, индивидуальный подход к каждому клиенту.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
@@ -154,7 +154,7 @@ export default function AboutPage() {
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Давайте работать вместе</h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Расскажите о вашем проекте  мы предложим лучшее решение.</p>
+          <p className="text-base text-white/80 mb-8 max-w-2xl mx-auto">Расскажите о вашем проекте  мы предложим лучшее решение.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={SOCIAL_LINKS.whatsapp} className="btn-whatsapp">Написать в WhatsApp</a>
             <Link href="/contact" className="btn-secondary">Контакты</Link>

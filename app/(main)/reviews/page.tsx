@@ -38,12 +38,12 @@ export default function ReviewsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section with rating */}
-      <section className="relative overflow-hidden pt-32">
+      <section className="relative overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900" />
         </div>
 
-        <div className="container-custom py-20 lg:py-32">
+        <div className="container-custom py-12 lg:py-16">
           <div className="max-w-4xl mx-auto text-left md:text-center">
             <div className="space-y-8 animate-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium">
@@ -57,22 +57,22 @@ export default function ReviewsPage() {
               <h1 className="heading-xl text-white">
                 <span className="block">Более 120</span>
                 <span className="gradient-text">положительных отзывов</span>
-                <span className="block text-white/80 text-3xl sm:text-4xl lg:text-5xl font-semibold mt-2">
+                <span className="block text-white/80 text-xl sm:text-2xl lg:text-3xl font-semibold mt-2">
                   довольные клиенты
                 </span>
               </h1>
 
               <div className="flex items-center justify-center gap-2 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <svg key={`hero-star-${star}`} className="w-10 h-10 text-amber-400 fill-current" viewBox="0 0 20 20">
+                  <svg key={`hero-star-${star}`} className="w-6 h-6 text-amber-400 fill-current" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <p className="text-3xl font-bold text-white mb-2">Средняя оценка: 5.0 из 5.0</p>
-              <p className="text-white/70 text-lg">На основе 120+ отзывов</p>
+              <p className="text-base font-bold text-white mb-2">Средняя оценка: 5.0 из 5.0</p>
+              <p className="text-white/70 text-sm">На основе 120+ отзывов</p>
 
-              <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
                 Выполнено более 120 проектов, каждый отзыв — положительный. Клиенты довольны результатом и рекомендуют нас. Работы в <Link href="/portfolio" className="text-primary-300 hover:underline font-semibold">портфолио</Link>.
               </p>
 
@@ -173,7 +173,7 @@ export default function ReviewsPage() {
         <div className="container-custom text-left md:text-center py-16 lg:py-20">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg mb-6 text-white">Станьте нашим клиентом</h2>
-            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
               Присоединяйтесь к более чем 120 довольным клиентам. Создадим для вас профессиональный сайт
               с техобслуживанием 30 дней после запуска.
             </p>

@@ -53,7 +53,7 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="py-10 sm:py-14 bg-white dark:bg-secondary-900 border-y border-secondary-100 dark:border-secondary-800" aria-label="Статистика компании">
+    <section className="py-8 sm:py-10 bg-white dark:bg-secondary-900 border-y border-secondary-100 dark:border-secondary-800" aria-label="Статистика компании">
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x divide-secondary-100 dark:divide-secondary-800 gap-y-8 md:gap-y-0">
           {stats.map((stat, index) => (
@@ -68,7 +68,7 @@ export function Stats() {
 
               {/* Value */}
               <div
-                className="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-white font-display mb-1"
+                className="text-2xl md:text-3xl font-bold text-secondary-900 dark:text-white font-display mb-1"
                 aria-label={stat.ariaLabel}
               >
                 {stat.value}

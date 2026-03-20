@@ -158,7 +158,7 @@ export default function CorporateSitePage() {
                 <span className="gradient-text">от 135 000 тенге</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+              <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Создаём профессиональные корпоративные сайты для бизнеса. Идеально для <Link href="/seo-optimization" className="text-primary-600 hover:underline font-semibold">SEO-продвижения</Link>, представления компании и привлечения клиентов. Полный функционал, современный дизайн, техподдержка.
               </p>
 
