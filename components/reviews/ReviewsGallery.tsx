@@ -14,7 +14,7 @@ export function ReviewsGallery({ reviews }: ReviewsGalleryProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {reviews.map((review) => (
           <button
             key={review.id}
@@ -22,7 +22,7 @@ export function ReviewsGallery({ reviews }: ReviewsGalleryProps) {
             className="group relative w-full cursor-pointer"
             aria-label={`Открыть отзыв: ${review.alt}`}
           >
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-secondary-200 dark:border-secondary-700 bg-secondary-50 dark:bg-secondary-900">
               <Image
                 src={review.image}
                 alt={review.alt}

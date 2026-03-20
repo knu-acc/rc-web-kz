@@ -47,7 +47,7 @@ export default function BlogPage() {
               Полезные материалы
             </span>
             <h1 className="heading-lg mb-4">Блог о <span className="gradient-text">создании сайтов</span></h1>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300">
+            <p className="text-base text-secondary-600 dark:text-secondary-300">
               Полезные статьи о веб-разработке, SEO-продвижении, дизайне и маркетинге в Алматы
             </p>
           </div>
