@@ -10,13 +10,7 @@ import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export function CTA() {
   return (
-    <section className="section bg-gradient-to-br from-primary-600 via-primary-700 to-violet-700 text-white relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute inset-0 -z-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-violet-400/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
-      </div>
-
+    <section className="section bg-secondary-900 dark:bg-secondary-950 text-white relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto text-left md:text-center">
 
@@ -31,9 +25,9 @@ export function CTA() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-5 leading-tight font-display">
             Готовы заказать{' '}
-            <span className="text-primary-200">сайт?</span>
+            <span className="gradient-text">сайт?</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-white/70 mb-10 max-w-xl mx-auto leading-relaxed">
             Свяжитесь прямо сейчас — обсудим задачу, подберём решение и назовём точную стоимость.
             Консультация бесплатная, без обязательств.
           </p>
@@ -41,7 +35,7 @@ export function CTA() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
             <WhatsAppLink
-              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 px-8 py-4 bg-white text-primary-700 font-bold rounded-xl hover:bg-white/90 hover:shadow-2xl transition-all duration-200 hover:-translate-y-0.5 text-base"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 px-8 py-4 bg-white text-secondary-900 font-bold rounded-xl hover:bg-secondary-50 hover:shadow-2xl transition-all duration-200 hover:-translate-y-0.5 text-base"
               ariaLabel="Написать в WhatsApp"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -62,7 +56,7 @@ export function CTA() {
           </div>
 
           {/* Trust signals */}
-          <div className="flex flex-wrap justify-center gap-5 text-white/60 text-sm">
+          <div className="flex flex-wrap justify-center gap-5 text-white/50 text-sm">
             {[
               'Бесплатная консультация',
               'Без предоплаты',
@@ -70,7 +64,7 @@ export function CTA() {
               'Результат за 7 дней',
             ].map((item) => (
               <div key={item} className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-emerald-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
                 {item}
