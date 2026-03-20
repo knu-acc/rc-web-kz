@@ -1,5 +1,5 @@
 /**
- * Hero Section — Clean & Minimal
+ * Hero Section — Awwwards-level editorial design
  */
 import Link from 'next/link'
 import Image from 'next/image'
@@ -7,35 +7,43 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants'
 
 export function Hero() {
   return (
-    <section className="relative flex items-center overflow-hidden pt-16">
-      <div className="absolute inset-0 -z-10 bg-white dark:bg-secondary-950" />
+    <section className="relative overflow-hidden pt-16 bg-white dark:bg-secondary-950">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-start py-16 lg:py-24">
 
-      <div className="container-custom py-12 sm:py-16 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-
-          {/* Left: Content */}
-          <div className="space-y-5">
-            {/* Status badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-300 text-xs font-medium">
+          {/* Left: Typography-dominant content */}
+          <div className="flex flex-col">
+            {/* Status line */}
+            <div className="inline-flex items-center gap-2 text-xs font-medium text-secondary-400 dark:text-secondary-500 tracking-widest uppercase mb-10">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-              Веб-студия в Алматы — принимаем заявки
+              Веб-студия в Алматы
             </div>
 
-            {/* Main heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold font-display tracking-tight leading-[1.15] text-secondary-900 dark:text-white text-balance">
-              Создание сайтов в Алматы{' '}
-              <span className="gradient-text">от 85 000 тенге</span>{' '}
-              — под ключ за 7–10 дней
+            {/* H1 — oversized editorial */}
+            <h1 className="heading-display text-secondary-900 dark:text-white mb-8">
+              Создание<br />
+              сайтов<br />
+              <span className="text-primary-600 dark:text-primary-400">в&nbsp;Алматы</span>
             </h1>
 
+            {/* Price + USP */}
+            <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1 mb-10">
+              <span className="text-2xl font-bold text-secondary-900 dark:text-white tracking-tight">
+                от 85 000 ₸
+              </span>
+              <span className="text-base text-secondary-400 dark:text-secondary-500">
+                · под ключ за 7–10 дней
+              </span>
+            </div>
+
             {/* Description */}
-            <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-lg leading-relaxed">
+            <p className="text-base text-secondary-500 dark:text-secondary-400 leading-relaxed max-w-md mb-10">
               120+ проектов: лендинги, корпоративные сайты, интернет-магазины.
-              SEO-оптимизация включена. Работаем по всему Казахстану.
+              SEO-оптимизация и адаптив включены.
             </p>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3 pt-1">
+            <div className="flex flex-wrap gap-3 mb-16">
               <a
                 href={SOCIAL_LINKS.whatsapp}
                 className="btn-dark inline-flex items-center gap-2"
@@ -49,7 +57,7 @@ export function Hero() {
               <Link
                 href="/portfolio"
                 prefetch
-                className="btn-secondary group"
+                className="btn-outline group"
                 aria-label="Смотреть кейсы и портфолио"
               >
                 Смотреть кейсы
@@ -59,24 +67,31 @@ export function Hero() {
               </Link>
             </div>
 
-            {/* Social proof — compact inline row */}
-            <div className="flex flex-wrap gap-4 pt-1 text-sm text-secondary-500 dark:text-secondary-400">
-              <span><strong className="text-secondary-900 dark:text-white">{SITE_CONFIG.projectsCount}</strong> проектов</span>
-              <span><strong className="text-secondary-900 dark:text-white">{SITE_CONFIG.aggregateRating.ratingValue}★</strong> рейтинг</span>
-              <span><strong className="text-secondary-900 dark:text-white">{SITE_CONFIG.yearsOnMarket} года</strong> на рынке</span>
+            {/* Stats bar */}
+            <div className="border-t border-secondary-100 dark:border-secondary-800 pt-8 grid grid-cols-3 gap-6">
+              {[
+                { value: SITE_CONFIG.projectsCount, label: 'проектов' },
+                { value: `${SITE_CONFIG.aggregateRating.ratingValue}★`, label: 'рейтинг' },
+                { value: `${SITE_CONFIG.yearsOnMarket}+`, label: 'лет опыта' },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-bold text-secondary-900 dark:text-white tracking-tight">{s.value}</div>
+                  <div className="text-sm text-secondary-400 dark:text-secondary-500 mt-0.5">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right: Featured image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-large group">
+          {/* Right: Image — clean, no decoration */}
+          <div className="relative lg:sticky lg:top-24 hidden lg:block">
+            <div className="relative overflow-hidden rounded-2xl">
               <Image
                 src="/img/main.png"
                 alt="Разработка сайтов в Алматы — веб-студия RC-WEB.KZ"
                 width={600}
-                height={450}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 600px"
-                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                height={700}
+                sizes="420px"
+                className="w-full h-auto object-cover"
                 priority
                 fetchPriority="high"
               />

@@ -1,3 +1,6 @@
+/**
+ * FAQ Section — Lines-only accordion
+ */
 'use client'
 
 import { useState } from 'react'
@@ -12,109 +15,96 @@ export function FAQ() {
   }
 
   return (
-    <section className="section bg-secondary-50/50 dark:bg-secondary-900" aria-labelledby="faq-heading">
+    <section className="section bg-secondary-50 dark:bg-secondary-900" aria-labelledby="faq-heading">
       <div className="container-custom">
+
         {/* Section header */}
-        <div className="text-left md:text-center max-w-3xl mx-auto mb-10">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
-            FAQ
-          </span>
-          <h2 id="faq-heading" className="heading-lg mb-6">
-            Ответы на <span className="gradient-text">популярные вопросы</span>
-          </h2>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <p className="text-xs font-bold tracking-widest uppercase text-secondary-400 dark:text-secondary-500 mb-4">
+              FAQ
+            </p>
+            <h2 id="faq-heading" className="heading-lg text-secondary-900 dark:text-white">
+              Частые вопросы
+            </h2>
+          </div>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        {/* Accordion — lines only, no cards */}
+        <div className="max-w-3xl border-t border-secondary-200 dark:border-secondary-700">
           {faqItems.slice(0, 4).map((item) => {
             const isOpen = openId === item.id
             return (
-              <article
+              <div
                 key={item.id}
-                className="bg-white dark:bg-secondary-950 rounded-2xl border border-secondary-100 dark:border-secondary-800 overflow-hidden transition-all duration-300 hover:border-secondary-300 dark:hover:border-secondary-700 hover:shadow-lg"
+                className="border-b border-secondary-200 dark:border-secondary-700"
               >
                 <button
-                  className="w-full flex items-center justify-between p-6 text-left"
+                  className="w-full flex items-center justify-between py-6 text-left group focus:outline-none"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${item.id}`}
-                  aria-label={`${isOpen ? 'Свернуть' : 'Развернуть'}: ${item.question}`}
                   onClick={() => toggleFAQ(item.id)}
                 >
-                  <h3 className="text-base font-semibold text-secondary-900 dark:text-white pr-8" id={`faq-question-${item.id}`}>
+                  <h3 className="text-base font-semibold text-secondary-900 dark:text-white pr-8 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {item.question}
                   </h3>
+                  {/* + / × icon */}
                   <span
-                    className={`flex-shrink-0 w-10 h-10 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
-                      }`}
+                    className={`flex-shrink-0 w-8 h-8 flex items-center justify-center text-secondary-400 dark:text-secondary-500 transition-all duration-200 text-xl font-light ${
+                      isOpen ? 'rotate-45' : ''
+                    }`}
+                    aria-hidden="true"
                   >
-                    <svg className="w-5 h-5 text-secondary-800 dark:text-secondary-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
+                    +
                   </span>
                 </button>
 
-                {/* Animated answer container */}
+                {/* Answer */}
                 <div
                   id={`faq-answer-${item.id}`}
                   role="region"
-                  aria-labelledby={`faq-question-${item.id}`}
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
                 >
-                  <div className="px-6 pb-6 text-secondary-600 dark:text-secondary-300 leading-relaxed">
+                  <div className="pb-6 text-secondary-600 dark:text-secondary-300 leading-relaxed text-base">
                     <p>{item.answer}</p>
 
-                    {/* Buttons with proper spacing */}
                     {item.id === '1' && (
-                      <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
+                      <div className="mt-5">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark text-sm">
                           Купить сайт в Алматы
                         </a>
                       </div>
                     )}
                     {item.id === '2' && (
-                      <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
+                      <div className="mt-5">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark text-sm">
                           Напишите мне
                         </a>
                       </div>
                     )}
                     {item.id === '3' && (
-                      <div className="mt-6">
-                        <a href={`tel:${SITE_CONFIG.phone}`} className="btn-dark">
+                      <div className="mt-5">
+                        <a href={`tel:${SITE_CONFIG.phone}`} className="btn-dark text-sm">
                           Позвонить
                         </a>
                       </div>
                     )}
                     {item.id === '4' && (
-                      <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
+                      <div className="mt-5">
+                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark text-sm">
                           Написать в WhatsApp
-                        </a>
-                      </div>
-                    )}
-                    {item.id === '5' && (
-                      <div className="mt-6">
-                        <a href={SOCIAL_LINKS.whatsapp} className="btn-dark">
-                          Связаться по WhatsApp
-                        </a>
-                      </div>
-                    )}
-                    {item.id === '6' && (
-                      <div className="mt-6 flex flex-wrap gap-3">
-                        <a href="/portfolio" className="btn-outline">
-                          Смотреть портфолио
-                        </a>
-                        <a href="/brif.doc" className="btn-secondary" download>
-                          Скачать бриф
                         </a>
                       </div>
                     )}
                   </div>
                 </div>
-              </article>
+              </div>
             )
           })}
         </div>
+
       </div>
     </section>
   )
