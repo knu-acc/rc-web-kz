@@ -389,7 +389,7 @@
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-violet-600;
+    @apply text-primary-600 dark:text-primary-400;
   }
   .btn-outline {
     @apply inline-flex min-h-[48px] items-center justify-center px-6 py-3 bg-white dark:bg-secondary-800 hover:bg-secondary-50 dark:hover:bg-secondary-700 text-secondary-900 dark:text-secondary-100 font-semibold rounded-xl border-2 border-secondary-300 dark:border-secondary-600 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-950;
