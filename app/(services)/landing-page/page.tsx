@@ -123,10 +123,7 @@ export default function LandingPagePage() {
             {/* Left: Content */}
             <div className="space-y-8 animate-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
-                </span>
+                <span className="bg-secondary-600 w-1.5 h-1.5 rounded-full flex-shrink-0"></span>
                 Landing Page в Алматы
               </div>
 

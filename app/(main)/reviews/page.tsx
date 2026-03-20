@@ -42,10 +42,7 @@ export default function ReviewsPage() {
       <section className="bg-secondary-900 text-white pt-16 pb-10">
         <div className="container-custom max-w-4xl text-left md:text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white/80 text-sm font-medium mb-4">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
+            <span className="bg-emerald-500 w-1.5 h-1.5 rounded-full flex-shrink-0" />
             Отзывы клиентов
           </div>
 

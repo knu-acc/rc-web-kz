@@ -207,10 +207,7 @@ export default function ProcessPage() {
 
         <div className="container-custom text-left md:text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
-            </span>
+            <span className="bg-primary-500 w-1.5 h-1.5 rounded-full flex-shrink-0" />
             6 этапов разработки
           </div>
 
