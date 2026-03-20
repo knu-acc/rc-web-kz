@@ -116,14 +116,14 @@ export function Services() {
             Создание сайтов{' '}
             <span className="gradient-text">любой сложности</span>
           </h2>
-          <p className="text-lg text-secondary-600 dark:text-secondary-300">
+          <p className="text-base text-secondary-600 dark:text-secondary-300">
             Каждый проект включает адаптивный дизайн, SEO-оптимизацию и 30 дней бесплатного техобслуживания.
           </p>
         </div>
 
-        {/* Services grid — 7 uniform cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {services.map((service) => (
+        {/* Services grid — 6 uniform cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.filter(s => s.id !== 7).map((service) => (
             <Link
               href={service.href}
               prefetch
@@ -144,7 +144,7 @@ export function Services() {
 
               {/* Content */}
               <div className="space-y-2 mb-5">
-                <h3 className="font-bold text-secondary-900 dark:text-white text-lg leading-snug">
+                <h3 className="font-bold text-secondary-900 dark:text-white text-base leading-snug">
                   {service.title}
                 </h3>
                 <p className="text-sm text-secondary-500 dark:text-secondary-400 leading-relaxed">

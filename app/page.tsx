@@ -5,8 +5,6 @@ import { Stats } from '@/components/sections/Stats'
 import { SITE_CONFIG } from '@/lib/constants'
 import { generateFAQPageSchema } from '@/lib/schema'
 import { faqItems } from '@/data/faq'
-import { LogosStrip } from '@/components/sections/LogosStrip'
-import { PainPoints } from '@/components/sections/PainPoints'
 import { Services } from '@/components/sections/Services'
 
 // Lazy load компонентов ниже fold для улучшения First Contentful Paint
@@ -19,10 +17,6 @@ const Portfolio = dynamic(() => import('@/components/sections/Portfolio').then(m
   ssr: true,
 })
 const ProcessSteps = dynamic(() => import('@/components/sections/ProcessSteps').then(mod => ({ default: mod.ProcessSteps })), {
-  loading: () => null,
-  ssr: true,
-})
-const BlogPreview = dynamic(() => import('@/components/sections/BlogPreview').then(mod => ({ default: mod.BlogPreview })), {
   loading: () => null,
   ssr: true,
 })
@@ -85,19 +79,12 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      {/* P1: Hero → LogosStrip → Stats (выше fold) */}
       <Hero />
-      <LogosStrip />
       <Stats />
-      {/* P2: Empathy → Services → Benefits (основной конверсионный блок) */}
-      <PainPoints />
       <Services />
       <Benefits />
-      {/* P3: Социальное доказательство + процесс */}
       <Portfolio />
       <ProcessSteps />
-      {/* P4: Контент и конверсия */}
-      <BlogPreview />
       <FAQ />
       <CTA />
     </>

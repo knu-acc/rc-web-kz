@@ -221,7 +221,7 @@ export default function TildaSitePage() {
                 <span className="gradient-text">от 120 000 тенге</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+              <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Создаём профессиональные сайты на Tilda с возможностью самостоятельного редактирования. Быстрая разработка, современный дизайн, удобная админка. Идеально для малого бизнеса и стартапов.
               </p>
 
@@ -426,9 +426,9 @@ export default function TildaSitePage() {
                 className="rounded-2xl shadow-xl"
                 loading="lazy"
               />
-              <div className="absolute -bottom-4 -right-4 bg-primary-600 text-white rounded-2xl p-4 shadow-lg">
+              <div className="absolute -bottom-4 -right-4 bg-secondary-100 dark:bg-secondary-800 text-secondary-900 dark:text-white rounded-2xl p-4 shadow-lg">
                 <div className="text-2xl font-bold">от 120 тыс ₸</div>
-                <p className="text-sm text-white/80">от стоимости</p>
+                <p className="text-sm text-secondary-600 dark:text-secondary-300">от стоимости</p>
               </div>
             </div>
           </div>
@@ -453,11 +453,11 @@ export default function TildaSitePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
               <div key={`step-${step.step}`} className="relative">
-                <div className="text-6xl font-bold text-primary-100 mb-4">{step.step}</div>
+                <div className="text-6xl font-bold text-secondary-200 dark:text-secondary-700 mb-4">{step.step}</div>
                 <h3 className="text-xl font-bold text-secondary-900 dark:text-white mb-3">{step.title}</h3>
                 <p className="text-secondary-600 dark:text-secondary-300 leading-relaxed">{step.description}</p>
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary-200 to-transparent" />
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-secondary-200 to-transparent" />
                 )}
               </div>
             ))}
@@ -491,13 +491,13 @@ export default function TildaSitePage() {
                 }`}
               >
                 {type.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-600 text-white text-sm font-medium px-4 py-1 rounded-full">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary-700 text-white text-sm font-medium px-4 py-1 rounded-full">
                     Популярный
                   </div>
                 )}
                 <h3 className="text-2xl font-bold text-secondary-900 dark:text-white mb-2">{type.title}</h3>
                 <p className="text-secondary-600 dark:text-secondary-300 mb-4">{type.description}</p>
-                <div className="text-3xl font-bold text-primary-600 mb-2">{type.price}</div>
+                <div className="text-3xl font-bold text-secondary-900 dark:text-white mb-2">{type.price}</div>
                 <p className="text-sm text-secondary-500 mb-6">Срок: {type.duration}</p>
                 <ul className="space-y-3 mb-8">
                   {type.features.map((feature, idx) => (
@@ -667,7 +667,7 @@ export default function TildaSitePage() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-gradient-to-br from-primary-600 to-primary-700 text-white">
+      <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы создать сайт на Tilda?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">

@@ -120,15 +120,15 @@ export default function WhyChooseUsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Hero Section with achievements */}
-      <section className="relative overflow-hidden pt-32">
+      <section className="relative overflow-hidden pt-20">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900" />
         </div>
 
-        <div className="container-custom py-20 lg:py-32">
+        <div className="container-custom py-12 lg:py-16">
           <div className="max-w-4xl mx-auto text-left md:text-center">
             <div className="space-y-8 animate-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -139,12 +139,12 @@ export default function WhyChooseUsPage() {
               <h1 className="heading-xl text-white">
                 <span className="block">Почему выбирают</span>
                 <span className="gradient-text">нас</span>
-                <span className="block text-white/80 text-3xl sm:text-4xl lg:text-5xl font-semibold mt-2">
+                <span className="block text-white/80 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
                   преимущества RC-WEB
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base text-white/80 max-w-2xl mx-auto leading-relaxed">
                 Преимуществ и плюсов заказать сайт у нас достаточно много. Мы выделили основные причины, 
                 почему клиенты выбирают нас для создания сайтов в Алматы. Посмотрите наши работы в <Link href="/portfolio" className="text-secondary-300 hover:underline font-semibold">портфолио</Link>.
               </p>
@@ -239,8 +239,8 @@ export default function WhyChooseUsPage() {
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {processSteps.map((step, index) => (
               <div key={`step-${step.step}`} className="text-left md:text-center">
-                <div className="w-12 h-12 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <span className="text-xl font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
+                <div className="w-8 h-8 bg-secondary-100 dark:bg-secondary-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <span className="text-sm font-bold text-secondary-800 dark:text-secondary-100">{step.step}</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                 <p className="text-secondary-600 dark:text-secondary-300 text-sm">{step.description}</p>
@@ -261,7 +261,7 @@ export default function WhyChooseUsPage() {
       <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4">Готовы начать?</h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-base text-white/80 mb-8 max-w-2xl mx-auto">
             Свяжитесь для бесплатной консультации и обсуждения проекта
           </p>
           <div className="flex flex-wrap justify-center gap-4">

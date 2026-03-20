@@ -112,8 +112,8 @@ export default function WebsiteAdvertisingPage() {
             <div className="space-y-8 animate-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
                 </span>
                 Реклама сайта в Алматы
               </div>
@@ -123,7 +123,7 @@ export default function WebsiteAdvertisingPage() {
                 <span className="gradient-text">от 40 000 тенге/мес</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+              <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Настройка и ведение рекламных кампаний в Google Ads и Яндекс.Директ для вашего сайта. Эффективное привлечение клиентов, оптимизация бюджета и увеличение продаж. Идеально для <Link href="/landing-page" className="text-primary-600 hover:underline font-semibold">лендингов</Link>.
               </p>
 

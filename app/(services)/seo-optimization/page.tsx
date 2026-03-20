@@ -113,7 +113,7 @@ export default function SEOOptimizationPage() {
                 <span className="gradient-text">вывод в топ Google и Яндекс</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+              <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Профессиональная SEO-оптимизация для продвижения в Google и Яндекс. Увеличиваем органический трафик, улучшаем позиции в поисковой выдаче. Привлекаем клиентов без <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">платной рекламы</Link>.
               </p>
 

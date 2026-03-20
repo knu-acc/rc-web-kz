@@ -95,44 +95,34 @@ export default function ContactPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-16 pb-16 lg:pt-24 lg:pb-20 bg-gradient-to-br from-secondary-50 via-white to-secondary-50 dark:from-secondary-950 dark:via-secondary-900 dark:to-secondary-950 relative overflow-hidden">
-
+      <section className="pt-16 pb-10 bg-white dark:bg-secondary-950">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-left md:text-center space-y-8">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
+          <div className="max-w-2xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-xs font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
               Онлайн консультация
             </div>
-
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white leading-tight">
               Свяжитесь со мной для <span className="gradient-text">бесплатной консультации</span>
             </h1>
-
-            <p className="text-xl text-secondary-600 dark:text-secondary-300 leading-relaxed max-w-2xl mx-auto">
-              Обсудим ваш проект, ответим на вопросы и подготовим индивидуальное предложение. Работаю по всему Казахстану удалённо.
+            <p className="text-base text-secondary-600 dark:text-secondary-300 leading-relaxed">
+              Обсудим ваш проект, ответим на вопросы и подготовим предложение. Работаем по всему Казахстану удалённо.
             </p>
-
-            {/* Quick action buttons */}
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-              <a 
-                href={SOCIAL_LINKS.whatsapp} 
-                className="btn-whatsapp inline-flex items-center gap-2 min-h-[56px] px-8 text-lg"
+            <div className="flex flex-wrap gap-3 pt-2">
+              <a
+                href={SOCIAL_LINKS.whatsapp}
+                className="btn-whatsapp inline-flex items-center gap-2"
                 aria-label="Написать в WhatsApp для консультации"
               >
-                <MessageCircle className="w-6 h-6 shrink-0" />
+                <MessageCircle className="w-4 h-4 shrink-0" />
                 Написать в WhatsApp
               </a>
-              <a 
-                href={`tel:${SITE_CONFIG.phone}`} 
-                className="btn-primary inline-flex items-center gap-2 min-h-[56px] px-8 text-lg"
+              <a
+                href={`tel:${SITE_CONFIG.phone}`}
+                className="btn-outline inline-flex items-center gap-2"
                 aria-label={`Позвонить по телефону ${SITE_CONFIG.phone}`}
               >
-                <Phone className="w-6 h-6 shrink-0" />
+                <Phone className="w-4 h-4 shrink-0" />
                 Позвонить
               </a>
             </div>
@@ -150,7 +140,7 @@ export default function ContactPage() {
             <h2 className="heading-lg mb-4">
               Выберите удобный <span className="gradient-text">способ связи</span>
             </h2>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
+            <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
               Отвечаю быстро на все сообщения. Выберите наиболее удобный для вас способ связи
             </p>
           </div>
@@ -180,7 +170,7 @@ export default function ContactPage() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold mb-2 text-secondary-900 dark:text-white">
+                  <h3 className="text-base font-bold mb-2 text-secondary-900 dark:text-white">
                     {method.title}
                   </h3>
                   <p className="text-sm mb-4 text-secondary-600 dark:text-secondary-400">
@@ -239,76 +229,6 @@ export default function ContactPage() {
       </section>
 
 
-      {/* FAQ Section */}
-      <section className="section bg-secondary-50/50 dark:bg-secondary-900">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-left md:text-center mb-12">
-              <h2 className="heading-lg mb-4">
-                Часто задаваемые <span className="gradient-text">вопросы</span>
-              </h2>
-            </div>
-            <div className="space-y-4">
-              <div className="bg-white dark:bg-secondary-950 rounded-2xl p-6 border border-secondary-200 dark:border-secondary-800">
-                <h3 className="font-bold text-lg text-secondary-900 dark:text-white mb-2">
-                  Как быстро вы отвечаете?
-                </h3>
-                <p className="text-secondary-600 dark:text-secondary-300">
-                  Обычно отвечаю в течение 15 минут в рабочее время (Пн-Пт 09:00-18:00, Сб 10:00-16:00). В WhatsApp и Telegram — практически мгновенно.
-                </p>
-              </div>
-              <div className="bg-white dark:bg-secondary-950 rounded-2xl p-6 border border-secondary-200 dark:border-secondary-800">
-                <h3 className="font-bold text-lg text-secondary-900 dark:text-white mb-2">
-                  Работаете ли вы удалённо?
-                </h3>
-                <p className="text-secondary-600 dark:text-secondary-300">
-                  Да, работаю удалённо по всему Казахстану. Все обсуждения, согласования и передача материалов происходят онлайн.
-                </p>
-              </div>
-              <div className="bg-white dark:bg-secondary-950 rounded-2xl p-6 border border-secondary-200 dark:border-secondary-800">
-                <h3 className="font-bold text-lg text-secondary-900 dark:text-white mb-2">
-                  Консультация действительно бесплатная?
-                </h3>
-                <p className="text-secondary-600 dark:text-secondary-300">
-                  Да, первая консультация полностью бесплатная. Обсудим ваш проект, ответим на вопросы и подготовим предложение без каких-либо обязательств.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section bg-secondary-900 text-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-left md:text-center space-y-8">
-            <h2 className="text-2xl sm:text-3xl font-bold">
-              Готовы начать проект?
-            </h2>
-            <p className="text-xl text-white/70">
-              Свяжитесь со мной прямо сейчас и получите бесплатную консультацию по вашему проекту
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={SOCIAL_LINKS.whatsapp}
-                className="inline-flex items-center gap-2 min-h-[56px] px-8 py-3 bg-white text-secondary-900 font-semibold rounded-xl hover:bg-secondary-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-                aria-label="Написать в WhatsApp"
-              >
-                <MessageCircle className="w-6 h-6" />
-                Написать в WhatsApp
-              </a>
-              <a
-                href={`tel:${SITE_CONFIG.phone}`}
-                className="inline-flex items-center gap-2 min-h-[56px] px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-all hover:shadow-xl hover:-translate-y-1"
-                aria-label={`Позвонить по телефону ${SITE_CONFIG.phone}`}
-              >
-                <Phone className="w-6 h-6" />
-                Позвонить
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

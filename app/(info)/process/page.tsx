@@ -219,7 +219,7 @@ export default function ProcessPage() {
             <span className="gradient-text">создаём сайты</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 leading-relaxed mb-8">
+          <p className="text-base text-secondary-600 dark:text-secondary-300 leading-relaxed mb-8">
             Прозрачный процесс от первого контакта до запуска.
             Средний срок — <strong>5-10 рабочих дней</strong>. На каждом этапе вы видите результат и можете вносить правки.
           </p>
@@ -256,7 +256,7 @@ export default function ProcessPage() {
 
                 <div className="bg-secondary-50 dark:bg-secondary-900 rounded-xl p-4 sm:p-6 border border-secondary-100 dark:border-secondary-800">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 dark:bg-primary-900/30 px-2 py-1 rounded-full">
+                    <span className="text-xs font-bold uppercase tracking-wider text-secondary-700 dark:text-secondary-200 bg-secondary-100 dark:bg-secondary-800 px-2 py-1 rounded-full">
                       Этап {step.number}
                     </span>
                     <span className="text-xs font-medium text-secondary-500 dark:text-secondary-400 bg-secondary-100 dark:bg-secondary-800 px-2 py-1 rounded-full">
@@ -319,19 +319,19 @@ export default function ProcessPage() {
           </h2>
           <div className="grid sm:grid-cols-3 gap-6 mb-10">
             <div className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700">
-              <div className="text-3xl font-bold text-white mb-2">5-10 дней</div>
+              <div className="text-xl font-bold text-white mb-2">5-10 дней</div>
               <p className="text-white/70">Средний срок разработки</p>
             </div>
             <div className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700">
-              <div className="text-3xl font-bold text-white mb-2">от 85 тыс </div>
+              <div className="text-xl font-bold text-white mb-2">от 85 тыс </div>
               <p className="text-white/70">Стоимость сайта</p>
             </div>
             <div className="bg-secondary-800/50 rounded-xl p-6 border border-secondary-700">
-              <div className="text-3xl font-bold text-white mb-2">30 дней</div>
+              <div className="text-xl font-bold text-white mb-2">30 дней</div>
               <p className="text-white/70">Бесплатная поддержка</p>
             </div>
           </div>
-          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-base text-white/80 mb-8 max-w-2xl mx-auto">
             Для крупных проектов (интернет-магазины, порталы) срок может быть увеличен до 23 недель.
             Точные сроки и стоимость рассчитываем после заполнения брифа.
           </p>
@@ -362,7 +362,7 @@ export default function ProcessPage() {
       <section className="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container-custom text-left md:text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Готовы начать?</h2>
-          <p className="text-lg text-white/90 mb-8">
+          <p className="text-base text-white/90 mb-8">
             Свяжитесь — обсудить проект, рассчитать сроки и стоимость. Консультация бесплатна.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

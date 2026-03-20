@@ -135,7 +135,7 @@ export default function LandingPagePage() {
                 <span className="gradient-text">от 85 000 тенге</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+              <p className="text-base text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
                 Создаём высококонверсионные Landing Page для бизнеса. Идеально для <Link href="/website-advertising" className="text-primary-600 hover:underline font-semibold">Google-рекламы</Link>, запуска продуктов и увеличения продаж. Современный дизайн, быстрая загрузка, мобильная адаптация.
               </p>
 
@@ -482,7 +482,7 @@ export default function LandingPagePage() {
       />
 
       {/* CTA */}
-      <section className="section bg-gradient-to-br from-primary-600 to-primary-700 text-white">
+      <section className="section bg-secondary-900 text-white">
         <div className="container-custom text-left md:text-center">
           <h2 className="heading-lg mb-4 text-white">Готовы создать свой Landing Page?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">

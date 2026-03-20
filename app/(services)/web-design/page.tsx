@@ -127,8 +127,8 @@ export default function WebDesignPage() {
             <div className="space-y-8 animate-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-600"></span>
                 </span>
                 Веб-дизайн в Алматы
               </div>
@@ -141,7 +141,7 @@ export default function WebDesignPage() {
                 </span>
               </h1>
 
-              <p className="text-lg sm:text-xl max-w-xl leading-relaxed text-secondary-600 dark:text-secondary-300">
+              <p className="text-base max-w-xl leading-relaxed text-secondary-600 dark:text-secondary-300">
                 Создаём уникальный дизайн для сайта, который отражает ваш бренд и привлекает клиентов. Современные тренды, удобный интерфейс, адаптивность для всех устройств. Работы в <Link href="/portfolio" className="text-primary-600 hover:underline font-semibold">портфолио</Link>.
               </p>
 

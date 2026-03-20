@@ -15,7 +15,7 @@ export function FAQ() {
     <section className="section bg-secondary-50/50 dark:bg-secondary-900" aria-labelledby="faq-heading">
       <div className="container-custom">
         {/* Section header */}
-        <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
+        <div className="text-left md:text-center max-w-3xl mx-auto mb-10">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-4">
             FAQ
           </span>
@@ -25,7 +25,7 @@ export function FAQ() {
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {faqItems.map((item) => {
+          {faqItems.slice(0, 4).map((item) => {
             const isOpen = openId === item.id
             return (
               <article
@@ -39,7 +39,7 @@ export function FAQ() {
                   aria-label={`${isOpen ? 'Свернуть' : 'Развернуть'}: ${item.question}`}
                   onClick={() => toggleFAQ(item.id)}
                 >
-                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white pr-8" id={`faq-question-${item.id}`}>
+                  <h3 className="text-base font-semibold text-secondary-900 dark:text-white pr-8" id={`faq-question-${item.id}`}>
                     {item.question}
                   </h3>
                   <span

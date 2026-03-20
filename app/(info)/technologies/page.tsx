@@ -200,7 +200,7 @@ export default function TechnologiesPage() {
         </div>
 
         <div className="container-custom text-left md:text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-700 dark:text-secondary-200 text-sm font-medium mb-6">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
@@ -212,7 +212,7 @@ export default function TechnologiesPage() {
             <span className="gradient-text">которые мы используем</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-secondary-600 dark:text-secondary-300 leading-relaxed">
+          <p className="text-base text-secondary-600 dark:text-secondary-300 leading-relaxed">
             Мы используем только проверенные и современные инструменты.
             Наш стек обеспечивает <strong>быструю загрузку, отличное SEO</strong> и удобство поддержки.
           </p>
@@ -229,7 +229,7 @@ export default function TechnologiesPage() {
               {cat.techs.map((tech) => (
                 <div key={tech.name} className="bg-white dark:bg-secondary-900 rounded-xl p-4 sm:p-6 border border-secondary-100 dark:border-secondary-800 shadow-sm">
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tech.gradient} text-white flex items-center justify-center shadow-lg flex-shrink-0`}>
+                    <div className="w-10 h-10 rounded-xl bg-secondary-100 dark:bg-secondary-800 text-secondary-600 dark:text-secondary-300 flex items-center justify-center flex-shrink-0">
                       {tech.icon}
                     </div>
                     <div className="flex-1">
@@ -255,7 +255,7 @@ export default function TechnologiesPage() {
       <section className="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container-custom text-left md:text-center max-w-2xl mx-auto">
           <h2 className="heading-lg text-white mb-4">Нужен сайт на современных технологиях?</h2>
-          <p className="text-lg text-white/90 mb-8">
+          <p className="text-base text-white/90 mb-8">
             Мы создадим быстрый, SEO-оптимизированный сайт на Next.js или Tilda. Консультация бесплатна.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
